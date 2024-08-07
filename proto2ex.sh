@@ -51,3 +51,4 @@ protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I
 protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/envoy/extensions/filters/http/lua/v3/lua.proto
 protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/contrib/envoy/extensions/filters/http/golang/v3alpha/golang.proto
 protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/xds/xds/type/v3/typed_struct.proto
+protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/envoy/extensions/filters/http/jwt_authn/v3/config.proto 
