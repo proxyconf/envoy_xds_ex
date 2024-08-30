@@ -59,3 +59,6 @@ protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I
 protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/envoy/extensions/filters/http/rbac/v3/rbac.proto
 protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/envoy/config/rbac/v3/rbac.proto
 protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/envoy/type/matcher/v3/*.proto
+protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/envoy/config/accesslog/v3/accesslog.proto
+protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/envoy/extensions/access_loggers/stream/v3/stream.proto
+protoc --elixir_out=plugins=grpc:./lib -I./priv/data-plane-api/ -I./priv/xds/ -I./priv/protoc-gen-validate/ -I./priv/grpc-proto/ -I./priv/googleapis/ ./priv/data-plane-api/envoy/config/core/v3/substitution_format_string.proto
