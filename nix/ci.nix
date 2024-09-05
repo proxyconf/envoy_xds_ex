@@ -20,8 +20,8 @@ let
     ${pkgs.elixir}/bin/mix escript.install hex protobuf --force
     ${pkgs.buf}/bin/buf generate data-plane-api --include-imports --path data-plane-api/envoy
     # the ollowing files are already included in the google protos mix deps
-    rm envoy_xds/google/api/http.pb.ex
-    rm envoy_xds/google/api/pb_extension.pb.ex
+    rm lib/google/api/http.pb.ex
+    rm lib/google/api/pb_extension.pb.ex
 
     git add lib
 
