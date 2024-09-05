@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.AccessLoggers.Stream.V3.StdoutAccessLog do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :access_log_format, 0
@@ -13,8 +11,6 @@ defmodule Envoy.Extensions.AccessLoggers.Stream.V3.StdoutAccessLog do
 end
 
 defmodule Envoy.Extensions.AccessLoggers.Stream.V3.StderrAccessLog do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :access_log_format, 0

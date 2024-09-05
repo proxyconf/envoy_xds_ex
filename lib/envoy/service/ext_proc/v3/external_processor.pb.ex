@@ -1,6 +1,4 @@
 defmodule Envoy.Service.ExtProc.V3.CommonResponse.ResponseStatus do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONTINUE, 0
@@ -8,8 +6,6 @@ defmodule Envoy.Service.ExtProc.V3.CommonResponse.ResponseStatus do
 end
 
 defmodule Envoy.Service.ExtProc.V3.ProcessingRequest.AttributesEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -17,8 +13,6 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingRequest.AttributesEntry do
 end
 
 defmodule Envoy.Service.ExtProc.V3.ProcessingRequest do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :request, 0
@@ -64,8 +58,6 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingRequest do
 end
 
 defmodule Envoy.Service.ExtProc.V3.ProcessingResponse do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :response, 0
@@ -117,8 +109,6 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingResponse do
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpHeaders.AttributesEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -126,8 +116,6 @@ defmodule Envoy.Service.ExtProc.V3.HttpHeaders.AttributesEntry do
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpHeaders do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :headers, 1, type: Envoy.Config.Core.V3.HeaderMap
@@ -142,8 +130,6 @@ defmodule Envoy.Service.ExtProc.V3.HttpHeaders do
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpBody do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :body, 1, type: :bytes
@@ -151,24 +137,18 @@ defmodule Envoy.Service.ExtProc.V3.HttpBody do
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpTrailers do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :trailers, 1, type: Envoy.Config.Core.V3.HeaderMap
 end
 
 defmodule Envoy.Service.ExtProc.V3.HeadersResponse do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :response, 1, type: Envoy.Service.ExtProc.V3.CommonResponse
 end
 
 defmodule Envoy.Service.ExtProc.V3.TrailersResponse do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header_mutation, 1,
@@ -177,16 +157,12 @@ defmodule Envoy.Service.ExtProc.V3.TrailersResponse do
 end
 
 defmodule Envoy.Service.ExtProc.V3.BodyResponse do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :response, 1, type: Envoy.Service.ExtProc.V3.CommonResponse
 end
 
 defmodule Envoy.Service.ExtProc.V3.CommonResponse do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1,
@@ -204,8 +180,6 @@ defmodule Envoy.Service.ExtProc.V3.CommonResponse do
 end
 
 defmodule Envoy.Service.ExtProc.V3.ImmediateResponse do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1, type: Envoy.Type.V3.HttpStatus, deprecated: false
@@ -216,16 +190,12 @@ defmodule Envoy.Service.ExtProc.V3.ImmediateResponse do
 end
 
 defmodule Envoy.Service.ExtProc.V3.GrpcStatus do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1, type: :uint32
 end
 
 defmodule Envoy.Service.ExtProc.V3.HeaderMutation do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :set_headers, 1,
@@ -237,8 +207,6 @@ defmodule Envoy.Service.ExtProc.V3.HeaderMutation do
 end
 
 defmodule Envoy.Service.ExtProc.V3.BodyMutation do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :mutation, 0
@@ -248,8 +216,6 @@ defmodule Envoy.Service.ExtProc.V3.BodyMutation do
 end
 
 defmodule Envoy.Service.ExtProc.V3.ExternalProcessor.Service do
-  @moduledoc false
-
   use GRPC.Service,
     name: "envoy.service.ext_proc.v3.ExternalProcessor",
     protoc_gen_elixir_version: "0.12.0"
@@ -260,7 +226,5 @@ defmodule Envoy.Service.ExtProc.V3.ExternalProcessor.Service do
 end
 
 defmodule Envoy.Service.ExtProc.V3.ExternalProcessor.Stub do
-  @moduledoc false
-
   use GRPC.Stub, service: Envoy.Service.ExtProc.V3.ExternalProcessor.Service
 end

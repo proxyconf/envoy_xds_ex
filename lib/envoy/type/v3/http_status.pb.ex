@@ -1,6 +1,4 @@
 defmodule Envoy.Type.V3.StatusCode do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :Empty, 0
@@ -63,8 +61,6 @@ defmodule Envoy.Type.V3.StatusCode do
 end
 
 defmodule Envoy.Type.V3.HttpStatus do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :code, 1, type: Envoy.Type.V3.StatusCode, enum: true, deprecated: false

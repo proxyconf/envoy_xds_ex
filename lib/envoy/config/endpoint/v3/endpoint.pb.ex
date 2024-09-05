@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.Policy.DropOverload do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :category, 1, type: :string, deprecated: false
@@ -8,8 +6,6 @@ defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.Policy.DropOverload do
 end
 
 defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.Policy do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :drop_overloads, 2,
@@ -31,8 +27,6 @@ defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.Policy do
 end
 
 defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.NamedEndpointsEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -40,8 +34,6 @@ defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.NamedEndpointsEntry do
 end
 
 defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false

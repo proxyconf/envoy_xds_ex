@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.HeaderSendMode do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DEFAULT, 0
@@ -9,8 +7,6 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.HeaderSendMode
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.BodySendMode do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :NONE, 0
@@ -20,8 +16,6 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.BodySendMode d
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_header_mode, 1,

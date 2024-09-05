@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Rbac.V3.RBAC.Action do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ALLOW, 0
@@ -9,8 +7,6 @@ defmodule Envoy.Config.Rbac.V3.RBAC.Action do
 end
 
 defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions.AuditCondition do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :NONE, 0
@@ -20,8 +16,6 @@ defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions.AuditCondition do
 end
 
 defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions.AuditLoggerConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :audit_logger, 1,
@@ -32,8 +26,6 @@ defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions.AuditLoggerConfig do
 end
 
 defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :audit_condition, 1,
@@ -49,8 +41,6 @@ defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions do
 end
 
 defmodule Envoy.Config.Rbac.V3.RBAC.PoliciesEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -58,8 +48,6 @@ defmodule Envoy.Config.Rbac.V3.RBAC.PoliciesEntry do
 end
 
 defmodule Envoy.Config.Rbac.V3.RBAC do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :action, 1, type: Envoy.Config.Rbac.V3.RBAC.Action, enum: true, deprecated: false
@@ -71,8 +59,6 @@ defmodule Envoy.Config.Rbac.V3.RBAC do
 end
 
 defmodule Envoy.Config.Rbac.V3.Policy do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :permissions, 1, repeated: true, type: Envoy.Config.Rbac.V3.Permission, deprecated: false
@@ -86,16 +72,12 @@ defmodule Envoy.Config.Rbac.V3.Policy do
 end
 
 defmodule Envoy.Config.Rbac.V3.Permission.Set do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Envoy.Config.Rbac.V3.Permission, deprecated: false
 end
 
 defmodule Envoy.Config.Rbac.V3.Permission do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :rule, 0
@@ -139,24 +121,18 @@ defmodule Envoy.Config.Rbac.V3.Permission do
 end
 
 defmodule Envoy.Config.Rbac.V3.Principal.Set do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ids, 1, repeated: true, type: Envoy.Config.Rbac.V3.Principal, deprecated: false
 end
 
 defmodule Envoy.Config.Rbac.V3.Principal.Authenticated do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :principal_name, 2, type: Envoy.Type.Matcher.V3.StringMatcher, json_name: "principalName"
 end
 
 defmodule Envoy.Config.Rbac.V3.Principal do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :identifier, 0
@@ -191,8 +167,6 @@ defmodule Envoy.Config.Rbac.V3.Principal do
 end
 
 defmodule Envoy.Config.Rbac.V3.Action do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false

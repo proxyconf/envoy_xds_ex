@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Core.V3.ApiVersion do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :AUTO, 0
@@ -9,8 +7,6 @@ defmodule Envoy.Config.Core.V3.ApiVersion do
 end
 
 defmodule Envoy.Config.Core.V3.ApiConfigSource.ApiType do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DEPRECATED_AND_UNAVAILABLE_DO_NOT_USE, 0
@@ -22,8 +18,6 @@ defmodule Envoy.Config.Core.V3.ApiConfigSource.ApiType do
 end
 
 defmodule Envoy.Config.Core.V3.ApiConfigSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_type, 1,
@@ -65,14 +59,10 @@ defmodule Envoy.Config.Core.V3.ApiConfigSource do
 end
 
 defmodule Envoy.Config.Core.V3.AggregatedConfigSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.SelfConfigSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transport_api_version, 1,
@@ -83,8 +73,6 @@ defmodule Envoy.Config.Core.V3.SelfConfigSource do
 end
 
 defmodule Envoy.Config.Core.V3.RateLimitSettings do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_tokens, 1, type: Google.Protobuf.UInt32Value, json_name: "maxTokens"
@@ -92,8 +80,6 @@ defmodule Envoy.Config.Core.V3.RateLimitSettings do
 end
 
 defmodule Envoy.Config.Core.V3.PathConfigSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
@@ -104,8 +90,6 @@ defmodule Envoy.Config.Core.V3.PathConfigSource do
 end
 
 defmodule Envoy.Config.Core.V3.ConfigSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_source_specifier, 0
@@ -138,8 +122,6 @@ defmodule Envoy.Config.Core.V3.ConfigSource do
 end
 
 defmodule Envoy.Config.Core.V3.ExtensionConfigSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :config_source, 1,

@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Core.V3.HealthStatus do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
@@ -12,8 +10,6 @@ defmodule Envoy.Config.Core.V3.HealthStatus do
 end
 
 defmodule Envoy.Config.Core.V3.HealthStatusSet do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :statuses, 1,
@@ -24,8 +20,6 @@ defmodule Envoy.Config.Core.V3.HealthStatusSet do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.Payload do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :payload, 0
@@ -35,8 +29,6 @@ defmodule Envoy.Config.Core.V3.HealthCheck.Payload do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.HttpHealthCheck do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :host, 1, type: :string, deprecated: false
@@ -85,8 +77,6 @@ defmodule Envoy.Config.Core.V3.HealthCheck.HttpHealthCheck do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.TcpHealthCheck do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :send, 1, type: Envoy.Config.Core.V3.HealthCheck.Payload
@@ -98,16 +88,12 @@ defmodule Envoy.Config.Core.V3.HealthCheck.TcpHealthCheck do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.RedisHealthCheck do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.GrpcHealthCheck do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
@@ -121,8 +107,6 @@ defmodule Envoy.Config.Core.V3.HealthCheck.GrpcHealthCheck do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.CustomHealthCheck do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0
@@ -132,16 +116,12 @@ defmodule Envoy.Config.Core.V3.HealthCheck.CustomHealthCheck do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.TlsOptions do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :alpn_protocols, 1, repeated: true, type: :string, json_name: "alpnProtocols"
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :health_checker, 0

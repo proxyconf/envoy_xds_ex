@@ -1,12 +1,8 @@
 defmodule Envoy.Service.Endpoint.V3.EdsDummy do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Service.Endpoint.V3.EndpointDiscoveryService.Service do
-  @moduledoc false
-
   use GRPC.Service,
     name: "envoy.service.endpoint.v3.EndpointDiscoveryService",
     protoc_gen_elixir_version: "0.12.0"
@@ -25,7 +21,5 @@ defmodule Envoy.Service.Endpoint.V3.EndpointDiscoveryService.Service do
 end
 
 defmodule Envoy.Service.Endpoint.V3.EndpointDiscoveryService.Stub do
-  @moduledoc false
-
   use GRPC.Stub, service: Envoy.Service.Endpoint.V3.EndpointDiscoveryService.Service
 end

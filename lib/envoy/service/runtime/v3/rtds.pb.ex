@@ -1,12 +1,8 @@
 defmodule Envoy.Service.Runtime.V3.RtdsDummy do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Service.Runtime.V3.Runtime do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
@@ -14,8 +10,6 @@ defmodule Envoy.Service.Runtime.V3.Runtime do
 end
 
 defmodule Envoy.Service.Runtime.V3.RuntimeDiscoveryService.Service do
-  @moduledoc false
-
   use GRPC.Service,
     name: "envoy.service.runtime.v3.RuntimeDiscoveryService",
     protoc_gen_elixir_version: "0.12.0"
@@ -34,7 +28,5 @@ defmodule Envoy.Service.Runtime.V3.RuntimeDiscoveryService.Service do
 end
 
 defmodule Envoy.Service.Runtime.V3.RuntimeDiscoveryService.Stub do
-  @moduledoc false
-
   use GRPC.Stub, service: Envoy.Service.Runtime.V3.RuntimeDiscoveryService.Service
 end

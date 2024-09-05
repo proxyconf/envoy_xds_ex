@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Core.V3.SocketAddress.Protocol do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TCP, 0
@@ -8,8 +6,6 @@ defmodule Envoy.Config.Core.V3.SocketAddress.Protocol do
 end
 
 defmodule Envoy.Config.Core.V3.Pipe do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
@@ -17,8 +13,6 @@ defmodule Envoy.Config.Core.V3.Pipe do
 end
 
 defmodule Envoy.Config.Core.V3.EnvoyInternalAddress do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :address_name_specifier, 0
@@ -28,8 +22,6 @@ defmodule Envoy.Config.Core.V3.EnvoyInternalAddress do
 end
 
 defmodule Envoy.Config.Core.V3.SocketAddress do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :port_specifier, 0
@@ -47,8 +39,6 @@ defmodule Envoy.Config.Core.V3.SocketAddress do
 end
 
 defmodule Envoy.Config.Core.V3.TcpKeepalive do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keepalive_probes, 1, type: Google.Protobuf.UInt32Value, json_name: "keepaliveProbes"
@@ -57,8 +47,6 @@ defmodule Envoy.Config.Core.V3.TcpKeepalive do
 end
 
 defmodule Envoy.Config.Core.V3.ExtraSourceAddress do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.SocketAddress, deprecated: false
@@ -69,8 +57,6 @@ defmodule Envoy.Config.Core.V3.ExtraSourceAddress do
 end
 
 defmodule Envoy.Config.Core.V3.BindConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :source_address, 1, type: Envoy.Config.Core.V3.SocketAddress, json_name: "sourceAddress"
@@ -98,8 +84,6 @@ defmodule Envoy.Config.Core.V3.BindConfig do
 end
 
 defmodule Envoy.Config.Core.V3.Address do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :address, 0
@@ -118,8 +102,6 @@ defmodule Envoy.Config.Core.V3.Address do
 end
 
 defmodule Envoy.Config.Core.V3.CidrRange do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :address_prefix, 1, type: :string, json_name: "addressPrefix", deprecated: false

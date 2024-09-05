@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SPIFFECertValidatorConfig.TrustDomain do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
@@ -8,8 +6,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SPIFFECertValidatorConfig.Tru
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SPIFFECertValidatorConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :trust_domains, 1,

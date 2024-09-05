@@ -1,14 +1,10 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.GenericSecret do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :secret, 1, type: Envoy.Config.Core.V3.DataSource, deprecated: false
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SdsSecretConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
@@ -16,8 +12,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SdsSecretConfig do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.Secret do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type, 0

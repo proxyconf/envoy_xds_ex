@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Endpoint.V3.Endpoint.HealthCheckConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :port_value, 1, type: :uint32, json_name: "portValue", deprecated: false
@@ -10,16 +8,12 @@ defmodule Envoy.Config.Endpoint.V3.Endpoint.HealthCheckConfig do
 end
 
 defmodule Envoy.Config.Endpoint.V3.Endpoint.AdditionalAddress do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
 end
 
 defmodule Envoy.Config.Endpoint.V3.Endpoint do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
@@ -37,8 +31,6 @@ defmodule Envoy.Config.Endpoint.V3.Endpoint do
 end
 
 defmodule Envoy.Config.Endpoint.V3.LbEndpoint do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :host_identifier, 0
@@ -60,8 +52,6 @@ defmodule Envoy.Config.Endpoint.V3.LbEndpoint do
 end
 
 defmodule Envoy.Config.Endpoint.V3.LedsClusterLocalityConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :leds_config, 1, type: Envoy.Config.Core.V3.ConfigSource, json_name: "ledsConfig"
@@ -69,8 +59,6 @@ defmodule Envoy.Config.Endpoint.V3.LedsClusterLocalityConfig do
 end
 
 defmodule Envoy.Config.Endpoint.V3.LocalityLbEndpoints.LbEndpointList do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :lb_endpoints, 1,
@@ -80,13 +68,12 @@ defmodule Envoy.Config.Endpoint.V3.LocalityLbEndpoints.LbEndpointList do
 end
 
 defmodule Envoy.Config.Endpoint.V3.LocalityLbEndpoints do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :lb_config, 0
 
   field :locality, 1, type: Envoy.Config.Core.V3.Locality
+  field :metadata, 9, type: Envoy.Config.Core.V3.Metadata
 
   field :lb_endpoints, 2,
     repeated: true,

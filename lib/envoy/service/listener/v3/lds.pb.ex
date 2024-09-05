@@ -1,12 +1,8 @@
 defmodule Envoy.Service.Listener.V3.LdsDummy do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Service.Listener.V3.ListenerDiscoveryService.Service do
-  @moduledoc false
-
   use GRPC.Service,
     name: "envoy.service.listener.v3.ListenerDiscoveryService",
     protoc_gen_elixir_version: "0.12.0"
@@ -25,7 +21,5 @@ defmodule Envoy.Service.Listener.V3.ListenerDiscoveryService.Service do
 end
 
 defmodule Envoy.Service.Listener.V3.ListenerDiscoveryService.Stub do
-  @moduledoc false
-
   use GRPC.Stub, service: Envoy.Service.Listener.V3.ListenerDiscoveryService.Service
 end

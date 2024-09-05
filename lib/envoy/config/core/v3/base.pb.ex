@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Core.V3.RoutingPriority do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DEFAULT, 0
@@ -8,8 +6,6 @@ defmodule Envoy.Config.Core.V3.RoutingPriority do
 end
 
 defmodule Envoy.Config.Core.V3.RequestMethod do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METHOD_UNSPECIFIED, 0
@@ -25,8 +21,6 @@ defmodule Envoy.Config.Core.V3.RequestMethod do
 end
 
 defmodule Envoy.Config.Core.V3.TrafficDirection do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
@@ -35,8 +29,6 @@ defmodule Envoy.Config.Core.V3.TrafficDirection do
 end
 
 defmodule Envoy.Config.Core.V3.KeyValueAppend.KeyValueAppendAction do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :APPEND_IF_EXISTS_OR_ADD, 0
@@ -46,8 +38,6 @@ defmodule Envoy.Config.Core.V3.KeyValueAppend.KeyValueAppendAction do
 end
 
 defmodule Envoy.Config.Core.V3.HeaderValueOption.HeaderAppendAction do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :APPEND_IF_EXISTS_OR_ADD, 0
@@ -57,8 +47,6 @@ defmodule Envoy.Config.Core.V3.HeaderValueOption.HeaderAppendAction do
 end
 
 defmodule Envoy.Config.Core.V3.Locality do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :region, 1, type: :string
@@ -67,8 +55,6 @@ defmodule Envoy.Config.Core.V3.Locality do
 end
 
 defmodule Envoy.Config.Core.V3.BuildVersion do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: Envoy.Type.V3.SemanticVersion
@@ -76,8 +62,6 @@ defmodule Envoy.Config.Core.V3.BuildVersion do
 end
 
 defmodule Envoy.Config.Core.V3.Extension do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
@@ -89,8 +73,6 @@ defmodule Envoy.Config.Core.V3.Extension do
 end
 
 defmodule Envoy.Config.Core.V3.Node.DynamicParametersEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -98,8 +80,6 @@ defmodule Envoy.Config.Core.V3.Node.DynamicParametersEntry do
 end
 
 defmodule Envoy.Config.Core.V3.Node do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :user_agent_version_type, 0
@@ -134,8 +114,6 @@ defmodule Envoy.Config.Core.V3.Node do
 end
 
 defmodule Envoy.Config.Core.V3.Metadata.FilterMetadataEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -143,8 +121,6 @@ defmodule Envoy.Config.Core.V3.Metadata.FilterMetadataEntry do
 end
 
 defmodule Envoy.Config.Core.V3.Metadata.TypedFilterMetadataEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -152,8 +128,6 @@ defmodule Envoy.Config.Core.V3.Metadata.TypedFilterMetadataEntry do
 end
 
 defmodule Envoy.Config.Core.V3.Metadata do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter_metadata, 1,
@@ -172,8 +146,6 @@ defmodule Envoy.Config.Core.V3.Metadata do
 end
 
 defmodule Envoy.Config.Core.V3.RuntimeUInt32 do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :default_value, 2, type: :uint32, json_name: "defaultValue"
@@ -181,8 +153,6 @@ defmodule Envoy.Config.Core.V3.RuntimeUInt32 do
 end
 
 defmodule Envoy.Config.Core.V3.RuntimePercent do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :default_value, 1, type: Envoy.Type.V3.Percent, json_name: "defaultValue"
@@ -190,8 +160,6 @@ defmodule Envoy.Config.Core.V3.RuntimePercent do
 end
 
 defmodule Envoy.Config.Core.V3.RuntimeDouble do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :default_value, 1, type: :double, json_name: "defaultValue"
@@ -199,8 +167,6 @@ defmodule Envoy.Config.Core.V3.RuntimeDouble do
 end
 
 defmodule Envoy.Config.Core.V3.RuntimeFeatureFlag do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :default_value, 1,
@@ -212,8 +178,6 @@ defmodule Envoy.Config.Core.V3.RuntimeFeatureFlag do
 end
 
 defmodule Envoy.Config.Core.V3.KeyValue do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
@@ -221,8 +185,6 @@ defmodule Envoy.Config.Core.V3.KeyValue do
 end
 
 defmodule Envoy.Config.Core.V3.KeyValueAppend do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entry, 1, type: Envoy.Config.Core.V3.KeyValue, deprecated: false
@@ -234,8 +196,6 @@ defmodule Envoy.Config.Core.V3.KeyValueAppend do
 end
 
 defmodule Envoy.Config.Core.V3.KeyValueMutation do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :append, 1, type: Envoy.Config.Core.V3.KeyValueAppend
@@ -243,8 +203,6 @@ defmodule Envoy.Config.Core.V3.KeyValueMutation do
 end
 
 defmodule Envoy.Config.Core.V3.QueryParameter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
@@ -252,8 +210,6 @@ defmodule Envoy.Config.Core.V3.QueryParameter do
 end
 
 defmodule Envoy.Config.Core.V3.HeaderValue do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
@@ -262,8 +218,6 @@ defmodule Envoy.Config.Core.V3.HeaderValue do
 end
 
 defmodule Envoy.Config.Core.V3.HeaderValueOption do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Envoy.Config.Core.V3.HeaderValue, deprecated: false
@@ -279,24 +233,18 @@ defmodule Envoy.Config.Core.V3.HeaderValueOption do
 end
 
 defmodule Envoy.Config.Core.V3.HeaderMap do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :headers, 1, repeated: true, type: Envoy.Config.Core.V3.HeaderValue
 end
 
 defmodule Envoy.Config.Core.V3.WatchedDirectory do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
 end
 
 defmodule Envoy.Config.Core.V3.DataSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :specifier, 0
@@ -317,8 +265,6 @@ defmodule Envoy.Config.Core.V3.DataSource do
 end
 
 defmodule Envoy.Config.Core.V3.RetryPolicy.RetryPriority do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0
@@ -328,8 +274,6 @@ defmodule Envoy.Config.Core.V3.RetryPolicy.RetryPriority do
 end
 
 defmodule Envoy.Config.Core.V3.RetryPolicy.RetryHostPredicate do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0
@@ -339,8 +283,6 @@ defmodule Envoy.Config.Core.V3.RetryPolicy.RetryHostPredicate do
 end
 
 defmodule Envoy.Config.Core.V3.RetryPolicy do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :retry_back_off, 1, type: Envoy.Config.Core.V3.BackoffStrategy, json_name: "retryBackOff"
@@ -367,8 +309,6 @@ defmodule Envoy.Config.Core.V3.RetryPolicy do
 end
 
 defmodule Envoy.Config.Core.V3.RemoteDataSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :http_uri, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "httpUri", deprecated: false
@@ -377,8 +317,6 @@ defmodule Envoy.Config.Core.V3.RemoteDataSource do
 end
 
 defmodule Envoy.Config.Core.V3.AsyncDataSource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :specifier, 0
@@ -388,8 +326,6 @@ defmodule Envoy.Config.Core.V3.AsyncDataSource do
 end
 
 defmodule Envoy.Config.Core.V3.TransportSocket do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0
@@ -399,8 +335,6 @@ defmodule Envoy.Config.Core.V3.TransportSocket do
 end
 
 defmodule Envoy.Config.Core.V3.RuntimeFractionalPercent do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :default_value, 1,
@@ -412,8 +346,6 @@ defmodule Envoy.Config.Core.V3.RuntimeFractionalPercent do
 end
 
 defmodule Envoy.Config.Core.V3.ControlPlane do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :identifier, 1, type: :string

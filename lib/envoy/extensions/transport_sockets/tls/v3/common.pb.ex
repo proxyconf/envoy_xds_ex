@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters.TlsProtocol do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TLS_AUTO, 0
@@ -11,8 +9,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters.TlsProtocol do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher.SanType do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SAN_TYPE_UNSPECIFIED, 0
@@ -20,11 +16,10 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher.SanType
   field :DNS, 2
   field :URI, 3
   field :IP_ADDRESS, 4
+  field :OTHER_NAME, 5
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext.TrustChainVerification do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :VERIFY_TRUST_CHAIN, 0
@@ -32,8 +27,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext.
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tls_minimum_protocol_version, 1,
@@ -54,8 +47,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.PrivateKeyProvider do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0
@@ -72,8 +63,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.PrivateKeyProvider do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsCertificate do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :certificate_chain, 1,
@@ -105,16 +94,12 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsCertificate do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsSessionTicketKeys do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Envoy.Config.Core.V3.DataSource, deprecated: false
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateProviderPluginInstance do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance_name, 1, type: :string, json_name: "instanceName"
@@ -122,8 +107,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateProviderPluginInst
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :san_type, 1,
@@ -133,17 +116,14 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher do
     deprecated: false
 
   field :matcher, 2, type: Envoy.Type.Matcher.V3.StringMatcher, deprecated: false
+  field :oid, 3, type: :string
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext.SystemRootCerts do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :trusted_ca, 1,

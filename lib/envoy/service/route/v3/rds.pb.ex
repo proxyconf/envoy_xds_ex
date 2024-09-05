@@ -1,12 +1,8 @@
 defmodule Envoy.Service.Route.V3.RdsDummy do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Service.Route.V3.RouteDiscoveryService.Service do
-  @moduledoc false
-
   use GRPC.Service,
     name: "envoy.service.route.v3.RouteDiscoveryService",
     protoc_gen_elixir_version: "0.12.0"
@@ -25,14 +21,10 @@ defmodule Envoy.Service.Route.V3.RouteDiscoveryService.Service do
 end
 
 defmodule Envoy.Service.Route.V3.RouteDiscoveryService.Stub do
-  @moduledoc false
-
   use GRPC.Stub, service: Envoy.Service.Route.V3.RouteDiscoveryService.Service
 end
 
 defmodule Envoy.Service.Route.V3.VirtualHostDiscoveryService.Service do
-  @moduledoc false
-
   use GRPC.Service,
     name: "envoy.service.route.v3.VirtualHostDiscoveryService",
     protoc_gen_elixir_version: "0.12.0"
@@ -43,7 +35,5 @@ defmodule Envoy.Service.Route.V3.VirtualHostDiscoveryService.Service do
 end
 
 defmodule Envoy.Service.Route.V3.VirtualHostDiscoveryService.Stub do
-  @moduledoc false
-
   use GRPC.Stub, service: Envoy.Service.Route.V3.VirtualHostDiscoveryService.Service
 end

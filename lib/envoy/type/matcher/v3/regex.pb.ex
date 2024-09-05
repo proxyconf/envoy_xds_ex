@@ -1,6 +1,4 @@
 defmodule Envoy.Type.Matcher.V3.RegexMatcher.GoogleRE2 do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_program_size, 1,
@@ -10,8 +8,6 @@ defmodule Envoy.Type.Matcher.V3.RegexMatcher.GoogleRE2 do
 end
 
 defmodule Envoy.Type.Matcher.V3.RegexMatcher do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :engine_type, 0
@@ -26,8 +22,6 @@ defmodule Envoy.Type.Matcher.V3.RegexMatcher do
 end
 
 defmodule Envoy.Type.Matcher.V3.RegexMatchAndSubstitute do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pattern, 1, type: Envoy.Type.Matcher.V3.RegexMatcher, deprecated: false

@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Accesslog.V3.ComparisonFilter.Op do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EQ, 0
@@ -9,8 +7,6 @@ defmodule Envoy.Config.Accesslog.V3.ComparisonFilter.Op do
 end
 
 defmodule Envoy.Config.Accesslog.V3.GrpcStatusFilter.Status do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OK, 0
@@ -33,8 +29,6 @@ defmodule Envoy.Config.Accesslog.V3.GrpcStatusFilter.Status do
 end
 
 defmodule Envoy.Config.Accesslog.V3.AccessLog do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0
@@ -45,8 +39,6 @@ defmodule Envoy.Config.Accesslog.V3.AccessLog do
 end
 
 defmodule Envoy.Config.Accesslog.V3.AccessLogFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :filter_specifier, 0
@@ -115,8 +107,6 @@ defmodule Envoy.Config.Accesslog.V3.AccessLogFilter do
 end
 
 defmodule Envoy.Config.Accesslog.V3.ComparisonFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :op, 1, type: Envoy.Config.Accesslog.V3.ComparisonFilter.Op, enum: true, deprecated: false
@@ -124,36 +114,26 @@ defmodule Envoy.Config.Accesslog.V3.ComparisonFilter do
 end
 
 defmodule Envoy.Config.Accesslog.V3.StatusCodeFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :comparison, 1, type: Envoy.Config.Accesslog.V3.ComparisonFilter, deprecated: false
 end
 
 defmodule Envoy.Config.Accesslog.V3.DurationFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :comparison, 1, type: Envoy.Config.Accesslog.V3.ComparisonFilter, deprecated: false
 end
 
 defmodule Envoy.Config.Accesslog.V3.NotHealthCheckFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Accesslog.V3.TraceableFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Accesslog.V3.RuntimeFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :runtime_key, 1, type: :string, json_name: "runtimeKey", deprecated: false
@@ -162,8 +142,6 @@ defmodule Envoy.Config.Accesslog.V3.RuntimeFilter do
 end
 
 defmodule Envoy.Config.Accesslog.V3.AndFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filters, 1,
@@ -173,8 +151,6 @@ defmodule Envoy.Config.Accesslog.V3.AndFilter do
 end
 
 defmodule Envoy.Config.Accesslog.V3.OrFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filters, 2,
@@ -184,24 +160,18 @@ defmodule Envoy.Config.Accesslog.V3.OrFilter do
 end
 
 defmodule Envoy.Config.Accesslog.V3.HeaderFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Envoy.Config.Route.V3.HeaderMatcher, deprecated: false
 end
 
 defmodule Envoy.Config.Accesslog.V3.ResponseFlagFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :flags, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Envoy.Config.Accesslog.V3.GrpcStatusFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :statuses, 1,
@@ -214,8 +184,6 @@ defmodule Envoy.Config.Accesslog.V3.GrpcStatusFilter do
 end
 
 defmodule Envoy.Config.Accesslog.V3.MetadataFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :matcher, 1, type: Envoy.Type.Matcher.V3.MetadataMatcher
@@ -226,8 +194,6 @@ defmodule Envoy.Config.Accesslog.V3.MetadataFilter do
 end
 
 defmodule Envoy.Config.Accesslog.V3.LogTypeFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :types, 1,
@@ -240,8 +206,6 @@ defmodule Envoy.Config.Accesslog.V3.LogTypeFilter do
 end
 
 defmodule Envoy.Config.Accesslog.V3.ExtensionFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0

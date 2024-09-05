@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.CodecType do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :AUTO, 0
@@ -10,8 +8,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.ServerHeaderTransformation do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OVERWRITE, 0
@@ -20,8 +16,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.ForwardClientCertDetails do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SANITIZE, 0
@@ -32,8 +26,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.PathWithEscapedSlashesAction do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :IMPLEMENTATION_SPECIFIC_DEFAULT, 0
@@ -44,8 +36,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.Tracing.OperationName do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INGRESS, 0
@@ -53,8 +43,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.Tracing do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :client_sampling, 3, type: Envoy.Type.V3.Percent, json_name: "clientSampling"
@@ -73,8 +61,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.InternalAddressConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :unix_sockets, 1, type: :bool, json_name: "unixSockets"
@@ -86,8 +72,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.SetCurrentClientCertDetails do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subject, 1, type: Google.Protobuf.BoolValue
@@ -98,8 +82,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.UpgradeConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :upgrade_type, 1, type: :string, json_name: "upgradeType"
@@ -112,8 +94,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.PathNormalizationOptions do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :forwarding_transformation, 1,
@@ -126,8 +106,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.ProxyStatusConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :proxy_name, 0
@@ -145,8 +123,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.HcmAccessLogOptions do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access_log_flush_interval, 1,
@@ -162,8 +138,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :route_specifier, 0
@@ -204,6 +178,10 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
     type: Envoy.Config.Core.V3.HttpProtocolOptions,
     json_name: "commonHttpProtocolOptions",
     deprecated: false
+
+  field :http1_safe_max_connection_duration, 58,
+    type: :bool,
+    json_name: "http1SafeMaxConnectionDuration"
 
   field :http_protocol_options, 8,
     type: Envoy.Config.Core.V3.Http1ProtocolOptions,
@@ -385,8 +363,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.LocalReplyConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mappers, 1,
@@ -399,8 +375,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.LocalReplyCo
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ResponseMapper do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter, 1, type: Envoy.Config.Accesslog.V3.AccessLogFilter, deprecated: false
@@ -424,8 +398,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ResponseMapp
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.Rds do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :config_source, 1,
@@ -437,8 +409,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.Rds do
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRouteConfigurationsList do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :scoped_route_configurations, 1,
@@ -449,8 +419,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRouteC
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractor.KvElement do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :separator, 1, type: :string, deprecated: false
@@ -458,8 +426,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractor do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :extract_type, 0
@@ -475,8 +441,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type, 0
@@ -489,8 +453,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes.ScopeKeyBuilder do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :fragments, 1,
@@ -501,8 +463,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_specifier, 0
@@ -530,8 +490,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRds do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :scoped_rds_config_source, 1,
@@ -543,8 +501,6 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRds do
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0
@@ -562,16 +518,12 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpFilter d
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.RequestIDExtension do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :typed_config, 1, type: Google.Protobuf.Any, json_name: "typedConfig"
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.EnvoyMobileHttpConnectionManager do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :config, 1,

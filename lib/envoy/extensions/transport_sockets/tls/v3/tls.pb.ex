@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext.OcspStaplePolicy do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LENIENT_STAPLING, 0
@@ -9,8 +7,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext.OcspStap
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.UpstreamTlsContext do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_tls_context, 1,
@@ -27,8 +23,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.UpstreamTlsContext do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :session_ticket_keys_type, 0
@@ -76,11 +70,11 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext do
   field :full_scan_certs_on_sni_mismatch, 9,
     type: Google.Protobuf.BoolValue,
     json_name: "fullScanCertsOnSniMismatch"
+
+  field :prefer_client_ciphers, 11, type: :bool, json_name: "preferClientCiphers"
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsKeyLog do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
@@ -97,8 +91,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsKeyLog do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateProvider do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config, 0
@@ -112,8 +104,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateP
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateProviderInstance do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance_name, 1, type: :string, json_name: "instanceName"
@@ -121,8 +111,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateP
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CombinedCertificateValidationContext do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :default_validation_context, 1,
@@ -147,8 +135,6 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CombinedCert
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :validation_context_type, 0
@@ -170,6 +156,10 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext do
   field :tls_certificate_provider_instance, 14,
     type: Envoy.Extensions.TransportSockets.Tls.V3.CertificateProviderPluginInstance,
     json_name: "tlsCertificateProviderInstance"
+
+  field :custom_tls_certificate_selector, 16,
+    type: Envoy.Config.Core.V3.TypedExtensionConfig,
+    json_name: "customTlsCertificateSelector"
 
   field :tls_certificate_certificate_provider, 9,
     type: Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateProvider,

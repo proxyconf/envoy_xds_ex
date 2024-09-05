@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Route.V3.RouteConfiguration.TypedPerFilterConfigEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -8,8 +6,6 @@ defmodule Envoy.Config.Route.V3.RouteConfiguration.TypedPerFilterConfigEntry do
 end
 
 defmodule Envoy.Config.Route.V3.RouteConfiguration do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
@@ -87,8 +83,6 @@ defmodule Envoy.Config.Route.V3.RouteConfiguration do
 end
 
 defmodule Envoy.Config.Route.V3.Vhds do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :config_source, 1,

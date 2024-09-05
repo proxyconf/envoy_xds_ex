@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Listener.V3.Listener.DrainType do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DEFAULT, 0
@@ -8,8 +6,6 @@ defmodule Envoy.Config.Listener.V3.Listener.DrainType do
 end
 
 defmodule Envoy.Config.Listener.V3.AdditionalAddress do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
@@ -20,30 +16,22 @@ defmodule Envoy.Config.Listener.V3.AdditionalAddress do
 end
 
 defmodule Envoy.Config.Listener.V3.ListenerCollection do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Xds.Core.V3.CollectionEntry
 end
 
 defmodule Envoy.Config.Listener.V3.Listener.DeprecatedV1 do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bind_to_port, 1, type: Google.Protobuf.BoolValue, json_name: "bindToPort"
 end
 
 defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig.ExactBalance do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :balance_type, 0
@@ -60,14 +48,10 @@ defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig do
 end
 
 defmodule Envoy.Config.Listener.V3.Listener.InternalListenerConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.Listener do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :listener_specifier, 0
@@ -183,19 +167,13 @@ defmodule Envoy.Config.Listener.V3.Listener do
 end
 
 defmodule Envoy.Config.Listener.V3.ListenerManager do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.ValidationListenerManager do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.ApiListenerManager do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end

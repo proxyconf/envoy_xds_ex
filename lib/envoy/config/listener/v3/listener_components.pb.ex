@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Listener.V3.FilterChainMatch.ConnectionSourceType do
-  @moduledoc false
-
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ANY, 0
@@ -9,8 +7,6 @@ defmodule Envoy.Config.Listener.V3.FilterChainMatch.ConnectionSourceType do
 end
 
 defmodule Envoy.Config.Listener.V3.Filter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0
@@ -25,8 +21,6 @@ defmodule Envoy.Config.Listener.V3.Filter do
 end
 
 defmodule Envoy.Config.Listener.V3.FilterChainMatch do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :destination_port, 8,
@@ -74,16 +68,12 @@ defmodule Envoy.Config.Listener.V3.FilterChainMatch do
 end
 
 defmodule Envoy.Config.Listener.V3.FilterChain.OnDemandConfiguration do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rebuild_timeout, 1, type: Google.Protobuf.Duration, json_name: "rebuildTimeout"
 end
 
 defmodule Envoy.Config.Listener.V3.FilterChain do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter_chain_match, 1,
@@ -115,8 +105,6 @@ defmodule Envoy.Config.Listener.V3.FilterChain do
 end
 
 defmodule Envoy.Config.Listener.V3.ListenerFilterChainMatchPredicate.MatchSet do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rules, 1,
@@ -126,8 +114,6 @@ defmodule Envoy.Config.Listener.V3.ListenerFilterChainMatchPredicate.MatchSet do
 end
 
 defmodule Envoy.Config.Listener.V3.ListenerFilterChainMatchPredicate do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :rule, 0
@@ -156,8 +142,6 @@ defmodule Envoy.Config.Listener.V3.ListenerFilterChainMatchPredicate do
 end
 
 defmodule Envoy.Config.Listener.V3.ListenerFilter do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config_type, 0

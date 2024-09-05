@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.Filters.Http.Router.V3.Router.UpstreamAccessLogOptions do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :flush_upstream_log_on_upstream_stream, 1,
@@ -14,8 +12,6 @@ defmodule Envoy.Extensions.Filters.Http.Router.V3.Router.UpstreamAccessLogOption
 end
 
 defmodule Envoy.Extensions.Filters.Http.Router.V3.Router do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dynamic_stats, 1, type: Google.Protobuf.BoolValue, json_name: "dynamicStats"

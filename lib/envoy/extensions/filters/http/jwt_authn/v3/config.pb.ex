@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtProvider.NormalizePayload do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :space_delimited_claims, 1,
@@ -10,8 +8,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtProvider.NormalizePayload
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtProvider do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :jwks_source_specifier, 0
@@ -67,19 +63,15 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtProvider do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtCacheConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :jwt_cache_size, 1, type: :uint32, json_name: "jwtCacheSize"
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.RemoteJwks do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :http_uri, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "httpUri"
+  field :http_uri, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "httpUri", deprecated: false
 
   field :cache_duration, 2,
     type: Google.Protobuf.Duration,
@@ -94,8 +86,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.RemoteJwks do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwksAsyncFetch do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :fast_listener, 1, type: :bool, json_name: "fastListener"
@@ -106,8 +96,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwksAsyncFetch do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtHeader do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
@@ -115,8 +103,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtHeader do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.ProviderWithAudiences do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :provider_name, 1, type: :string, json_name: "providerName"
@@ -124,8 +110,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.ProviderWithAudiences do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirement do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :requires_type, 0
@@ -156,8 +140,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirement do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirementOrList do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :requirements, 1,
@@ -167,8 +149,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirementOrList do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirementAndList do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :requirements, 1,
@@ -178,8 +158,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirementAndList do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.RequirementRule do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :requirement_type, 0
@@ -195,8 +173,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.RequirementRule do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.FilterStateRule.RequiresEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -204,8 +180,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.FilterStateRule.RequiresEntr
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.FilterStateRule do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
@@ -217,8 +191,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.FilterStateRule do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication.ProvidersEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -226,8 +198,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication.ProvidersE
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication.RequirementMapEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -235,8 +205,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication.Requiremen
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :providers, 1,
@@ -257,11 +225,11 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication do
     type: Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication.RequirementMapEntry,
     json_name: "requirementMap",
     map: true
+
+  field :strip_failure_response, 6, type: :bool, json_name: "stripFailureResponse"
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.PerRouteConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :requirement_specifier, 0
@@ -276,8 +244,6 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.PerRouteConfig do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtClaimToHeader do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header_name, 1, type: :string, json_name: "headerName", deprecated: false

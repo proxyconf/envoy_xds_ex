@@ -1,6 +1,4 @@
 defmodule Envoy.Config.Core.V3.HttpUri do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :http_upstream_type, 0

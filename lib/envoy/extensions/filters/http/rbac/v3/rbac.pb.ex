@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.Filters.Http.Rbac.V3.RBAC do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rules, 1, type: Envoy.Config.Rbac.V3.RBAC, deprecated: false
@@ -22,8 +20,6 @@ defmodule Envoy.Extensions.Filters.Http.Rbac.V3.RBAC do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Rbac.V3.RBACPerRoute do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rbac, 2, type: Envoy.Extensions.Filters.Http.Rbac.V3.RBAC

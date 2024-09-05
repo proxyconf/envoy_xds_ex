@@ -1,6 +1,4 @@
 defmodule Envoy.Service.Discovery.V3.ResourceLocator.DynamicParametersEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -8,8 +6,6 @@ defmodule Envoy.Service.Discovery.V3.ResourceLocator.DynamicParametersEntry do
 end
 
 defmodule Envoy.Service.Discovery.V3.ResourceLocator do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
@@ -22,8 +18,6 @@ defmodule Envoy.Service.Discovery.V3.ResourceLocator do
 end
 
 defmodule Envoy.Service.Discovery.V3.ResourceName do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
@@ -34,8 +28,6 @@ defmodule Envoy.Service.Discovery.V3.ResourceName do
 end
 
 defmodule Envoy.Service.Discovery.V3.DiscoveryRequest do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
@@ -53,8 +45,6 @@ defmodule Envoy.Service.Discovery.V3.DiscoveryRequest do
 end
 
 defmodule Envoy.Service.Discovery.V3.DiscoveryResponse do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
@@ -66,8 +56,6 @@ defmodule Envoy.Service.Discovery.V3.DiscoveryResponse do
 end
 
 defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryRequest.InitialResourceVersionsEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -75,8 +63,6 @@ defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryRequest.InitialResourceVersio
 end
 
 defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryRequest do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :node, 1, type: Envoy.Config.Core.V3.Node
@@ -113,8 +99,6 @@ defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryRequest do
 end
 
 defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryResponse do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :system_version_info, 1, type: :string, json_name: "systemVersionInfo"
@@ -132,14 +116,10 @@ defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryResponse do
 end
 
 defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.SingleConstraint.Exists do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.SingleConstraint do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :constraint_type, 0
@@ -153,8 +133,6 @@ defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.SingleConstrain
 end
 
 defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.ConstraintList do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :constraints, 1,
@@ -163,8 +141,6 @@ defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.ConstraintList 
 end
 
 defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type, 0
@@ -190,16 +166,12 @@ defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints do
 end
 
 defmodule Envoy.Service.Discovery.V3.Resource.CacheControl do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :do_not_cache, 1, type: :bool, json_name: "doNotCache"
 end
 
 defmodule Envoy.Service.Discovery.V3.Resource do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 3, type: :string

@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.ExplicitHttpConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :protocol_config, 0
@@ -22,8 +20,6 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.ExplicitHttpCon
 end
 
 defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.UseDownstreamHttpConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :http_protocol_options, 1,
@@ -40,8 +36,6 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.UseDownstreamHt
 end
 
 defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.AutoHttpConfig do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :http_protocol_options, 1,
@@ -62,8 +56,6 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.AutoHttpConfig 
 end
 
 defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :upstream_protocol_options, 0

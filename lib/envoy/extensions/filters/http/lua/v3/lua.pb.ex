@@ -1,6 +1,4 @@
 defmodule Envoy.Extensions.Filters.Http.Lua.V3.Lua.SourceCodesEntry do
-  @moduledoc false
-
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
@@ -8,8 +6,6 @@ defmodule Envoy.Extensions.Filters.Http.Lua.V3.Lua.SourceCodesEntry do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Lua.V3.Lua do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :inline_code, 1, type: :string, json_name: "inlineCode", deprecated: true
@@ -28,8 +24,6 @@ defmodule Envoy.Extensions.Filters.Http.Lua.V3.Lua do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Lua.V3.LuaPerRoute do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :override, 0

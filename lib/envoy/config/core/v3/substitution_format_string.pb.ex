@@ -1,14 +1,10 @@
 defmodule Envoy.Config.Core.V3.JsonFormatOptions do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sort_properties, 1, type: :bool, json_name: "sortProperties"
 end
 
 defmodule Envoy.Config.Core.V3.SubstitutionFormatString do
-  @moduledoc false
-
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :format, 0
