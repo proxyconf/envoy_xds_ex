@@ -1,5 +1,9 @@
 defmodule Xds.Core.V3.CollectionEntry.InlineEntry do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Inlined resource entry.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version, 2, type: :string
@@ -7,7 +11,19 @@ defmodule Xds.Core.V3.CollectionEntry.InlineEntry do
 end
 
 defmodule Xds.Core.V3.CollectionEntry do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  xDS collection resource wrapper. This encapsulates a xDS resource when
+  appearing inside a list collection resource. List collection resources are
+  regular Resource messages of type:
+
+  .. code-block:: proto
+
+  message <T>Collection {
+  repeated CollectionEntry resources = 1;
+  }
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :resource_specifier, 0
 

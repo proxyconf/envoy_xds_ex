@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.AccessLoggers.Fluentd.V3.FluentdAccessLogConfig.RetryOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_connect_attempts, 1,
     type: Google.Protobuf.UInt32Value,
@@ -11,7 +11,17 @@ defmodule Envoy.Extensions.AccessLoggers.Fluentd.V3.FluentdAccessLogConfig.Retry
 end
 
 defmodule Envoy.Extensions.AccessLoggers.Fluentd.V3.FluentdAccessLogConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the *envoy.access_loggers.fluentd* :ref:`AccessLog <envoy_v3_api_msg_config.accesslog.v3.AccessLog>`.
+  This access log extension will send the emitted access logs over a TCP connection to an upstream that is accepting
+  the Fluentd Forward Protocol as described in: `Fluentd Forward Protocol Specification
+  <https://github.com/fluent/fluentd/wiki/Forward-Protocol-Specification-v1>`_.
+  [#extension: envoy.access_loggers.fluentd]
+  [#next-free-field: 9]
+  [#protodoc-title: Fluentd access log]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
   field :tag, 2, type: :string, deprecated: false

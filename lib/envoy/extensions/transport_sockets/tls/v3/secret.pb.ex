@@ -1,18 +1,26 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.GenericSecret do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Secrets configuration]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :secret, 1, type: Envoy.Config.Core.V3.DataSource, deprecated: false
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SdsSecretConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :sds_config, 2, type: Envoy.Config.Core.V3.ConfigSource, json_name: "sdsConfig"
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.Secret do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :type, 0
 

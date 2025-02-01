@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext.OcspStaplePolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LENIENT_STAPLING, 0
   field :STRICT_STAPLING, 1
@@ -7,13 +7,22 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext.OcspStap
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.UpstreamTlsContext do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 8]
+  [#protodoc-title: TLS transport socket]
+  [#extension: envoy.transport_sockets.tls]
+  The TLS contexts below provide the transport socket configuration for upstream/downstream TLS.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :common_tls_context, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext,
     json_name: "commonTlsContext"
 
   field :sni, 2, type: :string, deprecated: false
+  field :auto_host_sni, 6, type: :bool, json_name: "autoHostSni"
+  field :auto_sni_san_validation, 7, type: :bool, json_name: "autoSniSanValidation"
   field :allow_renegotiation, 3, type: :bool, json_name: "allowRenegotiation"
   field :max_session_keys, 4, type: Google.Protobuf.UInt32Value, json_name: "maxSessionKeys"
 
@@ -23,7 +32,11 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.UpstreamTlsContext do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 12]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :session_ticket_keys_type, 0
 
@@ -75,7 +88,12 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsKeyLog do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  TLS key log configuration.
+  The key log file format is "format used by NSS for its SSLKEYLOGFILE debugging output" (text taken from openssl man page)
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
 
@@ -91,7 +109,18 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsKeyLog do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateProvider do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Config for the Certificate Provider to fetch certificates. Certificates are fetched/refreshed asynchronously over
+  the network relative to the TLS handshake.
+
+  DEPRECATED: This message is not currently used, but if we ever do need it, we will want to
+  move it out of CommonTlsContext and into common.proto, similar to the existing
+  CertificateProviderPluginInstance message.
+
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -104,14 +133,24 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateP
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateProviderInstance do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Similar to CertificateProvider above, but allows the provider instances to be configured on
+  the client side instead of being sent from the control plane.
+
+  DEPRECATED: This message was moved outside of CommonTlsContext
+  and now lives in common.proto.
+
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance_name, 1, type: :string, json_name: "instanceName"
   field :certificate_name, 2, type: :string, json_name: "certificateName"
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CombinedCertificateValidationContext do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :default_validation_context, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext,
@@ -135,7 +174,12 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CombinedCert
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  TLS context shared by both client and server TLS contexts.
+  [#next-free-field: 17]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :validation_context_type, 0
 

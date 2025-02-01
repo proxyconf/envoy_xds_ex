@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Trace.V2.ZipkinConfig.CollectorEndpointVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Available Zipkin collector endpoint versions.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :HTTP_JSON_V1, 0
   field :HTTP_JSON, 1
@@ -8,7 +12,14 @@ defmodule Envoy.Config.Trace.V2.ZipkinConfig.CollectorEndpointVersion do
 end
 
 defmodule Envoy.Config.Trace.V2.ZipkinConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the Zipkin tracer.
+  [#extension: envoy.tracers.zipkin]
+  [#next-free-field: 6]
+  [#protodoc-title: Zipkin tracer]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :collector_cluster, 1, type: :string, json_name: "collectorCluster", deprecated: false
   field :collector_endpoint, 2, type: :string, json_name: "collectorEndpoint", deprecated: false

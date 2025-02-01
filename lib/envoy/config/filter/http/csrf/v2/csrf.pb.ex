@@ -1,5 +1,12 @@
 defmodule Envoy.Config.Filter.Http.Csrf.V2.CsrfPolicy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  CSRF filter config.
+  [#protodoc-title: CSRF]
+  Cross-Site Request Forgery :ref:`configuration overview <config_http_filters_csrf>`.
+  [#extension: envoy.filters.http.csrf]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :filter_enabled, 1,
     type: Envoy.Api.V2.Core.RuntimeFractionalPercent,

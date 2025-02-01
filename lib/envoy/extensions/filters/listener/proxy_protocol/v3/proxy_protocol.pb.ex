@@ -1,12 +1,16 @@
 defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol.KeyValuePair do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace"
   field :key, 2, type: :string, deprecated: false
 end
 
 defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol.Rule do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A Rule defines what metadata to apply when a header is present or missing.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tlv_type, 1, type: :uint32, json_name: "tlvType", deprecated: false
 
@@ -16,7 +20,14 @@ defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol.Rule 
 end
 
 defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  [#protodoc-title: Proxy Protocol Filter]
+  PROXY protocol listener filter.
+  [#extension: envoy.filters.listener.proxy_protocol]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rules, 1,
     repeated: true,

@@ -1,5 +1,5 @@
 defmodule Envoy.Admin.V2alpha.ServerInfo.State do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LIVE, 0
   field :DRAINING, 1
@@ -8,14 +8,14 @@ defmodule Envoy.Admin.V2alpha.ServerInfo.State do
 end
 
 defmodule Envoy.Admin.V2alpha.CommandLineOptions.IpVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :v4, 0
   field :v6, 1
 end
 
 defmodule Envoy.Admin.V2alpha.CommandLineOptions.Mode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :Serve, 0
   field :Validate, 1
@@ -23,7 +23,14 @@ defmodule Envoy.Admin.V2alpha.CommandLineOptions.Mode do
 end
 
 defmodule Envoy.Admin.V2alpha.ServerInfo do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Proto representation of the value returned by /server_info, containing
+  server version/server status information.
+  [#next-free-field: 7]
+  [#protodoc-title: Server State]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :state, 2, type: Envoy.Admin.V2alpha.ServerInfo.State, enum: true
@@ -37,7 +44,11 @@ defmodule Envoy.Admin.V2alpha.ServerInfo do
 end
 
 defmodule Envoy.Admin.V2alpha.CommandLineOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 29]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :base_id, 1, type: :uint64, json_name: "baseId"
   field :concurrency, 2, type: :uint32

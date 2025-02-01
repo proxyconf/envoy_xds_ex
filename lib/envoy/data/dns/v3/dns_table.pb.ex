@@ -1,11 +1,19 @@
 defmodule Envoy.Data.Dns.V3.DnsTable.AddressList do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message contains a list of IP addresses returned for a query for a known name
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Envoy.Data.Dns.V3.DnsTable.DnsServiceProtocol do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specify the service protocol using a numeric or string value
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :protocol_config, 0
 
@@ -14,7 +22,12 @@ defmodule Envoy.Data.Dns.V3.DnsTable.DnsServiceProtocol do
 end
 
 defmodule Envoy.Data.Dns.V3.DnsTable.DnsServiceTarget do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specify the target for a given DNS service
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :endpoint_type, 0
 
@@ -26,7 +39,11 @@ defmodule Envoy.Data.Dns.V3.DnsTable.DnsServiceTarget do
 end
 
 defmodule Envoy.Data.Dns.V3.DnsTable.DnsService do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message defines a service selection record returned for a service query in a domain
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :protocol, 2, type: Envoy.Data.Dns.V3.DnsTable.DnsServiceProtocol
@@ -39,7 +56,11 @@ defmodule Envoy.Data.Dns.V3.DnsTable.DnsService do
 end
 
 defmodule Envoy.Data.Dns.V3.DnsTable.DnsServiceList do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Define a list of service records for a given service
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :services, 1,
     repeated: true,
@@ -48,7 +69,7 @@ defmodule Envoy.Data.Dns.V3.DnsTable.DnsServiceList do
 end
 
 defmodule Envoy.Data.Dns.V3.DnsTable.DnsEndpoint do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :endpoint_config, 0
 
@@ -66,7 +87,7 @@ defmodule Envoy.Data.Dns.V3.DnsTable.DnsEndpoint do
 end
 
 defmodule Envoy.Data.Dns.V3.DnsTable.DnsVirtualDomain do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :endpoint, 2, type: Envoy.Data.Dns.V3.DnsTable.DnsEndpoint
@@ -74,7 +95,14 @@ defmodule Envoy.Data.Dns.V3.DnsTable.DnsVirtualDomain do
 end
 
 defmodule Envoy.Data.Dns.V3.DnsTable do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message contains the configuration for the DNS Filter if populated
+  from the control plane
+  [#protodoc-title: DNS Filter Table Data]
+  :ref:`DNS Filter config overview <config_udp_listener_filters_dns_filter>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :external_retry_count, 1,
     type: :uint32,

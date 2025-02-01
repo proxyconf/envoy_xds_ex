@@ -1,19 +1,27 @@
 defmodule Envoy.Api.V2.Core.SocketAddress.Protocol do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TCP, 0
   field :UDP, 1
 end
 
 defmodule Envoy.Api.V2.Core.Pipe do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Network addresses]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
   field :mode, 2, type: :uint32, deprecated: false
 end
 
 defmodule Envoy.Api.V2.Core.SocketAddress do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :port_specifier, 0
 
@@ -30,7 +38,7 @@ defmodule Envoy.Api.V2.Core.SocketAddress do
 end
 
 defmodule Envoy.Api.V2.Core.TcpKeepalive do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :keepalive_probes, 1, type: Google.Protobuf.UInt32Value, json_name: "keepaliveProbes"
   field :keepalive_time, 2, type: Google.Protobuf.UInt32Value, json_name: "keepaliveTime"
@@ -38,7 +46,7 @@ defmodule Envoy.Api.V2.Core.TcpKeepalive do
 end
 
 defmodule Envoy.Api.V2.Core.BindConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source_address, 1,
     type: Envoy.Api.V2.Core.SocketAddress,
@@ -54,7 +62,13 @@ defmodule Envoy.Api.V2.Core.BindConfig do
 end
 
 defmodule Envoy.Api.V2.Core.Address do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Addresses specify either a logical or physical address and port, which are
+  used to tell Envoy where to bind/listen, connect to upstream and find
+  management servers.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :address, 0
 
@@ -67,7 +81,12 @@ defmodule Envoy.Api.V2.Core.Address do
 end
 
 defmodule Envoy.Api.V2.Core.CidrRange do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  CidrRange specifies an IP Address and a prefix length to construct
+  the subnet mask for a `CIDR <https://tools.ietf.org/html/rfc4632>`_ range.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address_prefix, 1, type: :string, json_name: "addressPrefix", deprecated: false
 

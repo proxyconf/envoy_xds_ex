@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Compression.Gzip.Compressor.V3.Gzip.CompressionStrategy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  All the values of this enumeration translate directly to zlib's compression strategies.
+  For more information about each strategy, please refer to zlib manual.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT_STRATEGY, 0
   field :FILTERED, 1
@@ -9,7 +14,7 @@ defmodule Envoy.Extensions.Compression.Gzip.Compressor.V3.Gzip.CompressionStrate
 end
 
 defmodule Envoy.Extensions.Compression.Gzip.Compressor.V3.Gzip.CompressionLevel do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT_COMPRESSION, 0
   field :BEST_SPEED, 1
@@ -26,7 +31,13 @@ defmodule Envoy.Extensions.Compression.Gzip.Compressor.V3.Gzip.CompressionLevel 
 end
 
 defmodule Envoy.Extensions.Compression.Gzip.Compressor.V3.Gzip do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  [#protodoc-title: Gzip Compressor]
+  [#extension: envoy.compression.gzip.compressor]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :memory_level, 1,
     type: Google.Protobuf.UInt32Value,

@@ -1,5 +1,11 @@
 defmodule Envoy.Admin.V2alpha.Clusters do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Admin endpoint uses this wrapper for `/clusters` to display cluster status information.
+  See :ref:`/clusters <operations_admin_interface_clusters>` for more information.
+  [#protodoc-title: Clusters]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster_statuses, 1,
     repeated: true,
@@ -8,7 +14,12 @@ defmodule Envoy.Admin.V2alpha.Clusters do
 end
 
 defmodule Envoy.Admin.V2alpha.ClusterStatus do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Details an individual cluster's current status.
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :added_via_api, 2, type: :bool, json_name: "addedViaApi"
@@ -28,7 +39,12 @@ defmodule Envoy.Admin.V2alpha.ClusterStatus do
 end
 
 defmodule Envoy.Admin.V2alpha.HostStatus do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Current state of a particular host.
+  [#next-free-field: 10]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address, 1, type: Envoy.Api.V2.Core.Address
   field :stats, 2, repeated: true, type: Envoy.Admin.V2alpha.SimpleMetric
@@ -46,7 +62,12 @@ defmodule Envoy.Admin.V2alpha.HostStatus do
 end
 
 defmodule Envoy.Admin.V2alpha.HostHealthStatus do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Health status for a host.
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :failed_active_health_check, 1, type: :bool, json_name: "failedActiveHealthCheck"
   field :failed_outlier_check, 2, type: :bool, json_name: "failedOutlierCheck"

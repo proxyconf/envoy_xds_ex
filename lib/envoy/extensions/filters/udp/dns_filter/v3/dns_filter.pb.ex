@@ -1,5 +1,11 @@
 defmodule Envoy.Extensions.Filters.Udp.DnsFilter.V3.DnsFilterConfig.ServerContextConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message contains the configuration for the DNS Filter operating
+  in a server context. This message will contain the virtual hosts and
+  associated addresses with which Envoy will respond to queries
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_source, 0
 
@@ -15,7 +21,16 @@ defmodule Envoy.Extensions.Filters.Udp.DnsFilter.V3.DnsFilterConfig.ServerContex
 end
 
 defmodule Envoy.Extensions.Filters.Udp.DnsFilter.V3.DnsFilterConfig.ClientContextConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message contains the configuration for the DNS Filter operating
+  in a client context. This message will contain the timeouts, retry,
+  and forwarding configuration for Envoy to make DNS requests to other
+  resolvers
+
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resolver_timeout, 1,
     type: Google.Protobuf.Duration,
@@ -41,7 +56,14 @@ defmodule Envoy.Extensions.Filters.Udp.DnsFilter.V3.DnsFilterConfig.ClientContex
 end
 
 defmodule Envoy.Extensions.Filters.Udp.DnsFilter.V3.DnsFilterConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the DNS filter.
+  [#protodoc-title: DNS Filter]
+  DNS Filter :ref:`configuration overview <config_udp_listener_filters_dns_filter>`.
+  [#extension: envoy.filters.udp.dns_filter]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
 

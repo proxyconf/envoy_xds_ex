@@ -1,5 +1,12 @@
 defmodule Envoy.Extensions.Filters.Network.MongoProxy.V3.MongoProxy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  [#protodoc-title: Mongo proxy]
+  MongoDB :ref:`configuration overview <config_network_filters_mongo_proxy>`.
+  [#extension: envoy.filters.network.mongo_proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :access_log, 2, type: :string, json_name: "accessLog"

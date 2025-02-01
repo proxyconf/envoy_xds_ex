@@ -1,5 +1,9 @@
 defmodule Envoy.Extensions.LoadBalancingPolicies.RingHash.V3.RingHash.HashFunction do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The hash function used to hash hosts onto the ketama ring.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT_HASH, 0
   field :XX_HASH, 1
@@ -7,7 +11,16 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.RingHash.V3.RingHash.HashFuncti
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.RingHash.V3.RingHash do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This configuration allows the built-in RING_HASH LB policy to be configured via the LB policy
+  extension point. See the :ref:`load balancing architecture overview
+  <arch_overview_load_balancing_types>` for more information.
+  [#next-free-field: 8]
+  [#protodoc-title: Ring Hash Load Balancing Policy]
+  [#extension: envoy.load_balancing_policies.ring_hash]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :hash_function, 1,
     type: Envoy.Extensions.LoadBalancingPolicies.RingHash.V3.RingHash.HashFunction,

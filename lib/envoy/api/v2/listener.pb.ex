@@ -1,22 +1,39 @@
 defmodule Envoy.Api.V2.Listener.DrainType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :MODIFY_ONLY, 1
 end
 
 defmodule Envoy.Api.V2.Listener.DeprecatedV1 do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bind_to_port, 1, type: Google.Protobuf.BoolValue, json_name: "bindToPort"
 end
 
 defmodule Envoy.Api.V2.Listener.ConnectionBalanceConfig.ExactBalance do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A connection balancer implementation that does exact balancing. This means that a lock is
+  held during balancing so that connection counts are nearly exactly balanced between worker
+  threads. This is "nearly" exact in the sense that a connection might close in parallel thus
+  making the counts incorrect, but this should be rectified on the next accept. This balancer
+  sacrifices accept throughput for accuracy and should be used when there are a small number of
+  connections that rarely cycle (e.g., service mesh gRPC egress).
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Api.V2.Listener.ConnectionBalanceConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for listener connection balancing.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :balance_type, 0
 
@@ -27,7 +44,13 @@ defmodule Envoy.Api.V2.Listener.ConnectionBalanceConfig do
 end
 
 defmodule Envoy.Api.V2.Listener do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 23]
+  [#protodoc-title: Listener configuration]
+  Listener :ref:`configuration overview <config_listeners>`
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :address, 2, type: Envoy.Api.V2.Core.Address, deprecated: false

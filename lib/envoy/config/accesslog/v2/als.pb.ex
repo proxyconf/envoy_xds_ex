@@ -1,5 +1,14 @@
 defmodule Envoy.Config.Accesslog.V2.HttpGrpcAccessLogConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the built-in *envoy.access_loggers.http_grpc*
+  :ref:`AccessLog <envoy_api_msg_config.filter.accesslog.v2.AccessLog>`. This configuration will
+  populate :ref:`StreamAccessLogsMessage.http_logs
+  <envoy_api_field_service.accesslog.v2.StreamAccessLogsMessage.http_logs>`.
+  [#extension: envoy.access_loggers.http_grpc]
+  [#protodoc-title: gRPC Access Log Service (ALS)]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Config.Accesslog.V2.CommonGrpcAccessLogConfig,
@@ -23,7 +32,13 @@ defmodule Envoy.Config.Accesslog.V2.HttpGrpcAccessLogConfig do
 end
 
 defmodule Envoy.Config.Accesslog.V2.TcpGrpcAccessLogConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the built-in *envoy.access_loggers.tcp_grpc* type. This configuration will
+  populate *StreamAccessLogsMessage.tcp_logs*.
+  [#extension: envoy.access_loggers.tcp_grpc]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Config.Accesslog.V2.CommonGrpcAccessLogConfig,
@@ -32,7 +47,12 @@ defmodule Envoy.Config.Accesslog.V2.TcpGrpcAccessLogConfig do
 end
 
 defmodule Envoy.Config.Accesslog.V2.CommonGrpcAccessLogConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Common configuration for gRPC access logs.
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :log_name, 1, type: :string, json_name: "logName", deprecated: false
 

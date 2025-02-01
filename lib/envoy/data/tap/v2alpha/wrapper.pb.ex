@@ -1,5 +1,11 @@
 defmodule Envoy.Data.Tap.V2alpha.TraceWrapper do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Wrapper for all fully buffered and streamed tap traces that Envoy emits. This is required for
+  sending traces over gRPC APIs or more easily persisting binary messages to files.
+  [#protodoc-title: Tap data wrappers]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :trace, 0
 

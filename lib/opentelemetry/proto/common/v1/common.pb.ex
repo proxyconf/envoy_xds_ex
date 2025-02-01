@@ -1,5 +1,11 @@
 defmodule Opentelemetry.Proto.Common.V1.AnyValue do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  AnyValue is used to represent any type of attribute value. AnyValue may contain a
+  primitive value such as a string or integer or it may contain an arbitrary nested
+  object containing arrays, key-value lists and primitives.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -22,26 +28,49 @@ defmodule Opentelemetry.Proto.Common.V1.AnyValue do
 end
 
 defmodule Opentelemetry.Proto.Common.V1.ArrayValue do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  ArrayValue is a list of AnyValue messages. We need ArrayValue as a message
+  since oneof in AnyValue does not allow repeated fields.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Opentelemetry.Proto.Common.V1.AnyValue
 end
 
 defmodule Opentelemetry.Proto.Common.V1.KeyValueList do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  KeyValueList is a list of KeyValue messages. We need KeyValueList as a message
+  since `oneof` in AnyValue does not allow repeated fields. Everywhere else where we need
+  a list of KeyValue messages (e.g. in Span) we use `repeated KeyValue` directly to
+  avoid unnecessary extra wrapping (which slows down the protocol). The 2 approaches
+  are semantically equivalent.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Opentelemetry.Proto.Common.V1.KeyValue
 end
 
 defmodule Opentelemetry.Proto.Common.V1.KeyValue do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  KeyValue is a key-value pair that is used to store Span attributes, Link
+  attributes, etc.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Opentelemetry.Proto.Common.V1.AnyValue
 end
 
 defmodule Opentelemetry.Proto.Common.V1.InstrumentationScope do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  InstrumentationScope is a message representing the instrumentation scope information
+  such as the fully qualified name and version.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string

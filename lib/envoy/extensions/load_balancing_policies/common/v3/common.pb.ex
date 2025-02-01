@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.LoadBalancingPolicies.Common.V3.LocalityLbConfig.ZoneAwareLbConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for :ref:`zone aware routing
+  <arch_overview_load_balancing_zone_aware_routing>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :routing_enabled, 1, type: Envoy.Type.V3.Percent, json_name: "routingEnabled"
   field :min_cluster_size, 2, type: Google.Protobuf.UInt64Value, json_name: "minClusterSize"
@@ -7,11 +12,20 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Common.V3.LocalityLbConfig.Zone
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Common.V3.LocalityLbConfig.LocalityWeightedLbConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for :ref:`locality weighted load balancing
+  <arch_overview_load_balancing_locality_weighted_lb>`
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Common.V3.LocalityLbConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Common configuration for two or more load balancing policy extensions]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :locality_config_specifier, 0
 
@@ -28,7 +42,11 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Common.V3.LocalityLbConfig do
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Common.V3.SlowStartConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for :ref:`slow start mode <arch_overview_load_balancing_slow_start>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :slow_start_window, 1, type: Google.Protobuf.Duration, json_name: "slowStartWindow"
   field :aggression, 2, type: Envoy.Config.Core.V3.RuntimeDouble
@@ -36,7 +54,11 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Common.V3.SlowStartConfig do
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Common.V3.ConsistentHashingLbConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Common Configuration for all consistent hashing load balancers (MaglevLb, RingHashLb, etc.)
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :use_hostname_for_hashing, 1, type: :bool, json_name: "useHostnameForHashing"
 

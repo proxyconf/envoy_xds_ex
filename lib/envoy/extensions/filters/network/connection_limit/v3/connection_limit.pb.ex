@@ -1,5 +1,11 @@
 defmodule Envoy.Extensions.Filters.Network.ConnectionLimit.V3.ConnectionLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Connection limit]
+  Connection limit :ref:`configuration overview <config_network_filters_connection_limit>`.
+  [#extension: envoy.filters.network.connection_limit]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
 

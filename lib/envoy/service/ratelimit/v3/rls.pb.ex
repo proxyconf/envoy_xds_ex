@@ -1,5 +1,5 @@
 defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.Code do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :OK, 1
@@ -7,19 +7,35 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.Code do
 end
 
 defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.RateLimit.Unit do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Identifies the unit of of time for rate limit.
+  [#comment: replace by envoy/type/v3/ratelimit_unit.proto in v4]
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :SECOND, 1
   field :MINUTE, 2
   field :HOUR, 3
   field :DAY, 4
+  field :WEEK, 7
   field :MONTH, 5
   field :YEAR, 6
 end
 
 defmodule Envoy.Service.Ratelimit.V3.RateLimitRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Main message for a rate limit request. The rate limit service is designed to be fully generic
+  in the sense that it can operate on arbitrary hierarchical key/value pairs. The loaded
+  configuration will parse the request and find the most specific limit to apply. In addition,
+  a RateLimitRequest can contain multiple "descriptors" to limit on. When multiple descriptors
+  are provided, the server will limit on *ALL* of them and return an OVER_LIMIT response if any
+  of them are over limit. This enables more complex application level rate limiting scenarios
+  if desired.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :domain, 1, type: :string
 
@@ -31,7 +47,11 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitRequest do
 end
 
 defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.RateLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Defines an actual rate limit in terms of requests per unit of time and the unit itself.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 3, type: :string
   field :requests_per_unit, 1, type: :uint32, json_name: "requestsPerUnit"
@@ -39,7 +59,20 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.RateLimit do
 end
 
 defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.Quota do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Cacheable quota for responses.
+  Quota can be granted at different levels: either for each individual descriptor or for the whole descriptor set.
+  This is a certain number of requests over a period of time.
+  The client may cache this result and apply the effective RateLimitResponse to future matching
+  requests without querying rate limit service.
+
+  When quota expires due to timeout, a new RLS request will also be made.
+  The implementation may choose to preemptively query the rate limit server for more quota on or
+  before expiration or before the available quota runs out.
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :expiration_specifier, 0
 
@@ -49,7 +82,11 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.Quota do
 end
 
 defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.DescriptorStatus do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :code, 1, type: Envoy.Service.Ratelimit.V3.RateLimitResponse.Code, enum: true
 
@@ -63,7 +100,12 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.DescriptorStatus do
 end
 
 defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A response from a ShouldRateLimit call.
+  [#next-free-field: 8]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :overall_code, 1,
     type: Envoy.Service.Ratelimit.V3.RateLimitResponse.Code,
@@ -90,9 +132,13 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse do
 end
 
 defmodule Envoy.Service.Ratelimit.V3.RateLimitService.Service do
+  @moduledoc """
+  [#protodoc-title: Rate limit service (RLS)]
+  """
+
   use GRPC.Service,
     name: "envoy.service.ratelimit.v3.RateLimitService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ShouldRateLimit,
       Envoy.Service.Ratelimit.V3.RateLimitRequest,

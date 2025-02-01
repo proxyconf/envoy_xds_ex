@@ -1,5 +1,14 @@
 defmodule Envoy.Extensions.AccessLoggers.File.V3.FileAccessLog do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Custom configuration for an :ref:`AccessLog <envoy_v3_api_msg_config.accesslog.v3.AccessLog>`
+  that writes log entries directly to a file. Configures the built-in ``envoy.access_loggers.file``
+  AccessLog.
+  [#next-free-field: 6]
+  [#protodoc-title: File access log]
+  [#extension: envoy.access_loggers.file]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :access_log_format, 0
 

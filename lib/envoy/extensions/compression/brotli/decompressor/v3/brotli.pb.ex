@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Compression.Brotli.Decompressor.V3.Brotli do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Brotli Decompressor]
+  [#extension: envoy.compression.brotli.decompressor]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :disable_ring_buffer_reallocation, 1,
     type: :bool,

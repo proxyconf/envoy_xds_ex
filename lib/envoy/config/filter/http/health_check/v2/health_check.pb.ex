@@ -1,12 +1,19 @@
 defmodule Envoy.Config.Filter.Http.HealthCheck.V2.HealthCheck.ClusterMinHealthyPercentagesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Type.Percent
 end
 
 defmodule Envoy.Config.Filter.Http.HealthCheck.V2.HealthCheck do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  [#protodoc-title: Health check]
+  Health check :ref:`configuration overview <config_http_filters_health_check>`.
+  [#extension: envoy.filters.http.health_check]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :pass_through_mode, 1,
     type: Google.Protobuf.BoolValue,

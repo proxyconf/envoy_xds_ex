@@ -1,5 +1,9 @@
 defmodule Google.Api.Expr.V1alpha1.Type.PrimitiveType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  CEL primitive types.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PRIMITIVE_TYPE_UNSPECIFIED, 0
   field :BOOL, 1
@@ -11,7 +15,11 @@ defmodule Google.Api.Expr.V1alpha1.Type.PrimitiveType do
 end
 
 defmodule Google.Api.Expr.V1alpha1.Type.WellKnownType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Well-known protobuf types treated with first-class support in CEL.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :WELL_KNOWN_TYPE_UNSPECIFIED, 0
   field :ANY, 1
@@ -20,21 +28,26 @@ defmodule Google.Api.Expr.V1alpha1.Type.WellKnownType do
 end
 
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr.ReferenceMapEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Reference
 end
 
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr.TypeMapEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Type
 end
 
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A CEL expression which has been successfully type checked.
+  Protos for representing CEL declarations and typed checked expressions.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reference_map, 2,
     repeated: true,
@@ -54,27 +67,43 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
 end
 
 defmodule Google.Api.Expr.V1alpha1.Type.ListType do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  List type with typed elements, e.g. `list<example.proto.MyMessage>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :elem_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "elemType"
 end
 
 defmodule Google.Api.Expr.V1alpha1.Type.MapType do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Map type with parameterized key and value types, e.g. `map<string, int>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "keyType"
   field :value_type, 2, type: Google.Api.Expr.V1alpha1.Type, json_name: "valueType"
 end
 
 defmodule Google.Api.Expr.V1alpha1.Type.FunctionType do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Function type with result and arg types.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :result_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "resultType"
   field :arg_types, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Type, json_name: "argTypes"
 end
 
 defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Application defined abstract type.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -85,7 +114,11 @@ defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
 end
 
 defmodule Google.Api.Expr.V1alpha1.Type do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Represents a CEL type.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :type_kind, 0
 
@@ -119,7 +152,16 @@ defmodule Google.Api.Expr.V1alpha1.Type do
 end
 
 defmodule Google.Api.Expr.V1alpha1.Decl.IdentDecl do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Identifier declaration which specifies its type and optional `Expr` value.
+
+  An identifier without a value is a declaration that must be provided at
+  evaluation time. An identifier with a value should resolve to a constant,
+  but may be used in conjunction with other identifiers bound at evaluation
+  time.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: Google.Api.Expr.V1alpha1.Type
   field :value, 2, type: Google.Api.Expr.V1alpha1.Constant
@@ -127,7 +169,20 @@ defmodule Google.Api.Expr.V1alpha1.Decl.IdentDecl do
 end
 
 defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  An overload indicates a function's parameter types and return type, and
+  may optionally include a function body described in terms of [Expr][google.api.expr.v1alpha1.Expr]
+  values.
+
+  Functions overloads are declared in either a function or method
+  call-style. For methods, the `params[0]` is the expected type of the
+  target receiver.
+
+  Overloads must have non-overlapping argument types after erasure of all
+  parameterized type variables (similar as type erasure in Java).
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :overload_id, 1, type: :string, json_name: "overloadId"
   field :params, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Type
@@ -138,13 +193,28 @@ defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
 end
 
 defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Function declaration specifies one or more overloads which indicate the
+  function's parameter types and return type.
+
+  Functions have no observable side-effects (there may be side-effects like
+  logging which are not observable from CEL).
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :overloads, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload
 end
 
 defmodule Google.Api.Expr.V1alpha1.Decl do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Represents a declaration of a named value or function.
+
+  A declaration is part of the contract between the expression, the agent
+  evaluating that expression, and the caller requesting evaluation.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :decl_kind, 0
 
@@ -154,7 +224,11 @@ defmodule Google.Api.Expr.V1alpha1.Decl do
 end
 
 defmodule Google.Api.Expr.V1alpha1.Reference do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Describes a resolved reference to a declaration.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :overload_id, 3, repeated: true, type: :string, json_name: "overloadId"

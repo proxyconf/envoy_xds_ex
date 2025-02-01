@@ -1,25 +1,45 @@
 defmodule Envoy.Type.Tracing.V2.CustomTag.Literal do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Literal type custom tag with static value for the tag value.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :string, deprecated: false
 end
 
 defmodule Envoy.Type.Tracing.V2.CustomTag.Environment do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Environment type custom tag with environment name and default value.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :default_value, 2, type: :string, json_name: "defaultValue"
 end
 
 defmodule Envoy.Type.Tracing.V2.CustomTag.Header do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Header type custom tag with header name and default value.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :default_value, 2, type: :string, json_name: "defaultValue"
 end
 
 defmodule Envoy.Type.Tracing.V2.CustomTag.Metadata do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Metadata type custom tag using
+  :ref:`MetadataKey <envoy_api_msg_type.metadata.v2.MetadataKey>` to retrieve the protobuf value
+  from :ref:`Metadata <envoy_api_msg_core.Metadata>`, and populate the tag value with
+  `the canonical JSON <https://developers.google.com/protocol-buffers/docs/proto3#json>`_
+  representation of it.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :kind, 1, type: Envoy.Type.Metadata.V2.MetadataKind
   field :metadata_key, 2, type: Envoy.Type.Metadata.V2.MetadataKey, json_name: "metadataKey"
@@ -27,7 +47,13 @@ defmodule Envoy.Type.Tracing.V2.CustomTag.Metadata do
 end
 
 defmodule Envoy.Type.Tracing.V2.CustomTag do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Describes custom tags for the active span.
+  [#next-free-field: 6]
+  [#protodoc-title: Custom Tag]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :type, 0
 

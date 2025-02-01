@@ -1,5 +1,10 @@
 defmodule Envoy.Type.Metadata.V3.MetadataKey.PathSegment do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies the segment in a path to retrieve value from Metadata.
+  Currently it is only supported to specify the key, i.e. field name, as one segment of a path.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :segment, 0
 
@@ -7,7 +12,33 @@ defmodule Envoy.Type.Metadata.V3.MetadataKey.PathSegment do
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKey do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  MetadataKey provides a general interface using ``key`` and ``path`` to retrieve value from
+  :ref:`Metadata <envoy_v3_api_msg_config.core.v3.Metadata>`.
+
+  For example, for the following Metadata:
+
+  .. code-block:: yaml
+
+  filter_metadata:
+  envoy.xxx:
+  prop:
+  foo: bar
+  xyz:
+  hello: envoy
+
+  The following MetadataKey will retrieve a string value "bar" from the Metadata.
+
+  .. code-block:: yaml
+
+  key: envoy.xxx
+  path:
+  - key: prop
+  - key: foo
+  [#protodoc-title: Metadata]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
 
@@ -18,23 +49,44 @@ defmodule Envoy.Type.Metadata.V3.MetadataKey do
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind.Request do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Represents dynamic metadata associated with the request.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind.Route do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Represents metadata from :ref:`the route<envoy_v3_api_field_config.route.v3.Route.metadata>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind.Cluster do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Represents metadata from :ref:`the upstream cluster<envoy_v3_api_field_config.cluster.v3.Cluster.metadata>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind.Host do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Represents metadata from :ref:`the upstream
+  host<envoy_v3_api_field_config.endpoint.v3.LbEndpoint.metadata>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Describes what kind of metadata.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :kind, 0
 

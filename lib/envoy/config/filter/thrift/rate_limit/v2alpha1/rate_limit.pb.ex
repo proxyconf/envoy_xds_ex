@@ -1,5 +1,12 @@
 defmodule Envoy.Config.Filter.Thrift.RateLimit.V2alpha1.RateLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  [#protodoc-title: Rate limit]
+  Rate limit :ref:`configuration overview <config_thrift_filters_rate_limit>`.
+  [#extension: envoy.filters.thrift.rate_limit]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :domain, 1, type: :string, deprecated: false
   field :stage, 2, type: :uint32, deprecated: false

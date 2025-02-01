@@ -1,5 +1,12 @@
 defmodule Envoy.Config.Filter.Network.RateLimit.V2.RateLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  [#protodoc-title: Rate limit]
+  Rate limit :ref:`configuration overview <config_network_filters_rate_limit>`.
+  [#extension: envoy.filters.network.ratelimit]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :domain, 2, type: :string, deprecated: false

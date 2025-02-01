@@ -1,5 +1,10 @@
 defmodule Envoy.Service.LoadStats.V2.LoadStatsRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A load report Envoy sends to the management server.
+  [#not-implemented-hide:] Not configuration. TBD how to doc proto APIs.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :node, 1, type: Envoy.Api.V2.Core.Node
 
@@ -10,7 +15,13 @@ defmodule Envoy.Service.LoadStats.V2.LoadStatsRequest do
 end
 
 defmodule Envoy.Service.LoadStats.V2.LoadStatsResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The management server sends envoy a LoadStatsResponse with all clusters it
+  is interested in learning load stats about.
+  [#not-implemented-hide:] Not configuration. TBD how to doc proto APIs.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: :string
   field :send_all_clusters, 4, type: :bool, json_name: "sendAllClusters"
@@ -23,9 +34,13 @@ defmodule Envoy.Service.LoadStats.V2.LoadStatsResponse do
 end
 
 defmodule Envoy.Service.LoadStats.V2.LoadReportingService.Service do
+  @moduledoc """
+  [#protodoc-title: Load reporting service]
+  """
+
   use GRPC.Service,
     name: "envoy.service.load_stats.v2.LoadReportingService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :StreamLoadStats,
       stream(Envoy.Service.LoadStats.V2.LoadStatsRequest),

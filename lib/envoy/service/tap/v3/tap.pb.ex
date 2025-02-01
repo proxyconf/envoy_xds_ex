@@ -1,12 +1,17 @@
 defmodule Envoy.Service.Tap.V3.StreamTapsRequest.Identifier do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :node, 1, type: Envoy.Config.Core.V3.Node, deprecated: false
   field :tap_id, 2, type: :string, json_name: "tapId"
 end
 
 defmodule Envoy.Service.Tap.V3.StreamTapsRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:] Stream message for the Tap API. Envoy will open a stream to the server
+  and stream taps without ever expecting a response.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :identifier, 1, type: Envoy.Service.Tap.V3.StreamTapsRequest.Identifier
   field :trace_id, 2, type: :uint64, json_name: "traceId"
@@ -14,13 +19,23 @@ defmodule Envoy.Service.Tap.V3.StreamTapsRequest do
 end
 
 defmodule Envoy.Service.Tap.V3.StreamTapsResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Service.Tap.V3.TapSinkService.Service do
+  @moduledoc """
+  [#not-implemented-hide:] A tap service to receive incoming taps. Envoy will call
+  StreamTaps to deliver captured taps to the server
+  [#protodoc-title: Tap sink service]
+  """
+
   use GRPC.Service,
     name: "envoy.service.tap.v3.TapSinkService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :StreamTaps,
       stream(Envoy.Service.Tap.V3.StreamTapsRequest),

@@ -1,5 +1,11 @@
 defmodule Envoy.Config.Core.V3.ApiVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  xDS API and non-xDS services version. This is used to describe both resource and transport
+  protocol versions (in distinct configuration fields).
+  [#protodoc-title: Configuration sources]
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :AUTO, 0
   field :V2, 1
@@ -7,7 +13,11 @@ defmodule Envoy.Config.Core.V3.ApiVersion do
 end
 
 defmodule Envoy.Config.Core.V3.ApiConfigSource.ApiType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  APIs may be fetched via either REST or gRPC.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEPRECATED_AND_UNAVAILABLE_DO_NOT_USE, 0
   field :REST, 1
@@ -18,7 +28,13 @@ defmodule Envoy.Config.Core.V3.ApiConfigSource.ApiType do
 end
 
 defmodule Envoy.Config.Core.V3.ApiConfigSource do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  API configuration source. This identifies the API type and cluster that Envoy
+  will use to fetch an xDS API.
+  [#next-free-field: 10]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_type, 1,
     type: Envoy.Config.Core.V3.ApiConfigSource.ApiType,
@@ -59,11 +75,24 @@ defmodule Envoy.Config.Core.V3.ApiConfigSource do
 end
 
 defmodule Envoy.Config.Core.V3.AggregatedConfigSource do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Aggregated Discovery Service (ADS) options. This is currently empty, but when
+  set in :ref:`ConfigSource <envoy_v3_api_msg_config.core.v3.ConfigSource>` can be used to
+  specify that ADS is to be used.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.SelfConfigSource do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:]
+  Self-referencing config source options. This is currently empty, but when
+  set in :ref:`ConfigSource <envoy_v3_api_msg_config.core.v3.ConfigSource>` can be used to
+  specify that other data can be obtained from the same server.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :transport_api_version, 1,
     type: Envoy.Config.Core.V3.ApiVersion,
@@ -73,14 +102,22 @@ defmodule Envoy.Config.Core.V3.SelfConfigSource do
 end
 
 defmodule Envoy.Config.Core.V3.RateLimitSettings do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Rate Limit settings to be applied for discovery requests made by Envoy.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_tokens, 1, type: Google.Protobuf.UInt32Value, json_name: "maxTokens"
   field :fill_rate, 2, type: Google.Protobuf.DoubleValue, json_name: "fillRate", deprecated: false
 end
 
 defmodule Envoy.Config.Core.V3.PathConfigSource do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Local filesystem path configuration source.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
 
@@ -90,7 +127,17 @@ defmodule Envoy.Config.Core.V3.PathConfigSource do
 end
 
 defmodule Envoy.Config.Core.V3.ConfigSource do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for :ref:`listeners <config_listeners>`, :ref:`clusters
+  <config_cluster_manager>`, :ref:`routes
+  <envoy_v3_api_msg_config.route.v3.RouteConfiguration>`, :ref:`endpoints
+  <arch_overview_service_discovery>` etc. may either be sourced from the
+  filesystem or from an xDS API source. Filesystem configs are watched with
+  inotify for updates.
+  [#next-free-field: 9]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_source_specifier, 0
 
@@ -122,7 +169,21 @@ defmodule Envoy.Config.Core.V3.ConfigSource do
 end
 
 defmodule Envoy.Config.Core.V3.ExtensionConfigSource do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration source specifier for a late-bound extension configuration. The
+  parent resource is warmed until all the initial extension configurations are
+  received, unless the flag to apply the default configuration is set.
+  Subsequent extension updates are atomic on a per-worker basis. Once an
+  extension configuration is applied to a request or a connection, it remains
+  constant for the duration of processing. If the initial delivery of the
+  extension configuration fails, due to a timeout for example, the optional
+  default configuration is applied. Without a default configuration, the
+  extension is disabled, until an extension configuration is received. The
+  behavior of a disabled extension depends on the context. For example, a
+  filter chain with a disabled extension filter rejects all incoming streams.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :config_source, 1,
     type: Envoy.Config.Core.V3.ConfigSource,

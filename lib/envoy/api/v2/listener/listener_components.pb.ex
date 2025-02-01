@@ -1,5 +1,5 @@
 defmodule Envoy.Api.V2.Listener.FilterChainMatch.ConnectionSourceType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ANY, 0
   field :LOCAL, 1
@@ -7,7 +7,12 @@ defmodule Envoy.Api.V2.Listener.FilterChainMatch.ConnectionSourceType do
 end
 
 defmodule Envoy.Api.V2.Listener.Filter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Listener components]
+  Listener :ref:`configuration overview <config_listeners>`
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -17,7 +22,39 @@ defmodule Envoy.Api.V2.Listener.Filter do
 end
 
 defmodule Envoy.Api.V2.Listener.FilterChainMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies the match criteria for selecting a specific filter chain for a
+  listener.
+
+  In order for a filter chain to be selected, *ALL* of its criteria must be
+  fulfilled by the incoming connection, properties of which are set by the
+  networking stack and/or listener filters.
+
+  The following order applies:
+
+  1. Destination port.
+  2. Destination IP address.
+  3. Server name (e.g. SNI for TLS protocol),
+  4. Transport protocol.
+  5. Application protocols (e.g. ALPN for TLS protocol).
+  6. Source type (e.g. any, local or external network).
+  7. Source IP address.
+  8. Source port.
+
+  For criteria that allow ranges or wildcards, the most specific value in any
+  of the configured filter chains that matches the incoming connection is going
+  to be used (e.g. for SNI ``www.example.com`` the most specific match would be
+  ``www.example.com``, then ``*.example.com``, then ``*.com``, then any filter
+  chain without ``server_names`` requirements).
+
+  [#comment: Implemented rules are kept in the preference order, with deprecated fields
+  listed at the end, because that's how we want to list them in the docs.
+
+  [#comment:TODO(PiotrSikora): Add support for configurable precedence of the rules]
+  [#next-free-field: 13]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :destination_port, 8,
     type: Google.Protobuf.UInt32Value,
@@ -59,7 +96,13 @@ defmodule Envoy.Api.V2.Listener.FilterChainMatch do
 end
 
 defmodule Envoy.Api.V2.Listener.FilterChain do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A filter chain wraps a set of match criteria, an option TLS context, a set of filters, and
+  various other parameters.
+  [#next-free-field: 8]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :filter_chain_match, 1,
     type: Envoy.Api.V2.Listener.FilterChainMatch,
@@ -82,7 +125,11 @@ defmodule Envoy.Api.V2.Listener.FilterChain do
 end
 
 defmodule Envoy.Api.V2.Listener.ListenerFilterChainMatchPredicate.MatchSet do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A set of match configurations used for logical operations.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -91,7 +138,37 @@ defmodule Envoy.Api.V2.Listener.ListenerFilterChainMatchPredicate.MatchSet do
 end
 
 defmodule Envoy.Api.V2.Listener.ListenerFilterChainMatchPredicate do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Listener filter chain match configuration. This is a recursive structure which allows complex
+  nested match configurations to be built using various logical operators.
+
+  Examples:
+
+  * Matches if the destination port is 3306.
+
+  .. code-block:: yaml
+
+  destination_port_range:
+  start: 3306
+  end: 3307
+
+  * Matches if the destination port is 3306 or 15000.
+
+  .. code-block:: yaml
+
+  or_match:
+  rules:
+  - destination_port_range:
+  start: 3306
+  end: 3307
+  - destination_port_range:
+  start: 15000
+  end: 15001
+
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :rule, 0
 
@@ -119,7 +196,7 @@ defmodule Envoy.Api.V2.Listener.ListenerFilterChainMatchPredicate do
 end
 
 defmodule Envoy.Api.V2.Listener.ListenerFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 

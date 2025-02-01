@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters.TlsProtocol do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TLS_AUTO, 0
   field :TLSv1_0, 1
@@ -9,7 +9,12 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters.TlsProtocol do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher.SanType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Indicates the choice of GeneralName as defined in section 4.2.1.5 of RFC 5280 to match
+  against.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SAN_TYPE_UNSPECIFIED, 0
   field :EMAIL, 1
@@ -20,14 +25,23 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher.SanType
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext.TrustChainVerification do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Peer certificate verification mode.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :VERIFY_TRUST_CHAIN, 0
   field :ACCEPT_UNTRUSTED, 1
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  [#protodoc-title: Common TLS configuration]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tls_minimum_protocol_version, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters.TlsProtocol,
@@ -47,7 +61,13 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.PrivateKeyProvider do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  BoringSSL private key method configuration. The private key methods are used for external
+  (potentially asynchronous) signing and decryption operations. Some use cases for private key
+  methods would be TPM support and TLS acceleration.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -63,7 +83,11 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.PrivateKeyProvider do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsCertificate do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 9]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :certificate_chain, 1,
     type: Envoy.Config.Core.V3.DataSource,
@@ -94,20 +118,32 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsCertificate do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsSessionTicketKeys do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Envoy.Config.Core.V3.DataSource, deprecated: false
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateProviderPluginInstance do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Indicates a certificate to be obtained from a named CertificateProvider plugin instance.
+  The plugin instances are defined in the client's bootstrap file.
+  The plugin allows certificates to be fetched/refreshed over the network asynchronously with
+  respect to the TLS handshake.
+  [#not-implemented-hide:]
+  """
 
-  field :instance_name, 1, type: :string, json_name: "instanceName"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :instance_name, 1, type: :string, json_name: "instanceName", deprecated: false
   field :certificate_name, 2, type: :string, json_name: "certificateName"
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Matcher for subject alternative names, to match both type and value of the SAN.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :san_type, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher.SanType,
@@ -120,11 +156,15 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext.SystemRootCerts do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 18]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :trusted_ca, 1,
     type: Envoy.Config.Core.V3.DataSource,

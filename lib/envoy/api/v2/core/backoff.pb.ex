@@ -1,5 +1,10 @@
 defmodule Envoy.Api.V2.Core.BackoffStrategy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration defining a jittered exponential back off strategy.
+  [#protodoc-title: Backoff Strategy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :base_interval, 1,
     type: Google.Protobuf.Duration,

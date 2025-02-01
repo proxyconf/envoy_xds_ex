@@ -1,19 +1,29 @@
 defmodule Envoy.Service.ExtProc.V3.CommonResponse.ResponseStatus do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The status of the response.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CONTINUE, 0
   field :CONTINUE_AND_REPLACE, 1
 end
 
 defmodule Envoy.Service.ExtProc.V3.ProcessingRequest.AttributesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Struct
 end
 
 defmodule Envoy.Service.ExtProc.V3.ProcessingRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This represents the different types of messages that Envoy can send
+  to an external processing server.
+  [#next-free-field: 11]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -58,7 +68,13 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingRequest do
 end
 
 defmodule Envoy.Service.ExtProc.V3.ProcessingResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  For every ProcessingRequest received by the server with the ``observability_mode`` field
+  set to false, the server must send back exactly one ProcessingResponse message.
+  [#next-free-field: 11]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -109,14 +125,20 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingResponse do
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpHeaders.AttributesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Struct
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpHeaders do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message is sent to the external server when the HTTP request and responses
+  are first received.
+  The following are messages that are sent to the server.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :headers, 1, type: Envoy.Config.Core.V3.HeaderMap
 
@@ -130,40 +152,71 @@ defmodule Envoy.Service.ExtProc.V3.HttpHeaders do
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpBody do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message is sent to the external server when the HTTP request and
+  response bodies are received.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :body, 1, type: :bytes
   field :end_of_stream, 2, type: :bool, json_name: "endOfStream"
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpTrailers do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message is sent to the external server when the HTTP request and
+  response trailers are received.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :trailers, 1, type: Envoy.Config.Core.V3.HeaderMap
 end
 
 defmodule Envoy.Service.ExtProc.V3.HeadersResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message is sent by the external server to Envoy after ``HttpHeaders`` was
+  sent to it.
+  The following are messages that may be sent back by the server.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :response, 1, type: Envoy.Service.ExtProc.V3.CommonResponse
+end
+
+defmodule Envoy.Service.ExtProc.V3.BodyResponse do
+  @moduledoc """
+  This message is sent by the external server to Envoy after ``HttpBody`` was
+  sent to it.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :response, 1, type: Envoy.Service.ExtProc.V3.CommonResponse
 end
 
 defmodule Envoy.Service.ExtProc.V3.TrailersResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message is sent by the external server to Envoy after ``HttpTrailers`` was
+  sent to it.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :header_mutation, 1,
     type: Envoy.Service.ExtProc.V3.HeaderMutation,
     json_name: "headerMutation"
 end
 
-defmodule Envoy.Service.ExtProc.V3.BodyResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :response, 1, type: Envoy.Service.ExtProc.V3.CommonResponse
-end
-
 defmodule Envoy.Service.ExtProc.V3.CommonResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message contains common fields between header and body responses.
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :status, 1,
     type: Envoy.Service.ExtProc.V3.CommonResponse.ResponseStatus,
@@ -180,7 +233,17 @@ defmodule Envoy.Service.ExtProc.V3.CommonResponse do
 end
 
 defmodule Envoy.Service.ExtProc.V3.ImmediateResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message causes the filter to attempt to create a locally
+  generated response, send it  downstream, stop processing
+  additional filters, and ignore any additional messages received
+  from the remote server for this request or response. If a response
+  has already started, then  this will either ship the reply directly
+  to the downstream codec, or reset the stream.
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :status, 1, type: Envoy.Type.V3.HttpStatus, deprecated: false
   field :headers, 2, type: Envoy.Service.ExtProc.V3.HeaderMutation
@@ -190,13 +253,22 @@ defmodule Envoy.Service.ExtProc.V3.ImmediateResponse do
 end
 
 defmodule Envoy.Service.ExtProc.V3.GrpcStatus do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message specifies a gRPC status for an ImmediateResponse message.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :status, 1, type: :uint32
 end
 
 defmodule Envoy.Service.ExtProc.V3.HeaderMutation do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Change HTTP headers or trailers by appending, replacing, or removing
+  headers.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :set_headers, 1,
     repeated: true,
@@ -206,19 +278,68 @@ defmodule Envoy.Service.ExtProc.V3.HeaderMutation do
   field :remove_headers, 2, repeated: true, type: :string, json_name: "removeHeaders"
 end
 
+defmodule Envoy.Service.ExtProc.V3.StreamedBodyResponse do
+  @moduledoc """
+  The body response message corresponding to FULL_DUPLEX_STREAMED body mode.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :body, 1, type: :bytes
+  field :end_of_stream, 2, type: :bool, json_name: "endOfStream"
+end
+
 defmodule Envoy.Service.ExtProc.V3.BodyMutation do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message specifies the body mutation the server sends to Envoy.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :mutation, 0
 
   field :body, 1, type: :bytes, oneof: 0
   field :clear_body, 2, type: :bool, json_name: "clearBody", oneof: 0
+
+  field :streamed_response, 3,
+    type: Envoy.Service.ExtProc.V3.StreamedBodyResponse,
+    json_name: "streamedResponse",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Envoy.Service.ExtProc.V3.ExternalProcessor.Service do
+  @moduledoc """
+  A service that can access and modify HTTP requests and responses
+  as part of a filter chain.
+  The overall external processing protocol works like this:
+
+  1. Envoy sends to the service information about the HTTP request.
+  2. The service sends back a ProcessingResponse message that directs Envoy
+  to either stop processing, continue without it, or send it the
+  next chunk of the message body.
+  3. If so requested, Envoy sends the server chunks of the message body,
+  or the entire body at once. In either case, the server sends back
+  a ProcessingResponse after each message it receives.
+  4. If so requested, Envoy sends the server the HTTP trailers,
+  and the server sends back a ProcessingResponse.
+  5. At this point, request processing is done, and we pick up again
+  at step 1 when Envoy receives a response from the upstream server.
+  6. At any point above, if the server closes the gRPC stream cleanly,
+  then Envoy proceeds without consulting the server.
+  7. At any point above, if the server closes the gRPC stream with an error,
+  then Envoy returns a 500 error to the client, unless the filter
+  was configured to ignore errors.
+
+  In other words, the process is a request/response conversation, but
+  using a gRPC stream to make it easier for the server to
+  maintain state.
+  [#protodoc-title: External processing service]
+  """
+
   use GRPC.Service,
     name: "envoy.service.ext_proc.v3.ExternalProcessor",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :Process,
       stream(Envoy.Service.ExtProc.V3.ProcessingRequest),

@@ -1,5 +1,10 @@
 defmodule Envoy.Type.Matcher.V3.PathMatcher do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies the way to match a path on HTTP request.
+  [#protodoc-title: Path matcher]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :rule, 0
 

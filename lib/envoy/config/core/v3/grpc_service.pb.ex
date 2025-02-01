@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Core.V3.GrpcService.EnvoyGrpc do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
   field :authority, 2, type: :string, deprecated: false
@@ -13,7 +17,11 @@ defmodule Envoy.Config.Core.V3.GrpcService.EnvoyGrpc do
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.SslCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  See https://grpc.io/grpc/cpp/structgrpc_1_1_ssl_credentials_options.html.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :root_certs, 1, type: Envoy.Config.Core.V3.DataSource, json_name: "rootCerts"
 
@@ -26,11 +34,21 @@ defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.SslCredentials do
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.GoogleLocalCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Local channel credentials. Only UDS is supported for now.
+  See https://github.com/grpc/grpc/pull/15909.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.ChannelCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  See https://grpc.io/docs/guides/auth.html#credential-types to understand Channel and Call
+  credential types.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :credential_specifier, 0
 
@@ -48,21 +66,21 @@ defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.ChannelCredentials do
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :json_key, 1, type: :string, json_name: "jsonKey"
   field :token_lifetime_seconds, 2, type: :uint64, json_name: "tokenLifetimeSeconds"
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :authorization_token, 1, type: :string, json_name: "authorizationToken"
   field :authority_selector, 2, type: :string, json_name: "authoritySelector"
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -71,7 +89,15 @@ defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.CallCredentials.MetadataCr
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.CallCredentials.StsService do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Security token service configuration that allows Google gRPC to
+  fetch security token from an OAuth 2.0 authorization server.
+  See https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16 and
+  https://github.com/grpc/grpc/pull/19587.
+  [#next-free-field: 10]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :token_exchange_service_uri, 1, type: :string, json_name: "tokenExchangeServiceUri"
   field :resource, 2, type: :string
@@ -85,7 +111,11 @@ defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.CallCredentials.StsService
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.CallCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 8]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :credential_specifier, 0
 
@@ -122,7 +152,7 @@ defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.CallCredentials do
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.ChannelArgs.Value do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value_specifier, 0
 
@@ -131,14 +161,18 @@ defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.ChannelArgs.Value do
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.ChannelArgs.ArgsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Config.Core.V3.GrpcService.GoogleGrpc.ChannelArgs.Value
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.ChannelArgs do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Channel arguments.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :args, 1,
     repeated: true,
@@ -147,7 +181,11 @@ defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc.ChannelArgs do
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 9]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri", deprecated: false
 
@@ -174,7 +212,14 @@ defmodule Envoy.Config.Core.V3.GrpcService.GoogleGrpc do
 end
 
 defmodule Envoy.Config.Core.V3.GrpcService do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  gRPC service configuration. This is used by :ref:`ApiConfigSource
+  <envoy_v3_api_msg_config.core.v3.ApiConfigSource>` and filter configurations.
+  [#next-free-field: 7]
+  [#protodoc-title: gRPC services]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :target_specifier, 0
 

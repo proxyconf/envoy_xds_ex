@@ -1,11 +1,18 @@
 defmodule Envoy.Admin.V2alpha.Certificates do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Proto representation of certificate details. Admin endpoint uses this wrapper for `/certs` to
+  display certificate information. See :ref:`/certs <operations_admin_interface_certs>` for more
+  information.
+  [#protodoc-title: Certificates]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :certificates, 1, repeated: true, type: Envoy.Admin.V2alpha.Certificate
 end
 
 defmodule Envoy.Admin.V2alpha.Certificate do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ca_cert, 1,
     repeated: true,
@@ -19,7 +26,11 @@ defmodule Envoy.Admin.V2alpha.Certificate do
 end
 
 defmodule Envoy.Admin.V2alpha.CertificateDetails do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :serial_number, 2, type: :string, json_name: "serialNumber"
@@ -35,7 +46,7 @@ defmodule Envoy.Admin.V2alpha.CertificateDetails do
 end
 
 defmodule Envoy.Admin.V2alpha.SubjectAlternateName do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :name, 0
 

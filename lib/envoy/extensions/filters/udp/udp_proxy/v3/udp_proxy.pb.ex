@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.HashPolicy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies the UDP hash policy.
+  The packets can be routed by hash policy.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :policy_specifier, 0
 
@@ -8,16 +13,29 @@ defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.HashPolicy do
 end
 
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.SessionFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for UDP session filters.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 
   field :name, 1, type: :string, deprecated: false
   field :typed_config, 2, type: Google.Protobuf.Any, json_name: "typedConfig", oneof: 0
+
+  field :config_discovery, 3,
+    type: Envoy.Config.Core.V3.ExtensionConfigSource,
+    json_name: "configDiscovery",
+    oneof: 0
 end
 
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.UdpTunnelingConfig.BufferOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for UDP datagrams buffering.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_buffered_datagrams, 1,
     type: Google.Protobuf.UInt32Value,
@@ -27,15 +45,25 @@ defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.UdpTunnelingCo
 end
 
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.UdpTunnelingConfig.RetryOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_connect_attempts, 1,
     type: Google.Protobuf.UInt32Value,
     json_name: "maxConnectAttempts"
+
+  field :backoff_options, 2,
+    type: Envoy.Config.Core.V3.BackoffStrategy,
+    json_name: "backoffOptions"
 end
 
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.UdpTunnelingConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for tunneling UDP over other transports or application layers.
+  Tunneling is currently supported over HTTP/2.
+  [#next-free-field: 12]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :proxy_host, 1, type: :string, json_name: "proxyHost", deprecated: false
   field :proxy_port, 2, type: Google.Protobuf.UInt32Value, json_name: "proxyPort"
@@ -64,7 +92,7 @@ defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.UdpTunnelingCo
 end
 
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.UdpAccessLogOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :access_log_flush_interval, 1,
     type: Google.Protobuf.Duration,
@@ -77,7 +105,15 @@ defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig.UdpAccessLogOp
 end
 
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.V3.UdpProxyConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the UDP proxy filter.
+  [#next-free-field: 14]
+  [#protodoc-title: UDP proxy]
+  UDP proxy :ref:`configuration overview <config_udp_listener_filters_udp_proxy>`.
+  [#extension: envoy.filters.udp_listener.udp_proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :route_specifier, 0
 

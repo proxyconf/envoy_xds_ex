@@ -1,5 +1,11 @@
 defmodule Envoy.Type.Matcher.StringMatcher do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies the way to match a string.
+  [#next-free-field: 7]
+  [#protodoc-title: String matcher]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :match_pattern, 0
 
@@ -18,7 +24,11 @@ defmodule Envoy.Type.Matcher.StringMatcher do
 end
 
 defmodule Envoy.Type.Matcher.ListStringMatcher do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies a list of ways to match a string.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :patterns, 1, repeated: true, type: Envoy.Type.Matcher.StringMatcher, deprecated: false
 end

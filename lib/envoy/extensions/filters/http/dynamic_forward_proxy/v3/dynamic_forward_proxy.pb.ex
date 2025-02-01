@@ -1,5 +1,12 @@
 defmodule Envoy.Extensions.Filters.Http.DynamicForwardProxy.V3.FilterConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the dynamic forward proxy HTTP filter. See the :ref:`architecture overview
+  <arch_overview_http_dynamic_forward_proxy>` for more information.
+  [#extension: envoy.filters.http.dynamic_forward_proxy]
+  [#protodoc-title: Dynamic forward proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :implementation_specifier, 0
 
@@ -17,7 +24,11 @@ defmodule Envoy.Extensions.Filters.Http.DynamicForwardProxy.V3.FilterConfig do
 end
 
 defmodule Envoy.Extensions.Filters.Http.DynamicForwardProxy.V3.PerRouteConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Per route Configuration for the dynamic forward proxy HTTP filter.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :host_rewrite_specifier, 0
 
@@ -26,7 +37,7 @@ defmodule Envoy.Extensions.Filters.Http.DynamicForwardProxy.V3.PerRouteConfig do
 end
 
 defmodule Envoy.Extensions.Filters.Http.DynamicForwardProxy.V3.SubClusterConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster_init_timeout, 3,
     type: Google.Protobuf.Duration,

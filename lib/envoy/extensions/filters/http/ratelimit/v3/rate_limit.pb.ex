@@ -1,19 +1,22 @@
 defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimit.XRateLimitHeadersRFCVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Defines the version of the standard to use for X-RateLimit headers.
+
+  [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.XRateLimitHeadersRFCVersion instead.]
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OFF, 0
   field :DRAFT_VERSION_03, 1
 end
 
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.MetaData.Source do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :DYNAMIC, 0
-  field :ROUTE_ENTRY, 1
-end
-
 defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute.VhRateLimitsOptions do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OVERRIDE, 0
   field :INCLUDE, 1
@@ -21,7 +24,12 @@ defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute.VhRateLim
 end
 
 defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute.OverrideOptions do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The override option determines how the filter handles the cases where there is an override config at a more specific level than this one (from least to most specific: virtual host, route, cluster weight).
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :OVERRIDE_POLICY, 1
@@ -30,7 +38,14 @@ defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute.OverrideO
 end
 
 defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 14]
+  [#protodoc-title: Rate limit]
+  Rate limit :ref:`configuration overview <config_http_filters_rate_limit>`.
+  [#extension: envoy.filters.http.ratelimit]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :domain, 1, type: :string, deprecated: false
   field :stage, 2, type: :uint32, deprecated: false
@@ -69,139 +84,8 @@ defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimit do
   field :stat_prefix, 13, type: :string, json_name: "statPrefix"
 end
 
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.SourceCluster do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.DestinationCluster do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.RequestHeaders do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :header_name, 1, type: :string, json_name: "headerName", deprecated: false
-  field :descriptor_key, 2, type: :string, json_name: "descriptorKey", deprecated: false
-  field :skip_if_absent, 3, type: :bool, json_name: "skipIfAbsent"
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.RemoteAddress do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.GenericKey do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :descriptor_value, 1, type: :string, json_name: "descriptorValue", deprecated: false
-  field :descriptor_key, 2, type: :string, json_name: "descriptorKey"
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.HeaderValueMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :descriptor_value, 1, type: :string, json_name: "descriptorValue", deprecated: false
-  field :expect_match, 2, type: :bool, json_name: "expectMatch"
-  field :headers, 3, repeated: true, type: Envoy.Config.Route.V3.HeaderMatcher, deprecated: false
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.MetaData do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :descriptor_key, 1, type: :string, json_name: "descriptorKey", deprecated: false
-
-  field :metadata_key, 2,
-    type: Envoy.Type.Metadata.V3.MetadataKey,
-    json_name: "metadataKey",
-    deprecated: false
-
-  field :default_value, 3, type: :string, json_name: "defaultValue"
-
-  field :source, 4,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.MetaData.Source,
-    enum: true,
-    deprecated: false
-
-  field :skip_if_absent, 5, type: :bool, json_name: "skipIfAbsent"
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  oneof :action_specifier, 0
-
-  field :source_cluster, 1,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.SourceCluster,
-    json_name: "sourceCluster",
-    oneof: 0
-
-  field :destination_cluster, 2,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.DestinationCluster,
-    json_name: "destinationCluster",
-    oneof: 0
-
-  field :request_headers, 3,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.RequestHeaders,
-    json_name: "requestHeaders",
-    oneof: 0
-
-  field :remote_address, 4,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.RemoteAddress,
-    json_name: "remoteAddress",
-    oneof: 0
-
-  field :generic_key, 5,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.GenericKey,
-    json_name: "genericKey",
-    oneof: 0
-
-  field :header_value_match, 6,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.HeaderValueMatch,
-    json_name: "headerValueMatch",
-    oneof: 0
-
-  field :metadata, 8,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action.MetaData,
-    oneof: 0
-
-  field :extension, 9, type: Envoy.Config.Core.V3.TypedExtensionConfig, oneof: 0
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Override.DynamicMetadata do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :metadata_key, 1,
-    type: Envoy.Type.Metadata.V3.MetadataKey,
-    json_name: "metadataKey",
-    deprecated: false
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Override do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  oneof :override_specifier, 0
-
-  field :dynamic_metadata, 1,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Override.DynamicMetadata,
-    json_name: "dynamicMetadata",
-    oneof: 0
-end
-
-defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :stage, 1, type: :uint32, deprecated: false
-  field :disable_key, 2, type: :string, json_name: "disableKey"
-
-  field :actions, 3,
-    repeated: true,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Action,
-    deprecated: false
-
-  field :limit, 4, type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig.Override
-end
-
 defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vh_rate_limits, 1,
     type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute.VhRateLimitsOptions,
@@ -217,7 +101,7 @@ defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute do
 
   field :rate_limits, 3,
     repeated: true,
-    type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitConfig,
+    type: Envoy.Config.Route.V3.RateLimit,
     json_name: "rateLimits"
 
   field :domain, 4, type: :string

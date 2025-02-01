@@ -1,5 +1,9 @@
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.HeaderSendMode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Control how headers and trailers are handled
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :SEND, 1
@@ -7,16 +11,47 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.HeaderSendMode
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.BodySendMode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Control how the request and response bodies are handled
+  When body mutation by external processor is enabled, ext_proc filter will always remove
+  the content length header in four cases below because content length can not be guaranteed
+  to be set correctly:
+  1) STREAMED BodySendMode: header processing completes before body mutation comes back.
+  2) BUFFERED_PARTIAL BodySendMode: body is buffered and could be injected in different phases.
+  3) BUFFERED BodySendMode + SKIP HeaderSendMode: header processing (e.g., update content-length) is skipped.
+  4) FULL_DUPLEX_STREAMED BodySendMode: header processing completes before body mutation comes back.
+
+  In Envoy's http1 codec implementation, removing content length will enable chunked transfer
+  encoding whenever feasible. The recipient (either client or server) must be able
+  to parse and decode the chunked transfer coding.
+  (see `details in RFC9112 <https://tools.ietf.org/html/rfc9112#section-7.1>`_).
+
+  In BUFFERED BodySendMode + SEND HeaderSendMode, content length header is allowed but it is
+  external processor's responsibility to set the content length correctly matched to the length
+  of mutated body. If they don't match, the corresponding body mutation will be rejected and
+  local reply will be sent with an error message.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NONE, 0
   field :STREAMED, 1
   field :BUFFERED, 2
   field :BUFFERED_PARTIAL, 3
+  field :FULL_DUPLEX_STREAMED, 4
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  [#protodoc-title: External Processing Filter]
+  External Processing Filter Processing Mode
+  [#extension: envoy.filters.http.ext_proc]
+  This configuration describes which parts of an HTTP request and
+  response are sent to a remote server and how they are delivered.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :request_header_mode, 1,
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.HeaderSendMode,

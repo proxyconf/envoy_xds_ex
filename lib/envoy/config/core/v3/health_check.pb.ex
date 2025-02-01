@@ -1,5 +1,13 @@
 defmodule Envoy.Config.Core.V3.HealthStatus do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Endpoint health status.
+  [#protodoc-title: Health check]
+  * Health checking :ref:`architecture overview <arch_overview_health_checking>`.
+  * If health checking is configured for a cluster, additional statistics are emitted. They are
+  documented :ref:`here <config_cluster_manager_cluster_stats>`.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :HEALTHY, 1
@@ -10,7 +18,7 @@ defmodule Envoy.Config.Core.V3.HealthStatus do
 end
 
 defmodule Envoy.Config.Core.V3.HealthStatusSet do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :statuses, 1,
     repeated: true,
@@ -20,7 +28,11 @@ defmodule Envoy.Config.Core.V3.HealthStatusSet do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.Payload do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Describes the encoding of the payload bytes in the payload.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :payload, 0
 
@@ -29,7 +41,11 @@ defmodule Envoy.Config.Core.V3.HealthCheck.Payload do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.HttpHealthCheck do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 15]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :host, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -77,7 +93,7 @@ defmodule Envoy.Config.Core.V3.HealthCheck.HttpHealthCheck do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.TcpHealthCheck do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :send, 1, type: Envoy.Config.Core.V3.HealthCheck.Payload
   field :receive, 2, repeated: true, type: Envoy.Config.Core.V3.HealthCheck.Payload
@@ -88,13 +104,20 @@ defmodule Envoy.Config.Core.V3.HealthCheck.TcpHealthCheck do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.RedisHealthCheck do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.GrpcHealthCheck do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  `grpc.health.v1.Health
+  <https://github.com/grpc/grpc/blob/master/src/proto/grpc/health/v1/health.proto>`_-based
+  healthcheck. See `gRPC doc <https://github.com/grpc/grpc/blob/master/doc/health-checking.md>`_
+  for details.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :authority, 2, type: :string, deprecated: false
@@ -107,7 +130,11 @@ defmodule Envoy.Config.Core.V3.HealthCheck.GrpcHealthCheck do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.CustomHealthCheck do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Custom health check.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -116,13 +143,24 @@ defmodule Envoy.Config.Core.V3.HealthCheck.CustomHealthCheck do
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck.TlsOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Health checks occur over the transport socket specified for the cluster. This implies that if a
+  cluster is using a TLS-enabled transport socket, the health check will also occur over TLS.
+
+  This allows overriding the cluster TLS settings, just for health check connections.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :alpn_protocols, 1, repeated: true, type: :string, json_name: "alpnProtocols"
 end
 
 defmodule Envoy.Config.Core.V3.HealthCheck do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 27]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :health_checker, 0
 

@@ -1,5 +1,10 @@
 defmodule Envoy.Config.Ratelimit.V3.RateLimitServiceConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Rate limit :ref:`configuration overview <config_rate_limit_service>`.
+  [#protodoc-title: Rate limit service]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :grpc_service, 2,
     type: Envoy.Config.Core.V3.GrpcService,

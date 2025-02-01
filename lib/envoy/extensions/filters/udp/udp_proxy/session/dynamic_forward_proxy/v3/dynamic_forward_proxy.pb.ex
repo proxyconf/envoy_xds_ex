@@ -1,5 +1,9 @@
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.Session.DynamicForwardProxy.V3.FilterConfig.BufferOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for UDP datagrams buffering.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_buffered_datagrams, 1,
     type: Google.Protobuf.UInt32Value,
@@ -9,7 +13,17 @@ defmodule Envoy.Extensions.Filters.Udp.UdpProxy.Session.DynamicForwardProxy.V3.F
 end
 
 defmodule Envoy.Extensions.Filters.Udp.UdpProxy.Session.DynamicForwardProxy.V3.FilterConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the filter state based dynamic forward proxy filter. See the
+  :ref:`architecture overview <arch_overview_http_dynamic_forward_proxy>` for
+  more information. Note this filter must be used in conjunction to another filter that
+  sets the 'envoy.upstream.dynamic_host' and the 'envoy.upstream.dynamic_port' filter
+  state keys for the required upstream UDP session.
+  [#extension: envoy.filters.udp.session.dynamic_forward_proxy]
+  [#protodoc-title: Filter state dynamic forward proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :implementation_specifier, 0
 

@@ -1,5 +1,5 @@
 defmodule Envoy.Admin.V3.ServerInfo.State do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LIVE, 0
   field :DRAINING, 1
@@ -8,14 +8,14 @@ defmodule Envoy.Admin.V3.ServerInfo.State do
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.IpVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :v4, 0
   field :v6, 1
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.Mode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :Serve, 0
   field :Validate, 1
@@ -23,14 +23,21 @@ defmodule Envoy.Admin.V3.CommandLineOptions.Mode do
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.DrainStrategy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :Gradual, 0
   field :Immediate, 1
 end
 
 defmodule Envoy.Admin.V3.ServerInfo do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Proto representation of the value returned by /server_info, containing
+  server version/server status information.
+  [#next-free-field: 8]
+  [#protodoc-title: Server state]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :state, 2, type: Envoy.Admin.V3.ServerInfo.State, enum: true
@@ -46,7 +53,11 @@ defmodule Envoy.Admin.V3.ServerInfo do
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 42]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :base_id, 1, type: :uint64, json_name: "baseId"
   field :use_dynamic_base_id, 31, type: :bool, json_name: "useDynamicBaseId"
@@ -59,6 +70,7 @@ defmodule Envoy.Admin.V3.CommandLineOptions do
   field :allow_unknown_static_fields, 5, type: :bool, json_name: "allowUnknownStaticFields"
   field :reject_unknown_dynamic_fields, 26, type: :bool, json_name: "rejectUnknownDynamicFields"
   field :ignore_unknown_dynamic_fields, 30, type: :bool, json_name: "ignoreUnknownDynamicFields"
+  field :skip_deprecated_logs, 41, type: :bool, json_name: "skipDeprecatedLogs"
   field :admin_address_path, 6, type: :string, json_name: "adminAddressPath"
 
   field :local_address_ip_version, 7,

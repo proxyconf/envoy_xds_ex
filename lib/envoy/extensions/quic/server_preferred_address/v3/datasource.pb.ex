@@ -1,5 +1,9 @@
 defmodule Envoy.Extensions.Quic.ServerPreferredAddress.V3.DataSourceServerPreferredAddressConfig.AddressFamilyConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Addresses for server preferred address for a single address family (IPv4 or IPv6).
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.DataSource, deprecated: false
   field :port, 2, type: Envoy.Config.Core.V3.DataSource
@@ -7,7 +11,13 @@ defmodule Envoy.Extensions.Quic.ServerPreferredAddress.V3.DataSourceServerPrefer
 end
 
 defmodule Envoy.Extensions.Quic.ServerPreferredAddress.V3.DataSourceServerPreferredAddressConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for DataSourceServerPreferredAddressConfig.
+  [#protodoc-title: QUIC DataSource server preferred address config]
+  [#extension: envoy.quic.server_preferred_address.datasource]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ipv4_config, 1,
     type:

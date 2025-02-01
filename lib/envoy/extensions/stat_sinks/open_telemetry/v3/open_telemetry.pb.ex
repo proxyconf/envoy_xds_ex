@@ -1,5 +1,12 @@
 defmodule Envoy.Extensions.StatSinks.OpenTelemetry.V3.SinkConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  [#protodoc-title: Open Telemetry Stats Sink]
+  Stats configuration proto schema for ``envoy.stat_sinks.open_telemetry`` sink.
+  [#extension: envoy.stat_sinks.open_telemetry]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :protocol_specifier, 0
 

@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Filter.Http.Gzip.V2.Gzip.CompressionStrategy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :FILTERED, 1
@@ -8,7 +8,7 @@ defmodule Envoy.Config.Filter.Http.Gzip.V2.Gzip.CompressionStrategy do
 end
 
 defmodule Envoy.Config.Filter.Http.Gzip.V2.Gzip.CompressionLevel.Enum do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :BEST, 1
@@ -16,11 +16,16 @@ defmodule Envoy.Config.Filter.Http.Gzip.V2.Gzip.CompressionLevel.Enum do
 end
 
 defmodule Envoy.Config.Filter.Http.Gzip.V2.Gzip.CompressionLevel do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Filter.Http.Gzip.V2.Gzip do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 11]
+  [#protodoc-title: Gzip]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :memory_level, 1,
     type: Google.Protobuf.UInt32Value,

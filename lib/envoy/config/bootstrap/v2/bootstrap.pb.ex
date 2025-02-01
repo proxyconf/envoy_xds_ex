@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Bootstrap.V2.Bootstrap.StaticResources do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :listeners, 1, repeated: true, type: Envoy.Api.V2.Listener
   field :clusters, 2, repeated: true, type: Envoy.Api.V2.Cluster
@@ -7,7 +7,7 @@ defmodule Envoy.Config.Bootstrap.V2.Bootstrap.StaticResources do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.Bootstrap.DynamicResources do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :lds_config, 1, type: Envoy.Api.V2.Core.ConfigSource, json_name: "ldsConfig"
   field :cds_config, 2, type: Envoy.Api.V2.Core.ConfigSource, json_name: "cdsConfig"
@@ -15,7 +15,16 @@ defmodule Envoy.Config.Bootstrap.V2.Bootstrap.DynamicResources do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.Bootstrap do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Bootstrap :ref:`configuration overview <config_overview_bootstrap>`.
+  [#next-free-field: 21]
+  [#protodoc-title: Bootstrap]
+  This proto is supplied via the :option:`-c` CLI flag and acts as the root
+  of the Envoy v2 configuration. See the :ref:`v2 configuration overview
+  <config_overview_bootstrap>` for more detail.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :node, 1, type: Envoy.Api.V2.Core.Node
 
@@ -71,7 +80,12 @@ defmodule Envoy.Config.Bootstrap.V2.Bootstrap do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.Admin do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Administration interface :ref:`operations documentation
+  <operations_admin_interface>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :access_log_path, 1, type: :string, json_name: "accessLogPath"
   field :profile_path, 2, type: :string, json_name: "profilePath"
@@ -84,14 +98,18 @@ defmodule Envoy.Config.Bootstrap.V2.Admin do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.ClusterManager.OutlierDetection do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :event_log_path, 1, type: :string, json_name: "eventLogPath"
   field :event_service, 2, type: Envoy.Api.V2.Core.EventServiceConfig, json_name: "eventService"
 end
 
 defmodule Envoy.Config.Bootstrap.V2.ClusterManager do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Cluster manager :ref:`architecture overview <arch_overview_cluster_manager>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :local_cluster_name, 1, type: :string, json_name: "localClusterName"
 
@@ -109,7 +127,13 @@ defmodule Envoy.Config.Bootstrap.V2.ClusterManager do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.Watchdog do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Envoy process watchdog configuration. When configured, this monitors for
+  nonresponsive threads and kills the process after the configured thresholds.
+  See the :ref:`watchdog documentation <operations_performance_watchdog>` for more information.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :miss_timeout, 1, type: Google.Protobuf.Duration, json_name: "missTimeout"
   field :megamiss_timeout, 2, type: Google.Protobuf.Duration, json_name: "megamissTimeout"
@@ -118,7 +142,11 @@ defmodule Envoy.Config.Bootstrap.V2.Watchdog do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.Runtime do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Runtime :ref:`configuration overview <config_runtime>` (deprecated).
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :symlink_root, 1, type: :string, json_name: "symlinkRoot"
   field :subdirectory, 2, type: :string
@@ -127,7 +155,11 @@ defmodule Envoy.Config.Bootstrap.V2.Runtime do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer.DiskLayer do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  :ref:`Disk runtime <config_runtime_local_disk>` layer.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :symlink_root, 1, type: :string, json_name: "symlinkRoot"
   field :subdirectory, 3, type: :string
@@ -135,18 +167,30 @@ defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer.DiskLayer do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer.AdminLayer do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  :ref:`Admin console runtime <config_runtime_admin>` layer.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer.RtdsLayer do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  :ref:`Runtime Discovery Service (RTDS) <config_runtime_rtds>` layer.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :rtds_config, 2, type: Envoy.Api.V2.Core.ConfigSource, json_name: "rtdsConfig"
 end
 
 defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :layer_specifier, 0
 
@@ -170,7 +214,11 @@ defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.LayeredRuntime do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Runtime :ref:`configuration overview <config_runtime>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :layers, 1, repeated: true, type: Envoy.Config.Bootstrap.V2.RuntimeLayer
 end

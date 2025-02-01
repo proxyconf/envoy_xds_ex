@@ -1,5 +1,13 @@
 defmodule Envoy.Config.Overload.V2alpha.ResourceMonitor do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Overload Manager]
+  The Overload Manager provides an extensible framework to protect Envoy instances
+  from overload of various resources (memory, cpu, file descriptors, etc).
+  It monitors a configurable set of resources and notifies registered listeners
+  when triggers related to those resources fire.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -9,13 +17,13 @@ defmodule Envoy.Config.Overload.V2alpha.ResourceMonitor do
 end
 
 defmodule Envoy.Config.Overload.V2alpha.ThresholdTrigger do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
 end
 
 defmodule Envoy.Config.Overload.V2alpha.Trigger do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :trigger_oneof, 0
 
@@ -24,7 +32,7 @@ defmodule Envoy.Config.Overload.V2alpha.Trigger do
 end
 
 defmodule Envoy.Config.Overload.V2alpha.OverloadAction do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -35,7 +43,7 @@ defmodule Envoy.Config.Overload.V2alpha.OverloadAction do
 end
 
 defmodule Envoy.Config.Overload.V2alpha.OverloadManager do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :refresh_interval, 1, type: Google.Protobuf.Duration, json_name: "refreshInterval"
 

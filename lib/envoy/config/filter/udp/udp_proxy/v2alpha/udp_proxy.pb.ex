@@ -1,5 +1,12 @@
 defmodule Envoy.Config.Filter.Udp.UdpProxy.V2alpha.UdpProxyConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the UDP proxy filter.
+  [#protodoc-title: UDP proxy]
+  UDP proxy :ref:`configuration overview <config_udp_listener_filters_udp_proxy>`.
+  [#extension: envoy.filters.udp_listener.udp_proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :route_specifier, 0
 

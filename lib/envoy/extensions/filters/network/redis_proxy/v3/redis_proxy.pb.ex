@@ -1,5 +1,12 @@
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.ConnPoolSettings.ReadPolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  ReadPolicy controls how Envoy routes read commands to Redis nodes. This is currently
+  supported for Redis Cluster. All ReadPolicy settings except MASTER may return stale data
+  because replication is asynchronous and requires some delay. You need to ensure that your
+  application can tolerate stale data.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MASTER, 0
   field :PREFER_MASTER, 1
@@ -9,14 +16,19 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.ConnPoolSett
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.RedisFault.RedisFaultType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DELAY, 0
   field :ERROR, 1
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.ConnPoolSettings do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Redis connection pool settings.
+  [#next-free-field: 11]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :op_timeout, 1, type: Google.Protobuf.Duration, json_name: "opTimeout", deprecated: false
   field :enable_hashtagging, 2, type: :bool, json_name: "enableHashtagging"
@@ -47,7 +59,14 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.ConnPoolSett
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The router is capable of shadowing traffic from one cluster to another. The current
+  implementation is "fire and forget," meaning Envoy will not wait for the shadow cluster to
+  respond before returning the response from the primary cluster. All normal statistics are
+  collected for the shadow cluster making this feature useful for testing.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
 
@@ -59,13 +78,21 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.PrefixRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.PrefixRoutes.Route.ReadCommandPolicy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  ReadCommandPolicy specifies that Envoy should route read commands to another cluster.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.PrefixRoutes.Route do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :prefix, 1, type: :string, deprecated: false
   field :remove_prefix, 2, type: :bool, json_name: "removePrefix"
@@ -86,7 +113,7 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.PrefixRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.PrefixRoutes do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :routes, 1,
     repeated: true,
@@ -100,7 +127,11 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.PrefixRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.RedisFault do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  RedisFault defines faults used for fault injection.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :fault_type, 1,
     type: Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.RedisFault.RedisFaultType,
@@ -118,7 +149,12 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.RedisFault d
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.ConnectionRateLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration to limit reconnection rate to redis server to protect redis server
+  from client reconnection storm.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :connection_rate_limit_per_sec, 1,
     type: :uint32,
@@ -127,7 +163,14 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy.ConnectionRa
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 11]
+  [#protodoc-title: Redis Proxy]
+  Redis Proxy :ref:`configuration overview <config_network_filters_redis_proxy>`.
+  [#extension: envoy.filters.network.redis_proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
 
@@ -167,7 +210,13 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProxy do
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  RedisProtocolOptions specifies Redis upstream protocol options. This object is used in
+  :ref:`typed_extension_protocol_options<envoy_v3_api_field_config.cluster.v3.Cluster.typed_extension_protocol_options>`,
+  keyed by the name ``envoy.filters.network.redis_proxy``.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :auth_password, 1,
     type: Envoy.Config.Core.V3.DataSource,
@@ -181,7 +230,17 @@ defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisProtocolOptions do
 end
 
 defmodule Envoy.Extensions.Filters.Network.RedisProxy.V3.RedisExternalAuthProvider do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  RedisExternalAuthProvider specifies a gRPC service that can be used to authenticate Redis clients.
+  This service will be called every time an AUTH command is received from a client.
+  If the service returns an error, authentication is considered failed.
+  If the service returns a success, the client is considered authenticated.
+  The service can also return an expiration timestamp, which will be used to disable any further
+  commands from the client after it passes, unless a new AUTH command is received and the
+  external auth service returns a new expiration timestamp.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :grpc_service, 1, type: Envoy.Config.Core.V3.GrpcService, json_name: "grpcService"
   field :enable_auth_expiration, 2, type: :bool, json_name: "enableAuthExpiration"

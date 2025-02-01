@@ -1,9 +1,22 @@
 defmodule Envoy.Extensions.Filters.Http.Fault.V3.FaultAbort.HeaderAbort do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Fault aborts are controlled via an HTTP header (if applicable). See the
+  :ref:`HTTP fault filter <config_http_filters_fault_injection_http_header>` documentation for
+  more information.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.Fault.V3.FaultAbort do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  [#protodoc-title: Fault Injection]
+  Fault Injection :ref:`configuration overview <config_http_filters_fault_injection>`.
+  [#extension: envoy.filters.http.fault]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :error_type, 0
 
@@ -19,7 +32,11 @@ defmodule Envoy.Extensions.Filters.Http.Fault.V3.FaultAbort do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Fault.V3.HTTPFault do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 17]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :delay, 1, type: Envoy.Extensions.Filters.Common.Fault.V3.FaultDelay
   field :abort, 2, type: Envoy.Extensions.Filters.Http.Fault.V3.FaultAbort

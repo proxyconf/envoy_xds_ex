@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Compression.Brotli.Compressor.V3.Brotli.EncoderMode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :GENERIC, 1
@@ -8,7 +8,13 @@ defmodule Envoy.Extensions.Compression.Brotli.Compressor.V3.Brotli.EncoderMode d
 end
 
 defmodule Envoy.Extensions.Compression.Brotli.Compressor.V3.Brotli do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  [#protodoc-title: Brotli Compressor]
+  [#extension: envoy.compression.brotli.compressor]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :quality, 1, type: Google.Protobuf.UInt32Value, deprecated: false
 

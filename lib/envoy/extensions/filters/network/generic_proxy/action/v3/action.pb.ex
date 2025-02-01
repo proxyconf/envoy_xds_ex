@@ -1,12 +1,18 @@
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.Action.V3.RouteAction.PerFilterConfigEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
 end
 
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.Action.V3.RouteAction do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the route match action.
+  [#next-free-field: 8]
+  [#protodoc-title: Generic Proxy Route Action Configuration]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :cluster_specifier, 0
 

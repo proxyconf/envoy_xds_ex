@@ -1,6 +1,5 @@
 defmodule Xds.Annotations.V3.PbExtension do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0"
 
   extend Google.Protobuf.FileOptions, :file_status, 226_829_418,
     optional: true,

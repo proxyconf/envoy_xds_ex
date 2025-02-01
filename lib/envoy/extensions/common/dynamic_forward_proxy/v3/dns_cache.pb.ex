@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Common.DynamicForwardProxy.V3.DnsCacheCircuitBreakers do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration of circuit breakers for resolver.
+  [#protodoc-title: Dynamic forward proxy common configuration]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_pending_requests, 1,
     type: Google.Protobuf.UInt32Value,
@@ -7,7 +12,13 @@ defmodule Envoy.Extensions.Common.DynamicForwardProxy.V3.DnsCacheCircuitBreakers
 end
 
 defmodule Envoy.Extensions.Common.DynamicForwardProxy.V3.DnsCacheConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the dynamic forward proxy DNS cache. See the :ref:`architecture overview
+  <arch_overview_http_dynamic_forward_proxy>` for more information.
+  [#next-free-field: 16]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -29,6 +40,7 @@ defmodule Envoy.Extensions.Common.DynamicForwardProxy.V3.DnsCacheConfig do
 
   field :host_ttl, 4, type: Google.Protobuf.Duration, json_name: "hostTtl", deprecated: false
   field :max_hosts, 5, type: Google.Protobuf.UInt32Value, json_name: "maxHosts", deprecated: false
+  field :disable_dns_refresh_on_failure, 15, type: :bool, json_name: "disableDnsRefreshOnFailure"
 
   field :dns_failure_refresh_rate, 6,
     type: Envoy.Config.Cluster.V3.Cluster.RefreshRate,

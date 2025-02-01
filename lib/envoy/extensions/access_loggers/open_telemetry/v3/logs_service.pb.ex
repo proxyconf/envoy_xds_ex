@@ -1,5 +1,15 @@
 defmodule Envoy.Extensions.AccessLoggers.OpenTelemetry.V3.OpenTelemetryAccessLogConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the built-in ``envoy.access_loggers.open_telemetry``
+  :ref:`AccessLog <envoy_v3_api_msg_config.accesslog.v3.AccessLog>`. This configuration will
+  populate `opentelemetry.proto.collector.v1.logs.ExportLogsServiceRequest.resource_logs <https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/collector/logs/v1/logs_service.proto>`_.
+  In addition, the request start time is set in the dedicated field.
+  [#extension: envoy.access_loggers.open_telemetry]
+  [#next-free-field: 8]
+  [#protodoc-title: OpenTelemetry (gRPC) Access Log]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.AccessLoggers.Grpc.V3.CommonGrpcAccessLogConfig,

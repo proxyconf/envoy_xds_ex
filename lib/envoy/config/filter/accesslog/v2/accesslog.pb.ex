@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Filter.Accesslog.V2.ComparisonFilter.Op do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :EQ, 0
   field :GE, 1
@@ -7,7 +7,7 @@ defmodule Envoy.Config.Filter.Accesslog.V2.ComparisonFilter.Op do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.GrpcStatusFilter.Status do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OK, 0
   field :CANCELED, 1
@@ -29,7 +29,11 @@ defmodule Envoy.Config.Filter.Accesslog.V2.GrpcStatusFilter.Status do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.AccessLog do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Common access log types]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -40,7 +44,11 @@ defmodule Envoy.Config.Filter.Accesslog.V2.AccessLog do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.AccessLogFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 12]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :filter_specifier, 0
 
@@ -101,7 +109,11 @@ defmodule Envoy.Config.Filter.Accesslog.V2.AccessLogFilter do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.ComparisonFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filter on an integer comparison.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :op, 1,
     type: Envoy.Config.Filter.Accesslog.V2.ComparisonFilter.Op,
@@ -112,27 +124,49 @@ defmodule Envoy.Config.Filter.Accesslog.V2.ComparisonFilter do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.StatusCodeFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filters on HTTP response/status code.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :comparison, 1, type: Envoy.Config.Filter.Accesslog.V2.ComparisonFilter, deprecated: false
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.DurationFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filters on total request duration in milliseconds.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :comparison, 1, type: Envoy.Config.Filter.Accesslog.V2.ComparisonFilter, deprecated: false
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.NotHealthCheckFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filters for requests that are not health check requests. A health check
+  request is marked by the health check filter.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.TraceableFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filters for requests that are traceable. See the tracing overview for more
+  information on how a request becomes traceable.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.RuntimeFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filters for random sampling of requests.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :runtime_key, 1, type: :string, json_name: "runtimeKey", deprecated: false
   field :percent_sampled, 2, type: Envoy.Type.FractionalPercent, json_name: "percentSampled"
@@ -140,7 +174,13 @@ defmodule Envoy.Config.Filter.Accesslog.V2.RuntimeFilter do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.AndFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Performs a logical “and” operation on the result of each filter in filters.
+  Filters are evaluated sequentially and if one of them returns false, the
+  filter returns false immediately.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :filters, 1,
     repeated: true,
@@ -149,7 +189,13 @@ defmodule Envoy.Config.Filter.Accesslog.V2.AndFilter do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.OrFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Performs a logical “or” operation on the result of each individual filter.
+  Filters are evaluated sequentially and if one of them returns true, the
+  filter returns true immediately.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :filters, 2,
     repeated: true,
@@ -158,19 +204,34 @@ defmodule Envoy.Config.Filter.Accesslog.V2.OrFilter do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.HeaderFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filters requests based on the presence or value of a request header.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :header, 1, type: Envoy.Api.V2.Route.HeaderMatcher, deprecated: false
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.ResponseFlagFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filters requests that received responses with an Envoy response flag set.
+  A list of the response flags can be found
+  in the access log formatter :ref:`documentation<config_access_log_format_response_flags>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :flags, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.GrpcStatusFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Filters gRPC requests based on their response status. If a gRPC status is not provided, the
+  filter will infer the status from the HTTP status code.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :statuses, 1,
     repeated: true,
@@ -182,7 +243,11 @@ defmodule Envoy.Config.Filter.Accesslog.V2.GrpcStatusFilter do
 end
 
 defmodule Envoy.Config.Filter.Accesslog.V2.ExtensionFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Extension filter is statically registered at runtime.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config_type, 0
 

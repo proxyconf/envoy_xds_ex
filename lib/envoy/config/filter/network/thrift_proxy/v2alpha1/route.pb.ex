@@ -1,12 +1,17 @@
 defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.RouteConfiguration do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Thrift Proxy Route Configuration]
+  Thrift Proxy :ref:`configuration overview <config_network_filters_thrift_proxy>`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :routes, 2, repeated: true, type: Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.Route
 end
 
 defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.Route do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :match, 1,
     type: Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.RouteMatch,
@@ -18,7 +23,7 @@ defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.Route do
 end
 
 defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.RouteMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :match_specifier, 0
 
@@ -29,7 +34,11 @@ defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.RouteMatch do
 end
 
 defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.RouteAction do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :cluster_specifier, 0
 
@@ -52,7 +61,7 @@ defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.RouteAction do
 end
 
 defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.WeightedCluster.ClusterWeight do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :weight, 2, type: Google.Protobuf.UInt32Value, deprecated: false
@@ -60,7 +69,13 @@ defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.WeightedCluster.Clust
 end
 
 defmodule Envoy.Config.Filter.Network.ThriftProxy.V2alpha1.WeightedCluster do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Allows for specification of multiple upstream clusters along with weights that indicate the
+  percentage of traffic to be forwarded to each cluster. The router selects an upstream cluster
+  based on these weights.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :clusters, 1,
     repeated: true,

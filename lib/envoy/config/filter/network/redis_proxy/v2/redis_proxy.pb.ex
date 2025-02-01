@@ -1,5 +1,12 @@
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.ConnPoolSettings.ReadPolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  ReadPolicy controls how Envoy routes read commands to Redis nodes. This is currently
+  supported for Redis Cluster. All ReadPolicy settings except MASTER may return stale data
+  because replication is asynchronous and requires some delay. You need to ensure that your
+  application can tolerate stale data.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MASTER, 0
   field :PREFER_MASTER, 1
@@ -9,7 +16,12 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.ConnPoolSettings.
 end
 
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.ConnPoolSettings do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Redis connection pool settings.
+  [#next-free-field: 9]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :op_timeout, 1, type: Google.Protobuf.Duration, json_name: "opTimeout", deprecated: false
   field :enable_hashtagging, 2, type: :bool, json_name: "enableHashtagging"
@@ -31,7 +43,14 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.ConnPoolSettings 
 end
 
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The router is capable of shadowing traffic from one cluster to another. The current
+  implementation is "fire and forget," meaning Envoy will not wait for the shadow cluster to
+  respond before returning the response from the primary cluster. All normal statistics are
+  collected for the shadow cluster making this feature useful for testing.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
 
@@ -43,7 +62,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes.Rout
 end
 
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes.Route do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :prefix, 1, type: :string
   field :remove_prefix, 2, type: :bool, json_name: "removePrefix"
@@ -57,7 +76,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes.Rout
 end
 
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :routes, 1,
     repeated: true,
@@ -72,7 +91,14 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes do
 end
 
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  [#protodoc-title: Redis Proxy]
+  Redis Proxy :ref:`configuration overview <config_network_filters_redis_proxy>`.
+  [#extension: envoy.filters.network.redis_proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :cluster, 2, type: :string, deprecated: true
@@ -94,7 +120,13 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy do
 end
 
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  RedisProtocolOptions specifies Redis upstream protocol options. This object is used in
+  :ref:`typed_extension_protocol_options<envoy_api_field_Cluster.typed_extension_protocol_options>`,
+  keyed by the name `envoy.filters.network.redis_proxy`.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :auth_password, 1,
     type: Envoy.Api.V2.Core.DataSource,

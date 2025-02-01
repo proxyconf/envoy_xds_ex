@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.SuccessCriteria.HttpCriteria do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :http_success_status, 1,
     repeated: true,
@@ -9,7 +9,7 @@ defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.Suc
 end
 
 defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.SuccessCriteria.GrpcCriteria do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :grpc_success_status, 1,
     repeated: true,
@@ -19,7 +19,13 @@ defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.Suc
 end
 
 defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.SuccessCriteria do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Default method of specifying what constitutes a successful request. All status codes that
+  indicate a successful request must be explicitly specified if not relying on the default
+  values.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :http_criteria, 1,
     type:
@@ -33,7 +39,13 @@ defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.Suc
 end
 
 defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 8]
+  [#protodoc-title: Admission Control]
+  [#extension: envoy.filters.http.admission_control]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :evaluation_criteria, 0
 

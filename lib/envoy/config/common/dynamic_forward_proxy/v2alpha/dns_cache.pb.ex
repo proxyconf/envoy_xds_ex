@@ -1,5 +1,12 @@
 defmodule Envoy.Config.Common.DynamicForwardProxy.V2alpha.DnsCacheConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the dynamic forward proxy DNS cache. See the :ref:`architecture overview
+  <arch_overview_http_dynamic_forward_proxy>` for more information.
+  [#next-free-field: 7]
+  [#protodoc-title: Dynamic forward proxy common configuration]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

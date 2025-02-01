@@ -1,11 +1,22 @@
 defmodule Envoy.Config.Core.V3.JsonFormatOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Optional configuration options to be used with json_format.
+  [#protodoc-title: Substitution format string]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sort_properties, 1, type: :bool, json_name: "sortProperties"
 end
 
 defmodule Envoy.Config.Core.V3.SubstitutionFormatString do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration to use multiple :ref:`command operators <config_access_log_command_operators>`
+  to generate a new string in either plain text or JSON format.
+  [#next-free-field: 8]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :format, 0
 

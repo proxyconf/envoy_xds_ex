@@ -1,5 +1,13 @@
 defmodule Envoy.Api.V2.Core.HttpProtocolOptions.HeadersWithUnderscoresAction do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Action to take when Envoy receives client request with header names containing underscore
+  characters.
+  Underscore character is allowed in header names by the RFC-7230 and this behavior is implemented
+  as a security measure due to systems that treat '_' and '-' as interchangeable. Envoy by default allows client request headers with underscore
+  characters.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ALLOW, 0
   field :REJECT_REQUEST, 1
@@ -7,18 +15,27 @@ defmodule Envoy.Api.V2.Core.HttpProtocolOptions.HeadersWithUnderscoresAction do
 end
 
 defmodule Envoy.Api.V2.Core.TcpProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:]
+  [#protodoc-title: Protocol options]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Api.V2.Core.UpstreamHttpProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :auto_sni, 1, type: :bool, json_name: "autoSni"
   field :auto_san_validation, 2, type: :bool, json_name: "autoSanValidation"
 end
 
 defmodule Envoy.Api.V2.Core.HttpProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :idle_timeout, 1, type: Google.Protobuf.Duration, json_name: "idleTimeout"
 
@@ -40,11 +57,11 @@ defmodule Envoy.Api.V2.Core.HttpProtocolOptions do
 end
 
 defmodule Envoy.Api.V2.Core.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Api.V2.Core.Http1ProtocolOptions.HeaderKeyFormat do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :header_format, 0
 
@@ -55,7 +72,11 @@ defmodule Envoy.Api.V2.Core.Http1ProtocolOptions.HeaderKeyFormat do
 end
 
 defmodule Envoy.Api.V2.Core.Http1ProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :allow_absolute_url, 1, type: Google.Protobuf.BoolValue, json_name: "allowAbsoluteUrl"
   field :accept_http_10, 2, type: :bool, json_name: "acceptHttp10"
@@ -69,14 +90,23 @@ defmodule Envoy.Api.V2.Core.Http1ProtocolOptions do
 end
 
 defmodule Envoy.Api.V2.Core.Http2ProtocolOptions.SettingsParameter do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Defines a parameter to be sent in the SETTINGS frame.
+  See `RFC7540, sec. 6.5.1 <https://tools.ietf.org/html/rfc7540#section-6.5.1>`_ for details.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :identifier, 1, type: Google.Protobuf.UInt32Value, deprecated: false
   field :value, 2, type: Google.Protobuf.UInt32Value, deprecated: false
 end
 
 defmodule Envoy.Api.V2.Core.Http2ProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 14]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :hpack_table_size, 1, type: Google.Protobuf.UInt32Value, json_name: "hpackTableSize"
 
@@ -132,7 +162,11 @@ defmodule Envoy.Api.V2.Core.Http2ProtocolOptions do
 end
 
 defmodule Envoy.Api.V2.Core.GrpcProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :http2_protocol_options, 1,
     type: Envoy.Api.V2.Core.Http2ProtocolOptions,

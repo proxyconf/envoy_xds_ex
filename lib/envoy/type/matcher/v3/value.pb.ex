@@ -1,9 +1,20 @@
 defmodule Envoy.Type.Matcher.V3.ValueMatcher.NullMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  NullMatch is an empty message to specify a null value.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Type.Matcher.V3.ValueMatcher do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies the way to match a ProtobufWkt::Value. Primitive values and ListValue are supported.
+  StructValue is not supported and is always not matched.
+  [#next-free-field: 8]
+  [#protodoc-title: Value matcher]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :match_pattern, 0
 
@@ -29,7 +40,11 @@ defmodule Envoy.Type.Matcher.V3.ValueMatcher do
 end
 
 defmodule Envoy.Type.Matcher.V3.ListMatcher do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies the way to match a list value.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :match_pattern, 0
 
@@ -37,7 +52,11 @@ defmodule Envoy.Type.Matcher.V3.ListMatcher do
 end
 
 defmodule Envoy.Type.Matcher.V3.OrMatcher do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifies a list of alternatives for the match.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value_matchers, 1,
     repeated: true,

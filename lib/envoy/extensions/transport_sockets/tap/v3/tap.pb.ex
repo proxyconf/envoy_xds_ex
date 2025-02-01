@@ -1,5 +1,12 @@
 defmodule Envoy.Extensions.TransportSockets.Tap.V3.Tap do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for tap transport socket. This wraps another transport socket, providing the
+  ability to interpose and record in plain text any traffic that is surfaced to Envoy.
+  [#protodoc-title: Tap]
+  [#extension: envoy.transport_sockets.tap]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.Common.Tap.V3.CommonExtensionConfig,

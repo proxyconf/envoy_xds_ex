@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.WeightedCluster.ClusterWeight do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :weight, 2, type: :uint32, deprecated: false
@@ -7,7 +7,13 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.WeightedCluster.
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.WeightedCluster do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Allows for specification of multiple upstream clusters along with weights
+  that indicate the percentage of traffic to be forwarded to each cluster.
+  The router selects an upstream cluster based on these weights.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :clusters, 1,
     repeated: true,
@@ -16,7 +22,14 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.WeightedCluster 
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TunnelingConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for tunneling TCP over other transports or application layers.
+  Tunneling is supported over both HTTP/1.1 and HTTP/2. Upstream protocol is
+  determined by the cluster configuration.
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :use_post, 2, type: :bool, json_name: "usePost"
@@ -33,7 +46,7 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TunnelingConfig 
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.OnDemand do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :odcds_config, 1, type: Envoy.Config.Core.V3.ConfigSource, json_name: "odcdsConfig"
   field :resources_locator, 2, type: :string, json_name: "resourcesLocator"
@@ -41,7 +54,7 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.OnDemand do
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TcpAccessLogOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :access_log_flush_interval, 1,
     type: Google.Protobuf.Duration,
@@ -52,7 +65,14 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TcpAccessLogOpti
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 19]
+  [#protodoc-title: TCP Proxy]
+  TCP Proxy :ref:`configuration overview <config_network_filters_tcp_proxy>`.
+  [#extension: envoy.filters.network.tcp_proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :cluster_specifier, 0
 
@@ -88,6 +108,10 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy do
     type: Google.Protobuf.UInt32Value,
     json_name: "maxConnectAttempts",
     deprecated: false
+
+  field :backoff_options, 18,
+    type: Envoy.Config.Core.V3.BackoffStrategy,
+    json_name: "backoffOptions"
 
   field :hash_policy, 11,
     repeated: true,

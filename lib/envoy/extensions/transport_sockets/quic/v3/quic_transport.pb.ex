@@ -1,5 +1,11 @@
 defmodule Envoy.Extensions.TransportSockets.Quic.V3.QuicDownstreamTransport do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for Downstream QUIC transport socket. This provides Google's implementation of Google QUIC and IETF QUIC to Envoy.
+  [#protodoc-title: quic transport]
+  [#comment:#extension: envoy.transport_sockets.quic]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :downstream_tls_context, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext,
@@ -10,7 +16,11 @@ defmodule Envoy.Extensions.TransportSockets.Quic.V3.QuicDownstreamTransport do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Quic.V3.QuicUpstreamTransport do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for Upstream QUIC transport socket. This provides Google's implementation of Google QUIC and IETF QUIC to Envoy.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :upstream_tls_context, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.UpstreamTlsContext,

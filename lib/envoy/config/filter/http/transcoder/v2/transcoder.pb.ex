@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Filter.Http.Transcoder.V2.GrpcJsonTranscoder.PrintOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :add_whitespace, 1, type: :bool, json_name: "addWhitespace"
   field :always_print_primitive_fields, 2, type: :bool, json_name: "alwaysPrintPrimitiveFields"
@@ -8,7 +8,14 @@ defmodule Envoy.Config.Filter.Http.Transcoder.V2.GrpcJsonTranscoder.PrintOptions
 end
 
 defmodule Envoy.Config.Filter.Http.Transcoder.V2.GrpcJsonTranscoder do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 10]
+  [#protodoc-title: gRPC-JSON transcoder]
+  gRPC-JSON transcoder :ref:`configuration overview <config_http_filters_grpc_json_transcoder>`.
+  [#extension: envoy.filters.http.grpc_json_transcoder]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :descriptor_set, 0
 

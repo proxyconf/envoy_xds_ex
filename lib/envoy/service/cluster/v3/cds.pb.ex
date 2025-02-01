@@ -1,11 +1,21 @@
 defmodule Envoy.Service.Cluster.V3.CdsDummy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:] Not configuration. Workaround c++ protobuf issue with importing
+  services: https://github.com/google/protobuf/issues/4221 and protoxform to upgrade the file.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Service.Cluster.V3.ClusterDiscoveryService.Service do
+  @moduledoc """
+  Return list of all clusters this proxy will load balance to.
+  [#protodoc-title: CDS]
+  """
+
   use GRPC.Service,
     name: "envoy.service.cluster.v3.ClusterDiscoveryService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :StreamClusters,
       stream(Envoy.Service.Discovery.V3.DiscoveryRequest),

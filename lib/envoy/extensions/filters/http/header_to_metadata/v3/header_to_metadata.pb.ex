@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.ValueType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STRING, 0
   field :NUMBER, 1
@@ -7,14 +7,22 @@ defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.ValueType do
 end
 
 defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.ValueEncode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  ValueEncode defines the encoding algorithm.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NONE, 0
   field :BASE64, 1
 end
 
 defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.KeyValuePair do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace"
   field :key, 2, type: :string, deprecated: false
@@ -36,7 +44,12 @@ defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.KeyValuePair 
 end
 
 defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.Rule do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A Rule defines what metadata to apply when a header is present or missing.
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :header, 1, type: :string, deprecated: false
   field :cookie, 5, type: :string, deprecated: false
@@ -55,7 +68,17 @@ defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.Rule do
 end
 
 defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Header-To-Metadata Filter]
+
+  The configuration for transforming headers into metadata. This is useful
+  for matching load balancer subsets, logging, etc.
+
+  Header to Metadata :ref:`configuration overview <config_http_filters_header_to_metadata>`.
+  [#extension: envoy.filters.http.header_to_metadata]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :request_rules, 1,
     repeated: true,

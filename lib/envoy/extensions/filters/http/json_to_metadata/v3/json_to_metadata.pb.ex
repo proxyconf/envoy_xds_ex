@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.ValueType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PROTOBUF_VALUE, 0
   field :STRING, 1
@@ -7,7 +7,11 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.ValueTy
 end
 
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.KeyValuePair do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -26,7 +30,7 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.KeyValu
 end
 
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.Selector do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :selector, 0
 
@@ -34,7 +38,12 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.Selecto
 end
 
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.Rule do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A Rule defines what metadata to apply when a key-value is present, missing in the json
+  or fail to parse the payload.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :selectors, 1,
     repeated: true,
@@ -55,7 +64,7 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.Rule do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.MatchRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -76,7 +85,17 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.MatchRu
 end
 
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Json-To-Metadata Filter]
+
+  The configuration for transforming json body into metadata. This is useful
+  for matching load balancer subsets, logging, etc.
+
+  Json to Metadata :ref:`configuration overview <config_http_filters_json_to_metadata>`.
+  [#extension: envoy.filters.http.json_to_metadata]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :request_rules, 1,
     type: Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.MatchRules,

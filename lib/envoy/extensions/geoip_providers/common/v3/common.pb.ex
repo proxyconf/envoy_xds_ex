@@ -1,5 +1,11 @@
 defmodule Envoy.Extensions.GeoipProviders.Common.V3.CommonGeoipProviderConfig.GeolocationHeadersToAdd do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The set of geolocation headers to add to request. If any of the configured headers is present
+  in the incoming request, it will be overridden by the :ref:`Geoip filter <config_http_filters_geoip>`.
+  [#next-free-field: 10]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :country, 1, type: :string, deprecated: false
   field :city, 2, type: :string, deprecated: false
@@ -13,7 +19,13 @@ defmodule Envoy.Extensions.GeoipProviders.Common.V3.CommonGeoipProviderConfig.Ge
 end
 
 defmodule Envoy.Extensions.GeoipProviders.Common.V3.CommonGeoipProviderConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Common Geolocation Provider Configuration]
+  Common geolocation provider :ref:`configuration overview <config_geoip_providers_common>`.
+  Common configuration shared across geolocation providers.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :geo_headers_to_add, 1,
     type:

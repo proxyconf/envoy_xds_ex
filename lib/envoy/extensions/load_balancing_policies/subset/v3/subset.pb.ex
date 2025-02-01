@@ -1,5 +1,13 @@
 defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetFallbackPolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  If NO_FALLBACK is selected, a result
+  equivalent to no healthy hosts is reported. If ANY_ENDPOINT is selected,
+  any cluster endpoint may be returned (subject to policy, health checks,
+  etc). If DEFAULT_SUBSET is selected, load balancing is performed over the
+  endpoints matching the values from the default_subset field.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NO_FALLBACK, 0
   field :ANY_ENDPOINT, 1
@@ -7,14 +15,18 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetFallba
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetMetadataFallbackPolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :METADATA_NO_FALLBACK, 0
   field :FALLBACK_LIST, 1
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetSelector.LbSubsetSelectorFallbackPolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Allows to override top level fallback policy per selector.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NOT_DEFINED, 0
   field :NO_FALLBACK, 1
@@ -24,7 +36,11 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetSelect
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetSelector do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Specifications for subsets.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: :string
   field :single_host_per_subset, 4, type: :bool, json_name: "singleHostPerSubset"
@@ -40,7 +56,15 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetSelect
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Optionally divide the endpoints in this cluster into subsets defined by
+  endpoint metadata and selected by route and weighted cluster metadata.
+  [#next-free-field: 11]
+  [#protodoc-title: Subset Load Balancing Policy]
+  [#extension: envoy.load_balancing_policies.subset]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :fallback_policy, 1,
     type: Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetFallbackPolicy,

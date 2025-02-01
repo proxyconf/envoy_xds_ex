@@ -1,5 +1,16 @@
 defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.DeprecatedV1.TCPRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A TCP proxy route consists of a set of optional L4 criteria and the
+  name of a cluster. If a downstream connection matches all the
+  specified criteria, the cluster in the route is used for the
+  corresponding upstream connection. Routes are tried in the order
+  specified until a match is found. If no match is found, the connection
+  is closed. A route with no criteria is valid and always produces a
+  match.
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
 
@@ -19,7 +30,12 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.DeprecatedV1.TCPRoute
 end
 
 defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.DeprecatedV1 do
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:] Deprecated.
+  TCP Proxy filter configuration using V1 format.
+  """
+
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :routes, 1,
     repeated: true,
@@ -28,7 +44,7 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.DeprecatedV1 do
 end
 
 defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.WeightedCluster.ClusterWeight do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :weight, 2, type: :uint32, deprecated: false
@@ -36,7 +52,13 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.WeightedCluster.Clust
 end
 
 defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.WeightedCluster do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Allows for specification of multiple upstream clusters along with weights
+  that indicate the percentage of traffic to be forwarded to each cluster.
+  The router selects an upstream cluster based on these weights.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :clusters, 1,
     repeated: true,
@@ -45,13 +67,26 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.WeightedCluster do
 end
 
 defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.TunnelingConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for tunneling TCP over other transports or application layers.
+  Currently, only HTTP/2 is supported. When other options exist, HTTP/2 will
+  remain the default.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
 end
 
 defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 13]
+  [#protodoc-title: TCP Proxy]
+  TCP Proxy :ref:`configuration overview <config_network_filters_tcp_proxy>`.
+  [#extension: envoy.filters.network.tcp_proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :cluster_specifier, 0
 

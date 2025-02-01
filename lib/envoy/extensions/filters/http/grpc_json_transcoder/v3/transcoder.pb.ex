@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder.UrlUnescapeSpec do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ALL_CHARACTERS_EXCEPT_RESERVED, 0
   field :ALL_CHARACTERS_EXCEPT_SLASH, 1
@@ -7,7 +7,11 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder.PrintOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :add_whitespace, 1, type: :bool, json_name: "addWhitespace"
   field :always_print_primitive_fields, 2, type: :bool, json_name: "alwaysPrintPrimitiveFields"
@@ -17,7 +21,7 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder.RequestValidationOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reject_unknown_method, 1, type: :bool, json_name: "rejectUnknownMethod"
 
@@ -31,7 +35,22 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 18]
+  GrpcJsonTranscoder filter configuration.
+  The filter itself can be used per route / per virtual host or on the general level. The most
+  specific one is being used for a given route. If the list of services is empty - filter
+  is considered to be disabled.
+  Note that if specifying the filter per route, first the route is matched, and then transcoding
+  filter is applied. It matters when specifying the route configuration and paths to match the
+  request - for per-route grpc transcoder configs, the original path should be matched, while
+  in other cases, the grpc-like path is expected (the one AFTER the filter is applied).
+  [#protodoc-title: gRPC-JSON transcoder]
+  gRPC-JSON transcoder :ref:`configuration overview <config_http_filters_grpc_json_transcoder>`.
+  [#extension: envoy.filters.http.grpc_json_transcoder]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :descriptor_set, 0
 
@@ -90,13 +109,13 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.UnknownQueryParams.Values do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.UnknownQueryParams.KeyEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -105,7 +124,13 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.UnknownQueryParams
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.UnknownQueryParams do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  ``UnknownQueryParams`` is added as an extension field in ``HttpBody`` if
+  ``GrpcJsonTranscoder::capture_unknown_query_parameters`` is true and unknown query
+  parameters were present in the request.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1,
     repeated: true,

@@ -1,5 +1,12 @@
 defmodule Envoy.Extensions.Clusters.DynamicForwardProxy.V3.ClusterConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the dynamic forward proxy cluster. See the :ref:`architecture overview
+  <arch_overview_http_dynamic_forward_proxy>` for more information.
+  [#extension: envoy.clusters.dynamic_forward_proxy]
+  [#protodoc-title: Dynamic forward proxy cluster configuration]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :cluster_implementation_specifier, 0
 
@@ -18,7 +25,11 @@ defmodule Envoy.Extensions.Clusters.DynamicForwardProxy.V3.ClusterConfig do
 end
 
 defmodule Envoy.Extensions.Clusters.DynamicForwardProxy.V3.SubClustersConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for sub clusters. Hard code STRICT_DNS cluster type now.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :lb_policy, 1,
     type: Envoy.Config.Cluster.V3.Cluster.LbPolicy,

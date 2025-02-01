@@ -1,5 +1,10 @@
 defmodule Envoy.Api.V2.Core.HttpUri do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Envoy external URI descriptor
+  [#protodoc-title: HTTP Service URI ]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :http_upstream_type, 0
 

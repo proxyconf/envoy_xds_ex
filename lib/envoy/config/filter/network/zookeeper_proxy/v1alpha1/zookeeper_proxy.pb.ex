@@ -1,5 +1,11 @@
 defmodule Envoy.Config.Filter.Network.ZookeeperProxy.V1alpha1.ZooKeeperProxy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: ZooKeeper proxy]
+  ZooKeeper Proxy :ref:`configuration overview <config_network_filters_zookeeper_proxy>`.
+  [#extension: envoy.filters.network.zookeeper_proxy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :access_log, 2, type: :string, json_name: "accessLog"

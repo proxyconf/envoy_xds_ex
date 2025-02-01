@@ -1,5 +1,10 @@
 defmodule Envoy.Config.Metrics.V3.HistogramEmitMode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  HistogramEmitMode is used to configure which metric types should be emitted for histograms.
+  [#protodoc-title: Metrics service]
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SUMMARY_AND_HISTOGRAM, 0
   field :SUMMARY, 1
@@ -7,7 +12,25 @@ defmodule Envoy.Config.Metrics.V3.HistogramEmitMode do
 end
 
 defmodule Envoy.Config.Metrics.V3.MetricsServiceConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Metrics Service is configured as a built-in ``envoy.stat_sinks.metrics_service`` :ref:`StatsSink
+  <envoy_v3_api_msg_config.metrics.v3.StatsSink>`. This opaque configuration will be used to create
+  Metrics Service.
+
+  Example:
+
+  .. code-block:: yaml
+
+  stats_sinks:
+  - name: envoy.stat_sinks.metrics_service
+  typed_config:
+  "@type": type.googleapis.com/envoy.config.metrics.v3.MetricsServiceConfig
+
+  [#extension: envoy.stat_sinks.metrics_service]
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Config.Core.V3.GrpcService,

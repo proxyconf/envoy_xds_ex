@@ -1,9 +1,27 @@
 defmodule Envoy.Extensions.Filters.Http.Cors.V3.Cors do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Cors filter config. Set this in
+  :ref:`http_filters <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.http_filters>`
+  to enable the CORS filter.
+
+  Please note that the :ref:`CorsPolicy <envoy_v3_api_msg_extensions.filters.http.cors.v3.CorsPolicy>`
+  must be configured in the ``RouteConfiguration`` as ``typed_per_filter_config`` at some level to make the filter work.
+  [#protodoc-title: Cors]
+  CORS Filter :ref:`configuration overview <config_http_filters_cors>`.
+  [#extension: envoy.filters.http.cors]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.Cors.V3.CorsPolicy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Per route configuration for the CORS filter. This configuration should be configured in the ``RouteConfiguration`` as ``typed_per_filter_config`` at some level to
+  make the filter work.
+  [#next-free-field: 11]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :allow_origin_string_match, 1,
     repeated: true,

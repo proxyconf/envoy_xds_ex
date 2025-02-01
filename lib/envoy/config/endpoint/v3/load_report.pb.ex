@@ -1,5 +1,13 @@
 defmodule Envoy.Config.Endpoint.V3.UpstreamLocalityStats do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  These are stats Envoy reports to the management server at a frequency defined by
+  :ref:`LoadStatsResponse.load_reporting_interval<envoy_v3_api_field_service.load_stats.v3.LoadStatsResponse.load_reporting_interval>`.
+  Stats per upstream region/zone and optionally per subzone.
+  [#next-free-field: 15]
+  [#protodoc-title: Load Report]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :locality, 1, type: Envoy.Config.Core.V3.Locality
   field :total_successful_requests, 2, type: :uint64, json_name: "totalSuccessfulRequests"
@@ -48,7 +56,11 @@ defmodule Envoy.Config.Endpoint.V3.UpstreamLocalityStats do
 end
 
 defmodule Envoy.Config.Endpoint.V3.UpstreamEndpointStats do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 8]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
   field :metadata, 6, type: Google.Protobuf.Struct
@@ -64,7 +76,7 @@ defmodule Envoy.Config.Endpoint.V3.UpstreamEndpointStats do
 end
 
 defmodule Envoy.Config.Endpoint.V3.EndpointLoadMetricStats do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 
@@ -76,7 +88,11 @@ defmodule Envoy.Config.Endpoint.V3.EndpointLoadMetricStats do
 end
 
 defmodule Envoy.Config.Endpoint.V3.UnnamedEndpointLoadMetricStats do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Same as EndpointLoadMetricStats, except without the metric_name field.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :num_requests_finished_with_metric, 1,
     type: :uint64,
@@ -86,14 +102,21 @@ defmodule Envoy.Config.Endpoint.V3.UnnamedEndpointLoadMetricStats do
 end
 
 defmodule Envoy.Config.Endpoint.V3.ClusterStats.DroppedRequests do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :category, 1, type: :string, deprecated: false
   field :dropped_count, 2, type: :uint64, json_name: "droppedCount"
 end
 
 defmodule Envoy.Config.Endpoint.V3.ClusterStats do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Per cluster load stats. Envoy reports these stats a management server in a
+  :ref:`LoadStatsRequest<envoy_v3_api_msg_service.load_stats.v3.LoadStatsRequest>`
+  Next ID: 7
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
   field :cluster_service_name, 6, type: :string, json_name: "clusterServiceName"

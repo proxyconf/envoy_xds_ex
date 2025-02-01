@@ -1,15 +1,28 @@
 defmodule Envoy.Extensions.Filters.Common.Fault.V3.FaultDelay.FaultDelayType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :FIXED, 0
 end
 
 defmodule Envoy.Extensions.Filters.Common.Fault.V3.FaultDelay.HeaderDelay do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Fault delays are controlled via an HTTP header (if applicable). See the
+  :ref:`HTTP fault filter <config_http_filters_fault_injection_http_header>` documentation for
+  more information.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Common.Fault.V3.FaultDelay do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Delay specification is used to inject latency into the
+  HTTP/Mongo operation.
+  [#next-free-field: 6]
+  [#protodoc-title: Common fault injection types]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :fault_delay_secifier, 0
 
@@ -28,17 +41,31 @@ defmodule Envoy.Extensions.Filters.Common.Fault.V3.FaultDelay do
 end
 
 defmodule Envoy.Extensions.Filters.Common.Fault.V3.FaultRateLimit.FixedLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Describes a fixed/constant rate limit.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :limit_kbps, 1, type: :uint64, json_name: "limitKbps", deprecated: false
 end
 
 defmodule Envoy.Extensions.Filters.Common.Fault.V3.FaultRateLimit.HeaderLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Rate limits are controlled via an HTTP header (if applicable). See the
+  :ref:`HTTP fault filter <config_http_filters_fault_injection_http_header>` documentation for
+  more information.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Common.Fault.V3.FaultRateLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Describes a rate limit to be applied.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :limit_type, 0
 

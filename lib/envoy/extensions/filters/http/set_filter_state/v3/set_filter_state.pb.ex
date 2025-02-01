@@ -1,5 +1,15 @@
 defmodule Envoy.Extensions.Filters.Http.SetFilterState.V3.Config do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#protodoc-title: Set-Filter-State Filter]
+
+  This filter sets or updates the dynamic filter state. See :ref:`the filter
+  documentation <config_http_filters_set_filter_state>` for more information on
+  how this filter should be used.
+
+  [#extension: envoy.filters.http.set_filter_state]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :on_request_headers, 1,
     repeated: true,

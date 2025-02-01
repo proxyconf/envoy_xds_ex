@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.Compressor.V3.Compressor.CommonDirectionConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enabled, 1, type: Envoy.Config.Core.V3.RuntimeFeatureFlag
   field :min_content_length, 2, type: Google.Protobuf.UInt32Value, json_name: "minContentLength"
@@ -7,7 +7,11 @@ defmodule Envoy.Extensions.Filters.Http.Compressor.V3.Compressor.CommonDirection
 end
 
 defmodule Envoy.Extensions.Filters.Http.Compressor.V3.Compressor.RequestDirectionConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for filter behavior on the request direction.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.Filters.Http.Compressor.V3.Compressor.CommonDirectionConfig,
@@ -15,7 +19,11 @@ defmodule Envoy.Extensions.Filters.Http.Compressor.V3.Compressor.RequestDirectio
 end
 
 defmodule Envoy.Extensions.Filters.Http.Compressor.V3.Compressor.ResponseDirectionConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for filter behavior on the response direction.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.Filters.Http.Compressor.V3.Compressor.CommonDirectionConfig,
@@ -26,7 +34,14 @@ defmodule Envoy.Extensions.Filters.Http.Compressor.V3.Compressor.ResponseDirecti
 end
 
 defmodule Envoy.Extensions.Filters.Http.Compressor.V3.Compressor do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 10]
+  [#protodoc-title: Compressor]
+  Compressor :ref:`configuration overview <config_http_filters_compressor>`.
+  [#extension: envoy.filters.http.compressor]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :content_length, 1,
     type: Google.Protobuf.UInt32Value,
@@ -71,7 +86,12 @@ defmodule Envoy.Extensions.Filters.Http.Compressor.V3.Compressor do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Compressor.V3.ResponseDirectionOverrides do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Per-route overrides of ``ResponseDirectionConfig``. Anything added here should be optional,
+  to allow overriding arbitrary subsets of configuration. Omitted fields must have no effect.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :remove_accept_encoding_header, 1,
     type: Google.Protobuf.BoolValue,
@@ -79,7 +99,13 @@ defmodule Envoy.Extensions.Filters.Http.Compressor.V3.ResponseDirectionOverrides
 end
 
 defmodule Envoy.Extensions.Filters.Http.Compressor.V3.CompressorOverrides do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Per-route overrides. As per-route overrides are needed, they should be
+  added here, mirroring the structure of ``Compressor``. All fields should be
+  optional, to allow overriding arbitrary subsets of configuration.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :response_direction_config, 1,
     type: Envoy.Extensions.Filters.Http.Compressor.V3.ResponseDirectionOverrides,
@@ -87,7 +113,7 @@ defmodule Envoy.Extensions.Filters.Http.Compressor.V3.CompressorOverrides do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Compressor.V3.CompressorPerRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :override, 0
 

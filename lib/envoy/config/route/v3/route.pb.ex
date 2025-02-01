@@ -1,12 +1,19 @@
 defmodule Envoy.Config.Route.V3.RouteConfiguration.TypedPerFilterConfigEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
 end
 
 defmodule Envoy.Config.Route.V3.RouteConfiguration do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 18]
+  [#protodoc-title: HTTP route configuration]
+  * Routing :ref:`architecture overview <arch_overview_http_routing>`
+  * HTTP :ref:`router filter <config_http_filters_router>`
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -83,7 +90,7 @@ defmodule Envoy.Config.Route.V3.RouteConfiguration do
 end
 
 defmodule Envoy.Config.Route.V3.Vhds do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :config_source, 1,
     type: Envoy.Config.Core.V3.ConfigSource,

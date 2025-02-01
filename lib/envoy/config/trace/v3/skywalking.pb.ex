@@ -1,5 +1,15 @@
 defmodule Envoy.Config.Trace.V3.SkyWalkingConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for the SkyWalking tracer. Please note that if SkyWalking tracer is used as the
+  provider of tracing, then
+  :ref:`spawn_upstream_span <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.Tracing.spawn_upstream_span>`
+  in the tracing config must be set to true to get the correct topology and tracing data. Moreover, SkyWalking
+  Tracer does not support SkyWalking extension header (``sw8-x``) temporarily.
+  [#extension: envoy.tracers.skywalking]
+  [#protodoc-title: SkyWalking tracer]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Config.Core.V3.GrpcService,
@@ -10,7 +20,11 @@ defmodule Envoy.Config.Trace.V3.SkyWalkingConfig do
 end
 
 defmodule Envoy.Config.Trace.V3.ClientConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Client config for SkyWalking tracer.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :backend_token_specifier, 0
 

@@ -1,18 +1,36 @@
 defmodule Envoy.Admin.V3.ConfigDump do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The :ref:`/config_dump <operations_admin_interface_config_dump>` admin endpoint uses this wrapper
+  message to maintain and serve arbitrary configuration information from any component in Envoy.
+  [#protodoc-title: ConfigDump]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :configs, 1, repeated: true, type: Google.Protobuf.Any
 end
 
 defmodule Envoy.Admin.V3.BootstrapConfigDump do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  This message describes the bootstrap configuration that Envoy was started with. This includes
+  any CLI overrides that were merged. Bootstrap configuration information can be used to recreate
+  the static portions of an Envoy configuration by reusing the output as the bootstrap
+  configuration for another Envoy.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bootstrap, 1, type: Envoy.Config.Bootstrap.V3.Bootstrap
   field :last_updated, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdated"
 end
 
 defmodule Envoy.Admin.V3.SecretsConfigDump.DynamicSecret do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  DynamicSecret contains secret information fetched via SDS.
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version_info, 2, type: :string, json_name: "versionInfo"
@@ -27,7 +45,11 @@ defmodule Envoy.Admin.V3.SecretsConfigDump.DynamicSecret do
 end
 
 defmodule Envoy.Admin.V3.SecretsConfigDump.StaticSecret do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  StaticSecret specifies statically loaded secret in bootstrap.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :last_updated, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdated"
@@ -35,7 +57,11 @@ defmodule Envoy.Admin.V3.SecretsConfigDump.StaticSecret do
 end
 
 defmodule Envoy.Admin.V3.SecretsConfigDump do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Envoys SDS implementation fills this message with all secrets fetched dynamically via SDS.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :static_secrets, 1,
     repeated: true,

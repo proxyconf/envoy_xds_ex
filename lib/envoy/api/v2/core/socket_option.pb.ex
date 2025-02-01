@@ -1,5 +1,5 @@
 defmodule Envoy.Api.V2.Core.SocketOption.SocketState do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_PREBIND, 0
   field :STATE_BOUND, 1
@@ -7,7 +7,14 @@ defmodule Envoy.Api.V2.Core.SocketOption.SocketState do
 end
 
 defmodule Envoy.Api.V2.Core.SocketOption do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Generic socket option message. This would be used to set socket options that
+  might not exist in upstream kernels or precompiled Envoy binaries.
+  [#next-free-field: 7]
+  [#protodoc-title: Socket Option ]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value, 0
 

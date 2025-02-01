@@ -1,5 +1,10 @@
 defmodule Envoy.Type.V3.TokenBucket do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configures a token bucket, typically used for rate limiting.
+  [#protodoc-title: Token bucket]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_tokens, 1, type: :uint32, json_name: "maxTokens", deprecated: false
 

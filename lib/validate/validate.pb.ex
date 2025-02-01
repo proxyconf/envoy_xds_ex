@@ -1,5 +1,9 @@
 defmodule Validate.KnownRegex do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  WellKnownRegex contain some well-known patterns.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :UNKNOWN, 0
   field :HTTP_HEADER_NAME, 1
@@ -7,7 +11,12 @@ defmodule Validate.KnownRegex do
 end
 
 defmodule Validate.FieldRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  FieldRules encapsulates the rules for each type of field. Depending on the
+  field, the correct set should be used to ensure proper validations.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   oneof :type, 0
 
@@ -36,7 +45,11 @@ defmodule Validate.FieldRules do
 end
 
 defmodule Validate.FloatRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  FloatRules describes the constraints applied to `float` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :float
   field :lt, 2, optional: true, type: :float
@@ -44,12 +57,16 @@ defmodule Validate.FloatRules do
   field :gt, 4, optional: true, type: :float
   field :gte, 5, optional: true, type: :float
   field :in, 6, repeated: true, type: :float
-  field :not_in, 7, repeated: true, type: :float
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :float, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.DoubleRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  DoubleRules describes the constraints applied to `double` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :double
   field :lt, 2, optional: true, type: :double
@@ -57,12 +74,16 @@ defmodule Validate.DoubleRules do
   field :gt, 4, optional: true, type: :double
   field :gte, 5, optional: true, type: :double
   field :in, 6, repeated: true, type: :double
-  field :not_in, 7, repeated: true, type: :double
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :double, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.Int32Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  Int32Rules describes the constraints applied to `int32` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :int32
   field :lt, 2, optional: true, type: :int32
@@ -70,12 +91,16 @@ defmodule Validate.Int32Rules do
   field :gt, 4, optional: true, type: :int32
   field :gte, 5, optional: true, type: :int32
   field :in, 6, repeated: true, type: :int32
-  field :not_in, 7, repeated: true, type: :int32
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :int32, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.Int64Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  Int64Rules describes the constraints applied to `int64` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :int64
   field :lt, 2, optional: true, type: :int64
@@ -83,12 +108,16 @@ defmodule Validate.Int64Rules do
   field :gt, 4, optional: true, type: :int64
   field :gte, 5, optional: true, type: :int64
   field :in, 6, repeated: true, type: :int64
-  field :not_in, 7, repeated: true, type: :int64
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :int64, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.UInt32Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  UInt32Rules describes the constraints applied to `uint32` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :uint32
   field :lt, 2, optional: true, type: :uint32
@@ -96,12 +125,16 @@ defmodule Validate.UInt32Rules do
   field :gt, 4, optional: true, type: :uint32
   field :gte, 5, optional: true, type: :uint32
   field :in, 6, repeated: true, type: :uint32
-  field :not_in, 7, repeated: true, type: :uint32
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :uint32, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.UInt64Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  UInt64Rules describes the constraints applied to `uint64` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :uint64
   field :lt, 2, optional: true, type: :uint64
@@ -109,12 +142,16 @@ defmodule Validate.UInt64Rules do
   field :gt, 4, optional: true, type: :uint64
   field :gte, 5, optional: true, type: :uint64
   field :in, 6, repeated: true, type: :uint64
-  field :not_in, 7, repeated: true, type: :uint64
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :uint64, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.SInt32Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  SInt32Rules describes the constraints applied to `sint32` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :sint32
   field :lt, 2, optional: true, type: :sint32
@@ -122,12 +159,16 @@ defmodule Validate.SInt32Rules do
   field :gt, 4, optional: true, type: :sint32
   field :gte, 5, optional: true, type: :sint32
   field :in, 6, repeated: true, type: :sint32
-  field :not_in, 7, repeated: true, type: :sint32
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :sint32, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.SInt64Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  SInt64Rules describes the constraints applied to `sint64` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :sint64
   field :lt, 2, optional: true, type: :sint64
@@ -135,12 +176,16 @@ defmodule Validate.SInt64Rules do
   field :gt, 4, optional: true, type: :sint64
   field :gte, 5, optional: true, type: :sint64
   field :in, 6, repeated: true, type: :sint64
-  field :not_in, 7, repeated: true, type: :sint64
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :sint64, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.Fixed32Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  Fixed32Rules describes the constraints applied to `fixed32` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :fixed32
   field :lt, 2, optional: true, type: :fixed32
@@ -148,12 +193,16 @@ defmodule Validate.Fixed32Rules do
   field :gt, 4, optional: true, type: :fixed32
   field :gte, 5, optional: true, type: :fixed32
   field :in, 6, repeated: true, type: :fixed32
-  field :not_in, 7, repeated: true, type: :fixed32
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :fixed32, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.Fixed64Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  Fixed64Rules describes the constraints applied to `fixed64` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :fixed64
   field :lt, 2, optional: true, type: :fixed64
@@ -161,12 +210,16 @@ defmodule Validate.Fixed64Rules do
   field :gt, 4, optional: true, type: :fixed64
   field :gte, 5, optional: true, type: :fixed64
   field :in, 6, repeated: true, type: :fixed64
-  field :not_in, 7, repeated: true, type: :fixed64
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :fixed64, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.SFixed32Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  SFixed32Rules describes the constraints applied to `sfixed32` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :sfixed32
   field :lt, 2, optional: true, type: :sfixed32
@@ -174,12 +227,16 @@ defmodule Validate.SFixed32Rules do
   field :gt, 4, optional: true, type: :sfixed32
   field :gte, 5, optional: true, type: :sfixed32
   field :in, 6, repeated: true, type: :sfixed32
-  field :not_in, 7, repeated: true, type: :sfixed32
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :sfixed32, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.SFixed64Rules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  SFixed64Rules describes the constraints applied to `sfixed64` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :sfixed64
   field :lt, 2, optional: true, type: :sfixed64
@@ -187,117 +244,163 @@ defmodule Validate.SFixed64Rules do
   field :gt, 4, optional: true, type: :sfixed64
   field :gte, 5, optional: true, type: :sfixed64
   field :in, 6, repeated: true, type: :sfixed64
-  field :not_in, 7, repeated: true, type: :sfixed64
-  field :ignore_empty, 8, optional: true, type: :bool
+  field :not_in, 7, repeated: true, type: :sfixed64, json_name: "notIn"
+  field :ignore_empty, 8, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.BoolRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  BoolRules describes the constraints applied to `bool` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :bool
 end
 
 defmodule Validate.StringRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  StringRules describe the constraints applied to `string` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   oneof :well_known, 0
 
   field :const, 1, optional: true, type: :string
   field :len, 19, optional: true, type: :uint64
-  field :min_len, 2, optional: true, type: :uint64
-  field :max_len, 3, optional: true, type: :uint64
-  field :len_bytes, 20, optional: true, type: :uint64
-  field :min_bytes, 4, optional: true, type: :uint64
-  field :max_bytes, 5, optional: true, type: :uint64
+  field :min_len, 2, optional: true, type: :uint64, json_name: "minLen"
+  field :max_len, 3, optional: true, type: :uint64, json_name: "maxLen"
+  field :len_bytes, 20, optional: true, type: :uint64, json_name: "lenBytes"
+  field :min_bytes, 4, optional: true, type: :uint64, json_name: "minBytes"
+  field :max_bytes, 5, optional: true, type: :uint64, json_name: "maxBytes"
   field :pattern, 6, optional: true, type: :string
   field :prefix, 7, optional: true, type: :string
   field :suffix, 8, optional: true, type: :string
   field :contains, 9, optional: true, type: :string
-  field :not_contains, 23, optional: true, type: :string
+  field :not_contains, 23, optional: true, type: :string, json_name: "notContains"
   field :in, 10, repeated: true, type: :string
-  field :not_in, 11, repeated: true, type: :string
+  field :not_in, 11, repeated: true, type: :string, json_name: "notIn"
   field :email, 12, optional: true, type: :bool, oneof: 0
   field :hostname, 13, optional: true, type: :bool, oneof: 0
   field :ip, 14, optional: true, type: :bool, oneof: 0
   field :ipv4, 15, optional: true, type: :bool, oneof: 0
   field :ipv6, 16, optional: true, type: :bool, oneof: 0
   field :uri, 17, optional: true, type: :bool, oneof: 0
-  field :uri_ref, 18, optional: true, type: :bool, oneof: 0
+  field :uri_ref, 18, optional: true, type: :bool, json_name: "uriRef", oneof: 0
   field :address, 21, optional: true, type: :bool, oneof: 0
   field :uuid, 22, optional: true, type: :bool, oneof: 0
-  field :well_known_regex, 24, optional: true, type: Validate.KnownRegex, enum: true, oneof: 0
+
+  field :well_known_regex, 24,
+    optional: true,
+    type: Validate.KnownRegex,
+    json_name: "wellKnownRegex",
+    enum: true,
+    oneof: 0
+
   field :strict, 25, optional: true, type: :bool, default: true
-  field :ignore_empty, 26, optional: true, type: :bool
+  field :ignore_empty, 26, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.BytesRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  BytesRules describe the constraints applied to `bytes` values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   oneof :well_known, 0
 
   field :const, 1, optional: true, type: :bytes
   field :len, 13, optional: true, type: :uint64
-  field :min_len, 2, optional: true, type: :uint64
-  field :max_len, 3, optional: true, type: :uint64
+  field :min_len, 2, optional: true, type: :uint64, json_name: "minLen"
+  field :max_len, 3, optional: true, type: :uint64, json_name: "maxLen"
   field :pattern, 4, optional: true, type: :string
   field :prefix, 5, optional: true, type: :bytes
   field :suffix, 6, optional: true, type: :bytes
   field :contains, 7, optional: true, type: :bytes
   field :in, 8, repeated: true, type: :bytes
-  field :not_in, 9, repeated: true, type: :bytes
+  field :not_in, 9, repeated: true, type: :bytes, json_name: "notIn"
   field :ip, 10, optional: true, type: :bool, oneof: 0
   field :ipv4, 11, optional: true, type: :bool, oneof: 0
   field :ipv6, 12, optional: true, type: :bool, oneof: 0
-  field :ignore_empty, 14, optional: true, type: :bool
+  field :ignore_empty, 14, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.EnumRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  EnumRules describe the constraints applied to enum values
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :const, 1, optional: true, type: :int32
-  field :defined_only, 2, optional: true, type: :bool
+  field :defined_only, 2, optional: true, type: :bool, json_name: "definedOnly"
   field :in, 3, repeated: true, type: :int32
-  field :not_in, 4, repeated: true, type: :int32
+  field :not_in, 4, repeated: true, type: :int32, json_name: "notIn"
 end
 
 defmodule Validate.MessageRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  MessageRules describe the constraints applied to embedded message values.
+  For message-type fields, validation is performed recursively.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :skip, 1, optional: true, type: :bool
   field :required, 2, optional: true, type: :bool
 end
 
 defmodule Validate.RepeatedRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  RepeatedRules describe the constraints applied to `repeated` values
+  """
 
-  field :min_items, 1, optional: true, type: :uint64
-  field :max_items, 2, optional: true, type: :uint64
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+
+  field :min_items, 1, optional: true, type: :uint64, json_name: "minItems"
+  field :max_items, 2, optional: true, type: :uint64, json_name: "maxItems"
   field :unique, 3, optional: true, type: :bool
   field :items, 4, optional: true, type: Validate.FieldRules
-  field :ignore_empty, 5, optional: true, type: :bool
+  field :ignore_empty, 5, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.MapRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  MapRules describe the constraints applied to `map` values
+  """
 
-  field :min_pairs, 1, optional: true, type: :uint64
-  field :max_pairs, 2, optional: true, type: :uint64
-  field :no_sparse, 3, optional: true, type: :bool
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+
+  field :min_pairs, 1, optional: true, type: :uint64, json_name: "minPairs"
+  field :max_pairs, 2, optional: true, type: :uint64, json_name: "maxPairs"
+  field :no_sparse, 3, optional: true, type: :bool, json_name: "noSparse"
   field :keys, 4, optional: true, type: Validate.FieldRules
   field :values, 5, optional: true, type: Validate.FieldRules
-  field :ignore_empty, 6, optional: true, type: :bool
+  field :ignore_empty, 6, optional: true, type: :bool, json_name: "ignoreEmpty"
 end
 
 defmodule Validate.AnyRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  AnyRules describe constraints applied exclusively to the
+  `google.protobuf.Any` well-known type
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :required, 1, optional: true, type: :bool
   field :in, 2, repeated: true, type: :string
-  field :not_in, 3, repeated: true, type: :string
+  field :not_in, 3, repeated: true, type: :string, json_name: "notIn"
 end
 
 defmodule Validate.DurationRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  DurationRules describe the constraints applied exclusively to the
+  `google.protobuf.Duration` well-known type
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :required, 1, optional: true, type: :bool
   field :const, 2, optional: true, type: Google.Protobuf.Duration
@@ -306,11 +409,16 @@ defmodule Validate.DurationRules do
   field :gt, 5, optional: true, type: Google.Protobuf.Duration
   field :gte, 6, optional: true, type: Google.Protobuf.Duration
   field :in, 7, repeated: true, type: Google.Protobuf.Duration
-  field :not_in, 8, repeated: true, type: Google.Protobuf.Duration
+  field :not_in, 8, repeated: true, type: Google.Protobuf.Duration, json_name: "notIn"
 end
 
 defmodule Validate.TimestampRules do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+  @moduledoc """
+  TimestampRules describe the constraints applied exclusively to the
+  `google.protobuf.Timestamp` well-known type
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
 
   field :required, 1, optional: true, type: :bool
   field :const, 2, optional: true, type: Google.Protobuf.Timestamp
@@ -318,7 +426,7 @@ defmodule Validate.TimestampRules do
   field :lte, 4, optional: true, type: Google.Protobuf.Timestamp
   field :gt, 5, optional: true, type: Google.Protobuf.Timestamp
   field :gte, 6, optional: true, type: Google.Protobuf.Timestamp
-  field :lt_now, 7, optional: true, type: :bool
-  field :gt_now, 8, optional: true, type: :bool
+  field :lt_now, 7, optional: true, type: :bool, json_name: "ltNow"
+  field :gt_now, 8, optional: true, type: :bool, json_name: "gtNow"
   field :within, 9, optional: true, type: Google.Protobuf.Duration
 end

@@ -1,5 +1,16 @@
 defmodule Envoy.Extensions.Http.Cache.FileSystemHttpCache.V3.FileSystemHttpCacheConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration for a cache implementation that caches in the local file system.
+
+  By default this cache uses a least-recently-used eviction strategy.
+
+  For implementation details, see `DESIGN.md <https://github.com/envoyproxy/envoy/blob/main/source/extensions/http/cache/file_system_http_cache/DESIGN.md>`_.
+  [#next-free-field: 11]
+  [#protodoc-title: FileSystemHttpCacheConfig]
+  [#extension: envoy.extensions.http.cache.file_system_http_cache]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :manager_config, 1,
     type: Envoy.Extensions.Common.AsyncFiles.V3.AsyncFileManagerConfig,

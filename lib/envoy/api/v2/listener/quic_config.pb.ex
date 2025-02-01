@@ -1,5 +1,11 @@
 defmodule Envoy.Api.V2.Listener.QuicProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration specific to the QUIC protocol.
+  Next id: 4
+  [#protodoc-title: QUIC listener Config]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_concurrent_streams, 1,
     type: Google.Protobuf.UInt32Value,

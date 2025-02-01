@@ -1,5 +1,13 @@
 defmodule Envoy.Extensions.Http.CustomResponse.RedirectPolicy.V3.RedirectPolicy do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Custom response policy to internally redirect the original response to a different
+  upstream.
+  [#next-free-field: 7]
+  [#protodoc-title: Redirect Policy for Custom Response]
+  [#extension: envoy.http.custom_response.redirect_policy]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :redirect_action_specifier, 0
 

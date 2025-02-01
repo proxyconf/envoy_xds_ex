@@ -1,12 +1,17 @@
 defmodule Envoy.Extensions.Http.InjectedCredentials.Oauth2.V3.OAuth2.AuthType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :BASIC_AUTH, 0
   field :URL_ENCODED_BODY, 1
 end
 
 defmodule Envoy.Extensions.Http.InjectedCredentials.Oauth2.V3.OAuth2.ClientCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Credentials to authenticate client to the authorization server.
+  Refer to [RFC 6749: The OAuth 2.0 Authorization Framework](https://www.rfc-editor.org/rfc/rfc6749#section-2.3) for details.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :client_id, 1, type: :string, json_name: "clientId", deprecated: false
 
@@ -22,7 +27,16 @@ defmodule Envoy.Extensions.Http.InjectedCredentials.Oauth2.V3.OAuth2.ClientCrede
 end
 
 defmodule Envoy.Extensions.Http.InjectedCredentials.Oauth2.V3.OAuth2 do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  OAuth2 extension can be used to retrieve an OAuth2 access token from an authorization server and inject it into the
+  proxied requests.
+  Currently, only the Client Credentials Grant flow is supported.
+  The access token will be injected into the request headers using the ``Authorization`` header as a bearer token.
+  [#protodoc-title: OAuth2 Credential]
+  [#extension: envoy.http.injected_credentials.oauth2]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :flow_type, 0
 

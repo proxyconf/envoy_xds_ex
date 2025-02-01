@@ -1,5 +1,10 @@
 defmodule Envoy.Config.Filter.Http.AdaptiveConcurrency.V2alpha.GradientControllerConfig.ConcurrencyLimitCalculationParams do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Parameters controlling the periodic recalculation of the concurrency limit from sampled request
+  latencies.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_concurrency_limit, 2,
     type: Google.Protobuf.UInt32Value,
@@ -13,7 +18,12 @@ defmodule Envoy.Config.Filter.Http.AdaptiveConcurrency.V2alpha.GradientControlle
 end
 
 defmodule Envoy.Config.Filter.Http.AdaptiveConcurrency.V2alpha.GradientControllerConfig.MinimumRTTCalculationParams do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Parameters controlling the periodic minRTT recalculation.
+  [#next-free-field: 6]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :interval, 1, type: Google.Protobuf.Duration, deprecated: false
 
@@ -33,7 +43,15 @@ defmodule Envoy.Config.Filter.Http.AdaptiveConcurrency.V2alpha.GradientControlle
 end
 
 defmodule Envoy.Config.Filter.Http.AdaptiveConcurrency.V2alpha.GradientControllerConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Configuration parameters for the gradient controller.
+  [#protodoc-title: Adaptive Concurrency]
+  Adaptive Concurrency Control :ref:`configuration overview
+  <config_http_filters_adaptive_concurrency>`.
+  [#extension: envoy.filters.http.adaptive_concurrency]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sample_aggregate_percentile, 1,
     type: Envoy.Type.Percent,
@@ -53,7 +71,7 @@ defmodule Envoy.Config.Filter.Http.AdaptiveConcurrency.V2alpha.GradientControlle
 end
 
 defmodule Envoy.Config.Filter.Http.AdaptiveConcurrency.V2alpha.AdaptiveConcurrency do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :concurrency_controller_config, 0
 

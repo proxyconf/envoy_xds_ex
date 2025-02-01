@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Filters.Http.BandwidthLimit.V3.BandwidthLimit.EnableMode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Defines the mode for the bandwidth limit filter.
+  Values represent bitmask.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DISABLED, 0
   field :REQUEST, 1
@@ -8,7 +13,14 @@ defmodule Envoy.Extensions.Filters.Http.BandwidthLimit.V3.BandwidthLimit.EnableM
 end
 
 defmodule Envoy.Extensions.Filters.Http.BandwidthLimit.V3.BandwidthLimit do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 8]
+  [#protodoc-title: Bandwidth limit]
+  Bandwidth limit :ref:`configuration overview <config_http_filters_bandwidth_limit>`.
+  [#extension: envoy.filters.http.bandwidth_limit]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
 

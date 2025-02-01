@@ -1,5 +1,12 @@
 defmodule Envoy.Config.Tap.V3.OutputSink.Format do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Output format. All output is in the form of one or more :ref:`TraceWrapper
+  <envoy_v3_api_msg_data.tap.v3.TraceWrapper>` messages. This enumeration indicates
+  how those messages are written. Note that not all sinks support all output formats. See
+  individual sink documentation for more information.
+  """
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :JSON_BODY_AS_BYTES, 0
   field :JSON_BODY_AS_STRING, 1
@@ -9,7 +16,13 @@ defmodule Envoy.Config.Tap.V3.OutputSink.Format do
 end
 
 defmodule Envoy.Config.Tap.V3.TapConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Tap configuration.
+  [#comment:TODO(mattklein123): Rate limiting]
+  [#protodoc-title: Tap common configuration]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :match_config, 1,
     type: Envoy.Config.Tap.V3.MatchPredicate,
@@ -29,13 +42,23 @@ defmodule Envoy.Config.Tap.V3.TapConfig do
 end
 
 defmodule Envoy.Config.Tap.V3.MatchPredicate.MatchSet do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  A set of match configurations used for logical operations.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Envoy.Config.Tap.V3.MatchPredicate, deprecated: false
 end
 
 defmodule Envoy.Config.Tap.V3.MatchPredicate do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Tap match configuration. This is a recursive structure which allows complex nested match
+  configurations to be built using various logical operators.
+  [#next-free-field: 11]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :rule, 0
 
@@ -84,13 +107,17 @@ defmodule Envoy.Config.Tap.V3.MatchPredicate do
 end
 
 defmodule Envoy.Config.Tap.V3.HttpHeadersMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  HTTP headers match configuration.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :headers, 1, repeated: true, type: Envoy.Config.Route.V3.HeaderMatcher
 end
 
 defmodule Envoy.Config.Tap.V3.HttpGenericBodyMatch.GenericTextMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :rule, 0
 
@@ -99,7 +126,20 @@ defmodule Envoy.Config.Tap.V3.HttpGenericBodyMatch.GenericTextMatch do
 end
 
 defmodule Envoy.Config.Tap.V3.HttpGenericBodyMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  HTTP generic body match configuration.
+  List of text strings and hex strings to be located in HTTP body.
+  All specified strings must be found in the HTTP body for positive match.
+  The search may be limited to specified number of bytes from the body start.
+
+  .. attention::
+
+  Searching for patterns in HTTP body is potentially cpu intensive. For each specified pattern, http body is scanned byte by byte to find a match.
+  If multiple patterns are specified, the process is repeated for each pattern. If location of a pattern is known, ``bytes_limit`` should be specified
+  to scan only part of the http body.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bytes_limit, 1, type: :uint32, json_name: "bytesLimit"
 
@@ -110,7 +150,11 @@ defmodule Envoy.Config.Tap.V3.HttpGenericBodyMatch do
 end
 
 defmodule Envoy.Config.Tap.V3.OutputConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Tap output configuration.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sinks, 1, repeated: true, type: Envoy.Config.Tap.V3.OutputSink, deprecated: false
 
@@ -126,7 +170,12 @@ defmodule Envoy.Config.Tap.V3.OutputConfig do
 end
 
 defmodule Envoy.Config.Tap.V3.OutputSink do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Tap output sink configuration.
+  [#next-free-field: 7]
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :output_sink_type, 0
 
@@ -159,24 +208,44 @@ defmodule Envoy.Config.Tap.V3.OutputSink do
 end
 
 defmodule Envoy.Config.Tap.V3.StreamingAdminSink do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  Streaming admin sink configuration.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Envoy.Config.Tap.V3.BufferedAdminSink do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  BufferedAdminSink configures a tap output to collect traces without returning them until
+  one of multiple criteria are satisfied.
+  Similar to StreamingAdminSink, it is only allowed to specify the buffered admin output
+  sink if the tap is being configured from the ``/tap`` admin endpoint.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_traces, 1, type: :uint64, json_name: "maxTraces", deprecated: false
   field :timeout, 2, type: Google.Protobuf.Duration
 end
 
 defmodule Envoy.Config.Tap.V3.FilePerTapSink do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  The file per tap sink outputs a discrete file for every tapped stream.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :path_prefix, 1, type: :string, json_name: "pathPrefix", deprecated: false
 end
 
 defmodule Envoy.Config.Tap.V3.StreamingGrpcSink do
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  @moduledoc """
+  [#not-implemented-hide:] Streaming gRPC sink configuration sends the taps to an external gRPC
+  server.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tap_id, 1, type: :string, json_name: "tapId"
 
