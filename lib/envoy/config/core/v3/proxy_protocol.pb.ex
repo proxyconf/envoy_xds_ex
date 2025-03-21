@@ -1,12 +1,12 @@
 defmodule Envoy.Config.Core.V3.ProxyProtocolPassThroughTLVs.PassTLVsMatchType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :INCLUDE_ALL, 0
   field :INCLUDE, 1
 end
 
 defmodule Envoy.Config.Core.V3.ProxyProtocolConfig.Version do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :V1, 0
   field :V2, 1
@@ -17,7 +17,7 @@ defmodule Envoy.Config.Core.V3.ProxyProtocolPassThroughTLVs do
   [#protodoc-title: Proxy protocol]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :match_type, 1,
     type: Envoy.Config.Core.V3.ProxyProtocolPassThroughTLVs.PassTLVsMatchType,
@@ -27,12 +27,37 @@ defmodule Envoy.Config.Core.V3.ProxyProtocolPassThroughTLVs do
   field :tlv_type, 2, repeated: true, type: :uint32, json_name: "tlvType", deprecated: false
 end
 
+defmodule Envoy.Config.Core.V3.TlvEntry do
+  @moduledoc """
+  Represents a single Type-Length-Value (TLV) entry.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :type, 1, type: :uint32, deprecated: false
+  field :value, 2, type: :bytes, deprecated: false
+end
+
 defmodule Envoy.Config.Core.V3.ProxyProtocolConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version, 1, type: Envoy.Config.Core.V3.ProxyProtocolConfig.Version, enum: true
 
   field :pass_through_tlvs, 2,
     type: Envoy.Config.Core.V3.ProxyProtocolPassThroughTLVs,
     json_name: "passThroughTlvs"
+
+  field :added_tlvs, 3,
+    repeated: true,
+    type: Envoy.Config.Core.V3.TlvEntry,
+    json_name: "addedTlvs"
+end
+
+defmodule Envoy.Config.Core.V3.PerHostConfig do
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :added_tlvs, 1,
+    repeated: true,
+    type: Envoy.Config.Core.V3.TlvEntry,
+    json_name: "addedTlvs"
 end

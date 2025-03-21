@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext.OcspStaplePolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :LENIENT_STAPLING, 0
   field :STRICT_STAPLING, 1
@@ -14,7 +14,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.UpstreamTlsContext do
   The TLS contexts below provide the transport socket configuration for upstream/downstream TLS.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :common_tls_context, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext,
@@ -36,7 +36,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext do
   [#next-free-field: 12]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :session_ticket_keys_type, 0
 
@@ -93,7 +93,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsKeyLog do
   The key log file format is "format used by NSS for its SSLKEYLOGFILE debugging output" (text taken from openssl man page)
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
 
@@ -120,7 +120,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateP
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config, 0
 
@@ -143,14 +143,14 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CertificateP
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :instance_name, 1, type: :string, json_name: "instanceName"
   field :certificate_name, 2, type: :string, json_name: "certificateName"
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext.CombinedCertificateValidationContext do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :default_validation_context, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext,
@@ -179,7 +179,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CommonTlsContext do
   [#next-free-field: 17]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :validation_context_type, 0
 

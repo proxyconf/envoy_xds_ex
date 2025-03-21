@@ -8,7 +8,7 @@ defmodule Envoy.Extensions.GeoipProviders.Maxmind.V3.MaxMindConfig do
   [#extension: envoy.geoip_providers.maxmind]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :city_db_path, 1, type: :string, json_name: "cityDbPath", deprecated: false
   field :isp_db_path, 2, type: :string, json_name: "ispDbPath", deprecated: false

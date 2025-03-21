@@ -6,7 +6,7 @@ defmodule Envoy.Service.Tap.V2alpha.OutputSink.Format do
   individual sink documentation for more information.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :JSON_BODY_AS_BYTES, 0
   field :JSON_BODY_AS_STRING, 1
@@ -22,7 +22,7 @@ defmodule Envoy.Service.Tap.V2alpha.TapConfig do
   [#protodoc-title: Common tap configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :match_config, 1,
     type: Envoy.Service.Tap.V2alpha.MatchPredicate,
@@ -42,7 +42,7 @@ defmodule Envoy.Service.Tap.V2alpha.MatchPredicate.MatchSet do
   A set of match configurations used for logical operations.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -57,7 +57,7 @@ defmodule Envoy.Service.Tap.V2alpha.MatchPredicate do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :rule, 0
 
@@ -104,7 +104,7 @@ defmodule Envoy.Service.Tap.V2alpha.HttpHeadersMatch do
   HTTP headers match configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :headers, 1, repeated: true, type: Envoy.Api.V2.Route.HeaderMatcher
 end
@@ -114,7 +114,7 @@ defmodule Envoy.Service.Tap.V2alpha.OutputConfig do
   Tap output configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sinks, 1, repeated: true, type: Envoy.Service.Tap.V2alpha.OutputSink, deprecated: false
 
@@ -134,7 +134,7 @@ defmodule Envoy.Service.Tap.V2alpha.OutputSink do
   Tap output sink configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :output_sink_type, 0
 
@@ -164,7 +164,7 @@ defmodule Envoy.Service.Tap.V2alpha.StreamingAdminSink do
   Streaming admin sink configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Service.Tap.V2alpha.FilePerTapSink do
@@ -172,7 +172,7 @@ defmodule Envoy.Service.Tap.V2alpha.FilePerTapSink do
   The file per tap sink outputs a discrete file for every tapped stream.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :path_prefix, 1, type: :string, json_name: "pathPrefix", deprecated: false
 end
@@ -183,7 +183,7 @@ defmodule Envoy.Service.Tap.V2alpha.StreamingGrpcSink do
   server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tap_id, 1, type: :string, json_name: "tapId"
 

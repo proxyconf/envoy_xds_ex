@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.ServiceMatchI
   [#protodoc-title: Generic Proxy Route Matcher Configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.HostMatchInput do
@@ -16,7 +16,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.HostMatchInpu
   This is same with the ServiceMatchInput and this should be preferred over ServiceMatchInput.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.PathMatchInput do
@@ -25,7 +25,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.PathMatchInpu
   by the application protocol.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.MethodMatchInput do
@@ -34,7 +34,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.MethodMatchIn
   by the application protocol.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.PropertyMatchInput do
@@ -43,7 +43,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.PropertyMatch
   These properties are populated by the codecs of application protocols.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :property_name, 1, type: :string, json_name: "propertyName", deprecated: false
 end
@@ -53,7 +53,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.RequestMatchI
   Used to match an whole generic downstream request.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.KeyValueMatchEntry do
@@ -61,7 +61,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.KeyValueMatch
   Used to match an arbitrary key-value pair for headers, trailers or properties.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -78,7 +78,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Matcher.V3.RequestMatche
   HostMatchInput, PathMatchInput, MethodMatchInput and PropertyMatchInput.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :host, 1, type: Envoy.Type.Matcher.V3.StringMatcher
   field :path, 2, type: Envoy.Type.Matcher.V3.StringMatcher

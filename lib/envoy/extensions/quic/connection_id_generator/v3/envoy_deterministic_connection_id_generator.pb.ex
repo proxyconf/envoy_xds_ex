@@ -5,5 +5,5 @@ defmodule Envoy.Extensions.Quic.ConnectionIdGenerator.V3.DeterministicConnection
   [#extension: envoy.quic.deterministic_connection_id_generator]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

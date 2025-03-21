@@ -10,7 +10,7 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.DeprecatedV1.TCPRoute
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
 
@@ -35,7 +35,7 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.DeprecatedV1 do
   TCP Proxy filter configuration using V1 format.
   """
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :routes, 1,
     repeated: true,
@@ -44,7 +44,7 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.DeprecatedV1 do
 end
 
 defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.WeightedCluster.ClusterWeight do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :weight, 2, type: :uint32, deprecated: false
@@ -58,7 +58,7 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.WeightedCluster do
   The router selects an upstream cluster based on these weights.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :clusters, 1,
     repeated: true,
@@ -73,7 +73,7 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy.TunnelingConfig do
   remain the default.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
 end
@@ -86,7 +86,7 @@ defmodule Envoy.Config.Filter.Network.TcpProxy.V2.TcpProxy do
   [#extension: envoy.filters.network.tcp_proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :cluster_specifier, 0
 

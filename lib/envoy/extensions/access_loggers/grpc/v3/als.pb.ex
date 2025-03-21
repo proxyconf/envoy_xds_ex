@@ -8,7 +8,7 @@ defmodule Envoy.Extensions.AccessLoggers.Grpc.V3.HttpGrpcAccessLogConfig do
   [#protodoc-title: gRPC Access Log Service (ALS)]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.AccessLoggers.Grpc.V3.CommonGrpcAccessLogConfig,
@@ -38,7 +38,7 @@ defmodule Envoy.Extensions.AccessLoggers.Grpc.V3.TcpGrpcAccessLogConfig do
   [#extension: envoy.access_loggers.tcp_grpc]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.AccessLoggers.Grpc.V3.CommonGrpcAccessLogConfig,
@@ -52,7 +52,7 @@ defmodule Envoy.Extensions.AccessLoggers.Grpc.V3.CommonGrpcAccessLogConfig do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :log_name, 1, type: :string, json_name: "logName", deprecated: false
 

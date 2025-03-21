@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.RouteConfiguration do
   Dubbo Proxy :ref:`configuration overview <config_network_filters_dubbo_proxy>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :interface, 2, type: :string
@@ -15,7 +15,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.RouteConfiguration do
 end
 
 defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.Route do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :match, 1,
     type: Envoy.Extensions.Filters.Network.DubboProxy.V3.RouteMatch,
@@ -27,14 +27,14 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.Route do
 end
 
 defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.RouteMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :method, 1, type: Envoy.Extensions.Filters.Network.DubboProxy.V3.MethodMatch
   field :headers, 2, repeated: true, type: Envoy.Config.Route.V3.HeaderMatcher
 end
 
 defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.RouteAction do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :cluster_specifier, 0
 
@@ -53,7 +53,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.MethodMatch.ParameterMa
   The parameter matching type.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :parameter_match_specifier, 0
 
@@ -62,7 +62,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.MethodMatch.ParameterMa
 end
 
 defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.MethodMatch.ParamsMatchEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :uint32
 
@@ -71,7 +71,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.MethodMatch.ParamsMatch
 end
 
 defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.MethodMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: Envoy.Type.Matcher.V3.StringMatcher
 
@@ -83,7 +83,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.MethodMatch do
 end
 
 defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.MultipleRouteConfiguration do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 

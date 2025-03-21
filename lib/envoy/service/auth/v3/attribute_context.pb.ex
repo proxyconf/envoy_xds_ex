@@ -1,5 +1,5 @@
 defmodule Envoy.Service.Auth.V3.AttributeContext.Peer.LabelsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -14,7 +14,7 @@ defmodule Envoy.Service.Auth.V3.AttributeContext.Peer do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
   field :service, 2, type: :string
@@ -33,14 +33,14 @@ defmodule Envoy.Service.Auth.V3.AttributeContext.Request do
   Represents a network request, such as an HTTP request.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :http, 2, type: Envoy.Service.Auth.V3.AttributeContext.HttpRequest
 end
 
 defmodule Envoy.Service.Auth.V3.AttributeContext.HttpRequest.HeadersEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -53,7 +53,7 @@ defmodule Envoy.Service.Auth.V3.AttributeContext.HttpRequest do
   [#next-free-field: 14]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
   field :method, 2, type: :string
@@ -85,13 +85,13 @@ defmodule Envoy.Service.Auth.V3.AttributeContext.TLSSession do
   This message defines attributes for the underlying TLS session.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sni, 1, type: :string
 end
 
 defmodule Envoy.Service.Auth.V3.AttributeContext.ContextExtensionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -106,7 +106,7 @@ defmodule Envoy.Service.Auth.V3.AttributeContext do
   of the ``AttributeContext``. The ``AttributeContext`` is a collection of individual attributes
   supported by Envoy authorization system.
   [#comment: The following items are left out of this proto
-  Request.Auth field for jwt tokens
+  Request.Auth field for JWTs
   Request.Api for api management
   Origin peer that originated the request
   Caching Protocol
@@ -122,7 +122,7 @@ defmodule Envoy.Service.Auth.V3.AttributeContext do
   and :ref:`HTTP filter configuration overview <config_http_filters_ext_authz>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source, 1, type: Envoy.Service.Auth.V3.AttributeContext.Peer
   field :destination, 2, type: Envoy.Service.Auth.V3.AttributeContext.Peer

@@ -8,7 +8,7 @@ defmodule Envoy.Extensions.Filters.Http.OriginalSrc.V3.OriginalSrc do
   Use the Original source address on upstream connections.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mark, 1, type: :uint32
 end

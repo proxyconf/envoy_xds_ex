@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.ValueType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STRING, 0
   field :NUMBER, 1
@@ -11,7 +11,7 @@ defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.ValueEncode d
   ValueEncode defines the encoding algorithm.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :NONE, 0
   field :BASE64, 1
@@ -22,7 +22,7 @@ defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.KeyValuePair 
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace"
   field :key, 2, type: :string, deprecated: false
@@ -49,7 +49,7 @@ defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config.Rule do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :header, 1, type: :string, deprecated: false
   field :cookie, 5, type: :string, deprecated: false
@@ -78,7 +78,7 @@ defmodule Envoy.Extensions.Filters.Http.HeaderToMetadata.V3.Config do
   [#extension: envoy.filters.http.header_to_metadata]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_rules, 1,
     repeated: true,

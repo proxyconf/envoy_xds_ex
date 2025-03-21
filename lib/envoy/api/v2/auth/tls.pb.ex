@@ -5,7 +5,7 @@ defmodule Envoy.Api.V2.Auth.UpstreamTlsContext do
   The TLS contexts below provide the transport socket configuration for upstream/downstream TLS.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :common_tls_context, 1,
     type: Envoy.Api.V2.Auth.CommonTlsContext,
@@ -21,7 +21,7 @@ defmodule Envoy.Api.V2.Auth.DownstreamTlsContext do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :session_ticket_keys_type, 0
 
@@ -57,7 +57,7 @@ defmodule Envoy.Api.V2.Auth.DownstreamTlsContext do
 end
 
 defmodule Envoy.Api.V2.Auth.CommonTlsContext.CombinedCertificateValidationContext do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :default_validation_context, 1,
     type: Envoy.Api.V2.Auth.CertificateValidationContext,
@@ -76,7 +76,7 @@ defmodule Envoy.Api.V2.Auth.CommonTlsContext do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :validation_context_type, 0
 

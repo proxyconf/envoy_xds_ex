@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Wasm.V3.FailurePolicy do
   [#extension: envoy.bootstrap.wasm]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :FAIL_RELOAD, 1
@@ -14,13 +14,13 @@ defmodule Envoy.Extensions.Wasm.V3.FailurePolicy do
 end
 
 defmodule Envoy.Extensions.Wasm.V3.ReloadConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :backoff, 1, type: Envoy.Config.Core.V3.BackoffStrategy
 end
 
 defmodule Envoy.Extensions.Wasm.V3.CapabilityRestrictionConfig.AllowedCapabilitiesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Extensions.Wasm.V3.SanitizationConfig
@@ -31,7 +31,7 @@ defmodule Envoy.Extensions.Wasm.V3.CapabilityRestrictionConfig do
   Configuration for restricting Proxy-Wasm capabilities available to modules.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :allowed_capabilities, 1,
     repeated: true,
@@ -47,7 +47,7 @@ defmodule Envoy.Extensions.Wasm.V3.SanitizationConfig do
   NOTE: This is currently unimplemented.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Wasm.V3.VmConfig do
@@ -56,7 +56,7 @@ defmodule Envoy.Extensions.Wasm.V3.VmConfig do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :vm_id, 1, type: :string, json_name: "vmId"
   field :runtime, 2, type: :string
@@ -71,14 +71,14 @@ defmodule Envoy.Extensions.Wasm.V3.VmConfig do
 end
 
 defmodule Envoy.Extensions.Wasm.V3.EnvironmentVariables.KeyValuesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 
 defmodule Envoy.Extensions.Wasm.V3.EnvironmentVariables do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :host_env_keys, 1, repeated: true, type: :string, json_name: "hostEnvKeys"
 
@@ -95,7 +95,7 @@ defmodule Envoy.Extensions.Wasm.V3.PluginConfig do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :vm, 0
 
@@ -123,7 +123,7 @@ defmodule Envoy.Extensions.Wasm.V3.WasmService do
   <config_wasm_service>` This opaque configuration will be used to create a Wasm Service.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config, 1, type: Envoy.Extensions.Wasm.V3.PluginConfig
   field :singleton, 2, type: :bool

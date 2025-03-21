@@ -25,7 +25,7 @@ defmodule Envoy.Extensions.Http.StatefulSession.Cookie.V3.CookieBasedSessionStat
   [#protodoc-title: Cookie based stateful session extension]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cookie, 1, type: Envoy.Type.Http.V3.Cookie, deprecated: false
 end

@@ -41,7 +41,7 @@ defmodule Envoy.Config.Cluster.Redis.RedisClusterConfig do
   [#extension: envoy.clusters.redis]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cluster_refresh_rate, 1,
     type: Google.Protobuf.Duration,

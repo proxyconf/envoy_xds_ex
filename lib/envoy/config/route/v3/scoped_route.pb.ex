@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Route.V3.ScopedRouteConfiguration.Key.Fragment do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :type, 0
 
@@ -15,7 +15,7 @@ defmodule Envoy.Config.Route.V3.ScopedRouteConfiguration.Key do
   Key.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :fragments, 1,
     repeated: true,
@@ -92,7 +92,7 @@ defmodule Envoy.Config.Route.V3.ScopedRouteConfiguration do
   * Routing :ref:`architecture overview <arch_overview_http_routing>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :on_demand, 4, type: :bool, json_name: "onDemand"
   field :name, 1, type: :string, deprecated: false

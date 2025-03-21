@@ -6,7 +6,7 @@ defmodule Envoy.Api.V2.DiscoveryRequest do
   [#protodoc-title: Common discovery API components]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :node, 2, type: Envoy.Api.V2.Core.Node
@@ -21,7 +21,7 @@ defmodule Envoy.Api.V2.DiscoveryResponse do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :resources, 2, repeated: true, type: Google.Protobuf.Any
@@ -32,7 +32,7 @@ defmodule Envoy.Api.V2.DiscoveryResponse do
 end
 
 defmodule Envoy.Api.V2.DeltaDiscoveryRequest.InitialResourceVersionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -75,7 +75,7 @@ defmodule Envoy.Api.V2.DeltaDiscoveryRequest do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node, 1, type: Envoy.Api.V2.Core.Node
   field :type_url, 2, type: :string, json_name: "typeUrl"
@@ -105,7 +105,7 @@ defmodule Envoy.Api.V2.DeltaDiscoveryResponse do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :system_version_info, 1, type: :string, json_name: "systemVersionInfo"
   field :resources, 2, repeated: true, type: Envoy.Api.V2.Resource
@@ -115,7 +115,7 @@ defmodule Envoy.Api.V2.DeltaDiscoveryResponse do
 end
 
 defmodule Envoy.Api.V2.Resource do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 3, type: :string
   field :aliases, 4, repeated: true, type: :string

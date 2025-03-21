@@ -11,7 +11,7 @@ defmodule Envoy.Extensions.Filters.Http.Cors.V3.Cors do
   [#extension: envoy.filters.http.cors]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.Cors.V3.CorsPolicy do
@@ -21,7 +21,7 @@ defmodule Envoy.Extensions.Filters.Http.Cors.V3.CorsPolicy do
   [#next-free-field: 11]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :allow_origin_string_match, 1,
     repeated: true,

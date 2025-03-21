@@ -4,7 +4,7 @@ defmodule Envoy.Config.Common.Tap.V2alpha.CommonExtensionConfig do
   [#protodoc-title: Common tap extension configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -25,7 +25,7 @@ defmodule Envoy.Config.Common.Tap.V2alpha.AdminConfig do
   more information.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config_id, 1, type: :string, json_name: "configId", deprecated: false
 end

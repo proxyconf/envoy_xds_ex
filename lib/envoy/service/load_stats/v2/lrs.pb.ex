@@ -4,7 +4,7 @@ defmodule Envoy.Service.LoadStats.V2.LoadStatsRequest do
   [#not-implemented-hide:] Not configuration. TBD how to doc proto APIs.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node, 1, type: Envoy.Api.V2.Core.Node
 
@@ -21,7 +21,7 @@ defmodule Envoy.Service.LoadStats.V2.LoadStatsResponse do
   [#not-implemented-hide:] Not configuration. TBD how to doc proto APIs.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: :string
   field :send_all_clusters, 4, type: :bool, json_name: "sendAllClusters"
@@ -40,7 +40,7 @@ defmodule Envoy.Service.LoadStats.V2.LoadReportingService.Service do
 
   use GRPC.Service,
     name: "envoy.service.load_stats.v2.LoadReportingService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StreamLoadStats,
       stream(Envoy.Service.LoadStats.V2.LoadStatsRequest),

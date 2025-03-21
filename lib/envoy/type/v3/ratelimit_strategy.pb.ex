@@ -3,7 +3,7 @@ defmodule Envoy.Type.V3.RateLimitStrategy.BlanketRule do
   Choose between allow all and deny all.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ALLOW_ALL, 0
   field :DENY_ALL, 1
@@ -27,7 +27,7 @@ defmodule Envoy.Type.V3.RateLimitStrategy.RequestsPerTimeUnit do
   rate limiting algorithm that fulfills the requirements.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :requests_per_time_unit, 1, type: :uint64, json_name: "requestsPerTimeUnit"
 
@@ -43,7 +43,7 @@ defmodule Envoy.Type.V3.RateLimitStrategy do
   [#protodoc-title: Rate Limit Strategies]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :strategy, 0
 

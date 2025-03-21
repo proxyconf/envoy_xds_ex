@@ -5,7 +5,7 @@ defmodule Envoy.Config.Filter.Network.MysqlProxy.V1alpha1.MySQLProxy do
   [#extension: envoy.filters.network.mysql_proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :access_log, 2, type: :string, json_name: "accessLog"

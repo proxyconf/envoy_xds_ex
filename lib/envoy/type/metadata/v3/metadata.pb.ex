@@ -4,7 +4,7 @@ defmodule Envoy.Type.Metadata.V3.MetadataKey.PathSegment do
   Currently it is only supported to specify the key, i.e. field name, as one segment of a path.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :segment, 0
 
@@ -38,7 +38,7 @@ defmodule Envoy.Type.Metadata.V3.MetadataKey do
   [#protodoc-title: Metadata]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
 
@@ -53,7 +53,7 @@ defmodule Envoy.Type.Metadata.V3.MetadataKind.Request do
   Represents dynamic metadata associated with the request.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind.Route do
@@ -61,7 +61,7 @@ defmodule Envoy.Type.Metadata.V3.MetadataKind.Route do
   Represents metadata from :ref:`the route<envoy_v3_api_field_config.route.v3.Route.metadata>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind.Cluster do
@@ -69,7 +69,7 @@ defmodule Envoy.Type.Metadata.V3.MetadataKind.Cluster do
   Represents metadata from :ref:`the upstream cluster<envoy_v3_api_field_config.cluster.v3.Cluster.metadata>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind.Host do
@@ -78,7 +78,7 @@ defmodule Envoy.Type.Metadata.V3.MetadataKind.Host do
   host<envoy_v3_api_field_config.endpoint.v3.LbEndpoint.metadata>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Type.Metadata.V3.MetadataKind do
@@ -86,7 +86,7 @@ defmodule Envoy.Type.Metadata.V3.MetadataKind do
   Describes what kind of metadata.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :kind, 0
 

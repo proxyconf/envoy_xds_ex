@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Network.ZookeeperProxy.V3.LatencyThresholdOverride.Opcode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :Connect, 0
   field :Create, 1
@@ -38,7 +38,7 @@ defmodule Envoy.Extensions.Filters.Network.ZookeeperProxy.V3.ZooKeeperProxy do
   [#extension: envoy.filters.network.zookeeper_proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :access_log, 2, type: :string, json_name: "accessLog"
@@ -72,7 +72,7 @@ defmodule Envoy.Extensions.Filters.Network.ZookeeperProxy.V3.ZooKeeperProxy do
 end
 
 defmodule Envoy.Extensions.Filters.Network.ZookeeperProxy.V3.LatencyThresholdOverride do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :opcode, 1,
     type: Envoy.Extensions.Filters.Network.ZookeeperProxy.V3.LatencyThresholdOverride.Opcode,

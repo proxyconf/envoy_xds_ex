@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig.SameSite do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DISABLED, 0
   field :STRICT, 1
@@ -8,7 +8,7 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig.SameSite do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Config.AuthType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :URL_ENCODED_BODY, 0
   field :BASIC_AUTH, 1
@@ -22,7 +22,7 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig do
   [#extension: envoy.filters.http.oauth2]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :same_site, 1,
     type: Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig.SameSite,
@@ -36,7 +36,7 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfigs do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bearer_token_cookie_config, 1,
     type: Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig,
@@ -68,7 +68,7 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials.CookieNames 
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bearer_token, 1, type: :string, json_name: "bearerToken", deprecated: false
   field :oauth_hmac, 2, type: :string, json_name: "oauthHmac", deprecated: false
@@ -83,7 +83,7 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :token_formation, 0
 
@@ -114,7 +114,7 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Config do
   [#next-free-field: 22]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :token_endpoint, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "tokenEndpoint"
   field :retry_policy, 18, type: Envoy.Config.Core.V3.RetryPolicy, json_name: "retryPolicy"
@@ -189,7 +189,7 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2 do
   Filter config.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config, 1, type: Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Config
 end

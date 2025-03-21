@@ -7,7 +7,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaUsageReports.BucketQuota
   the RLQS client is subscribing for the future assignments for this ``BucketId``.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bucket_id, 1,
     type: Envoy.Service.RateLimitQuota.V3.BucketId,
@@ -24,7 +24,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaUsageReports.BucketQuota
 end
 
 defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaUsageReports do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :domain, 1, type: :string, deprecated: false
 
@@ -72,7 +72,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction.Qu
   field. The ``active`` assignment is considered unchanged.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :assignment_time_to_live, 2,
     type: Google.Protobuf.Duration,
@@ -118,7 +118,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction.Ab
   <envoy_v3_api_msg_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction do
@@ -127,7 +127,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction do
   :ref:`bucket_id <envoy_v3_api_field_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.bucket_id>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :bucket_action, 0
 
@@ -149,7 +149,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction do
 end
 
 defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bucket_action, 1,
     repeated: true,
@@ -159,7 +159,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse do
 end
 
 defmodule Envoy.Service.RateLimitQuota.V3.BucketId.BucketEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -189,7 +189,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.BucketId do
   ``{ b: 'B', a: 'A' }`` are identical.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bucket, 1,
     repeated: true,
@@ -239,7 +239,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaService.Service do
 
   use GRPC.Service,
     name: "envoy.service.rate_limit_quota.v3.RateLimitQuotaService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StreamRateLimitQuotas,
       stream(Envoy.Service.RateLimitQuota.V3.RateLimitQuotaUsageReports),

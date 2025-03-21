@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.GrpcFieldExtraction.V3.GrpcFieldExtractionConfig.ExtractionsByMethodEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Extensions.Filters.Http.GrpcFieldExtraction.V3.FieldExtractions
@@ -135,7 +135,7 @@ defmodule Envoy.Extensions.Filters.Http.GrpcFieldExtraction.V3.GrpcFieldExtracti
   	}
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :descriptor_set, 1,
     type: Envoy.Config.Core.V3.DataSource,
@@ -151,7 +151,7 @@ defmodule Envoy.Extensions.Filters.Http.GrpcFieldExtraction.V3.GrpcFieldExtracti
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcFieldExtraction.V3.FieldExtractions.RequestFieldExtractionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -165,7 +165,7 @@ defmodule Envoy.Extensions.Filters.Http.GrpcFieldExtraction.V3.FieldExtractions 
   though the Istio doesn't support that so far.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_field_extractions, 1,
     repeated: true,
@@ -176,7 +176,7 @@ defmodule Envoy.Extensions.Filters.Http.GrpcFieldExtraction.V3.FieldExtractions 
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcFieldExtraction.V3.RequestFieldValueDisposition do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :disposition, 0
 

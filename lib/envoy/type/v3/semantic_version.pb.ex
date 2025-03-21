@@ -6,7 +6,7 @@ defmodule Envoy.Type.V3.SemanticVersion do
   [#protodoc-title: Semantic version]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :major_number, 1, type: :uint32, json_name: "majorNumber"
   field :minor_number, 2, type: :uint32, json_name: "minorNumber"

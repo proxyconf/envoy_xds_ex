@@ -1,5 +1,5 @@
 defmodule Io.Prometheus.Client.MetricType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :COUNTER, 0
   field :GAUGE, 1
@@ -9,34 +9,34 @@ defmodule Io.Prometheus.Client.MetricType do
 end
 
 defmodule Io.Prometheus.Client.LabelPair do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :name, 1, optional: true, type: :string
   field :value, 2, optional: true, type: :string
 end
 
 defmodule Io.Prometheus.Client.Gauge do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :value, 1, optional: true, type: :double
 end
 
 defmodule Io.Prometheus.Client.Counter do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :value, 1, optional: true, type: :double
   field :exemplar, 2, optional: true, type: Io.Prometheus.Client.Exemplar
 end
 
 defmodule Io.Prometheus.Client.Quantile do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :quantile, 1, optional: true, type: :double
   field :value, 2, optional: true, type: :double
 end
 
 defmodule Io.Prometheus.Client.Summary do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :sample_count, 1, optional: true, type: :uint64, json_name: "sampleCount"
   field :sample_sum, 2, optional: true, type: :double, json_name: "sampleSum"
@@ -44,13 +44,13 @@ defmodule Io.Prometheus.Client.Summary do
 end
 
 defmodule Io.Prometheus.Client.Untyped do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :value, 1, optional: true, type: :double
 end
 
 defmodule Io.Prometheus.Client.Histogram do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :sample_count, 1, optional: true, type: :uint64, json_name: "sampleCount"
   field :sample_sum, 2, optional: true, type: :double, json_name: "sampleSum"
@@ -58,7 +58,7 @@ defmodule Io.Prometheus.Client.Histogram do
 end
 
 defmodule Io.Prometheus.Client.Bucket do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :cumulative_count, 1, optional: true, type: :uint64, json_name: "cumulativeCount"
   field :upper_bound, 2, optional: true, type: :double, json_name: "upperBound"
@@ -66,7 +66,7 @@ defmodule Io.Prometheus.Client.Bucket do
 end
 
 defmodule Io.Prometheus.Client.Exemplar do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :label, 1, repeated: true, type: Io.Prometheus.Client.LabelPair
   field :value, 2, optional: true, type: :double
@@ -74,7 +74,7 @@ defmodule Io.Prometheus.Client.Exemplar do
 end
 
 defmodule Io.Prometheus.Client.Metric do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :label, 1, repeated: true, type: Io.Prometheus.Client.LabelPair
   field :gauge, 2, optional: true, type: Io.Prometheus.Client.Gauge
@@ -86,7 +86,7 @@ defmodule Io.Prometheus.Client.Metric do
 end
 
 defmodule Io.Prometheus.Client.MetricFamily do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :name, 1, optional: true, type: :string
   field :help, 2, optional: true, type: :string

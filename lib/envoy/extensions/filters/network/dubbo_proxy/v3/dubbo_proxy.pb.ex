@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.ProtocolType do
   [#extension: envoy.filters.network.dubbo_proxy]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :Dubbo, 0
 end
@@ -16,13 +16,13 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.SerializationType do
   Dubbo Serialization types supported by Envoy.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :Hessian2, 0
 end
 
 defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.Drds do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config_source, 1,
     type: Envoy.Config.Core.V3.ConfigSource,
@@ -37,7 +37,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.DubboProxy do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :route_specifier, 0
 
@@ -82,7 +82,7 @@ defmodule Envoy.Extensions.Filters.Network.DubboProxy.V3.DubboFilter do
   DubboFilter configures a Dubbo filter.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :config, 2, type: Google.Protobuf.Any

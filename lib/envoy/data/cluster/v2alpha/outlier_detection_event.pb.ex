@@ -5,7 +5,7 @@ defmodule Envoy.Data.Cluster.V2alpha.OutlierEjectionType do
   :ref:`Outlier detection logging <arch_overview_outlier_detection_logging>`.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CONSECUTIVE_5XX, 0
   field :CONSECUTIVE_GATEWAY_FAILURE, 1
@@ -21,7 +21,7 @@ defmodule Envoy.Data.Cluster.V2alpha.Action do
   Represents possible action applied to upstream host
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :EJECT, 0
   field :UNEJECT, 1
@@ -32,7 +32,7 @@ defmodule Envoy.Data.Cluster.V2alpha.OutlierDetectionEvent do
   [#next-free-field: 12]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :event, 0
 
@@ -70,7 +70,7 @@ defmodule Envoy.Data.Cluster.V2alpha.OutlierDetectionEvent do
 end
 
 defmodule Envoy.Data.Cluster.V2alpha.OutlierEjectSuccessRate do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :host_success_rate, 1, type: :uint32, json_name: "hostSuccessRate", deprecated: false
 
@@ -86,11 +86,11 @@ defmodule Envoy.Data.Cluster.V2alpha.OutlierEjectSuccessRate do
 end
 
 defmodule Envoy.Data.Cluster.V2alpha.OutlierEjectConsecutive do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Data.Cluster.V2alpha.OutlierEjectFailurePercentage do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :host_success_rate, 1, type: :uint32, json_name: "hostSuccessRate", deprecated: false
 end

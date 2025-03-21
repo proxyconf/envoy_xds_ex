@@ -3,7 +3,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtProvider.NormalizePayload
   Alters the payload representation in the request dynamic metadata to facilitate its use in matching.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :space_delimited_claims, 1,
     repeated: true,
@@ -24,7 +24,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtProvider do
   * issuer: the principal that issues the JWT. If specified, it has to match the ``iss`` field in JWT.
   * allowed audiences: the ones in the token have to be listed here.
   * how to fetch public key JWKS to verify the token signature.
-  * how to extract JWT token in the request.
+  * how to extract the JWT in the request.
   * how to pass successfully verified token payload.
 
   Example:
@@ -49,7 +49,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtProvider do
   [#extension: envoy.filters.http.jwt_authn]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :jwks_source_specifier, 0
 
@@ -108,9 +108,10 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtCacheConfig do
   This message specifies JWT Cache configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :jwt_cache_size, 1, type: :uint32, json_name: "jwtCacheSize"
+  field :jwt_max_token_size, 2, type: :uint32, json_name: "jwtMaxTokenSize"
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.RemoteJwks do
@@ -118,7 +119,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.RemoteJwks do
   This message specifies how to fetch JWKS from remote and how to cache it.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_uri, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "httpUri", deprecated: false
 
@@ -142,7 +143,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwksAsyncFetch do
   The fetched Jwks from the main thread can be used by all worker threads.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :fast_listener, 1, type: :bool, json_name: "fastListener"
 
@@ -153,10 +154,10 @@ end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtHeader do
   @moduledoc """
-  This message specifies a header location to extract JWT token.
+  This message specifies a header location to extract the JWT.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :value_prefix, 2, type: :string, json_name: "valuePrefix", deprecated: false
@@ -167,7 +168,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.ProviderWithAudiences do
   Specify a required provider with audiences.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :provider_name, 1, type: :string, json_name: "providerName"
   field :audiences, 2, repeated: true, type: :string
@@ -234,7 +235,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirement do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :requires_type, 0
 
@@ -269,7 +270,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirementOrList do
   Their results are OR-ed; if any one of them passes, the result is passed
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :requirements, 1,
     repeated: true,
@@ -283,7 +284,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirementAndList do
   Their results are AND-ed; all of them must pass, if one of them fails or missing, it fails.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :requirements, 1,
     repeated: true,
@@ -316,7 +317,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.RequirementRule do
   from "provider-A".
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :requirement_type, 0
 
@@ -331,7 +332,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.RequirementRule do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.FilterStateRule.RequiresEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirement
@@ -358,7 +359,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.FilterStateRule do
   jwt_authn filter will use JwtRequirement{"provider_name": "issuer1"} to verify.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -369,14 +370,14 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.FilterStateRule do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication.ProvidersEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtProvider
 end
 
 defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication.RequirementMapEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtRequirement
@@ -429,7 +430,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtAuthentication do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :providers, 1,
     repeated: true,
@@ -458,7 +459,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.PerRouteConfig do
   Specify per-route config.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :requirement_specifier, 0
 
@@ -476,7 +477,7 @@ defmodule Envoy.Extensions.Filters.Http.JwtAuthn.V3.JwtClaimToHeader do
   This message specifies a combination of header name and claim name.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :header_name, 1, type: :string, json_name: "headerName", deprecated: false
   field :claim_name, 2, type: :string, json_name: "claimName", deprecated: false

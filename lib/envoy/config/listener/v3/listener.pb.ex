@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Listener.V3.Listener.DrainType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEFAULT, 0
   field :MODIFY_ONLY, 1
@@ -12,7 +12,7 @@ defmodule Envoy.Config.Listener.V3.AdditionalAddress do
   Listener :ref:`configuration overview <config_listeners>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
 
@@ -27,7 +27,7 @@ defmodule Envoy.Config.Listener.V3.ListenerCollection do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Xds.Core.V3.CollectionEntry
 end
@@ -37,7 +37,7 @@ defmodule Envoy.Config.Listener.V3.Listener.DeprecatedV1 do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bind_to_port, 1, type: Google.Protobuf.BoolValue, json_name: "bindToPort"
 end
@@ -52,7 +52,7 @@ defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig.ExactBalance
   connections that rarely cycle (e.g., service mesh gRPC egress).
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig do
@@ -60,7 +60,7 @@ defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig do
   Configuration for listener connection balancing.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :balance_type, 0
 
@@ -80,7 +80,7 @@ defmodule Envoy.Config.Listener.V3.Listener.InternalListenerConfig do
   Configuration for envoy internal listener. All the future internal listener features should be added here.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.Listener do
@@ -88,7 +88,7 @@ defmodule Envoy.Config.Listener.V3.Listener do
   [#next-free-field: 36]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :listener_specifier, 0
 
@@ -209,7 +209,7 @@ defmodule Envoy.Config.Listener.V3.ListenerManager do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.ValidationListenerManager do
@@ -219,7 +219,7 @@ defmodule Envoy.Config.Listener.V3.ValidationListenerManager do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.ApiListenerManager do
@@ -229,5 +229,5 @@ defmodule Envoy.Config.Listener.V3.ApiListenerManager do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

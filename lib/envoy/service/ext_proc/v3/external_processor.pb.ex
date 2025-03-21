@@ -3,14 +3,41 @@ defmodule Envoy.Service.ExtProc.V3.CommonResponse.ResponseStatus do
   The status of the response.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CONTINUE, 0
   field :CONTINUE_AND_REPLACE, 1
 end
 
+defmodule Envoy.Service.ExtProc.V3.ProtocolConfiguration do
+  @moduledoc """
+  This message specifies the filter protocol configurations which will be sent to the ext_proc
+  server in a :ref:`ProcessingRequest <envoy_v3_api_msg_service.ext_proc.v3.ProcessingRequest>`.
+  If the server does not support these protocol configurations, it may choose to close the gRPC stream.
+  If the server supports these protocol configurations, it should respond based on the API specifications.
+  """
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :request_body_mode, 1,
+    type: Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.BodySendMode,
+    json_name: "requestBodyMode",
+    enum: true,
+    deprecated: false
+
+  field :response_body_mode, 2,
+    type: Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.BodySendMode,
+    json_name: "responseBodyMode",
+    enum: true,
+    deprecated: false
+
+  field :send_body_without_waiting_for_header_response, 3,
+    type: :bool,
+    json_name: "sendBodyWithoutWaitingForHeaderResponse"
+end
+
 defmodule Envoy.Service.ExtProc.V3.ProcessingRequest.AttributesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Struct
@@ -20,10 +47,10 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingRequest do
   @moduledoc """
   This represents the different types of messages that Envoy can send
   to an external processing server.
-  [#next-free-field: 11]
+  [#next-free-field: 12]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :request, 0
 
@@ -65,6 +92,10 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingRequest do
     map: true
 
   field :observability_mode, 10, type: :bool, json_name: "observabilityMode"
+
+  field :protocol_config, 11,
+    type: Envoy.Service.ExtProc.V3.ProtocolConfiguration,
+    json_name: "protocolConfig"
 end
 
 defmodule Envoy.Service.ExtProc.V3.ProcessingResponse do
@@ -74,7 +105,7 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingResponse do
   [#next-free-field: 11]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :response, 0
 
@@ -125,7 +156,7 @@ defmodule Envoy.Service.ExtProc.V3.ProcessingResponse do
 end
 
 defmodule Envoy.Service.ExtProc.V3.HttpHeaders.AttributesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Struct
@@ -138,7 +169,7 @@ defmodule Envoy.Service.ExtProc.V3.HttpHeaders do
   The following are messages that are sent to the server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :headers, 1, type: Envoy.Config.Core.V3.HeaderMap
 
@@ -157,7 +188,7 @@ defmodule Envoy.Service.ExtProc.V3.HttpBody do
   response bodies are received.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :body, 1, type: :bytes
   field :end_of_stream, 2, type: :bool, json_name: "endOfStream"
@@ -169,7 +200,7 @@ defmodule Envoy.Service.ExtProc.V3.HttpTrailers do
   response trailers are received.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :trailers, 1, type: Envoy.Config.Core.V3.HeaderMap
 end
@@ -181,7 +212,7 @@ defmodule Envoy.Service.ExtProc.V3.HeadersResponse do
   The following are messages that may be sent back by the server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :response, 1, type: Envoy.Service.ExtProc.V3.CommonResponse
 end
@@ -192,7 +223,7 @@ defmodule Envoy.Service.ExtProc.V3.BodyResponse do
   sent to it.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :response, 1, type: Envoy.Service.ExtProc.V3.CommonResponse
 end
@@ -203,7 +234,7 @@ defmodule Envoy.Service.ExtProc.V3.TrailersResponse do
   sent to it.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :header_mutation, 1,
     type: Envoy.Service.ExtProc.V3.HeaderMutation,
@@ -216,7 +247,7 @@ defmodule Envoy.Service.ExtProc.V3.CommonResponse do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :status, 1,
     type: Envoy.Service.ExtProc.V3.CommonResponse.ResponseStatus,
@@ -243,7 +274,7 @@ defmodule Envoy.Service.ExtProc.V3.ImmediateResponse do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :status, 1, type: Envoy.Type.V3.HttpStatus, deprecated: false
   field :headers, 2, type: Envoy.Service.ExtProc.V3.HeaderMutation
@@ -257,7 +288,7 @@ defmodule Envoy.Service.ExtProc.V3.GrpcStatus do
   This message specifies a gRPC status for an ImmediateResponse message.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :status, 1, type: :uint32
 end
@@ -268,7 +299,7 @@ defmodule Envoy.Service.ExtProc.V3.HeaderMutation do
   headers.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :set_headers, 1,
     repeated: true,
@@ -283,7 +314,7 @@ defmodule Envoy.Service.ExtProc.V3.StreamedBodyResponse do
   The body response message corresponding to FULL_DUPLEX_STREAMED body mode.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :body, 1, type: :bytes
   field :end_of_stream, 2, type: :bool, json_name: "endOfStream"
@@ -294,7 +325,7 @@ defmodule Envoy.Service.ExtProc.V3.BodyMutation do
   This message specifies the body mutation the server sends to Envoy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :mutation, 0
 
@@ -339,7 +370,7 @@ defmodule Envoy.Service.ExtProc.V3.ExternalProcessor.Service do
 
   use GRPC.Service,
     name: "envoy.service.ext_proc.v3.ExternalProcessor",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :Process,
       stream(Envoy.Service.ExtProc.V3.ProcessingRequest),

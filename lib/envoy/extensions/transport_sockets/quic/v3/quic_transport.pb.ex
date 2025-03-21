@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.TransportSockets.Quic.V3.QuicDownstreamTransport do
   [#comment:#extension: envoy.transport_sockets.quic]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :downstream_tls_context, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.DownstreamTlsContext,
@@ -20,7 +20,7 @@ defmodule Envoy.Extensions.TransportSockets.Quic.V3.QuicUpstreamTransport do
   Configuration for Upstream QUIC transport socket. This provides Google's implementation of Google QUIC and IETF QUIC to Envoy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :upstream_tls_context, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.UpstreamTlsContext,

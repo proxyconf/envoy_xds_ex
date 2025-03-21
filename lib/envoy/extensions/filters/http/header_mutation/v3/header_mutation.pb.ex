@@ -4,7 +4,7 @@ defmodule Envoy.Extensions.Filters.Http.HeaderMutation.V3.Mutations do
   [#extension: envoy.filters.http.header_mutation]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_mutations, 1,
     repeated: true,
@@ -27,7 +27,7 @@ defmodule Envoy.Extensions.Filters.Http.HeaderMutation.V3.HeaderMutationPerRoute
   Per route configuration for the header mutation filter.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mutations, 1, type: Envoy.Extensions.Filters.Http.HeaderMutation.V3.Mutations
 end
@@ -38,7 +38,7 @@ defmodule Envoy.Extensions.Filters.Http.HeaderMutation.V3.HeaderMutation do
   always be applied first and then the per-route mutation rules, if both are specified.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mutations, 1, type: Envoy.Extensions.Filters.Http.HeaderMutation.V3.Mutations
 

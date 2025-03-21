@@ -1,5 +1,5 @@
 defmodule Xds.Core.V3.ResourceLocator.Scheme do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :XDSTP, 0
   field :HTTP, 1
@@ -31,7 +31,7 @@ defmodule Xds.Core.V3.ResourceLocator.Directive do
   and reserved characters.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :directive, 0
 
@@ -59,7 +59,7 @@ defmodule Xds.Core.V3.ResourceLocator do
   file:///{id}{#directive,*}
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :context_param_specifier, 0
 

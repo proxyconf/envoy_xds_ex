@@ -27,7 +27,7 @@ defmodule Envoy.Extensions.Path.Match.UriTemplate.V3.UriTemplateMatchConfig do
   [#extension: envoy.path.match.uri_template.uri_template_matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :path_template, 1, type: :string, json_name: "pathTemplate", deprecated: false
 end

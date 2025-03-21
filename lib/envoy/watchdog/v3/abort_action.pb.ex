@@ -8,7 +8,7 @@ defmodule Envoy.Watchdog.V3.AbortActionConfig do
   [#protodoc-title: Watchdog Action that kills a stuck thread to kill the process.]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :wait_duration, 1, type: Google.Protobuf.Duration, json_name: "waitDuration"
 end

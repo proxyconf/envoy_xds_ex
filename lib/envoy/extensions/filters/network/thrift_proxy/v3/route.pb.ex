@@ -4,7 +4,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.RouteConfiguration do
   Thrift Proxy :ref:`configuration overview <config_network_filters_thrift_proxy>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :routes, 2, repeated: true, type: Envoy.Extensions.Filters.Network.ThriftProxy.V3.Route
@@ -12,7 +12,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.RouteConfiguration do
 end
 
 defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.Route do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :match, 1,
     type: Envoy.Extensions.Filters.Network.ThriftProxy.V3.RouteMatch,
@@ -24,7 +24,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.Route do
 end
 
 defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.RouteMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :match_specifier, 0
 
@@ -46,7 +46,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.RouteAction.RequestMir
   Shadowing will not be triggered if the primary cluster does not exist.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
 
@@ -60,7 +60,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.RouteAction do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :cluster_specifier, 0
 
@@ -88,7 +88,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.RouteAction do
 end
 
 defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.WeightedCluster.ClusterWeight do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :weight, 2, type: Google.Protobuf.UInt32Value, deprecated: false
@@ -102,7 +102,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.WeightedCluster do
   based on these weights.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :clusters, 1,
     repeated: true,

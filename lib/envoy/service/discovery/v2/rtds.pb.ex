@@ -4,7 +4,7 @@ defmodule Envoy.Service.Discovery.V2.RtdsDummy do
   services: https://github.com/google/protobuf/issues/4221
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Service.Discovery.V2.Runtime do
@@ -12,7 +12,7 @@ defmodule Envoy.Service.Discovery.V2.Runtime do
   RTDS resource type. This describes a layer in the runtime virtual filesystem.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :layer, 2, type: Google.Protobuf.Struct
@@ -27,7 +27,7 @@ defmodule Envoy.Service.Discovery.V2.RuntimeDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.service.discovery.v2.RuntimeDiscoveryService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StreamRuntime,
       stream(Envoy.Api.V2.DiscoveryRequest),

@@ -4,7 +4,7 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.ExplicitHttpCon
   Note that HTTP/2 or above should generally be used for upstream gRPC clusters.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :protocol_config, 0
 
@@ -33,7 +33,7 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.UseDownstreamHt
   HTTP/3 requests will fail over to HTTP/2.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_protocol_options, 1,
     type: Envoy.Config.Core.V3.Http1ProtocolOptions,
@@ -61,7 +61,7 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.AutoHttpConfig 
   for the cluster (or if custom ALPN fails) will be "h2,http/1.1".
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_protocol_options, 1,
     type: Envoy.Config.Core.V3.Http1ProtocolOptions,
@@ -128,7 +128,7 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions do
   [#extension: envoy.upstreams.http.http_protocol_options]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :upstream_protocol_options, 0
 

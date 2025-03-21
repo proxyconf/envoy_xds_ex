@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Cluster.V3.CircuitBreakers.Thresholds.RetryBudget do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :budget_percent, 1, type: Envoy.Type.V3.Percent, json_name: "budgetPercent"
 
@@ -15,7 +15,7 @@ defmodule Envoy.Config.Cluster.V3.CircuitBreakers.Thresholds do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :priority, 1, type: Envoy.Config.Core.V3.RoutingPriority, enum: true, deprecated: false
   field :max_connections, 2, type: Google.Protobuf.UInt32Value, json_name: "maxConnections"
@@ -45,7 +45,7 @@ defmodule Envoy.Config.Cluster.V3.CircuitBreakers do
   [#protodoc-title: Circuit breakers]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :thresholds, 1, repeated: true, type: Envoy.Config.Cluster.V3.CircuitBreakers.Thresholds
 

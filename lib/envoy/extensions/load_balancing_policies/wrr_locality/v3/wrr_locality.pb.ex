@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.WrrLocality.V3.WrrLocality do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :endpoint_picking_policy, 1,
     type: Envoy.Config.Cluster.V3.LoadBalancingPolicy,

@@ -9,7 +9,7 @@ defmodule Envoy.Extensions.Filters.Http.CustomResponse.V3.CustomResponse do
   The Custom Response Filter allows for replacing upstream responses.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :custom_response_matcher, 1,
     type: Xds.Type.Matcher.V3.Matcher,

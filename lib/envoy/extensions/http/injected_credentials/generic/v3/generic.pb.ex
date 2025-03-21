@@ -8,7 +8,7 @@ defmodule Envoy.Extensions.Http.InjectedCredentials.Generic.V3.Generic do
   [#extension: envoy.http.injected_credentials.generic]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :credential, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.SdsSecretConfig,

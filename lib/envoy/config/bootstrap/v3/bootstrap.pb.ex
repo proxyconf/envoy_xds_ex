@@ -8,7 +8,7 @@ defmodule Envoy.Config.Bootstrap.V3.Watchdog.WatchdogAction.WatchdogEvent do
   alternate FATAL action.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNKNOWN, 0
   field :KILL, 1
@@ -18,7 +18,7 @@ defmodule Envoy.Config.Bootstrap.V3.Watchdog.WatchdogAction.WatchdogEvent do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.CustomInlineHeader.InlineHeaderType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :REQUEST_HEADER, 0
   field :REQUEST_TRAILER, 1
@@ -27,7 +27,7 @@ defmodule Envoy.Config.Bootstrap.V3.CustomInlineHeader.InlineHeaderType do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.Bootstrap.StaticResources do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :listeners, 1, repeated: true, type: Envoy.Config.Listener.V3.Listener
   field :clusters, 2, repeated: true, type: Envoy.Config.Cluster.V3.Cluster
@@ -39,7 +39,7 @@ defmodule Envoy.Config.Bootstrap.V3.Bootstrap.DynamicResources do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :lds_config, 1, type: Envoy.Config.Core.V3.ConfigSource, json_name: "ldsConfig"
   field :lds_resources_locator, 5, type: :string, json_name: "ldsResourcesLocator"
@@ -49,7 +49,7 @@ defmodule Envoy.Config.Bootstrap.V3.Bootstrap.DynamicResources do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.Bootstrap.ApplicationLogConfig.LogFormat do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :log_format, 0
 
@@ -58,7 +58,7 @@ defmodule Envoy.Config.Bootstrap.V3.Bootstrap.ApplicationLogConfig.LogFormat do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.Bootstrap.ApplicationLogConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :log_format, 1,
     type: Envoy.Config.Bootstrap.V3.Bootstrap.ApplicationLogConfig.LogFormat,
@@ -66,13 +66,13 @@ defmodule Envoy.Config.Bootstrap.V3.Bootstrap.ApplicationLogConfig do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.Bootstrap.DeferredStatOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_deferred_creation_stats, 1, type: :bool, json_name: "enableDeferredCreationStats"
 end
 
 defmodule Envoy.Config.Bootstrap.V3.Bootstrap.GrpcAsyncClientManagerConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_cached_entry_idle_duration, 1,
     type: Google.Protobuf.Duration,
@@ -81,7 +81,7 @@ defmodule Envoy.Config.Bootstrap.V3.Bootstrap.GrpcAsyncClientManagerConfig do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.Bootstrap.CertificateProviderInstancesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Config.Core.V3.TypedExtensionConfig
@@ -97,7 +97,7 @@ defmodule Envoy.Config.Bootstrap.V3.Bootstrap do
   <config_overview_bootstrap>` for more detail.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :stats_flush, 0
 
@@ -247,7 +247,7 @@ defmodule Envoy.Config.Bootstrap.V3.Admin do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_log, 5,
     repeated: true,
@@ -267,7 +267,7 @@ defmodule Envoy.Config.Bootstrap.V3.Admin do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.ClusterManager.OutlierDetection do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :event_log_path, 1, type: :string, json_name: "eventLogPath"
 
@@ -282,7 +282,7 @@ defmodule Envoy.Config.Bootstrap.V3.ClusterManager do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :local_cluster_name, 1, type: :string, json_name: "localClusterName"
 
@@ -310,7 +310,7 @@ defmodule Envoy.Config.Bootstrap.V3.Watchdogs do
   the default values for that system will be used.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :main_thread_watchdog, 1,
     type: Envoy.Config.Bootstrap.V3.Watchdog,
@@ -320,7 +320,7 @@ defmodule Envoy.Config.Bootstrap.V3.Watchdogs do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.Watchdog.WatchdogAction do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config, 1, type: Envoy.Config.Core.V3.TypedExtensionConfig
 
@@ -338,7 +338,7 @@ defmodule Envoy.Config.Bootstrap.V3.Watchdog do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :actions, 7, repeated: true, type: Envoy.Config.Bootstrap.V3.Watchdog.WatchdogAction
   field :miss_timeout, 1, type: Google.Protobuf.Duration, json_name: "missTimeout"
@@ -366,7 +366,7 @@ defmodule Envoy.Config.Bootstrap.V3.FatalAction do
   namespace.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config, 1, type: Envoy.Config.Core.V3.TypedExtensionConfig
 end
@@ -376,7 +376,7 @@ defmodule Envoy.Config.Bootstrap.V3.Runtime do
   Runtime :ref:`configuration overview <config_runtime>` (deprecated).
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :symlink_root, 1, type: :string, json_name: "symlinkRoot"
   field :subdirectory, 2, type: :string
@@ -389,7 +389,7 @@ defmodule Envoy.Config.Bootstrap.V3.RuntimeLayer.DiskLayer do
   :ref:`Disk runtime <config_runtime_local_disk>` layer.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :symlink_root, 1, type: :string, json_name: "symlinkRoot"
   field :subdirectory, 3, type: :string
@@ -401,7 +401,7 @@ defmodule Envoy.Config.Bootstrap.V3.RuntimeLayer.AdminLayer do
   :ref:`Admin console runtime <config_runtime_admin>` layer.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Bootstrap.V3.RuntimeLayer.RtdsLayer do
@@ -409,7 +409,7 @@ defmodule Envoy.Config.Bootstrap.V3.RuntimeLayer.RtdsLayer do
   :ref:`Runtime Discovery Service (RTDS) <config_runtime_rtds>` layer.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :rtds_config, 2, type: Envoy.Config.Core.V3.ConfigSource, json_name: "rtdsConfig"
@@ -420,7 +420,7 @@ defmodule Envoy.Config.Bootstrap.V3.RuntimeLayer do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :layer_specifier, 0
 
@@ -448,7 +448,7 @@ defmodule Envoy.Config.Bootstrap.V3.LayeredRuntime do
   Runtime :ref:`configuration overview <config_runtime>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :layers, 1, repeated: true, type: Envoy.Config.Bootstrap.V3.RuntimeLayer
 end
@@ -481,7 +481,7 @@ defmodule Envoy.Config.Bootstrap.V3.CustomInlineHeader do
   HeaderMap or TrailerMap.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :inline_header_name, 1, type: :string, json_name: "inlineHeaderName", deprecated: false
 
@@ -493,7 +493,7 @@ defmodule Envoy.Config.Bootstrap.V3.CustomInlineHeader do
 end
 
 defmodule Envoy.Config.Bootstrap.V3.MemoryAllocatorManager do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bytes_to_release, 1, type: :uint64, json_name: "bytesToRelease"
 

@@ -3,7 +3,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.RingHash.V3.RingHash.HashFuncti
   The hash function used to hash hosts onto the ketama ring.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEFAULT_HASH, 0
   field :XX_HASH, 1
@@ -20,7 +20,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.RingHash.V3.RingHash do
   [#extension: envoy.load_balancing_policies.ring_hash]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :hash_function, 1,
     type: Envoy.Extensions.LoadBalancingPolicies.RingHash.V3.RingHash.HashFunction,

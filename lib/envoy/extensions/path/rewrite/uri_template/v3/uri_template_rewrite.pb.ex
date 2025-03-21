@@ -43,7 +43,7 @@ defmodule Envoy.Extensions.Path.Rewrite.UriTemplate.V3.UriTemplateRewriteConfig 
   [#extension: envoy.path.rewrite.uri_template.uri_template_rewriter]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :path_template_rewrite, 1,
     type: :string,

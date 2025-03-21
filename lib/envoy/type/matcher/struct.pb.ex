@@ -3,7 +3,7 @@ defmodule Envoy.Type.Matcher.StructMatcher.PathSegment do
   Specifies the segment in a path to retrieve value from Struct.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :segment, 0
 
@@ -66,7 +66,7 @@ defmodule Envoy.Type.Matcher.StructMatcher do
   [#protodoc-title: Struct matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :path, 2,
     repeated: true,

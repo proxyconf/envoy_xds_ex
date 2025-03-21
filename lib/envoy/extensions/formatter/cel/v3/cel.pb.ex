@@ -1,6 +1,10 @@
 defmodule Envoy.Extensions.Formatter.Cel.V3.Cel do
   @moduledoc """
   Configuration for the CEL formatter.
+
+  .. warning::
+  This extension is treated as built-in extension and will be enabled by default now.
+  It is unnecessary to configure this extension.
   [#protodoc-title: Formatter extension for printing CEL expressions]
   [#extension: envoy.formatter.cel]
   CEL formatter extension implements CEL command operator that evaluates configured
@@ -20,5 +24,5 @@ defmodule Envoy.Extensions.Formatter.Cel.V3.Cel do
   * ``%CEL(request.headers['x-log-mtls'] || request.url_path.contains('v1beta3'))%``
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

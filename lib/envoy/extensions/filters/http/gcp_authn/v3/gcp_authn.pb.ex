@@ -7,7 +7,7 @@ defmodule Envoy.Extensions.Filters.Http.GcpAuthn.V3.GcpAuthnFilterConfig do
   [#extension: envoy.filters.http.gcp_authn]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_uri, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "httpUri", deprecated: true
   field :retry_policy, 2, type: Envoy.Config.Core.V3.RetryPolicy, json_name: "retryPolicy"
@@ -30,7 +30,7 @@ defmodule Envoy.Extensions.Filters.Http.GcpAuthn.V3.Audience do
   It will be provided to the filter through cluster's typed_filter_metadata.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :url, 1, type: :string, deprecated: false
 end
@@ -40,7 +40,7 @@ defmodule Envoy.Extensions.Filters.Http.GcpAuthn.V3.TokenCacheConfig do
   Token Cache configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cache_size, 1,
     type: Google.Protobuf.UInt64Value,
@@ -49,7 +49,7 @@ defmodule Envoy.Extensions.Filters.Http.GcpAuthn.V3.TokenCacheConfig do
 end
 
 defmodule Envoy.Extensions.Filters.Http.GcpAuthn.V3.TokenHeader do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :value_prefix, 2, type: :string, json_name: "valuePrefix", deprecated: false

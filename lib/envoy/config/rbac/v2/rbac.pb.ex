@@ -3,14 +3,14 @@ defmodule Envoy.Config.Rbac.V2.RBAC.Action do
   Should we do safe-list or block-list style access control?
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ALLOW, 0
   field :DENY, 1
 end
 
 defmodule Envoy.Config.Rbac.V2.RBAC.PoliciesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Config.Rbac.V2.Policy
@@ -60,7 +60,7 @@ defmodule Envoy.Config.Rbac.V2.RBAC do
   [#protodoc-title: Role Based Access Control (RBAC)]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :action, 1, type: Envoy.Config.Rbac.V2.RBAC.Action, enum: true
   field :policies, 2, repeated: true, type: Envoy.Config.Rbac.V2.RBAC.PoliciesEntry, map: true
@@ -73,7 +73,7 @@ defmodule Envoy.Config.Rbac.V2.Policy do
   principals match the downstream AND the condition is true if specified.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :permissions, 1, repeated: true, type: Envoy.Config.Rbac.V2.Permission, deprecated: false
   field :principals, 2, repeated: true, type: Envoy.Config.Rbac.V2.Principal, deprecated: false
@@ -86,7 +86,7 @@ defmodule Envoy.Config.Rbac.V2.Permission.Set do
   each are applied with the associated behavior.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Envoy.Config.Rbac.V2.Permission, deprecated: false
 end
@@ -97,7 +97,7 @@ defmodule Envoy.Config.Rbac.V2.Permission do
   [#next-free-field: 11]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :rule, 0
 
@@ -133,7 +133,7 @@ defmodule Envoy.Config.Rbac.V2.Principal.Set do
   each are applied with the associated behavior.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ids, 1, repeated: true, type: Envoy.Config.Rbac.V2.Principal, deprecated: false
 end
@@ -143,7 +143,7 @@ defmodule Envoy.Config.Rbac.V2.Principal.Authenticated do
   Authentication attributes for a downstream.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :principal_name, 2, type: Envoy.Type.Matcher.StringMatcher, json_name: "principalName"
 end
@@ -154,7 +154,7 @@ defmodule Envoy.Config.Rbac.V2.Principal do
   [#next-free-field: 12]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :identifier, 0
 

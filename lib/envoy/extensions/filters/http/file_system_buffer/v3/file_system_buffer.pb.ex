@@ -1,21 +1,21 @@
 defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.BufferBehavior.StreamWhenPossible do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.BufferBehavior.Bypass do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.BufferBehavior.InjectContentLengthIfNecessary do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.BufferBehavior.FullyBufferAndAlwaysInjectContentLength do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.BufferBehavior.FullyBuffer do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.BufferBehavior do
@@ -26,7 +26,7 @@ defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.BufferBehavior do
   [#extension: envoy.filters.http.file_system_buffer]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :behavior, 0
 
@@ -62,7 +62,7 @@ defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.StreamConfig do
   The configuration for one direction of the filter behavior.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :behavior, 1, type: Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.BufferBehavior
 
@@ -89,7 +89,7 @@ defmodule Envoy.Extensions.Filters.Http.FileSystemBuffer.V3.FileSystemBufferFilt
   and not required, use a default value.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :manager_config, 1,
     type: Envoy.Extensions.Common.AsyncFiles.V3.AsyncFileManagerConfig,

@@ -4,7 +4,7 @@ defmodule Envoy.Type.Matcher.DoubleMatcher do
   [#protodoc-title: Number matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :match_pattern, 0
 

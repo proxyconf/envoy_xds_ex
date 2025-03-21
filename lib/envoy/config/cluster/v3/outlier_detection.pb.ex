@@ -6,7 +6,7 @@ defmodule Envoy.Config.Cluster.V3.OutlierDetection do
   [#protodoc-title: Outlier detection]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :consecutive_5xx, 1, type: Google.Protobuf.UInt32Value, json_name: "consecutive5xx"
   field :interval, 2, type: Google.Protobuf.Duration, deprecated: false

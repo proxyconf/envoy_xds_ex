@@ -7,7 +7,7 @@ defmodule Envoy.Extensions.AccessLoggers.Filters.Cel.V3.ExpressionFilter do
   [#extension: envoy.access_loggers.extension_filters.cel]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :expression, 1, type: :string
 end

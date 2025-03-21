@@ -9,7 +9,7 @@ defmodule Envoy.Extensions.Filters.Network.SetFilterState.V3.Config do
   [#extension: envoy.filters.network.set_filter_state]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :on_new_connection, 1,
     repeated: true,

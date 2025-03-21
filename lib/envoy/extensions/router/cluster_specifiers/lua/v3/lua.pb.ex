@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Router.ClusterSpecifiers.Lua.V3.LuaConfig do
   [#extension: envoy.router.cluster_specifier_plugin.lua]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source_code, 1,
     type: Envoy.Config.Core.V3.DataSource,

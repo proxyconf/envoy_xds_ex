@@ -23,7 +23,7 @@ defmodule Envoy.Extensions.RequestId.Uuid.V3.UuidRequestIdConfig do
   [#extension: envoy.request_id.uuid]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :pack_trace_reason, 1, type: Google.Protobuf.BoolValue, json_name: "packTraceReason"
 

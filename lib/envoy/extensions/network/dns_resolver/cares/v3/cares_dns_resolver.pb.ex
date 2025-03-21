@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Network.DnsResolver.Cares.V3.CaresDnsResolverConfig d
   [#extension: envoy.network.dns_resolver.cares]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resolvers, 1, repeated: true, type: Envoy.Config.Core.V3.Address
   field :use_resolvers_as_fallback, 3, type: :bool, json_name: "useResolversAsFallback"

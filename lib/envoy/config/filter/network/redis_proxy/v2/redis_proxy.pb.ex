@@ -6,7 +6,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.ConnPoolSettings.
   application can tolerate stale data.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MASTER, 0
   field :PREFER_MASTER, 1
@@ -21,7 +21,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.ConnPoolSettings 
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :op_timeout, 1, type: Google.Protobuf.Duration, json_name: "opTimeout", deprecated: false
   field :enable_hashtagging, 2, type: :bool, json_name: "enableHashtagging"
@@ -50,7 +50,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes.Rout
   collected for the shadow cluster making this feature useful for testing.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
 
@@ -62,7 +62,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes.Rout
 end
 
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes.Route do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :prefix, 1, type: :string
   field :remove_prefix, 2, type: :bool, json_name: "removePrefix"
@@ -76,7 +76,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes.Rout
 end
 
 defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy.PrefixRoutes do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :routes, 1,
     repeated: true,
@@ -98,7 +98,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProxy do
   [#extension: envoy.filters.network.redis_proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :cluster, 2, type: :string, deprecated: true
@@ -126,7 +126,7 @@ defmodule Envoy.Config.Filter.Network.RedisProxy.V2.RedisProtocolOptions do
   keyed by the name `envoy.filters.network.redis_proxy`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :auth_password, 1,
     type: Envoy.Api.V2.Core.DataSource,

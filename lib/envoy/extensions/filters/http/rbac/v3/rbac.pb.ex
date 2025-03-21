@@ -7,7 +7,7 @@ defmodule Envoy.Extensions.Filters.Http.Rbac.V3.RBAC do
   [#extension: envoy.filters.http.rbac]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rules, 1, type: Envoy.Config.Rbac.V3.RBAC, deprecated: false
   field :rules_stat_prefix, 6, type: :string, json_name: "rulesStatPrefix"
@@ -28,7 +28,7 @@ defmodule Envoy.Extensions.Filters.Http.Rbac.V3.RBAC do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Rbac.V3.RBACPerRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rbac, 2, type: Envoy.Extensions.Filters.Http.Rbac.V3.RBAC
 end

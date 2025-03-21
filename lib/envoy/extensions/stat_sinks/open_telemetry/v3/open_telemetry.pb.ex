@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.StatSinks.OpenTelemetry.V3.SinkConfig do
   [#extension: envoy.stat_sinks.open_telemetry]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :protocol_specifier, 0
 

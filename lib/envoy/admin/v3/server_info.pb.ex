@@ -1,5 +1,5 @@
 defmodule Envoy.Admin.V3.ServerInfo.State do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :LIVE, 0
   field :DRAINING, 1
@@ -8,14 +8,14 @@ defmodule Envoy.Admin.V3.ServerInfo.State do
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.IpVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :v4, 0
   field :v6, 1
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.Mode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :Serve, 0
   field :Validate, 1
@@ -23,7 +23,7 @@ defmodule Envoy.Admin.V3.CommandLineOptions.Mode do
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.DrainStrategy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :Gradual, 0
   field :Immediate, 1
@@ -37,7 +37,7 @@ defmodule Envoy.Admin.V3.ServerInfo do
   [#protodoc-title: Server state]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version, 1, type: :string
   field :state, 2, type: Envoy.Admin.V3.ServerInfo.State, enum: true
@@ -57,7 +57,7 @@ defmodule Envoy.Admin.V3.CommandLineOptions do
   [#next-free-field: 42]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :base_id, 1, type: :uint64, json_name: "baseId"
   field :use_dynamic_base_id, 31, type: :bool, json_name: "useDynamicBaseId"

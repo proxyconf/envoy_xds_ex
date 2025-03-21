@@ -3,7 +3,7 @@ defmodule Envoy.Data.Accesslog.V2.HTTPAccessLogEntry.HTTPVersion do
   HTTP version
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PROTOCOL_UNSPECIFIED, 0
   field :HTTP10, 1
@@ -17,14 +17,14 @@ defmodule Envoy.Data.Accesslog.V2.ResponseFlags.Unauthorized.Reason do
   Reasons why the request was unauthorized
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :EXTERNAL_SERVICE, 1
 end
 
 defmodule Envoy.Data.Accesslog.V2.TLSProperties.TLSVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :VERSION_UNSPECIFIED, 0
   field :TLSv1, 1
@@ -47,7 +47,7 @@ defmodule Envoy.Data.Accesslog.V2.TCPAccessLogEntry do
   in their name.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :common_properties, 1,
     type: Envoy.Data.Accesslog.V2.AccessLogCommon,
@@ -59,7 +59,7 @@ defmodule Envoy.Data.Accesslog.V2.TCPAccessLogEntry do
 end
 
 defmodule Envoy.Data.Accesslog.V2.HTTPAccessLogEntry do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :common_properties, 1,
     type: Envoy.Data.Accesslog.V2.AccessLogCommon,
@@ -79,14 +79,14 @@ defmodule Envoy.Data.Accesslog.V2.ConnectionProperties do
   Defines fields for a connection
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :received_bytes, 1, type: :uint64, json_name: "receivedBytes"
   field :sent_bytes, 2, type: :uint64, json_name: "sentBytes"
 end
 
 defmodule Envoy.Data.Accesslog.V2.AccessLogCommon.FilterStateObjectsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
@@ -98,7 +98,7 @@ defmodule Envoy.Data.Accesslog.V2.AccessLogCommon do
   [#next-free-field: 22]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sample_rate, 1, type: :double, json_name: "sampleRate", deprecated: false
 
@@ -175,7 +175,7 @@ defmodule Envoy.Data.Accesslog.V2.AccessLogCommon do
 end
 
 defmodule Envoy.Data.Accesslog.V2.ResponseFlags.Unauthorized do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reason, 1, type: Envoy.Data.Accesslog.V2.ResponseFlags.Unauthorized.Reason, enum: true
 end
@@ -186,7 +186,7 @@ defmodule Envoy.Data.Accesslog.V2.ResponseFlags do
   [#next-free-field: 20]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :failed_local_healthcheck, 1, type: :bool, json_name: "failedLocalHealthcheck"
   field :no_healthy_upstream, 2, type: :bool, json_name: "noHealthyUpstream"
@@ -222,7 +222,7 @@ defmodule Envoy.Data.Accesslog.V2.ResponseFlags do
 end
 
 defmodule Envoy.Data.Accesslog.V2.TLSProperties.CertificateProperties.SubjectAltName do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :san, 0
 
@@ -231,7 +231,7 @@ defmodule Envoy.Data.Accesslog.V2.TLSProperties.CertificateProperties.SubjectAlt
 end
 
 defmodule Envoy.Data.Accesslog.V2.TLSProperties.CertificateProperties do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :subject_alt_name, 1,
     repeated: true,
@@ -247,7 +247,7 @@ defmodule Envoy.Data.Accesslog.V2.TLSProperties do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tls_version, 1,
     type: Envoy.Data.Accesslog.V2.TLSProperties.TLSVersion,
@@ -269,7 +269,7 @@ defmodule Envoy.Data.Accesslog.V2.TLSProperties do
 end
 
 defmodule Envoy.Data.Accesslog.V2.HTTPRequestProperties.RequestHeadersEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -280,7 +280,7 @@ defmodule Envoy.Data.Accesslog.V2.HTTPRequestProperties do
   [#next-free-field: 14]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_method, 1,
     type: Envoy.Api.V2.Core.RequestMethod,
@@ -308,14 +308,14 @@ defmodule Envoy.Data.Accesslog.V2.HTTPRequestProperties do
 end
 
 defmodule Envoy.Data.Accesslog.V2.HTTPResponseProperties.ResponseHeadersEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 
 defmodule Envoy.Data.Accesslog.V2.HTTPResponseProperties.ResponseTrailersEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -326,7 +326,7 @@ defmodule Envoy.Data.Accesslog.V2.HTTPResponseProperties do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :response_code, 1, type: Google.Protobuf.UInt32Value, json_name: "responseCode"
   field :response_headers_bytes, 2, type: :uint64, json_name: "responseHeadersBytes"

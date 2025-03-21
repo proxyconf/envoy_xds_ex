@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.Lua.V3.Lua.SourceCodesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Config.Core.V3.DataSource
@@ -7,12 +7,13 @@ end
 
 defmodule Envoy.Extensions.Filters.Http.Lua.V3.Lua do
   @moduledoc """
+  [#next-free-field: 6]
   [#protodoc-title: Lua]
   Lua :ref:`configuration overview <config_http_filters_lua>`.
   [#extension: envoy.filters.http.lua]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :inline_code, 1, type: :string, json_name: "inlineCode", deprecated: true
 
@@ -27,10 +28,11 @@ defmodule Envoy.Extensions.Filters.Http.Lua.V3.Lua do
     json_name: "defaultSourceCode"
 
   field :stat_prefix, 4, type: :string, json_name: "statPrefix"
+  field :clear_route_cache, 5, type: Google.Protobuf.BoolValue, json_name: "clearRouteCache"
 end
 
 defmodule Envoy.Extensions.Filters.Http.Lua.V3.LuaPerRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :override, 0
 

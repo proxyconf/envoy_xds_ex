@@ -4,7 +4,7 @@ defmodule Envoy.Api.V2.SrdsDummy do
   services: https://github.com/google/protobuf/issues/4221 and protoxform to upgrade the file.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Api.V2.ScopedRoutesDiscoveryService.Service do
@@ -22,7 +22,7 @@ defmodule Envoy.Api.V2.ScopedRoutesDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.api.v2.ScopedRoutesDiscoveryService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StreamScopedRoutes,
       stream(Envoy.Api.V2.DiscoveryRequest),

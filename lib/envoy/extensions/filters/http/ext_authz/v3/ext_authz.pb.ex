@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.ExtAuthz do
   [#extension: envoy.filters.http.ext_authz]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :services, 0
 
@@ -106,7 +106,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.BufferSettings do
   Configuration for buffering the request data.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_request_bytes, 1, type: :uint32, json_name: "maxRequestBytes", deprecated: false
   field :allow_partial_message, 2, type: :bool, json_name: "allowPartialMessage"
@@ -145,7 +145,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.HttpService do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :server_uri, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "serverUri"
   field :path_prefix, 2, type: :string, json_name: "pathPrefix"
@@ -160,7 +160,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.HttpService do
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.AuthorizationRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :allowed_headers, 1,
     type: Envoy.Type.Matcher.V3.ListStringMatcher,
@@ -178,7 +178,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.AuthorizationResponse do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :allowed_upstream_headers, 1,
     type: Envoy.Type.Matcher.V3.ListStringMatcher,
@@ -206,11 +206,11 @@ defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.ExtAuthzPerRoute do
   Extra settings on a per virtualhost/route/weighted-cluster level.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :override, 0
 
-  field :disabled, 1, type: :bool, oneof: 0, deprecated: false
+  field :disabled, 1, type: :bool, oneof: 0
 
   field :check_settings, 2,
     type: Envoy.Extensions.Filters.Http.ExtAuthz.V3.CheckSettings,
@@ -220,7 +220,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.ExtAuthzPerRoute do
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.CheckSettings.ContextExtensionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -231,7 +231,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtAuthz.V3.CheckSettings do
   Extra settings for the check request.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :context_extensions, 1,
     repeated: true,

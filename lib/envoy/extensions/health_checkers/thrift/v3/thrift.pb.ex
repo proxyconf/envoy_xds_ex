@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.HealthCheckers.Thrift.V3.Thrift do
   [#extension: envoy.health_checkers.thrift]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :method_name, 1, type: :string, json_name: "methodName", deprecated: false
 

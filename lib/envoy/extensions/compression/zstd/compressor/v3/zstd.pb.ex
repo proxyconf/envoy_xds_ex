@@ -3,7 +3,7 @@ defmodule Envoy.Extensions.Compression.Zstd.Compressor.V3.Zstd.Strategy do
   Reference to http://facebook.github.io/zstd/zstd_manual.html
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEFAULT, 0
   field :FAST, 1
@@ -24,7 +24,7 @@ defmodule Envoy.Extensions.Compression.Zstd.Compressor.V3.Zstd do
   [#extension: envoy.compression.zstd.compressor]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :compression_level, 1, type: Google.Protobuf.UInt32Value, json_name: "compressionLevel"
   field :enable_checksum, 2, type: :bool, json_name: "enableChecksum"

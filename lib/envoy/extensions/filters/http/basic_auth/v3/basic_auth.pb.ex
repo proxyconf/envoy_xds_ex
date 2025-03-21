@@ -15,7 +15,7 @@ defmodule Envoy.Extensions.Filters.Http.BasicAuth.V3.BasicAuth do
   [#extension: envoy.filters.http.basic_auth]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :users, 1, type: Envoy.Config.Core.V3.DataSource, deprecated: false
 
@@ -36,7 +36,7 @@ defmodule Envoy.Extensions.Filters.Http.BasicAuth.V3.BasicAuthPerRoute do
   a virtual host or a cluster.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :users, 1, type: Envoy.Config.Core.V3.DataSource, deprecated: false
 end

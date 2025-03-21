@@ -6,7 +6,7 @@ defmodule Envoy.Type.Matcher.V3.AddressMatcher do
   [#protodoc-title: Address Matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ranges, 1, repeated: true, type: Xds.Core.V3.CidrRange
 end

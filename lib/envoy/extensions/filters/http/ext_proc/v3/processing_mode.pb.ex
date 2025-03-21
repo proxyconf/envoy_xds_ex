@@ -3,7 +3,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.HeaderSendMode
   Control how headers and trailers are handled
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEFAULT, 0
   field :SEND, 1
@@ -32,7 +32,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.BodySendMode d
   local reply will be sent with an error message.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :NONE, 0
   field :STREAMED, 1
@@ -51,7 +51,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode do
   response are sent to a remote server and how they are delivered.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_header_mode, 1,
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode.HeaderSendMode,

@@ -13,7 +13,7 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonReverseTranscoder.V3.GrpcJsonRev
   [#extension: envoy.filters.http.grpc_json_reverse_transcoder]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :descriptor_path, 1, type: :string, json_name: "descriptorPath"
   field :descriptor_binary, 2, type: :bytes, json_name: "descriptorBinary"

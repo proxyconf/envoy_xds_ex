@@ -5,7 +5,7 @@ defmodule Envoy.Config.HealthChecker.Redis.V2.Redis do
   [#extension: envoy.health_checkers.redis]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
 end

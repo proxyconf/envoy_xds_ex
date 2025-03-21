@@ -8,7 +8,7 @@ defmodule Envoy.Extensions.AccessLoggers.File.V3.FileAccessLog do
   [#extension: envoy.access_loggers.file]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :access_log_format, 0
 

@@ -11,7 +11,7 @@ defmodule Envoy.Extensions.TransportSockets.TcpStats.V3.Config do
   [#extension: envoy.transport_sockets.tcp_stats]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :transport_socket, 1,
     type: Envoy.Config.Core.V3.TransportSocket,

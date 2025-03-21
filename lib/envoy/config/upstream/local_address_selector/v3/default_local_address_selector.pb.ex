@@ -18,5 +18,5 @@ defmodule Envoy.Config.Upstream.LocalAddressSelector.V3.DefaultLocalAddressSelec
   [#extension: envoy.upstream.local_address_selector.default_local_address_selector]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

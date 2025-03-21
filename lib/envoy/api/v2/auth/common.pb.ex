@@ -1,5 +1,5 @@
 defmodule Envoy.Api.V2.Auth.TlsParameters.TlsProtocol do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TLS_AUTO, 0
   field :TLSv1_0, 1
@@ -13,7 +13,7 @@ defmodule Envoy.Api.V2.Auth.CertificateValidationContext.TrustChainVerification 
   Peer certificate verification mode.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :VERIFY_TRUST_CHAIN, 0
   field :ACCEPT_UNTRUSTED, 1
@@ -24,7 +24,7 @@ defmodule Envoy.Api.V2.Auth.TlsParameters do
   [#protodoc-title: Common TLS configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tls_minimum_protocol_version, 1,
     type: Envoy.Api.V2.Auth.TlsParameters.TlsProtocol,
@@ -49,7 +49,7 @@ defmodule Envoy.Api.V2.Auth.PrivateKeyProvider do
   methods would be TPM support and TLS acceleration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -68,7 +68,7 @@ defmodule Envoy.Api.V2.Auth.TlsCertificate do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :certificate_chain, 1, type: Envoy.Api.V2.Core.DataSource, json_name: "certificateChain"
 
@@ -91,7 +91,7 @@ defmodule Envoy.Api.V2.Auth.TlsCertificate do
 end
 
 defmodule Envoy.Api.V2.Auth.TlsSessionTicketKeys do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Envoy.Api.V2.Core.DataSource, deprecated: false
 end
@@ -101,7 +101,7 @@ defmodule Envoy.Api.V2.Auth.CertificateValidationContext do
   [#next-free-field: 11]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :trusted_ca, 1, type: Envoy.Api.V2.Core.DataSource, json_name: "trustedCa"
 

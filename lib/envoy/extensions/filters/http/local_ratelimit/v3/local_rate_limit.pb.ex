@@ -1,12 +1,12 @@
 defmodule Envoy.Extensions.Filters.Http.LocalRatelimit.V3.LocalRateLimit do
   @moduledoc """
-  [#next-free-field: 18]
+  [#next-free-field: 19]
   [#protodoc-title: Local Rate limit]
   Local Rate limit :ref:`configuration overview <config_http_filters_local_rate_limit>`.
   [#extension: envoy.filters.http.local_ratelimit]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :status, 2, type: Envoy.Type.V3.HttpStatus
@@ -70,4 +70,9 @@ defmodule Envoy.Extensions.Filters.Http.LocalRatelimit.V3.LocalRateLimit do
     repeated: true,
     type: Envoy.Config.Route.V3.RateLimit,
     json_name: "rateLimits"
+
+  field :max_dynamic_descriptors, 18,
+    type: Google.Protobuf.UInt32Value,
+    json_name: "maxDynamicDescriptors",
+    deprecated: false
 end

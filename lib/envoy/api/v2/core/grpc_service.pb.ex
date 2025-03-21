@@ -1,5 +1,5 @@
 defmodule Envoy.Api.V2.Core.GrpcService.EnvoyGrpc do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
 end
@@ -9,7 +9,7 @@ defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.SslCredentials do
   See https://grpc.io/grpc/cpp/structgrpc_1_1_ssl_credentials_options.html.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :root_certs, 1, type: Envoy.Api.V2.Core.DataSource, json_name: "rootCerts"
 
@@ -27,7 +27,7 @@ defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.GoogleLocalCredentials do
   See https://github.com/grpc/grpc/pull/15909.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.ChannelCredentials do
@@ -36,7 +36,7 @@ defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.ChannelCredentials do
   credential types.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :credential_specifier, 0
 
@@ -54,21 +54,21 @@ defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.ChannelCredentials do
 end
 
 defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :json_key, 1, type: :string, json_name: "jsonKey"
   field :token_lifetime_seconds, 2, type: :uint64, json_name: "tokenLifetimeSeconds"
 end
 
 defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :authorization_token, 1, type: :string, json_name: "authorizationToken"
   field :authority_selector, 2, type: :string, json_name: "authoritySelector"
 end
 
 defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -86,7 +86,7 @@ defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.StsService do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :token_exchange_service_uri, 1, type: :string, json_name: "tokenExchangeServiceUri"
   field :resource, 2, type: :string
@@ -104,7 +104,7 @@ defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :credential_specifier, 0
 
@@ -144,7 +144,7 @@ defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri", deprecated: false
 
@@ -170,7 +170,7 @@ defmodule Envoy.Api.V2.Core.GrpcService do
   [#protodoc-title: gRPC services]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :target_specifier, 0
 

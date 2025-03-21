@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters.TlsProtocol do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TLS_AUTO, 0
   field :TLSv1_0, 1
@@ -14,7 +14,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher.SanType
   against.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SAN_TYPE_UNSPECIFIED, 0
   field :EMAIL, 1
@@ -29,7 +29,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext.
   Peer certificate verification mode.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :VERIFY_TRUST_CHAIN, 0
   field :ACCEPT_UNTRUSTED, 1
@@ -41,7 +41,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters do
   [#protodoc-title: Common TLS configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tls_minimum_protocol_version, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.TlsParameters.TlsProtocol,
@@ -67,7 +67,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.PrivateKeyProvider do
   methods would be TPM support and TLS acceleration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -87,7 +87,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsCertificate do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :certificate_chain, 1,
     type: Envoy.Config.Core.V3.DataSource,
@@ -118,7 +118,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsCertificate do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.TlsSessionTicketKeys do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Envoy.Config.Core.V3.DataSource, deprecated: false
 end
@@ -132,7 +132,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateProviderPluginInst
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :instance_name, 1, type: :string, json_name: "instanceName", deprecated: false
   field :certificate_name, 2, type: :string, json_name: "certificateName"
@@ -143,7 +143,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher do
   Matcher for subject alternative names, to match both type and value of the SAN.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :san_type, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher.SanType,
@@ -156,7 +156,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SubjectAltNameMatcher do
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext.SystemRootCerts do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext do
@@ -164,7 +164,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.CertificateValidationContext 
   [#next-free-field: 18]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :trusted_ca, 1,
     type: Envoy.Config.Core.V3.DataSource,

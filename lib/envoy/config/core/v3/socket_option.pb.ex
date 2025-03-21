@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Core.V3.SocketOption.SocketState do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_PREBIND, 0
   field :STATE_BOUND, 1
@@ -11,7 +11,7 @@ defmodule Envoy.Config.Core.V3.SocketOption.SocketType.Stream do
   The stream socket type.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.SocketOption.SocketType.Datagram do
@@ -19,7 +19,7 @@ defmodule Envoy.Config.Core.V3.SocketOption.SocketType.Datagram do
   The datagram socket type.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.SocketOption.SocketType do
@@ -33,7 +33,7 @@ defmodule Envoy.Config.Core.V3.SocketOption.SocketType do
   it takes precedence over :ref:`datagram <envoy_v3_api_field_config.core.v3.SocketOption.SocketType.datagram>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stream, 1, type: Envoy.Config.Core.V3.SocketOption.SocketType.Stream
   field :datagram, 2, type: Envoy.Config.Core.V3.SocketOption.SocketType.Datagram
@@ -67,7 +67,7 @@ defmodule Envoy.Config.Core.V3.SocketOption do
   [#protodoc-title: Socket option]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :value, 0
 
@@ -86,7 +86,7 @@ defmodule Envoy.Config.Core.V3.SocketOption do
 end
 
 defmodule Envoy.Config.Core.V3.SocketOptionsOverride do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :socket_options, 1,
     repeated: true,

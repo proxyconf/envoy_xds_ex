@@ -6,5 +6,5 @@ defmodule Envoy.Extensions.Filters.Http.ConnectGrpcBridge.V3.FilterConfig do
   [#extension: envoy.filters.http.connect_grpc_bridge]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

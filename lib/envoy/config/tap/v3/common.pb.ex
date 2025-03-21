@@ -6,7 +6,7 @@ defmodule Envoy.Config.Tap.V3.OutputSink.Format do
   individual sink documentation for more information.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :JSON_BODY_AS_BYTES, 0
   field :JSON_BODY_AS_STRING, 1
@@ -22,7 +22,7 @@ defmodule Envoy.Config.Tap.V3.TapConfig do
   [#protodoc-title: Tap common configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :match_config, 1,
     type: Envoy.Config.Tap.V3.MatchPredicate,
@@ -46,7 +46,7 @@ defmodule Envoy.Config.Tap.V3.MatchPredicate.MatchSet do
   A set of match configurations used for logical operations.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Envoy.Config.Tap.V3.MatchPredicate, deprecated: false
 end
@@ -58,7 +58,7 @@ defmodule Envoy.Config.Tap.V3.MatchPredicate do
   [#next-free-field: 11]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :rule, 0
 
@@ -111,13 +111,13 @@ defmodule Envoy.Config.Tap.V3.HttpHeadersMatch do
   HTTP headers match configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :headers, 1, repeated: true, type: Envoy.Config.Route.V3.HeaderMatcher
 end
 
 defmodule Envoy.Config.Tap.V3.HttpGenericBodyMatch.GenericTextMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :rule, 0
 
@@ -139,7 +139,7 @@ defmodule Envoy.Config.Tap.V3.HttpGenericBodyMatch do
   to scan only part of the http body.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bytes_limit, 1, type: :uint32, json_name: "bytesLimit"
 
@@ -154,7 +154,7 @@ defmodule Envoy.Config.Tap.V3.OutputConfig do
   Tap output configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sinks, 1, repeated: true, type: Envoy.Config.Tap.V3.OutputSink, deprecated: false
 
@@ -175,7 +175,7 @@ defmodule Envoy.Config.Tap.V3.OutputSink do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :output_sink_type, 0
 
@@ -212,7 +212,7 @@ defmodule Envoy.Config.Tap.V3.StreamingAdminSink do
   Streaming admin sink configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Tap.V3.BufferedAdminSink do
@@ -223,7 +223,7 @@ defmodule Envoy.Config.Tap.V3.BufferedAdminSink do
   sink if the tap is being configured from the ``/tap`` admin endpoint.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_traces, 1, type: :uint64, json_name: "maxTraces", deprecated: false
   field :timeout, 2, type: Google.Protobuf.Duration
@@ -234,7 +234,7 @@ defmodule Envoy.Config.Tap.V3.FilePerTapSink do
   The file per tap sink outputs a discrete file for every tapped stream.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :path_prefix, 1, type: :string, json_name: "pathPrefix", deprecated: false
 end
@@ -245,7 +245,7 @@ defmodule Envoy.Config.Tap.V3.StreamingGrpcSink do
   server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tap_id, 1, type: :string, json_name: "tapId"
 

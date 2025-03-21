@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.TransportSockets.ProxyProtocol.V3.ProxyProtocolUpstre
   [#extension: envoy.transport_sockets.upstream_proxy_protocol]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config, 1, type: Envoy.Config.Core.V3.ProxyProtocolConfig
 

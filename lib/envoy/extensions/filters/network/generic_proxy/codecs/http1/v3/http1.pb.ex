@@ -13,7 +13,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Codecs.Http1.V3.Http1Cod
   [#extension: envoy.generic_proxy.codecs.http1]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :single_frame_mode, 1, type: Google.Protobuf.BoolValue, json_name: "singleFrameMode"
   field :max_buffer_size, 2, type: Google.Protobuf.UInt32Value, json_name: "maxBufferSize"

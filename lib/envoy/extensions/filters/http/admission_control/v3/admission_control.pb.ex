@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.SuccessCriteria.HttpCriteria do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_success_status, 1,
     repeated: true,
@@ -9,7 +9,7 @@ defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.Suc
 end
 
 defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.SuccessCriteria.GrpcCriteria do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :grpc_success_status, 1,
     repeated: true,
@@ -25,7 +25,7 @@ defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl.Suc
   values.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_criteria, 1,
     type:
@@ -45,7 +45,7 @@ defmodule Envoy.Extensions.Filters.Http.AdmissionControl.V3.AdmissionControl do
   [#extension: envoy.filters.http.admission_control]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :evaluation_criteria, 0
 

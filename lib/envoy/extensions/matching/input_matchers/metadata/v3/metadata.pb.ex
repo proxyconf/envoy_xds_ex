@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Matching.InputMatchers.Metadata.V3.Metadata do
   [#extension: envoy.matching.matchers.metadata_matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :value, 1, type: Envoy.Type.Matcher.V3.ValueMatcher, deprecated: false
   field :invert, 4, type: :bool

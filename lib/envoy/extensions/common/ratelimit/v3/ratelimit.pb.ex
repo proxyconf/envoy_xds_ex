@@ -4,14 +4,14 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.XRateLimitHeadersRFCVersion do
   [#protodoc-title: Common rate limit components]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :OFF, 0
   field :DRAFT_VERSION_03, 1
 end
 
 defmodule Envoy.Extensions.Common.Ratelimit.V3.VhRateLimitsOptions do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :OVERRIDE, 0
   field :INCLUDE, 1
@@ -19,7 +19,7 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.VhRateLimitsOptions do
 end
 
 defmodule Envoy.Extensions.Common.Ratelimit.V3.RateLimitDescriptor.Entry do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -32,7 +32,7 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.RateLimitDescriptor.RateLimitOver
   <config_http_filters_rate_limit_rate_limit_override>` for more information.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :requests_per_unit, 1, type: :uint32, json_name: "requestsPerUnit"
   field :unit, 2, type: Envoy.Type.V3.RateLimitUnit, enum: true, deprecated: false
@@ -87,7 +87,7 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.RateLimitDescriptor do
   rate limiting service.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entries, 1,
     repeated: true,
@@ -110,7 +110,7 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.LocalRateLimitDescriptor do
   are used to match against the rate limit rule.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entries, 1,
     repeated: true,
@@ -136,5 +136,5 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.LocalClusterRateLimit do
   about local cluster.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

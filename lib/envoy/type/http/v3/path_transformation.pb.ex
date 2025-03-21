@@ -9,7 +9,7 @@ defmodule Envoy.Type.Http.V3.PathTransformation.Operation.NormalizePathRFC3986 d
   <https://tools.ietf.org/html/rfc3986#section-6.2.2.1>`_
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Type.Http.V3.PathTransformation.Operation.MergeSlashes do
@@ -22,7 +22,7 @@ defmodule Envoy.Type.Http.V3.PathTransformation.Operation.MergeSlashes do
   part of `HTTP spec <https://tools.ietf.org/html/rfc3986>`_ and is provided for convenience.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Type.Http.V3.PathTransformation.Operation do
@@ -30,7 +30,7 @@ defmodule Envoy.Type.Http.V3.PathTransformation.Operation do
   A type of operation to alter text.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :operation_specifier, 0
 
@@ -56,7 +56,7 @@ defmodule Envoy.Type.Http.V3.PathTransformation do
   This API is a work in progress.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :operations, 1, repeated: true, type: Envoy.Type.Http.V3.PathTransformation.Operation
 end

@@ -5,7 +5,7 @@ defmodule Opentelemetry.Proto.Common.V1.AnyValue do
   object containing arrays, key-value lists and primitives.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :value, 0
 
@@ -33,7 +33,7 @@ defmodule Opentelemetry.Proto.Common.V1.ArrayValue do
   since oneof in AnyValue does not allow repeated fields.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :values, 1, repeated: true, type: Opentelemetry.Proto.Common.V1.AnyValue
 end
@@ -47,7 +47,7 @@ defmodule Opentelemetry.Proto.Common.V1.KeyValueList do
   are semantically equivalent.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :values, 1, repeated: true, type: Opentelemetry.Proto.Common.V1.KeyValue
 end
@@ -58,7 +58,7 @@ defmodule Opentelemetry.Proto.Common.V1.KeyValue do
   attributes, etc.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Opentelemetry.Proto.Common.V1.AnyValue
@@ -70,7 +70,7 @@ defmodule Opentelemetry.Proto.Common.V1.InstrumentationScope do
   such as the fully qualified name and version.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string

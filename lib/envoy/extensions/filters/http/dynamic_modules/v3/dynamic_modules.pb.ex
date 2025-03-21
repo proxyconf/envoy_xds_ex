@@ -8,14 +8,15 @@ defmodule Envoy.Extensions.Filters.Http.DynamicModules.V3.DynamicModuleFilter do
 
   Currently, the implementation is work in progress and not usable.
   [#protodoc-title: HTTP filter for dynamic modules]
+  [#extension: envoy.filters.http.dynamic_modules]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dynamic_module_config, 1,
     type: Envoy.Extensions.DynamicModules.V3.DynamicModuleConfig,
     json_name: "dynamicModuleConfig"
 
   field :filter_name, 2, type: :string, json_name: "filterName"
-  field :filter_config, 3, type: :string, json_name: "filterConfig"
+  field :filter_config, 3, type: Google.Protobuf.Any, json_name: "filterConfig"
 end

@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Bootstrap.InternalListener.V3.InternalListener do
   [#extension: envoy.bootstrap.internal_listener]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :buffer_size_kb, 1,
     type: Google.Protobuf.UInt32Value,

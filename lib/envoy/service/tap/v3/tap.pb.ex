@@ -1,5 +1,5 @@
 defmodule Envoy.Service.Tap.V3.StreamTapsRequest.Identifier do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node, 1, type: Envoy.Config.Core.V3.Node, deprecated: false
   field :tap_id, 2, type: :string, json_name: "tapId"
@@ -11,7 +11,7 @@ defmodule Envoy.Service.Tap.V3.StreamTapsRequest do
   and stream taps without ever expecting a response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :identifier, 1, type: Envoy.Service.Tap.V3.StreamTapsRequest.Identifier
   field :trace_id, 2, type: :uint64, json_name: "traceId"
@@ -23,7 +23,7 @@ defmodule Envoy.Service.Tap.V3.StreamTapsResponse do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Service.Tap.V3.TapSinkService.Service do
@@ -35,7 +35,7 @@ defmodule Envoy.Service.Tap.V3.TapSinkService.Service do
 
   use GRPC.Service,
     name: "envoy.service.tap.v3.TapSinkService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StreamTaps,
       stream(Envoy.Service.Tap.V3.StreamTapsRequest),

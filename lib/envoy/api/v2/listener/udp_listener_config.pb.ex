@@ -4,7 +4,7 @@ defmodule Envoy.Api.V2.Listener.UdpListenerConfig do
   Listener :ref:`configuration overview <config_listeners>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -14,5 +14,5 @@ defmodule Envoy.Api.V2.Listener.UdpListenerConfig do
 end
 
 defmodule Envoy.Api.V2.Listener.ActiveRawUdpListenerConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

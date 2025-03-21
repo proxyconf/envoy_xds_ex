@@ -5,7 +5,7 @@ defmodule Envoy.Api.V2.Core.ApiVersion do
   [#protodoc-title: Configuration sources]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AUTO, 0
   field :V2, 1
@@ -17,7 +17,7 @@ defmodule Envoy.Api.V2.Core.ApiConfigSource.ApiType do
   APIs may be fetched via either REST or gRPC.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNSUPPORTED_REST_LEGACY, 0
   field :REST, 1
@@ -32,7 +32,7 @@ defmodule Envoy.Api.V2.Core.ApiConfigSource do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :api_type, 1,
     type: Envoy.Api.V2.Core.ApiConfigSource.ApiType,
@@ -74,7 +74,7 @@ defmodule Envoy.Api.V2.Core.AggregatedConfigSource do
   specify that ADS is to be used.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Api.V2.Core.SelfConfigSource do
@@ -85,7 +85,7 @@ defmodule Envoy.Api.V2.Core.SelfConfigSource do
   specify that other data can be obtained from the same server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :transport_api_version, 1,
     type: Envoy.Api.V2.Core.ApiVersion,
@@ -99,7 +99,7 @@ defmodule Envoy.Api.V2.Core.RateLimitSettings do
   Rate Limit settings to be applied for discovery requests made by Envoy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_tokens, 1, type: Google.Protobuf.UInt32Value, json_name: "maxTokens"
   field :fill_rate, 2, type: Google.Protobuf.DoubleValue, json_name: "fillRate", deprecated: false
@@ -116,7 +116,7 @@ defmodule Envoy.Api.V2.Core.ConfigSource do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_source_specifier, 0
 

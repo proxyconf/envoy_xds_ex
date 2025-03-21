@@ -4,7 +4,7 @@ defmodule Envoy.Extensions.Filters.Http.KillRequest.V3.KillRequest.Direction do
   Default to ``REQUEST`` if unspecified.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :REQUEST, 0
   field :RESPONSE, 1
@@ -18,7 +18,7 @@ defmodule Envoy.Extensions.Filters.Http.KillRequest.V3.KillRequest do
   [#extension: envoy.filters.http.kill_request]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :probability, 1, type: Envoy.Type.V3.FractionalPercent
   field :kill_request_header, 2, type: :string, json_name: "killRequestHeader", deprecated: false

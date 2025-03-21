@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Bootstrap.V2.Bootstrap.StaticResources do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :listeners, 1, repeated: true, type: Envoy.Api.V2.Listener
   field :clusters, 2, repeated: true, type: Envoy.Api.V2.Cluster
@@ -7,7 +7,7 @@ defmodule Envoy.Config.Bootstrap.V2.Bootstrap.StaticResources do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.Bootstrap.DynamicResources do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :lds_config, 1, type: Envoy.Api.V2.Core.ConfigSource, json_name: "ldsConfig"
   field :cds_config, 2, type: Envoy.Api.V2.Core.ConfigSource, json_name: "cdsConfig"
@@ -24,7 +24,7 @@ defmodule Envoy.Config.Bootstrap.V2.Bootstrap do
   <config_overview_bootstrap>` for more detail.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node, 1, type: Envoy.Api.V2.Core.Node
 
@@ -85,7 +85,7 @@ defmodule Envoy.Config.Bootstrap.V2.Admin do
   <operations_admin_interface>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_log_path, 1, type: :string, json_name: "accessLogPath"
   field :profile_path, 2, type: :string, json_name: "profilePath"
@@ -98,7 +98,7 @@ defmodule Envoy.Config.Bootstrap.V2.Admin do
 end
 
 defmodule Envoy.Config.Bootstrap.V2.ClusterManager.OutlierDetection do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :event_log_path, 1, type: :string, json_name: "eventLogPath"
   field :event_service, 2, type: Envoy.Api.V2.Core.EventServiceConfig, json_name: "eventService"
@@ -109,7 +109,7 @@ defmodule Envoy.Config.Bootstrap.V2.ClusterManager do
   Cluster manager :ref:`architecture overview <arch_overview_cluster_manager>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :local_cluster_name, 1, type: :string, json_name: "localClusterName"
 
@@ -133,7 +133,7 @@ defmodule Envoy.Config.Bootstrap.V2.Watchdog do
   See the :ref:`watchdog documentation <operations_performance_watchdog>` for more information.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :miss_timeout, 1, type: Google.Protobuf.Duration, json_name: "missTimeout"
   field :megamiss_timeout, 2, type: Google.Protobuf.Duration, json_name: "megamissTimeout"
@@ -146,7 +146,7 @@ defmodule Envoy.Config.Bootstrap.V2.Runtime do
   Runtime :ref:`configuration overview <config_runtime>` (deprecated).
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :symlink_root, 1, type: :string, json_name: "symlinkRoot"
   field :subdirectory, 2, type: :string
@@ -159,7 +159,7 @@ defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer.DiskLayer do
   :ref:`Disk runtime <config_runtime_local_disk>` layer.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :symlink_root, 1, type: :string, json_name: "symlinkRoot"
   field :subdirectory, 3, type: :string
@@ -171,7 +171,7 @@ defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer.AdminLayer do
   :ref:`Admin console runtime <config_runtime_admin>` layer.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer.RtdsLayer do
@@ -179,7 +179,7 @@ defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer.RtdsLayer do
   :ref:`Runtime Discovery Service (RTDS) <config_runtime_rtds>` layer.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :rtds_config, 2, type: Envoy.Api.V2.Core.ConfigSource, json_name: "rtdsConfig"
@@ -190,7 +190,7 @@ defmodule Envoy.Config.Bootstrap.V2.RuntimeLayer do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :layer_specifier, 0
 
@@ -218,7 +218,7 @@ defmodule Envoy.Config.Bootstrap.V2.LayeredRuntime do
   Runtime :ref:`configuration overview <config_runtime>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :layers, 1, repeated: true, type: Envoy.Config.Bootstrap.V2.RuntimeLayer
 end

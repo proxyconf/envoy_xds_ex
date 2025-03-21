@@ -7,7 +7,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Random.V3.Random do
   [#extension: envoy.load_balancing_policies.random]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :locality_lb_config, 1,
     type: Envoy.Extensions.LoadBalancingPolicies.Common.V3.LocalityLbConfig,

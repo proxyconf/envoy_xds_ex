@@ -8,7 +8,7 @@ defmodule Envoy.Extensions.StatSinks.GraphiteStatsd.V3.GraphiteStatsdSink do
   [#extension: envoy.stat_sinks.graphite_statsd]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :statsd_specifier, 0
 

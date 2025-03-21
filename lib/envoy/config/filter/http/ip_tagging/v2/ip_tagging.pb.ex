@@ -8,7 +8,7 @@ defmodule Envoy.Config.Filter.Http.IpTagging.V2.IPTagging.RequestType do
   being set. The filter defaults to both, and it will apply to all request types.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :BOTH, 0
   field :INTERNAL, 1
@@ -20,7 +20,7 @@ defmodule Envoy.Config.Filter.Http.IpTagging.V2.IPTagging.IPTag do
   Supplies the IP tag name and the IP address subnets.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ip_tag_name, 1, type: :string, json_name: "ipTagName"
   field :ip_list, 2, repeated: true, type: Envoy.Api.V2.Core.CidrRange, json_name: "ipList"
@@ -33,7 +33,7 @@ defmodule Envoy.Config.Filter.Http.IpTagging.V2.IPTagging do
   [#extension: envoy.filters.http.ip_tagging]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_type, 1,
     type: Envoy.Config.Filter.Http.IpTagging.V2.IPTagging.RequestType,

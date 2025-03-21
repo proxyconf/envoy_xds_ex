@@ -5,5 +5,5 @@ defmodule Envoy.Extensions.Filters.Udp.UdpProxy.Session.HttpCapsule.V3.FilterCon
   [#extension: envoy.filters.udp.session.http_capsule]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

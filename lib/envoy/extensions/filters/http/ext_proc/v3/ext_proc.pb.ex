@@ -4,7 +4,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExternalProcessor.RouteCacheA
   is received in response to request headers.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEFAULT, 0
   field :CLEAR, 1
@@ -79,14 +79,14 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExternalProcessor do
   <arch_overview_advanced_filter_state_sharing>` object in a namespace matching the filter
   name.
 
-  [#next-free-field: 23]
+  [#next-free-field: 24]
   [#protodoc-title: External Processing Filter]
   External Processing Filter
   [#extension: envoy.filters.http.ext_proc]
   The External Processing filter allows an external service to act on HTTP traffic in a flexible way.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Config.Core.V3.GrpcService,
@@ -160,6 +160,11 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExternalProcessor do
     repeated: true,
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode,
     json_name: "allowedOverrideModes"
+
+  field :on_processing_response, 23,
+    type: Envoy.Config.Core.V3.TypedExtensionConfig,
+    json_name: "onProcessingResponse",
+    deprecated: false
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcHttpService do
@@ -167,13 +172,13 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcHttpService do
   ExtProcHttpService is used for HTTP communication between the filter and the external processing service.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_service, 1, type: Envoy.Config.Core.V3.HttpService, json_name: "httpService"
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions.MetadataNamespaces do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :untyped, 1, repeated: true, type: :string
   field :typed, 2, repeated: true, type: :string
@@ -186,7 +191,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions do
   metadata returned by the server may be written, and how that metadata may be written.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :forwarding_namespaces, 1,
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions.MetadataNamespaces,
@@ -213,7 +218,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.HeaderForwardingRules do
   headers in the ``disallowed_headers`` are forwarded.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :allowed_headers, 1,
     type: Envoy.Type.Matcher.V3.ListStringMatcher,
@@ -230,7 +235,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcPerRoute do
   virtual host or cluster.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :override, 0
 
@@ -244,7 +249,7 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcOverrides do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :processing_mode, 1,
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode,

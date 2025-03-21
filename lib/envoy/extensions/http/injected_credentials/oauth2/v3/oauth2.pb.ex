@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Http.InjectedCredentials.Oauth2.V3.OAuth2.AuthType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :BASIC_AUTH, 0
   field :URL_ENCODED_BODY, 1
@@ -11,7 +11,7 @@ defmodule Envoy.Extensions.Http.InjectedCredentials.Oauth2.V3.OAuth2.ClientCrede
   Refer to [RFC 6749: The OAuth 2.0 Authorization Framework](https://www.rfc-editor.org/rfc/rfc6749#section-2.3) for details.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :client_id, 1, type: :string, json_name: "clientId", deprecated: false
 
@@ -36,7 +36,7 @@ defmodule Envoy.Extensions.Http.InjectedCredentials.Oauth2.V3.OAuth2 do
   [#extension: envoy.http.injected_credentials.oauth2]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :flow_type, 0
 

@@ -8,7 +8,7 @@ defmodule Envoy.Config.ResourceMonitor.InjectedResource.V2alpha.InjectedResource
   [#extension: envoy.resource_monitors.injected_resource]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :filename, 1, type: :string, deprecated: false
 end

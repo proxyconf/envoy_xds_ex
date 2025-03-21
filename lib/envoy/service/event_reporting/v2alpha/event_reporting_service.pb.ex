@@ -1,5 +1,5 @@
 defmodule Envoy.Service.EventReporting.V2alpha.StreamEventsRequest.Identifier do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node, 1, type: Envoy.Api.V2.Core.Node, deprecated: false
 end
@@ -10,7 +10,7 @@ defmodule Envoy.Service.EventReporting.V2alpha.StreamEventsRequest do
   An events envoy sends to the management server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :identifier, 1, type: Envoy.Service.EventReporting.V2alpha.StreamEventsRequest.Identifier
   field :events, 2, repeated: true, type: Google.Protobuf.Any, deprecated: false
@@ -25,7 +25,7 @@ defmodule Envoy.Service.EventReporting.V2alpha.StreamEventsResponse do
   wants to process.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Service.EventReporting.V2alpha.EventReportingService.Service do
@@ -38,7 +38,7 @@ defmodule Envoy.Service.EventReporting.V2alpha.EventReportingService.Service do
 
   use GRPC.Service,
     name: "envoy.service.event_reporting.v2alpha.EventReportingService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StreamEvents,
       stream(Envoy.Service.EventReporting.V2alpha.StreamEventsRequest),

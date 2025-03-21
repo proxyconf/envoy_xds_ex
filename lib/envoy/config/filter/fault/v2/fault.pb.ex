@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Filter.Fault.V2.FaultDelay.FaultDelayType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FIXED, 0
 end
@@ -11,7 +11,7 @@ defmodule Envoy.Config.Filter.Fault.V2.FaultDelay.HeaderDelay do
   more information.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Filter.Fault.V2.FaultDelay do
@@ -22,7 +22,7 @@ defmodule Envoy.Config.Filter.Fault.V2.FaultDelay do
   [#protodoc-title: Common fault injection types]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :fault_delay_secifier, 0
 
@@ -50,7 +50,7 @@ defmodule Envoy.Config.Filter.Fault.V2.FaultRateLimit.FixedLimit do
   Describes a fixed/constant rate limit.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :limit_kbps, 1, type: :uint64, json_name: "limitKbps", deprecated: false
 end
@@ -62,7 +62,7 @@ defmodule Envoy.Config.Filter.Fault.V2.FaultRateLimit.HeaderLimit do
   more information.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Config.Filter.Fault.V2.FaultRateLimit do
@@ -70,7 +70,7 @@ defmodule Envoy.Config.Filter.Fault.V2.FaultRateLimit do
   Describes a rate limit to be applied.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :limit_type, 0
 

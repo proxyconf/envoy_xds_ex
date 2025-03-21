@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.ValueType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PROTOBUF_VALUE, 0
   field :STRING, 1
@@ -11,7 +11,7 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.KeyValu
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -30,7 +30,7 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.KeyValu
 end
 
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.Selector do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :selector, 0
 
@@ -43,7 +43,7 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.Rule do
   or fail to parse the payload.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :selectors, 1,
     repeated: true,
@@ -64,7 +64,7 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.Rule do
 end
 
 defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.MatchRules do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -95,7 +95,7 @@ defmodule Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata do
   [#extension: envoy.filters.http.json_to_metadata]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_rules, 1,
     type: Envoy.Extensions.Filters.Http.JsonToMetadata.V3.JsonToMetadata.MatchRules,

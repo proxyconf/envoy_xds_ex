@@ -55,7 +55,7 @@ defmodule Envoy.Extensions.Filters.Http.CredentialInjector.V3.CredentialInjector
   [#extension: envoy.filters.http.credential_injector]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :overwrite, 1, type: :bool
 

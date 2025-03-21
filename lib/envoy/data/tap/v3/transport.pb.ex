@@ -4,7 +4,7 @@ defmodule Envoy.Data.Tap.V3.SocketEvent.Read do
   TODO(htuch): Half-close for reads.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :data, 1, type: Envoy.Data.Tap.V3.Body
 end
@@ -14,7 +14,7 @@ defmodule Envoy.Data.Tap.V3.SocketEvent.Write do
   Data written by Envoy to the transport socket.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :data, 1, type: Envoy.Data.Tap.V3.Body
   field :end_stream, 2, type: :bool, json_name: "endStream"
@@ -26,7 +26,7 @@ defmodule Envoy.Data.Tap.V3.SocketEvent.Closed do
   TODO(mattklein123): Close event type.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Data.Tap.V3.SocketEvent do
@@ -37,7 +37,7 @@ defmodule Envoy.Data.Tap.V3.SocketEvent do
   sequences on a socket.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :event_selector, 0
 
@@ -53,7 +53,7 @@ defmodule Envoy.Data.Tap.V3.SocketBufferedTrace do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :trace_id, 1, type: :uint64, json_name: "traceId"
   field :connection, 2, type: Envoy.Data.Tap.V3.Connection
@@ -67,7 +67,7 @@ defmodule Envoy.Data.Tap.V3.SocketStreamedTraceSegment do
   A streamed socket trace segment. Multiple segments make up a full trace.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :message_piece, 0
 

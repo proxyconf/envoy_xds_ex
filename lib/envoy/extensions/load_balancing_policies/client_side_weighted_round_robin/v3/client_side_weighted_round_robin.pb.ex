@@ -23,7 +23,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.ClientSideWeightedRoundRobin.V3
   [#extension: envoy.load_balancing_policies.client_side_weighted_round_robin]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_oob_load_report, 1,
     type: Google.Protobuf.BoolValue,

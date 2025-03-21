@@ -10,7 +10,7 @@ defmodule Envoy.Config.Filter.Network.ExtAuthz.V2.ExtAuthz do
   [#extension: envoy.filters.network.ext_authz]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :grpc_service, 2, type: Envoy.Api.V2.Core.GrpcService, json_name: "grpcService"

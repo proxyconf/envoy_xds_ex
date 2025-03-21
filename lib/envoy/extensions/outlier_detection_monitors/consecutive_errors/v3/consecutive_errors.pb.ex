@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.OutlierDetectionMonitors.ConsecutiveErrors.V3.Consecu
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :threshold, 2, type: Google.Protobuf.UInt32Value, deprecated: false

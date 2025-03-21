@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Filters.Listener.TlsInspector.V3.TlsInspector do
   [#extension: envoy.filters.listener.tls_inspector]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_ja3_fingerprinting, 1,
     type: Google.Protobuf.BoolValue,

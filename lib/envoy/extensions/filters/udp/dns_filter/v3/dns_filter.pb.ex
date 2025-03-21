@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Filters.Udp.DnsFilter.V3.DnsFilterConfig.ServerContex
   associated addresses with which Envoy will respond to queries
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_source, 0
 
@@ -30,7 +30,7 @@ defmodule Envoy.Extensions.Filters.Udp.DnsFilter.V3.DnsFilterConfig.ClientContex
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resolver_timeout, 1,
     type: Google.Protobuf.Duration,
@@ -63,7 +63,7 @@ defmodule Envoy.Extensions.Filters.Udp.DnsFilter.V3.DnsFilterConfig do
   [#extension: envoy.filters.udp.dns_filter]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
 

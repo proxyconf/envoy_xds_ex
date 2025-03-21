@@ -4,7 +4,7 @@ defmodule Envoy.Extensions.Compression.Zstd.Decompressor.V3.Zstd do
   [#extension: envoy.compression.zstd.decompressor]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dictionaries, 1, repeated: true, type: Envoy.Config.Core.V3.DataSource
 

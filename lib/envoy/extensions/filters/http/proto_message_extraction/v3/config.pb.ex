@@ -1,12 +1,12 @@
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageExtractionConfig.ExtractMode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ExtractMode_UNSPECIFIED, 0
   field :FIRST_AND_LAST, 1
 end
 
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtraction.ExtractDirective do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ExtractDirective_UNSPECIFIED, 0
   field :EXTRACT, 1
@@ -14,7 +14,7 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtracti
 end
 
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageExtractionConfig.ExtractionByMethodEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtraction
@@ -210,7 +210,7 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageEx
   }
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :descriptor_set, 0
 
@@ -235,7 +235,7 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageEx
 end
 
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtraction.RequestExtractionByFieldEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -246,7 +246,7 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtracti
 end
 
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtraction.ResponseExtractionByFieldEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -262,7 +262,7 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtracti
   though the Istio doesn't support that so far.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_extraction_by_field, 2,
     repeated: true,

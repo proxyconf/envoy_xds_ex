@@ -15,7 +15,7 @@ defmodule Envoy.Extensions.Filters.Http.Composite.V3.Composite do
   [#extension: envoy.filters.http.composite]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.Composite.V3.DynamicConfig do
@@ -23,7 +23,7 @@ defmodule Envoy.Extensions.Filters.Http.Composite.V3.DynamicConfig do
   Configuration for an extension configuration discovery service with name.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -38,7 +38,7 @@ defmodule Envoy.Extensions.Filters.Http.Composite.V3.ExecuteFilterAction do
   This specifies the filter configuration of the filter that the composite filter should delegate filter interactions to.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :typed_config, 1,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,

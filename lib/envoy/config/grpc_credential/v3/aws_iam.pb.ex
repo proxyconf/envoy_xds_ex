@@ -10,7 +10,7 @@ defmodule Envoy.Config.GrpcCredential.V3.AwsIamConfig do
   [#extension: envoy.grpc_credentials.aws_iam]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: true
   field :region, 2, type: :string, deprecated: true

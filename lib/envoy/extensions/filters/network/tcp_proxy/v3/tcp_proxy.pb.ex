@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.WeightedCluster.ClusterWeight do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :weight, 2, type: :uint32, deprecated: false
@@ -13,7 +13,7 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.WeightedCluster 
   The router selects an upstream cluster based on these weights.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :clusters, 1,
     repeated: true,
@@ -29,7 +29,7 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TunnelingConfig 
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :use_post, 2, type: :bool, json_name: "usePost"
@@ -46,7 +46,7 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TunnelingConfig 
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.OnDemand do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :odcds_config, 1, type: Envoy.Config.Core.V3.ConfigSource, json_name: "odcdsConfig"
   field :resources_locator, 2, type: :string, json_name: "resourcesLocator"
@@ -54,7 +54,7 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.OnDemand do
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TcpAccessLogOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_log_flush_interval, 1,
     type: Google.Protobuf.Duration,
@@ -66,13 +66,13 @@ end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy do
   @moduledoc """
-  [#next-free-field: 19]
+  [#next-free-field: 20]
   [#protodoc-title: TCP Proxy]
   TCP Proxy :ref:`configuration overview <config_network_filters_tcp_proxy>`.
   [#extension: envoy.filters.network.tcp_proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :cluster_specifier, 0
 
@@ -141,4 +141,9 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy do
   field :access_log_options, 17,
     type: Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TcpAccessLogOptions,
     json_name: "accessLogOptions"
+
+  field :proxy_protocol_tlvs, 19,
+    repeated: true,
+    type: Envoy.Config.Core.V3.TlvEntry,
+    json_name: "proxyProtocolTlvs"
 end

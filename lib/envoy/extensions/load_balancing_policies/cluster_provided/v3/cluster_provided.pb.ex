@@ -11,5 +11,5 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.ClusterProvided.V3.ClusterProvi
   [#extension: envoy.load_balancing_policies.cluster_provided]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

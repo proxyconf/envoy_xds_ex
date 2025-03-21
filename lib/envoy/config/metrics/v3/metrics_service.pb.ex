@@ -4,7 +4,7 @@ defmodule Envoy.Config.Metrics.V3.HistogramEmitMode do
   [#protodoc-title: Metrics service]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SUMMARY_AND_HISTOGRAM, 0
   field :SUMMARY, 1
@@ -30,7 +30,7 @@ defmodule Envoy.Config.Metrics.V3.MetricsServiceConfig do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Config.Core.V3.GrpcService,

@@ -4,7 +4,7 @@ defmodule Envoy.Type.HashPolicy.SourceIp do
   algorithms.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Type.HashPolicy do
@@ -13,7 +13,7 @@ defmodule Envoy.Type.HashPolicy do
   [#protodoc-title: Hash Policy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :policy_specifier, 0
 

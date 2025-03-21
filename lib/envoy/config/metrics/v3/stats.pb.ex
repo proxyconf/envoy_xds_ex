@@ -5,7 +5,7 @@ defmodule Envoy.Config.Metrics.V3.StatsSink do
   Statistics :ref:`architecture overview <arch_overview_statistics>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -18,7 +18,7 @@ defmodule Envoy.Config.Metrics.V3.StatsConfig do
   Statistics configuration such as tagging.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stats_tags, 1,
     repeated: true,
@@ -103,7 +103,7 @@ defmodule Envoy.Config.Metrics.V3.StatsMatcher do
   }
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :stats_matcher, 0
 
@@ -128,7 +128,7 @@ defmodule Envoy.Config.Metrics.V3.TagSpecifier do
   or more capture groups in the regex match.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :tag_value, 0
 
@@ -142,7 +142,7 @@ defmodule Envoy.Config.Metrics.V3.HistogramBucketSettings do
   Specifies a matcher for stats and the buckets that matching stats should use.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :match, 1, type: Envoy.Type.Matcher.V3.StringMatcher, deprecated: false
   field :buckets, 2, repeated: true, type: :double, deprecated: false
@@ -155,7 +155,7 @@ defmodule Envoy.Config.Metrics.V3.StatsdSink do
   [#extension: envoy.stat_sinks.statsd]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :statsd_specifier, 0
 
@@ -173,7 +173,7 @@ defmodule Envoy.Config.Metrics.V3.DogStatsdSink do
   [#extension: envoy.stat_sinks.dog_statsd]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :dog_statsd_specifier, 0
 
@@ -200,7 +200,7 @@ defmodule Envoy.Config.Metrics.V3.HystrixSink do
   [#extension: envoy.stat_sinks.hystrix]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :num_buckets, 1, type: :int64, json_name: "numBuckets"
 end

@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Retry.Host.OmitHostMetadata.V3.OmitHostMetadataConfig
   [#protodoc-title: Omit host metadata retry predicate]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :metadata_match, 1, type: Envoy.Config.Core.V3.Metadata, json_name: "metadataMatch"
 end

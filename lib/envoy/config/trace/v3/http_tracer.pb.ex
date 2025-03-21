@@ -8,7 +8,7 @@ defmodule Envoy.Config.Trace.V3.Tracing.Http do
   field.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -31,7 +31,7 @@ defmodule Envoy.Config.Trace.V3.Tracing do
   Tracing :ref:`architecture overview <arch_overview_tracing>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http, 1, type: Envoy.Config.Trace.V3.Tracing.Http
 end

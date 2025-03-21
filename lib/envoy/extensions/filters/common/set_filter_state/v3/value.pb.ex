@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.Filters.Common.SetFilterState.V3.FilterStateValue.SharedWithUpstream do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :NONE, 0
   field :ONCE, 1
@@ -13,7 +13,7 @@ defmodule Envoy.Extensions.Filters.Common.SetFilterState.V3.FilterStateValue do
   [#protodoc-title: Set-Filter-State filter state value]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :key, 0
 

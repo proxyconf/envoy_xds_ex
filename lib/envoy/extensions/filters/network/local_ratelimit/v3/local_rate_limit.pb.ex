@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Filters.Network.LocalRatelimit.V3.LocalRateLimit do
   [#extension: envoy.filters.network.local_ratelimit]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
 

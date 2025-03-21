@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Http.CustomResponse.LocalResponsePolicy.V3.LocalRespo
   [#extension: envoy.http.custom_response.local_response_policy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :body, 1, type: Envoy.Config.Core.V3.DataSource
 

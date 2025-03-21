@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.TransportType do
   [#extension: envoy.filters.network.thrift_proxy]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AUTO_TRANSPORT, 0
   field :FRAMED, 1
@@ -19,7 +19,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.ProtocolType do
   Thrift Protocol types supported by Envoy.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AUTO_PROTOCOL, 0
   field :BINARY, 1
@@ -29,7 +29,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.ProtocolType do
 end
 
 defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.Trds do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config_source, 1,
     type: Envoy.Config.Core.V3.ConfigSource,
@@ -44,7 +44,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.ThriftProxy do
   [#next-free-field: 11]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :transport, 2,
     type: Envoy.Extensions.Filters.Network.ThriftProxy.V3.TransportType,
@@ -89,7 +89,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.ThriftFilter do
   ThriftFilter configures a Thrift filter.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :config_type, 0
 
@@ -105,7 +105,7 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.V3.ThriftProtocolOptions 
   keyed by the name ``envoy.filters.network.thrift_proxy``.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :transport, 1,
     type: Envoy.Extensions.Filters.Network.ThriftProxy.V3.TransportType,

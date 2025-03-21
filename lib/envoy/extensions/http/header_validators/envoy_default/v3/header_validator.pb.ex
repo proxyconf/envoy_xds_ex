@@ -7,7 +7,7 @@ defmodule Envoy.Extensions.Http.HeaderValidators.EnvoyDefault.V3.HeaderValidator
   characters.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ALLOW, 0
   field :REJECT_REQUEST, 1
@@ -20,7 +20,7 @@ defmodule Envoy.Extensions.Http.HeaderValidators.EnvoyDefault.V3.HeaderValidator
   This operation occurs before URL normalization and the merge slashes transformations if they were enabled.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :IMPLEMENTATION_SPECIFIC_DEFAULT, 0
   field :KEEP_UNCHANGED, 1
@@ -30,7 +30,7 @@ defmodule Envoy.Extensions.Http.HeaderValidators.EnvoyDefault.V3.HeaderValidator
 end
 
 defmodule Envoy.Extensions.Http.HeaderValidators.EnvoyDefault.V3.HeaderValidatorConfig.UriPathNormalizationOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :skip_path_normalization, 1, type: :bool, json_name: "skipPathNormalization"
   field :skip_merging_slashes, 2, type: :bool, json_name: "skipMergingSlashes"
@@ -44,7 +44,7 @@ defmodule Envoy.Extensions.Http.HeaderValidators.EnvoyDefault.V3.HeaderValidator
 end
 
 defmodule Envoy.Extensions.Http.HeaderValidators.EnvoyDefault.V3.HeaderValidatorConfig.Http1ProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :allow_chunked_length, 1, type: :bool, json_name: "allowChunkedLength"
 end
@@ -69,7 +69,7 @@ defmodule Envoy.Extensions.Http.HeaderValidators.EnvoyDefault.V3.HeaderValidator
   [#protodoc-title: Envoy's default Header Validator config]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http1_protocol_options, 1,
     type:

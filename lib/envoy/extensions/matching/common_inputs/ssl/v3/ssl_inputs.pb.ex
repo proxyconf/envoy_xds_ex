@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Ssl.V3.UriSanInput do
   [#protodoc-title: Common SSL matching inputs]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Ssl.V3.DnsSanInput do
@@ -14,7 +14,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Ssl.V3.DnsSanInput do
   [#extension: envoy.matching.inputs.dns_san]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Ssl.V3.SubjectInput do
@@ -24,5 +24,5 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Ssl.V3.SubjectInput do
   [#extension: envoy.matching.inputs.subject]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

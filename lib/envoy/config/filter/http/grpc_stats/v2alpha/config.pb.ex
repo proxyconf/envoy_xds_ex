@@ -6,7 +6,7 @@ defmodule Envoy.Config.Filter.Http.GrpcStats.V2alpha.FilterConfig do
   [#extension: envoy.filters.http.grpc_stats]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :per_method_stat_specifier, 0
 
@@ -28,7 +28,7 @@ defmodule Envoy.Config.Filter.Http.GrpcStats.V2alpha.FilterObject do
   gRPC statistics filter state object in protobuf form.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_message_count, 1, type: :uint64, json_name: "requestMessageCount"
   field :response_message_count, 2, type: :uint64, json_name: "responseMessageCount"

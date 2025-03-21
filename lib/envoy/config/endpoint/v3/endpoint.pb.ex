@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.Policy.DropOverload do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :category, 1, type: :string, deprecated: false
   field :drop_percentage, 2, type: Envoy.Type.V3.FractionalPercent, json_name: "dropPercentage"
@@ -11,7 +11,7 @@ defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.Policy do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :drop_overloads, 2,
     repeated: true,
@@ -32,7 +32,7 @@ defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.Policy do
 end
 
 defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment.NamedEndpointsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Config.Endpoint.V3.Endpoint
@@ -54,7 +54,7 @@ defmodule Envoy.Config.Endpoint.V3.ClusterLoadAssignment do
   Endpoint discovery :ref:`architecture overview <arch_overview_service_discovery_types_eds>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
   field :endpoints, 2, repeated: true, type: Envoy.Config.Endpoint.V3.LocalityLbEndpoints

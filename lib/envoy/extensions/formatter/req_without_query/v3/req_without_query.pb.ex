@@ -13,7 +13,10 @@ defmodule Envoy.Extensions.Formatter.ReqWithoutQuery.V3.ReqWithoutQuery do
   optional parameter denoting string truncation up to Z characters long. The value is taken from
   the HTTP request header named X first and if it's not set, then request header Y is used. If
   none of the headers are present '-' symbol will be in the log.
+  .. warning::
+  Please use %PATH% to replace this extension.
+  See :ref:`access log formats <config_access_log_format>` for more details.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

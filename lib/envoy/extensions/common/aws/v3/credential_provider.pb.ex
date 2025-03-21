@@ -6,7 +6,7 @@ defmodule Envoy.Extensions.Common.Aws.V3.AwsCredentialProvider do
   [#protodoc-title: AWS common configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :assume_role_with_web_identity_provider, 1,
     type: Envoy.Extensions.Common.Aws.V3.AssumeRoleWithWebIdentityCredentialProvider,
@@ -31,7 +31,7 @@ defmodule Envoy.Extensions.Common.Aws.V3.InlineCredentialProvider do
   environment variables ``AWS_ACCESS_KEY_ID``, ``AWS_SECRET_ACCESS_KEY``, and the optional ``AWS_SESSION_TOKEN``.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_key_id, 1, type: :string, json_name: "accessKeyId", deprecated: false
   field :secret_access_key, 2, type: :string, json_name: "secretAccessKey", deprecated: false
@@ -44,7 +44,7 @@ defmodule Envoy.Extensions.Common.Aws.V3.AssumeRoleWithWebIdentityCredentialProv
   to retrieve AWS credentials.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :web_identity_token_data_source, 1,
     type: Envoy.Config.Core.V3.DataSource,
@@ -56,7 +56,7 @@ defmodule Envoy.Extensions.Common.Aws.V3.AssumeRoleWithWebIdentityCredentialProv
 end
 
 defmodule Envoy.Extensions.Common.Aws.V3.CredentialsFileCredentialProvider do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :credentials_data_source, 1,
     type: Envoy.Config.Core.V3.DataSource,

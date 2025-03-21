@@ -1,5 +1,5 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SPIFFECertValidatorConfig.TrustDomain do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :trust_bundle, 2, type: Envoy.Config.Core.V3.DataSource, json_name: "trustBundle"
@@ -39,7 +39,7 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SPIFFECertValidatorConfig do
   [#extension: envoy.tls.cert_validator.spiffe]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :trust_domains, 1,
     repeated: true,

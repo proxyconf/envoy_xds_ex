@@ -6,7 +6,7 @@ defmodule Envoy.Config.Trace.V3.OpenTelemetryConfig do
   [#protodoc-title: OpenTelemetry tracer]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Config.Core.V3.GrpcService,

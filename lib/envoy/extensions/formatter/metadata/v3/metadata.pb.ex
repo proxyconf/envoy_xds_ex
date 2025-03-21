@@ -1,19 +1,5 @@
 defmodule Envoy.Extensions.Formatter.Metadata.V3.Metadata do
   @moduledoc """
-  [#protodoc-title: Formatter extension for printing various types of metadata]
-  [#extension: envoy.formatter.metadata]
-  Metadata formatter extension implements METADATA command operator that
-  prints all types of metadata. The first parameter taken by METADATA operator defines
-  type of metadata. The following types of metadata are supported (case sensitive):
-
-  * DYNAMIC
-  * CLUSTER
-  * ROUTE
-  * UPSTREAM_HOST
-  * LISTENER
-  * VIRTUAL_HOST
-
-  See :ref:`here <config_access_log>` for more information on access log configuration.
   %METADATA(TYPE:NAMESPACE:KEY):Z%
   :ref:`Metadata <envoy_v3_api_msg_config.core.v3.Metadata>` info,
   where TYPE is type of metadata (see above for supported types),
@@ -44,7 +30,25 @@ defmodule Envoy.Extensions.Formatter.Metadata.V3.Metadata do
   METADATA(DYNAMIC:NAMESPACE:KEY):Z is equivalent to :ref:`DYNAMIC_METADATA(NAMESPACE:KEY):Z<config_access_log_format_dynamic_metadata>`
   METADATA(CLUSTER:NAMESPACE:KEY):Z is equivalent to :ref:`CLUSTER_METADATA(NAMESPACE:KEY):Z<config_access_log_format_cluster_metadata>`
   METADATA(UPSTREAM_HOST:NAMESPACE:KEY):Z is equivalent to :ref:`UPSTREAM_METADATA(NAMESPACE:KEY):Z<config_access_log_format_upstream_host_metadata>`
+
+  .. warning::
+  This extension is treated as built-in extension and will be enabled by default now.
+  It is unnecessary to configure this extension.
+  [#protodoc-title: Formatter extension for printing various types of metadata]
+  [#extension: envoy.formatter.metadata]
+  Metadata formatter extension implements METADATA command operator that
+  prints all types of metadata. The first parameter taken by METADATA operator defines
+  type of metadata. The following types of metadata are supported (case sensitive):
+
+  * DYNAMIC
+  * CLUSTER
+  * ROUTE
+  * UPSTREAM_HOST
+  * LISTENER
+  * VIRTUAL_HOST
+
+  See :ref:`here <config_access_log>` for more information on access log configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

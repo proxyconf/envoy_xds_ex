@@ -1,5 +1,5 @@
 defmodule Envoy.Api.V2.Ratelimit.RateLimitDescriptor.Entry do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -51,7 +51,7 @@ defmodule Envoy.Api.V2.Ratelimit.RateLimitDescriptor do
   [#protodoc-title: Common rate limit components]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entries, 1,
     repeated: true,

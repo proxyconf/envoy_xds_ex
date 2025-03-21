@@ -4,5 +4,5 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Codecs.Dubbo.V3.DubboCod
   [#extension: envoy.generic_proxy.codecs.dubbo]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

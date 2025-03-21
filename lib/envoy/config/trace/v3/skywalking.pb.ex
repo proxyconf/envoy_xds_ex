@@ -9,7 +9,7 @@ defmodule Envoy.Config.Trace.V3.SkyWalkingConfig do
   [#protodoc-title: SkyWalking tracer]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Config.Core.V3.GrpcService,
@@ -24,7 +24,7 @@ defmodule Envoy.Config.Trace.V3.ClientConfig do
   Client config for SkyWalking tracer.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :backend_token_specifier, 0
 

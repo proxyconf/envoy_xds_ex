@@ -1,5 +1,5 @@
 defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.Code do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNKNOWN, 0
   field :OK, 1
@@ -12,7 +12,7 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.RateLimit.Unit do
   [#comment: replace by envoy/type/v3/ratelimit_unit.proto in v4]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNKNOWN, 0
   field :SECOND, 1
@@ -35,7 +35,7 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitRequest do
   if desired.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :domain, 1, type: :string
 
@@ -51,7 +51,7 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.RateLimit do
   Defines an actual rate limit in terms of requests per unit of time and the unit itself.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 3, type: :string
   field :requests_per_unit, 1, type: :uint32, json_name: "requestsPerUnit"
@@ -72,7 +72,7 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.Quota do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :expiration_specifier, 0
 
@@ -86,7 +86,7 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse.DescriptorStatus do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :code, 1, type: Envoy.Service.Ratelimit.V3.RateLimitResponse.Code, enum: true
 
@@ -105,7 +105,7 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitResponse do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :overall_code, 1,
     type: Envoy.Service.Ratelimit.V3.RateLimitResponse.Code,
@@ -138,7 +138,7 @@ defmodule Envoy.Service.Ratelimit.V3.RateLimitService.Service do
 
   use GRPC.Service,
     name: "envoy.service.ratelimit.v3.RateLimitService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ShouldRateLimit,
       Envoy.Service.Ratelimit.V3.RateLimitRequest,

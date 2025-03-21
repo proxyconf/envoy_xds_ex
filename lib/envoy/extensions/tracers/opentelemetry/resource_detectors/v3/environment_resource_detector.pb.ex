@@ -12,5 +12,5 @@ defmodule Envoy.Extensions.Tracers.Opentelemetry.ResourceDetectors.V3.Environmen
   [#protodoc-title: Environment Resource Detector config]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

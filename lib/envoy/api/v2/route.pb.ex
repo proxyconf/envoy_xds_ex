@@ -6,7 +6,7 @@ defmodule Envoy.Api.V2.RouteConfiguration do
   * HTTP :ref:`router filter <config_http_filters_router>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -55,7 +55,7 @@ defmodule Envoy.Api.V2.RouteConfiguration do
 end
 
 defmodule Envoy.Api.V2.Vhds do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config_source, 1,
     type: Envoy.Api.V2.Core.ConfigSource,

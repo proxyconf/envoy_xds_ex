@@ -3,7 +3,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.V3.VirtualHost do
   [#protodoc-title: Generic Proxy Route Configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :hosts, 2, repeated: true, type: :string, deprecated: false
@@ -59,7 +59,7 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.V3.RouteConfiguration do
   cluster: cluster_0
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :routes, 2, type: Xds.Type.Matcher.V3.Matcher

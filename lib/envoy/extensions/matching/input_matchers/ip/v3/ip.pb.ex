@@ -11,7 +11,7 @@ defmodule Envoy.Extensions.Matching.InputMatchers.Ip.V3.Ip do
   [#extension: envoy.matching.matchers.ip]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cidr_ranges, 1,
     repeated: true,

@@ -5,7 +5,7 @@ defmodule Envoy.Admin.V3.ClientResourceStatus do
   [#protodoc-title: ConfigDump]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNKNOWN, 0
   field :REQUESTED, 1
@@ -17,7 +17,7 @@ defmodule Envoy.Admin.V3.ClientResourceStatus do
 end
 
 defmodule Envoy.Admin.V3.UpdateFailureState do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :failed_configuration, 1, type: Google.Protobuf.Any, json_name: "failedConfiguration"
   field :last_update_attempt, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdateAttempt"
@@ -30,14 +30,14 @@ defmodule Envoy.Admin.V3.ListenersConfigDump.StaticListener do
   Describes a statically loaded listener.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :listener, 1, type: Google.Protobuf.Any
   field :last_updated, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdated"
 end
 
 defmodule Envoy.Admin.V3.ListenersConfigDump.DynamicListenerState do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :listener, 2, type: Google.Protobuf.Any
@@ -50,7 +50,7 @@ defmodule Envoy.Admin.V3.ListenersConfigDump.DynamicListener do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -81,7 +81,7 @@ defmodule Envoy.Admin.V3.ListenersConfigDump do
   listeners as static listeners or by returning them in a LDS response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
 
@@ -101,7 +101,7 @@ defmodule Envoy.Admin.V3.ClustersConfigDump.StaticCluster do
   Describes a statically loaded cluster.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cluster, 1, type: Google.Protobuf.Any
   field :last_updated, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdated"
@@ -113,7 +113,7 @@ defmodule Envoy.Admin.V3.ClustersConfigDump.DynamicCluster do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :cluster, 2, type: Google.Protobuf.Any
@@ -133,7 +133,7 @@ defmodule Envoy.Admin.V3.ClustersConfigDump do
   clusters as static clusters or by returning them in a CDS response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
 
@@ -154,7 +154,7 @@ defmodule Envoy.Admin.V3.ClustersConfigDump do
 end
 
 defmodule Envoy.Admin.V3.RoutesConfigDump.StaticRouteConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :route_config, 1, type: Google.Protobuf.Any, json_name: "routeConfig"
   field :last_updated, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdated"
@@ -165,7 +165,7 @@ defmodule Envoy.Admin.V3.RoutesConfigDump.DynamicRouteConfig do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :route_config, 2, type: Google.Protobuf.Any, json_name: "routeConfig"
@@ -187,7 +187,7 @@ defmodule Envoy.Admin.V3.RoutesConfigDump do
   as static routes or by returning them in RDS responses.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :static_route_configs, 2,
     repeated: true,
@@ -201,7 +201,7 @@ defmodule Envoy.Admin.V3.RoutesConfigDump do
 end
 
 defmodule Envoy.Admin.V3.ScopedRoutesConfigDump.InlineScopedRouteConfigs do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -218,7 +218,7 @@ defmodule Envoy.Admin.V3.ScopedRoutesConfigDump.DynamicScopedRouteConfigs do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :version_info, 2, type: :string, json_name: "versionInfo"
@@ -245,7 +245,7 @@ defmodule Envoy.Admin.V3.ScopedRoutesConfigDump do
   dynamically obtained scopes via the SRDS API.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :inline_scoped_route_configs, 1,
     repeated: true,
@@ -259,7 +259,7 @@ defmodule Envoy.Admin.V3.ScopedRoutesConfigDump do
 end
 
 defmodule Envoy.Admin.V3.EndpointsConfigDump.StaticEndpointConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :endpoint_config, 1, type: Google.Protobuf.Any, json_name: "endpointConfig"
   field :last_updated, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdated"
@@ -270,7 +270,7 @@ defmodule Envoy.Admin.V3.EndpointsConfigDump.DynamicEndpointConfig do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :endpoint_config, 2, type: Google.Protobuf.Any, json_name: "endpointConfig"
@@ -290,7 +290,7 @@ defmodule Envoy.Admin.V3.EndpointsConfigDump do
   endpoints as static endpoints or by returning them in an EDS response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :static_endpoint_configs, 2,
     repeated: true,
@@ -308,7 +308,7 @@ defmodule Envoy.Admin.V3.EcdsConfigDump.EcdsFilterConfig do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :ecds_filter, 2, type: Google.Protobuf.Any, json_name: "ecdsFilter"
@@ -329,7 +329,7 @@ defmodule Envoy.Admin.V3.EcdsConfigDump do
   them in ECDS response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ecds_filters, 1,
     repeated: true,

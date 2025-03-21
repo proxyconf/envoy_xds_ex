@@ -10,7 +10,7 @@ defmodule Envoy.Extensions.Http.Cache.FileSystemHttpCache.V3.FileSystemHttpCache
   [#extension: envoy.extensions.http.cache.file_system_http_cache]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :manager_config, 1,
     type: Envoy.Extensions.Common.AsyncFiles.V3.AsyncFileManagerConfig,

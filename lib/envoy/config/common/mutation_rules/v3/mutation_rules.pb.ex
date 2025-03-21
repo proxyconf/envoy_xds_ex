@@ -29,7 +29,7 @@ defmodule Envoy.Config.Common.MutationRules.V3.HeaderMutationRules do
   [#protodoc-title: Header mutation rules]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :allow_all_routing, 1, type: Google.Protobuf.BoolValue, json_name: "allowAllRouting"
   field :allow_envoy, 2, type: Google.Protobuf.BoolValue, json_name: "allowEnvoy"
@@ -53,7 +53,7 @@ defmodule Envoy.Config.Common.MutationRules.V3.HeaderMutation do
   headers.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :action, 0
 

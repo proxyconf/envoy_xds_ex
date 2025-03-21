@@ -3,7 +3,7 @@ defmodule Validate.KnownRegex do
   WellKnownRegex contain some well-known patterns.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :UNKNOWN, 0
   field :HTTP_HEADER_NAME, 1
@@ -16,7 +16,7 @@ defmodule Validate.FieldRules do
   field, the correct set should be used to ensure proper validations.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   oneof :type, 0
 
@@ -49,7 +49,7 @@ defmodule Validate.FloatRules do
   FloatRules describes the constraints applied to `float` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :float
   field :lt, 2, optional: true, type: :float
@@ -66,7 +66,7 @@ defmodule Validate.DoubleRules do
   DoubleRules describes the constraints applied to `double` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :double
   field :lt, 2, optional: true, type: :double
@@ -83,7 +83,7 @@ defmodule Validate.Int32Rules do
   Int32Rules describes the constraints applied to `int32` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :int32
   field :lt, 2, optional: true, type: :int32
@@ -100,7 +100,7 @@ defmodule Validate.Int64Rules do
   Int64Rules describes the constraints applied to `int64` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :int64
   field :lt, 2, optional: true, type: :int64
@@ -117,7 +117,7 @@ defmodule Validate.UInt32Rules do
   UInt32Rules describes the constraints applied to `uint32` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :uint32
   field :lt, 2, optional: true, type: :uint32
@@ -134,7 +134,7 @@ defmodule Validate.UInt64Rules do
   UInt64Rules describes the constraints applied to `uint64` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :uint64
   field :lt, 2, optional: true, type: :uint64
@@ -151,7 +151,7 @@ defmodule Validate.SInt32Rules do
   SInt32Rules describes the constraints applied to `sint32` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :sint32
   field :lt, 2, optional: true, type: :sint32
@@ -168,7 +168,7 @@ defmodule Validate.SInt64Rules do
   SInt64Rules describes the constraints applied to `sint64` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :sint64
   field :lt, 2, optional: true, type: :sint64
@@ -185,7 +185,7 @@ defmodule Validate.Fixed32Rules do
   Fixed32Rules describes the constraints applied to `fixed32` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :fixed32
   field :lt, 2, optional: true, type: :fixed32
@@ -202,7 +202,7 @@ defmodule Validate.Fixed64Rules do
   Fixed64Rules describes the constraints applied to `fixed64` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :fixed64
   field :lt, 2, optional: true, type: :fixed64
@@ -219,7 +219,7 @@ defmodule Validate.SFixed32Rules do
   SFixed32Rules describes the constraints applied to `sfixed32` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :sfixed32
   field :lt, 2, optional: true, type: :sfixed32
@@ -236,7 +236,7 @@ defmodule Validate.SFixed64Rules do
   SFixed64Rules describes the constraints applied to `sfixed64` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :sfixed64
   field :lt, 2, optional: true, type: :sfixed64
@@ -253,7 +253,7 @@ defmodule Validate.BoolRules do
   BoolRules describes the constraints applied to `bool` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :bool
 end
@@ -263,7 +263,7 @@ defmodule Validate.StringRules do
   StringRules describe the constraints applied to `string` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   oneof :well_known, 0
 
@@ -307,7 +307,7 @@ defmodule Validate.BytesRules do
   BytesRules describe the constraints applied to `bytes` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   oneof :well_known, 0
 
@@ -332,7 +332,7 @@ defmodule Validate.EnumRules do
   EnumRules describe the constraints applied to enum values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :const, 1, optional: true, type: :int32
   field :defined_only, 2, optional: true, type: :bool, json_name: "definedOnly"
@@ -346,7 +346,7 @@ defmodule Validate.MessageRules do
   For message-type fields, validation is performed recursively.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :skip, 1, optional: true, type: :bool
   field :required, 2, optional: true, type: :bool
@@ -357,7 +357,7 @@ defmodule Validate.RepeatedRules do
   RepeatedRules describe the constraints applied to `repeated` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :min_items, 1, optional: true, type: :uint64, json_name: "minItems"
   field :max_items, 2, optional: true, type: :uint64, json_name: "maxItems"
@@ -371,7 +371,7 @@ defmodule Validate.MapRules do
   MapRules describe the constraints applied to `map` values
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :min_pairs, 1, optional: true, type: :uint64, json_name: "minPairs"
   field :max_pairs, 2, optional: true, type: :uint64, json_name: "maxPairs"
@@ -387,7 +387,7 @@ defmodule Validate.AnyRules do
   `google.protobuf.Any` well-known type
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :required, 1, optional: true, type: :bool
   field :in, 2, repeated: true, type: :string
@@ -400,7 +400,7 @@ defmodule Validate.DurationRules do
   `google.protobuf.Duration` well-known type
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :required, 1, optional: true, type: :bool
   field :const, 2, optional: true, type: Google.Protobuf.Duration
@@ -418,7 +418,7 @@ defmodule Validate.TimestampRules do
   `google.protobuf.Timestamp` well-known type
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto2
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
 
   field :required, 1, optional: true, type: :bool
   field :const, 2, optional: true, type: Google.Protobuf.Timestamp

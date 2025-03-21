@@ -3,7 +3,7 @@ defmodule Envoy.Service.LoadStats.V3.LoadStatsRequest do
   A load report Envoy sends to the management server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node, 1, type: Envoy.Config.Core.V3.Node
 
@@ -19,7 +19,7 @@ defmodule Envoy.Service.LoadStats.V3.LoadStatsResponse do
   is interested in learning load stats about.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: :string
   field :send_all_clusters, 4, type: :bool, json_name: "sendAllClusters"
@@ -45,7 +45,7 @@ defmodule Envoy.Service.LoadStats.V3.LoadReportingService.Service do
 
   use GRPC.Service,
     name: "envoy.service.load_stats.v3.LoadReportingService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StreamLoadStats,
       stream(Envoy.Service.LoadStats.V3.LoadStatsRequest),

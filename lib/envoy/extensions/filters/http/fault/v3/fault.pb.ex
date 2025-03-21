@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Filters.Http.Fault.V3.FaultAbort.HeaderAbort do
   more information.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.Fault.V3.FaultAbort do
@@ -16,7 +16,7 @@ defmodule Envoy.Extensions.Filters.Http.Fault.V3.FaultAbort do
   [#extension: envoy.filters.http.fault]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :error_type, 0
 
@@ -36,7 +36,7 @@ defmodule Envoy.Extensions.Filters.Http.Fault.V3.HTTPFault do
   [#next-free-field: 17]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :delay, 1, type: Envoy.Extensions.Filters.Common.Fault.V3.FaultDelay
   field :abort, 2, type: Envoy.Extensions.Filters.Http.Fault.V3.FaultAbort

@@ -3,13 +3,13 @@ defmodule Envoy.Api.V2.Auth.GenericSecret do
   [#protodoc-title: Secrets configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :secret, 1, type: Envoy.Api.V2.Core.DataSource, deprecated: false
 end
 
 defmodule Envoy.Api.V2.Auth.SdsSecretConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :sds_config, 2, type: Envoy.Api.V2.Core.ConfigSource, json_name: "sdsConfig"
@@ -20,7 +20,7 @@ defmodule Envoy.Api.V2.Auth.Secret do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :type, 0
 

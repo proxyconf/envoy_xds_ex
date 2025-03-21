@@ -7,7 +7,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetFallba
   endpoints matching the values from the default_subset field.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :NO_FALLBACK, 0
   field :ANY_ENDPOINT, 1
@@ -15,7 +15,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetFallba
 end
 
 defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetMetadataFallbackPolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :METADATA_NO_FALLBACK, 0
   field :FALLBACK_LIST, 1
@@ -26,7 +26,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetSelect
   Allows to override top level fallback policy per selector.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :NOT_DEFINED, 0
   field :NO_FALLBACK, 1
@@ -40,7 +40,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetSelect
   Specifications for subsets.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :keys, 1, repeated: true, type: :string
   field :single_host_per_subset, 4, type: :bool, json_name: "singleHostPerSubset"
@@ -64,7 +64,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset do
   [#extension: envoy.load_balancing_policies.subset]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :fallback_policy, 1,
     type: Envoy.Extensions.LoadBalancingPolicies.Subset.V3.Subset.LbSubsetFallbackPolicy,

@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DestinationIPInput d
   [#protodoc-title: Common network matching inputs]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DestinationPortInput do
@@ -14,7 +14,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DestinationPortInput
   [#extension: envoy.matching.inputs.destination_port]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourceIPInput do
@@ -23,7 +23,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourceIPInput do
   [#extension: envoy.matching.inputs.source_ip]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourcePortInput do
@@ -32,7 +32,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourcePortInput do
   [#extension: envoy.matching.inputs.source_port]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DirectSourceIPInput do
@@ -44,7 +44,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DirectSourceIPInput 
   [#extension: envoy.matching.inputs.direct_source_ip]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourceTypeInput do
@@ -56,7 +56,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourceTypeInput do
   [#extension: envoy.matching.inputs.source_type]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.ServerNameInput do
@@ -68,7 +68,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.ServerNameInput do
   [#extension: envoy.matching.inputs.server_name]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.TransportProtocolInput do
@@ -83,7 +83,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.TransportProtocolInp
   [#extension: envoy.matching.inputs.transport_protocol]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.ApplicationProtocolInput do
@@ -116,7 +116,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.ApplicationProtocolI
   [#extension: envoy.matching.inputs.application_protocol]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.FilterStateInput do
@@ -126,7 +126,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.FilterStateInput do
   [#extension: envoy.matching.inputs.filter_state]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
 end
@@ -138,7 +138,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DynamicMetadataInput
   if the segment key refers to a list, it has to be the last segment in a path.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :segment, 0
 
@@ -174,7 +174,7 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DynamicMetadataInput
   [#extension: envoy.matching.inputs.dynamic_metadata]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
 

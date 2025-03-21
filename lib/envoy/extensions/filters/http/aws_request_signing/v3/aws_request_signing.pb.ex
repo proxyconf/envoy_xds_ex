@@ -1,12 +1,12 @@
 defmodule Envoy.Extensions.Filters.Http.AwsRequestSigning.V3.AwsRequestSigning.SigningAlgorithm do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AWS_SIGV4, 0
   field :AWS_SIGV4A, 1
 end
 
 defmodule Envoy.Extensions.Filters.Http.AwsRequestSigning.V3.AwsRequestSigning.QueryString do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :expiration_time, 1,
     type: Google.Protobuf.Duration,
@@ -23,7 +23,7 @@ defmodule Envoy.Extensions.Filters.Http.AwsRequestSigning.V3.AwsRequestSigning d
   [#extension: envoy.filters.http.aws_request_signing]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :region, 2, type: :string
@@ -50,7 +50,7 @@ defmodule Envoy.Extensions.Filters.Http.AwsRequestSigning.V3.AwsRequestSigning d
 end
 
 defmodule Envoy.Extensions.Filters.Http.AwsRequestSigning.V3.AwsRequestSigningPerRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :aws_request_signing, 1,
     type: Envoy.Extensions.Filters.Http.AwsRequestSigning.V3.AwsRequestSigning,

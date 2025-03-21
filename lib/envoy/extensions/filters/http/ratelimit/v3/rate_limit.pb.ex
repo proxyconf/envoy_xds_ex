@@ -5,7 +5,7 @@ defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimit.XRateLimitHeaders
   [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.XRateLimitHeadersRFCVersion instead.]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :OFF, 0
   field :DRAFT_VERSION_03, 1
@@ -16,7 +16,7 @@ defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute.VhRateLim
   [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :OVERRIDE, 0
   field :INCLUDE, 1
@@ -29,7 +29,7 @@ defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute.OverrideO
   [#not-implemented-hide:]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEFAULT, 0
   field :OVERRIDE_POLICY, 1
@@ -39,13 +39,13 @@ end
 
 defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimit do
   @moduledoc """
-  [#next-free-field: 14]
+  [#next-free-field: 16]
   [#protodoc-title: Rate limit]
   Rate limit :ref:`configuration overview <config_http_filters_rate_limit>`.
   [#extension: envoy.filters.http.ratelimit]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :domain, 1, type: :string, deprecated: false
   field :stage, 2, type: :uint32, deprecated: false
@@ -82,10 +82,18 @@ defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimit do
 
   field :status_on_error, 12, type: Envoy.Type.V3.HttpStatus, json_name: "statusOnError"
   field :stat_prefix, 13, type: :string, json_name: "statPrefix"
+
+  field :filter_enabled, 14,
+    type: Envoy.Config.Core.V3.RuntimeFractionalPercent,
+    json_name: "filterEnabled"
+
+  field :filter_enforced, 15,
+    type: Envoy.Config.Core.V3.RuntimeFractionalPercent,
+    json_name: "filterEnforced"
 end
 
 defmodule Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :vh_rate_limits, 1,
     type: Envoy.Extensions.Filters.Http.Ratelimit.V3.RateLimitPerRoute.VhRateLimitsOptions,

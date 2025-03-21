@@ -11,7 +11,7 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.Field do
   [#extension: envoy.filters.http.thrift_to_metadata]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :METHOD_NAME, 0
   field :PROTOCOL, 1
@@ -23,7 +23,7 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.Field do
 end
 
 defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.KeyValuePair do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace"
   field :key, 2, type: :string, deprecated: false
@@ -31,7 +31,7 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.KeyValuePair do
 end
 
 defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.FieldSelector do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :int32, deprecated: false
@@ -43,7 +43,7 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.Rule do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :field, 1, type: Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.Field, enum: true
 
@@ -70,7 +70,7 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.ThriftToMetadata do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_rules, 1,
     repeated: true,
@@ -107,7 +107,7 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.ThriftToMetadataPerR
   request rules and responses rules.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_rules, 1,
     repeated: true,

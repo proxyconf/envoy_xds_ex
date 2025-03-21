@@ -7,7 +7,7 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.Maglev.V3.Maglev do
   [#extension: envoy.load_balancing_policies.maglev]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :table_size, 1,
     type: Google.Protobuf.UInt64Value,

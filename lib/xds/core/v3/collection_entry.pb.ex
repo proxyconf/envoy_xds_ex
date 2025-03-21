@@ -3,7 +3,7 @@ defmodule Xds.Core.V3.CollectionEntry.InlineEntry do
   Inlined resource entry.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version, 2, type: :string
@@ -23,7 +23,7 @@ defmodule Xds.Core.V3.CollectionEntry do
   }
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :resource_specifier, 0
 

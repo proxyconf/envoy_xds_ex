@@ -1,5 +1,5 @@
 defmodule Envoy.Config.Core.V3.GrpcMethodList.Service do
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -16,7 +16,7 @@ defmodule Envoy.Config.Core.V3.GrpcMethodList do
   [#protodoc-title: gRPC method list]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :services, 1, repeated: true, type: Envoy.Config.Core.V3.GrpcMethodList.Service
 end

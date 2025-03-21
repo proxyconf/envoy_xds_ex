@@ -12,7 +12,7 @@ defmodule Envoy.Extensions.RateLimitDescriptors.Expr.V3.Descriptor do
   [#extension: envoy.rate_limit_descriptors.expr]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :expr_specifier, 0
 
