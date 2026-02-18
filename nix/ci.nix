@@ -50,7 +50,6 @@ with pkgs;
 mkShell {
   packages =
     [
-      beamPackages.hex
       elixir
       envoy_protos
     ];
