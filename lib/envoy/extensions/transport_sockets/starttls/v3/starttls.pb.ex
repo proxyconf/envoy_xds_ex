@@ -15,7 +15,10 @@ defmodule Envoy.Extensions.TransportSockets.Starttls.V3.StartTlsConfig do
   signal to the transport socket when a switch to secure transport is required.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.transport_sockets.starttls.v3.StartTlsConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cleartext_socket_config, 1,
     type: Envoy.Extensions.TransportSockets.RawBuffer.V3.RawBuffer,
@@ -35,7 +38,10 @@ defmodule Envoy.Extensions.TransportSockets.Starttls.V3.UpstreamStartTlsConfig d
   * TLS socket used when a protocol negotiates a switch to encrypted traffic.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.transport_sockets.starttls.v3.UpstreamStartTlsConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cleartext_socket_config, 1,
     type: Envoy.Extensions.TransportSockets.RawBuffer.V3.RawBuffer,

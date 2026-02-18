@@ -5,5 +5,8 @@ defmodule Envoy.Extensions.Quic.CryptoStream.V3.CryptoServerStreamConfig do
   [#extension: envoy.quic.crypto_stream.server.quiche]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.quic.crypto_stream.v3.CryptoServerStreamConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

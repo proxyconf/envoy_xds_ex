@@ -28,7 +28,10 @@ defmodule Envoy.Config.Retry.PreviousPriorities.PreviousPrioritiesConfig do
   [#protodoc-title: Previous priorities retry selector]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.retry.previous_priorities.PreviousPrioritiesConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :update_frequency, 1, type: :int32, json_name: "updateFrequency", deprecated: false
 end

@@ -8,7 +8,10 @@ defmodule Envoy.Api.V2.Endpoint.UpstreamLocalityStats do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.UpstreamLocalityStats",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :locality, 1, type: Envoy.Api.V2.Core.Locality
   field :total_successful_requests, 2, type: :uint64, json_name: "totalSuccessfulRequests"
@@ -35,7 +38,10 @@ defmodule Envoy.Api.V2.Endpoint.UpstreamEndpointStats do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.UpstreamEndpointStats",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Api.V2.Core.Address
   field :metadata, 6, type: Google.Protobuf.Struct
@@ -55,7 +61,10 @@ defmodule Envoy.Api.V2.Endpoint.EndpointLoadMetricStats do
   [#not-implemented-hide:] Not configuration. TBD how to doc proto APIs.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.EndpointLoadMetricStats",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 
@@ -67,7 +76,10 @@ defmodule Envoy.Api.V2.Endpoint.EndpointLoadMetricStats do
 end
 
 defmodule Envoy.Api.V2.Endpoint.ClusterStats.DroppedRequests do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.ClusterStats.DroppedRequests",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :category, 1, type: :string, deprecated: false
   field :dropped_count, 2, type: :uint64, json_name: "droppedCount"
@@ -82,7 +94,10 @@ defmodule Envoy.Api.V2.Endpoint.ClusterStats do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.ClusterStats",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
   field :cluster_service_name, 6, type: :string, json_name: "clusterServiceName"

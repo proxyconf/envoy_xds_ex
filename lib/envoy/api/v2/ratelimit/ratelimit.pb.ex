@@ -1,5 +1,8 @@
 defmodule Envoy.Api.V2.Ratelimit.RateLimitDescriptor.Entry do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.ratelimit.RateLimitDescriptor.Entry",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -13,7 +16,7 @@ defmodule Envoy.Api.V2.Ratelimit.RateLimitDescriptor do
 
   .. code-block:: cpp
 
-  ["authenticated": "false"], ["remote_address": "10.0.0.1"]
+    ["authenticated": "false"], ["remote_address": "10.0.0.1"]
 
   What it does: Limits all unauthenticated traffic for the IP address 10.0.0.1. The
   configuration supplies a default limit for the *remote_address* key. If there is a desire to
@@ -22,27 +25,27 @@ defmodule Envoy.Api.V2.Ratelimit.RateLimitDescriptor do
 
   .. code-block:: cpp
 
-  ["authenticated": "false"], ["path": "/foo/bar"]
+    ["authenticated": "false"], ["path": "/foo/bar"]
 
   What it does: Limits all unauthenticated traffic globally for a specific path (or prefix if
   configured that way in the service).
 
   .. code-block:: cpp
 
-  ["authenticated": "false"], ["path": "/foo/bar"], ["remote_address": "10.0.0.1"]
+    ["authenticated": "false"], ["path": "/foo/bar"], ["remote_address": "10.0.0.1"]
 
   What it does: Limits unauthenticated traffic to a specific path for a specific IP address.
   Like (1) we can raise/block specific IP addresses if we want with an override configuration.
 
   .. code-block:: cpp
 
-  ["authenticated": "true"], ["client_id": "foo"]
+    ["authenticated": "true"], ["client_id": "foo"]
 
   What it does: Limits all traffic for an authenticated client "foo"
 
   .. code-block:: cpp
 
-  ["authenticated": "true"], ["client_id": "foo"], ["path": "/foo/bar"]
+    ["authenticated": "true"], ["client_id": "foo"], ["path": "/foo/bar"]
 
   What it does: Limits traffic to a specific path for an authenticated client "foo"
 
@@ -51,7 +54,10 @@ defmodule Envoy.Api.V2.Ratelimit.RateLimitDescriptor do
   [#protodoc-title: Common rate limit components]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.ratelimit.RateLimitDescriptor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :entries, 1,
     repeated: true,

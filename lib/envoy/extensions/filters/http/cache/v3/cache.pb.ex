@@ -4,7 +4,10 @@ defmodule Envoy.Extensions.Filters.Http.Cache.V3.CacheConfig.KeyCreatorParams do
   Modifies cache key creation by restricting which parts of the URL are included.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.cache.v3.CacheConfig.KeyCreatorParams",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :exclude_scheme, 1, type: :bool, json_name: "excludeScheme"
   field :exclude_host, 2, type: :bool, json_name: "excludeHost"
@@ -27,7 +30,10 @@ defmodule Envoy.Extensions.Filters.Http.Cache.V3.CacheConfig do
   [#protodoc-title: HTTP Cache Filter]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.cache.v3.CacheConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :typed_config, 1, type: Google.Protobuf.Any, json_name: "typedConfig"
   field :disabled, 5, type: Google.Protobuf.BoolValue

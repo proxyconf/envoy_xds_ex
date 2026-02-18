@@ -6,5 +6,8 @@ defmodule Envoy.Config.Filter.Http.GrpcWeb.V2.GrpcWeb do
   [#extension: envoy.filters.http.grpc_web]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.grpc_web.v2.GrpcWeb",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

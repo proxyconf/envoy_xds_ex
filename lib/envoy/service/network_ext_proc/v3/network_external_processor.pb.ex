@@ -3,7 +3,11 @@ defmodule Envoy.Service.NetworkExtProc.V3.ProcessingResponse.DataProcessedStatus
   DataProcessedStatus indicates whether the data was modified by the external processor.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.service.network_ext_proc.v3.ProcessingResponse.DataProcessedStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :UNKNOWN, 0
   field :UNMODIFIED, 1
@@ -15,7 +19,11 @@ defmodule Envoy.Service.NetworkExtProc.V3.ProcessingResponse.ConnectionStatus do
   ConnectionStatus determines what happens to the connection after processing.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.service.network_ext_proc.v3.ProcessingResponse.ConnectionStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :CONTINUE, 0
   field :CLOSE, 1
@@ -27,7 +35,10 @@ defmodule Envoy.Service.NetworkExtProc.V3.Data do
   The payload data from network layer
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.network_ext_proc.v3.Data",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :data, 1, type: :bytes
   field :end_of_stream, 2, type: :bool, json_name: "endOfStream"
@@ -40,7 +51,10 @@ defmodule Envoy.Service.NetworkExtProc.V3.ProcessingRequest do
   along with optional metadata.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.network_ext_proc.v3.ProcessingRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :read_data, 1, type: Envoy.Service.NetworkExtProc.V3.Data, json_name: "readData"
   field :write_data, 2, type: Envoy.Service.NetworkExtProc.V3.Data, json_name: "writeData"
@@ -55,7 +69,10 @@ defmodule Envoy.Service.NetworkExtProc.V3.ProcessingResponse do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.network_ext_proc.v3.ProcessingResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :read_data, 1, type: Envoy.Service.NetworkExtProc.V3.Data, json_name: "readData"
   field :write_data, 2, type: Envoy.Service.NetworkExtProc.V3.Data, json_name: "writeData"
@@ -84,15 +101,17 @@ defmodule Envoy.Service.NetworkExtProc.V3.NetworkExternalProcessor.Service do
   providing access to raw network data.
 
   The filter communicates with an external gRPC service that can:
-  * Inspect network traffic in both directions (client->server and server->client)
-  * Modify the payload data
-  * Control connection lifecycle (continue, close gracefully, or reset)
+
+  1. Inspect network traffic in both directions (client->server and server->client)
+  2. Modify the payload data
+  3. Control connection lifecycle (continue, close gracefully, or reset)
 
   Use cases include:
-  * Custom protocol inspection and modification
-  * Advanced traffic manipulation
-  * Security scanning and filtering
-  * Dynamic connection management
+
+  1. Custom protocol inspection and modification
+  2. Advanced traffic manipulation
+  3. Security scanning and filtering
+  4. Dynamic connection management
 
   The service uses a bidirectional gRPC stream, maintaining state throughout
   the connection lifetime while allowing asynchronous processing.
@@ -100,7 +119,7 @@ defmodule Envoy.Service.NetworkExtProc.V3.NetworkExternalProcessor.Service do
 
   use GRPC.Service,
     name: "envoy.service.network_ext_proc.v3.NetworkExternalProcessor",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :Process,
       stream(Envoy.Service.NetworkExtProc.V3.ProcessingRequest),

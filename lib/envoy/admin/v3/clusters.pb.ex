@@ -5,7 +5,10 @@ defmodule Envoy.Admin.V3.Clusters do
   [#protodoc-title: Clusters]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.Clusters",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_statuses, 1,
     repeated: true,
@@ -19,7 +22,10 @@ defmodule Envoy.Admin.V3.ClusterStatus do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.ClusterStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
   field :added_via_api, 2, type: :bool, json_name: "addedViaApi"
@@ -51,7 +57,10 @@ defmodule Envoy.Admin.V3.HostStatus do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.HostStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
   field :stats, 2, repeated: true, type: Envoy.Admin.V3.SimpleMetric
@@ -74,7 +83,10 @@ defmodule Envoy.Admin.V3.HostHealthStatus do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.HostHealthStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :failed_active_health_check, 1, type: :bool, json_name: "failedActiveHealthCheck"
   field :failed_outlier_check, 2, type: :bool, json_name: "failedOutlierCheck"

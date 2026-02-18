@@ -5,5 +5,8 @@ defmodule Envoy.Extensions.UdpPacketWriter.V3.UdpGsoBatchWriterFactory do
   [#extension: envoy.udp_packet_writer.gso]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.udp_packet_writer.v3.UdpGsoBatchWriterFactory",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

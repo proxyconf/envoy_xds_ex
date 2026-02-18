@@ -1,5 +1,9 @@
 defmodule Envoy.Extensions.Filters.Network.Rbac.V3.RBAC.EnforcementType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.network.rbac.v3.RBAC.EnforcementType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ONE_TIME_ON_FIRST_BYTE, 0
   field :CONTINUOUS, 1
@@ -17,7 +21,10 @@ defmodule Envoy.Extensions.Filters.Network.Rbac.V3.RBAC do
   [#extension: envoy.filters.network.rbac]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.rbac.v3.RBAC",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rules, 1, type: Envoy.Config.Rbac.V3.RBAC, deprecated: false
   field :matcher, 6, type: Xds.Type.Matcher.V3.Matcher, deprecated: false

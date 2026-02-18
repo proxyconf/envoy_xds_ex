@@ -15,7 +15,7 @@ defmodule Envoy.Extensions.Http.StatefulSession.Cookie.V3.CookieBasedSessionStat
 
   .. code-block:: none
 
-  cookie: sticky-host="MS4yLjMuNDo4MA=="
+      cookie: sticky-host="MS4yLjMuNDo4MA=="
 
   When processing the upstream response, if ``1.2.3.4:80`` is indeed the final choice the extension
   does nothing. If ``1.2.3.4:80`` is not the final choice, the new selected host will be used to
@@ -25,7 +25,10 @@ defmodule Envoy.Extensions.Http.StatefulSession.Cookie.V3.CookieBasedSessionStat
   [#protodoc-title: Cookie based stateful session extension]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.http.stateful_session.cookie.v3.CookieBasedSessionState",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cookie, 1, type: Envoy.Type.Http.V3.Cookie, deprecated: false
 end

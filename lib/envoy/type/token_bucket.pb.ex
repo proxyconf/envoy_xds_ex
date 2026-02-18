@@ -4,7 +4,10 @@ defmodule Envoy.Type.TokenBucket do
   [#protodoc-title: Token bucket]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.TokenBucket",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_tokens, 1, type: :uint32, json_name: "maxTokens", deprecated: false
 

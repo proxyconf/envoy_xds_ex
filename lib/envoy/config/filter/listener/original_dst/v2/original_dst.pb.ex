@@ -5,5 +5,8 @@ defmodule Envoy.Config.Filter.Listener.OriginalDst.V2.OriginalDst do
   [#extension: envoy.filters.listener.original_dst]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.listener.original_dst.v2.OriginalDst",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

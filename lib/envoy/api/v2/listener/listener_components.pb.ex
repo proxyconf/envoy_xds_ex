@@ -1,5 +1,9 @@
 defmodule Envoy.Api.V2.Listener.FilterChainMatch.ConnectionSourceType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.api.v2.listener.FilterChainMatch.ConnectionSourceType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ANY, 0
   field :LOCAL, 1
@@ -12,7 +16,10 @@ defmodule Envoy.Api.V2.Listener.Filter do
   Listener :ref:`configuration overview <config_listeners>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.listener.Filter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 
@@ -54,7 +61,10 @@ defmodule Envoy.Api.V2.Listener.FilterChainMatch do
   [#next-free-field: 13]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.listener.FilterChainMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :destination_port, 8,
     type: Google.Protobuf.UInt32Value,
@@ -102,7 +112,10 @@ defmodule Envoy.Api.V2.Listener.FilterChain do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.listener.FilterChain",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :filter_chain_match, 1,
     type: Envoy.Api.V2.Listener.FilterChainMatch,
@@ -129,7 +142,10 @@ defmodule Envoy.Api.V2.Listener.ListenerFilterChainMatchPredicate.MatchSet do
   A set of match configurations used for logical operations.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.listener.ListenerFilterChainMatchPredicate.MatchSet",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -148,27 +164,30 @@ defmodule Envoy.Api.V2.Listener.ListenerFilterChainMatchPredicate do
 
   .. code-block:: yaml
 
-  destination_port_range:
-  start: 3306
-  end: 3307
+   destination_port_range:
+    start: 3306
+    end: 3307
 
   * Matches if the destination port is 3306 or 15000.
 
   .. code-block:: yaml
 
-  or_match:
-  rules:
-  - destination_port_range:
-  start: 3306
-  end: 3307
-  - destination_port_range:
-  start: 15000
-  end: 15001
+   or_match:
+     rules:
+       - destination_port_range:
+           start: 3306
+           end: 3307
+       - destination_port_range:
+           start: 15000
+           end: 15001
 
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.listener.ListenerFilterChainMatchPredicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :rule, 0
 
@@ -196,7 +215,10 @@ defmodule Envoy.Api.V2.Listener.ListenerFilterChainMatchPredicate do
 end
 
 defmodule Envoy.Api.V2.Listener.ListenerFilter do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.listener.ListenerFilter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 

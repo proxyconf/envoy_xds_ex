@@ -10,7 +10,10 @@ defmodule Envoy.Extensions.Matching.InputMatchers.ConsistentHashing.V3.Consisten
   [#extension: envoy.matching.matchers.consistent_hashing]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashing",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :threshold, 1, type: :uint32
   field :modulo, 2, type: :uint32, deprecated: false

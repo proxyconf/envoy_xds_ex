@@ -9,5 +9,8 @@ defmodule Envoy.Extensions.InternalRedirect.SafeCrossScheme.V3.SafeCrossSchemeCo
   [#protodoc-title: SafeCrossScheme internal redirect predicate]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.internal_redirect.safe_cross_scheme.v3.SafeCrossSchemeConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

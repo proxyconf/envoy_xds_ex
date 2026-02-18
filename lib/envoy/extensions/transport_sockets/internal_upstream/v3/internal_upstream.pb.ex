@@ -5,7 +5,11 @@ defmodule Envoy.Extensions.TransportSockets.InternalUpstream.V3.InternalUpstream
   then no metadata is passed through for this particular instance.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.transport_sockets.internal_upstream.v3.InternalUpstreamTransport.MetadataValueSource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :kind, 1, type: Envoy.Type.Metadata.V3.MetadataKind, deprecated: false
   field :name, 2, type: :string, deprecated: false
@@ -25,7 +29,11 @@ defmodule Envoy.Extensions.TransportSockets.InternalUpstream.V3.InternalUpstream
   [#extension: envoy.transport_sockets.internal_upstream]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.transport_sockets.internal_upstream.v3.InternalUpstreamTransport",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :passthrough_metadata, 1,
     repeated: true,

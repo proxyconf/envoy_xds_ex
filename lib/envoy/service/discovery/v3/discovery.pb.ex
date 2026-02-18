@@ -1,5 +1,9 @@
 defmodule Envoy.Service.Discovery.V3.ResourceLocator.DynamicParametersEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.ResourceLocator.DynamicParametersEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -11,7 +15,10 @@ defmodule Envoy.Service.Discovery.V3.ResourceLocator do
   [#protodoc-title: Common discovery API components]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.ResourceLocator",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -27,7 +34,10 @@ defmodule Envoy.Service.Discovery.V3.ResourceName do
   Specifies a concrete resource name.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.ResourceName",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -43,7 +53,10 @@ defmodule Envoy.Service.Discovery.V3.ResourceError do
   client by the server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.ResourceError",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :resource_name, 1,
     type: Envoy.Service.Discovery.V3.ResourceName,
@@ -59,7 +72,10 @@ defmodule Envoy.Service.Discovery.V3.DiscoveryRequest do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DiscoveryRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :node, 2, type: Envoy.Config.Core.V3.Node
@@ -80,7 +96,10 @@ defmodule Envoy.Service.Discovery.V3.DiscoveryResponse do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DiscoveryResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :version_info, 1, type: :string, json_name: "versionInfo"
   field :resources, 2, repeated: true, type: Google.Protobuf.Any
@@ -96,7 +115,11 @@ defmodule Envoy.Service.Discovery.V3.DiscoveryResponse do
 end
 
 defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryRequest.InitialResourceVersionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DeltaDiscoveryRequest.InitialResourceVersionsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -117,29 +140,35 @@ defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryRequest do
   connected to it.
 
   In Delta xDS the nonce field is required and used to pair
-  DeltaDiscoveryResponse to a DeltaDiscoveryRequest ACK or NACK.
-  Optionally, a response message level system_version_info is present for
+  ``DeltaDiscoveryResponse`` to a ``DeltaDiscoveryRequest`` ACK or NACK.
+  Optionally, a response message level ``system_version_info`` is present for
   debugging purposes only.
 
-  DeltaDiscoveryRequest plays two independent roles. Any DeltaDiscoveryRequest
-  can be either or both of: [1] informing the server of what resources the
-  client has gained/lost interest in (using resource_names_subscribe and
-  resource_names_unsubscribe), or [2] (N)ACKing an earlier resource update from
-  the server (using response_nonce, with presence of error_detail making it a NACK).
-  Additionally, the first message (for a given type_url) of a reconnected gRPC stream
+  ``DeltaDiscoveryRequest`` plays two independent roles. Any ``DeltaDiscoveryRequest``
+  can be either or both of:
+
+  * Informing the server of what resources the client has gained/lost interest in
+    (using ``resource_names_subscribe`` and ``resource_names_unsubscribe``), or
+  * (N)ACKing an earlier resource update from the server (using ``response_nonce``,
+    with presence of ``error_detail`` making it a NACK).
+
+  Additionally, the first message (for a given ``type_url``) of a reconnected gRPC stream
   has a third role: informing the server of the resources (and their versions)
-  that the client already possesses, using the initial_resource_versions field.
+  that the client already possesses, using the ``initial_resource_versions`` field.
 
   As with state-of-the-world, when multiple resource types are multiplexed (ADS),
-  all requests/acknowledgments/updates are logically walled off by type_url:
+  all requests/acknowledgments/updates are logically walled off by ``type_url``:
   a Cluster ACK exists in a completely separate world from a prior Route NACK.
-  In particular, initial_resource_versions being sent at the "start" of every
-  gRPC stream actually entails a message for each type_url, each with its own
-  initial_resource_versions.
+  In particular, ``initial_resource_versions`` being sent at the "start" of every
+  gRPC stream actually entails a message for each ``type_url``, each with its own
+  ``initial_resource_versions``.
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DeltaDiscoveryRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :node, 1, type: Envoy.Config.Core.V3.Node
   field :type_url, 2, type: :string, json_name: "typeUrl"
@@ -179,7 +208,10 @@ defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryResponse do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DeltaDiscoveryResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :system_version_info, 1, type: :string, json_name: "systemVersionInfo"
   field :resources, 2, repeated: true, type: Envoy.Service.Discovery.V3.Resource
@@ -201,7 +233,10 @@ defmodule Envoy.Service.Discovery.V3.DeltaDiscoveryResponse do
 end
 
 defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.SingleConstraint.Exists do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DynamicParameterConstraints.SingleConstraint.Exists",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.SingleConstraint do
@@ -209,7 +244,10 @@ defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.SingleConstrain
   A single constraint for a given key.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DynamicParameterConstraints.SingleConstraint",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :constraint_type, 0
 
@@ -222,7 +260,10 @@ defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.SingleConstrain
 end
 
 defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints.ConstraintList do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DynamicParameterConstraints.ConstraintList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :constraints, 1,
     repeated: true,
@@ -234,12 +275,15 @@ defmodule Envoy.Service.Discovery.V3.DynamicParameterConstraints do
   A set of dynamic parameter constraints associated with a variant of an individual xDS resource.
   These constraints determine whether the resource matches a subscription based on the set of
   dynamic parameters in the subscription, as specified in the
-  :ref:`ResourceLocator.dynamic_parameters<envoy_v3_api_field_service.discovery.v3.ResourceLocator.dynamic_parameters>`
+  :ref:`ResourceLocator.dynamic_parameters <envoy_v3_api_field_service.discovery.v3.ResourceLocator.dynamic_parameters>`
   field. This allows xDS implementations (clients, servers, and caching proxies) to determine
   which variant of a resource is appropriate for a given client.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.DynamicParameterConstraints",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :type, 0
 
@@ -269,7 +313,10 @@ defmodule Envoy.Service.Discovery.V3.Resource.CacheControl do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.Resource.CacheControl",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :do_not_cache, 1, type: :bool, json_name: "doNotCache"
 end
@@ -279,7 +326,10 @@ defmodule Envoy.Service.Discovery.V3.Resource do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v3.Resource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 3, type: :string
 

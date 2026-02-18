@@ -4,7 +4,10 @@ defmodule Google.Api.Expr.V1alpha1.ParsedExpr do
   A representation of the abstract syntax of the Common Expression Language.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.ParsedExpr",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :expr, 2, type: Google.Api.Expr.V1alpha1.Expr
   field :source_info, 3, type: Google.Api.Expr.V1alpha1.SourceInfo, json_name: "sourceInfo"
@@ -15,7 +18,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Ident do
   An identifier expression. e.g. `request`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Expr.Ident",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -25,7 +31,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Select do
   A field selection expression. e.g. `request.auth`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Expr.Select",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :operand, 1, type: Google.Api.Expr.V1alpha1.Expr
   field :field, 2, type: :string
@@ -39,7 +48,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Call do
   For example, `value == 10`, `size(map_value)`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Expr.Call",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :target, 1, type: Google.Api.Expr.V1alpha1.Expr
   field :function, 2, type: :string
@@ -54,7 +66,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateList do
   `dyn([1, 'hello', 2.0])`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Expr.CreateList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :elements, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Expr
 end
@@ -64,7 +79,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry do
   Represents an entry.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Expr.CreateStruct.Entry",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :key_kind, 0
 
@@ -83,7 +101,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct do
   `types.MyType{field_id: 'value'}`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Expr.CreateStruct",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :message_name, 1, type: :string, json_name: "messageName"
   field :entries, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry
@@ -104,13 +125,13 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Comprehension do
   in a map:
 
   *  `all`, `exists`, `exists_one` -  test a predicate expression against
-  the inputs and return `true` if the predicate is satisfied for all,
-  any, or only one value `list.all(x, x < 10)`.
+     the inputs and return `true` if the predicate is satisfied for all,
+     any, or only one value `list.all(x, x < 10)`.
   *  `filter` - test a predicate expression against the inputs and return
-  the subset of elements which satisfy the predicate:
-  `payments.filter(p, p > 1000)`.
+     the subset of elements which satisfy the predicate:
+     `payments.filter(p, p > 1000)`.
   *  `map` - apply an expression to all elements in the input and return the
-  output aggregate type: `[1, 2, 3].map(i, i * i)`.
+     output aggregate type: `[1, 2, 3].map(i, i * i)`.
 
   The `has(m.x)` macro tests whether the property `x` is present in struct
   `m`. The semantics of this macro depend on the type of `m`. For proto2
@@ -119,7 +140,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Comprehension do
   types, the macro tests whether the property `x` is defined on `m`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Expr.Comprehension",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :iter_var, 1, type: :string, json_name: "iterVar"
   field :iter_range, 2, type: Google.Api.Expr.V1alpha1.Expr, json_name: "iterRange"
@@ -149,7 +173,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr do
   the function declaration `startsWith`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Expr",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :expr_kind, 0
 
@@ -201,7 +228,10 @@ defmodule Google.Api.Expr.V1alpha1.Constant do
   `true`, `null`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.Constant",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :constant_kind, 0
 
@@ -232,14 +262,22 @@ defmodule Google.Api.Expr.V1alpha1.Constant do
 end
 
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.PositionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.SourceInfo.PositionsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: :int32
 end
 
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.MacroCallsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.SourceInfo.MacroCallsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Expr
@@ -250,7 +288,10 @@ defmodule Google.Api.Expr.V1alpha1.SourceInfo do
   Source information collected at parse time.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.SourceInfo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :syntax_version, 1, type: :string, json_name: "syntaxVersion"
   field :location, 2, type: :string
@@ -273,7 +314,10 @@ defmodule Google.Api.Expr.V1alpha1.SourcePosition do
   A specific position in source.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "google.api.expr.v1alpha1.SourcePosition",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :location, 1, type: :string
   field :offset, 2, type: :int32

@@ -15,15 +15,26 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.ClientSideWeightedRoundRobin.V3
   weights using eps and qps. The weight of a given endpoint is computed as:
   ``qps / (utilization + eps/qps * error_utilization_penalty)``.
 
+  Note that Envoy will forward the ORCA response headers/trailers from the upstream
+  cluster to the downstream client. This means that if the downstream client is also
+  configured to use ``client_side_weighted_round_robin`` it will load balance against
+  Envoy based on upstream weights. This can happen when Envoy is used as a reverse proxy.
+  To avoid this issue you can configure the :ref:`header_mutation filter  <envoy_v3_api_msg_extensions.filters.http.header_mutation.v3.HeaderMutation>` to remove
+  the ORCA payload from the response headers/trailers.
+
   See the :ref:`load balancing architecture
   overview<arch_overview_load_balancing_types>` for more information.
 
-  [#next-free-field: 8]
+  [#next-free-field: 9]
   [#protodoc-title: Client-Side Weighted Round Robin Load Balancing Policy]
   [#extension: envoy.load_balancing_policies.client_side_weighted_round_robin]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.load_balancing_policies.client_side_weighted_round_robin.v3.ClientSideWeightedRoundRobin",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :enable_oob_load_report, 1,
     type: Google.Protobuf.BoolValue,
@@ -47,4 +58,8 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.ClientSideWeightedRoundRobin.V3
     repeated: true,
     type: :string,
     json_name: "metricNamesForComputingUtilization"
+
+  field :slow_start_config, 8,
+    type: Envoy.Extensions.LoadBalancingPolicies.Common.V3.SlowStartConfig,
+    json_name: "slowStartConfig"
 end

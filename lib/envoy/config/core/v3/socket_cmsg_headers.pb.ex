@@ -5,7 +5,10 @@ defmodule Envoy.Config.Core.V3.SocketCmsgHeaders do
   [#protodoc-title: Socket CMSG headers]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SocketCmsgHeaders",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :level, 1, type: Google.Protobuf.UInt32Value
   field :type, 2, type: Google.Protobuf.UInt32Value

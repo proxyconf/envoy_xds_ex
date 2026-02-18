@@ -3,7 +3,11 @@ defmodule Envoy.Extensions.Filters.Udp.UdpProxy.Session.DynamicForwardProxy.V3.F
   Configuration for UDP datagrams buffering.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.udp.udp_proxy.session.dynamic_forward_proxy.v3.FilterConfig.BufferOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_buffered_datagrams, 1,
     type: Google.Protobuf.UInt32Value,
@@ -23,7 +27,11 @@ defmodule Envoy.Extensions.Filters.Udp.UdpProxy.Session.DynamicForwardProxy.V3.F
   [#protodoc-title: Filter state dynamic forward proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.udp.udp_proxy.session.dynamic_forward_proxy.v3.FilterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :implementation_specifier, 0
 

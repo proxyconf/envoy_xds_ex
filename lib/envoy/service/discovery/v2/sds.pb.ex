@@ -4,7 +4,10 @@ defmodule Envoy.Service.Discovery.V2.SdsDummy do
   services: https://github.com/google/protobuf/issues/4221
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.SdsDummy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Service.Discovery.V2.SecretDiscoveryService.Service do
@@ -14,7 +17,7 @@ defmodule Envoy.Service.Discovery.V2.SecretDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.service.discovery.v2.SecretDiscoveryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :DeltaSecrets,
       stream(Envoy.Api.V2.DeltaDiscoveryRequest),

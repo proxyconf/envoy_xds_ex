@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Core.V3.SocketAddress.Protocol do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.core.v3.SocketAddress.Protocol",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :TCP, 0
   field :UDP, 1
@@ -10,7 +14,10 @@ defmodule Envoy.Config.Core.V3.Pipe do
   [#protodoc-title: Network addresses]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.Pipe",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
   field :mode, 2, type: :uint32, deprecated: false
@@ -22,7 +29,10 @@ defmodule Envoy.Config.Core.V3.EnvoyInternalAddress do
   [#comment: TODO(asraa): When address available, remove workaround from test/server/server_fuzz_test.cc:30.]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.EnvoyInternalAddress",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :address_name_specifier, 0
 
@@ -32,10 +42,13 @@ end
 
 defmodule Envoy.Config.Core.V3.SocketAddress do
   @moduledoc """
-  [#next-free-field: 7]
+  [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SocketAddress",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :port_specifier, 0
 
@@ -49,10 +62,14 @@ defmodule Envoy.Config.Core.V3.SocketAddress do
   field :named_port, 4, type: :string, json_name: "namedPort", oneof: 0
   field :resolver_name, 5, type: :string, json_name: "resolverName"
   field :ipv4_compat, 6, type: :bool, json_name: "ipv4Compat"
+  field :network_namespace_filepath, 7, type: :string, json_name: "networkNamespaceFilepath"
 end
 
 defmodule Envoy.Config.Core.V3.TcpKeepalive do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.TcpKeepalive",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :keepalive_probes, 1, type: Google.Protobuf.UInt32Value, json_name: "keepaliveProbes"
   field :keepalive_time, 2, type: Google.Protobuf.UInt32Value, json_name: "keepaliveTime"
@@ -60,7 +77,10 @@ defmodule Envoy.Config.Core.V3.TcpKeepalive do
 end
 
 defmodule Envoy.Config.Core.V3.ExtraSourceAddress do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.ExtraSourceAddress",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.SocketAddress, deprecated: false
 
@@ -74,7 +94,10 @@ defmodule Envoy.Config.Core.V3.BindConfig do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.BindConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :source_address, 1, type: Envoy.Config.Core.V3.SocketAddress, json_name: "sourceAddress"
   field :freebind, 2, type: Google.Protobuf.BoolValue
@@ -107,7 +130,10 @@ defmodule Envoy.Config.Core.V3.Address do
   management servers.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.Address",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :address, 0
 
@@ -130,7 +156,10 @@ defmodule Envoy.Config.Core.V3.CidrRange do
   the subnet mask for a `CIDR <https://tools.ietf.org/html/rfc4632>`_ range.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.CidrRange",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address_prefix, 1, type: :string, json_name: "addressPrefix", deprecated: false
 

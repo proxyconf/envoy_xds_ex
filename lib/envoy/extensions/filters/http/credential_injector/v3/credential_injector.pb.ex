@@ -15,28 +15,28 @@ defmodule Envoy.Extensions.Filters.Http.CredentialInjector.V3.CredentialInjector
 
   .. code-block:: yaml
 
-  overwrite: true
-  credential:
-  name: generic_credential
-  typed_config:
-  "@type": type.googleapis.com/envoy.extensions.http.injected_credentials.generic.v3.Generic
-  credential:
-  name: credential
-  sds_config:
-  path_config_source:
-  path: credential.yaml
-  header: Authorization
+   overwrite: true
+   credential:
+     name: generic_credential
+     typed_config:
+       "@type": type.googleapis.com/envoy.extensions.http.injected_credentials.generic.v3.Generic
+       credential:
+         name: credential
+         sds_config:
+           path_config_source:
+             path: credential.yaml
+       header: Authorization
 
   credential.yaml for Basic Auth:
 
   .. code-block:: yaml
 
-  resources:
-  - "@type": "type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.Secret"
-  name: credential
-  generic_secret:
-  secret:
-  inline_string: "Basic base64EncodedUsernamePassword"
+   resources:
+   - "@type": "type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.Secret"
+     name: credential
+     generic_secret:
+       secret:
+         inline_string: "Basic base64EncodedUsernamePassword"
 
   It can also be configured to inject a Bearer token into the proxied requests.
 
@@ -44,18 +44,21 @@ defmodule Envoy.Extensions.Filters.Http.CredentialInjector.V3.CredentialInjector
 
   .. code-block:: yaml
 
-  resources:
-  - "@type": "type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.Secret"
-  name: credential
-  generic_secret:
-  secret:
-  inline_string: "Bearer myToken"
+   resources:
+   - "@type": "type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.Secret"
+     name: credential
+     generic_secret:
+       secret:
+         inline_string: "Bearer myToken"
   [#protodoc-title: Credential Injector]
   Credential Injector :ref:`configuration overview <config_http_filters_credential_injector>`.
   [#extension: envoy.filters.http.credential_injector]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.credential_injector.v3.CredentialInjector",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :overwrite, 1, type: :bool
 

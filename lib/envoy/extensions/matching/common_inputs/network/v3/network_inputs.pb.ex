@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DestinationIPInput d
   [#protodoc-title: Common network matching inputs]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.DestinationIPInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DestinationPortInput do
@@ -14,7 +17,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DestinationPortInput
   [#extension: envoy.matching.inputs.destination_port]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.DestinationPortInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourceIPInput do
@@ -23,7 +29,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourceIPInput do
   [#extension: envoy.matching.inputs.source_ip]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.SourceIPInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourcePortInput do
@@ -32,7 +41,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourcePortInput do
   [#extension: envoy.matching.inputs.source_port]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.SourcePortInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DirectSourceIPInput do
@@ -44,7 +56,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DirectSourceIPInput 
   [#extension: envoy.matching.inputs.direct_source_ip]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.DirectSourceIPInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourceTypeInput do
@@ -56,7 +71,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.SourceTypeInput do
   [#extension: envoy.matching.inputs.source_type]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.SourceTypeInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.ServerNameInput do
@@ -68,7 +86,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.ServerNameInput do
   [#extension: envoy.matching.inputs.server_name]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.ServerNameInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.TransportProtocolInput do
@@ -79,11 +100,14 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.TransportProtocolInp
 
   * ``raw_buffer`` - default, used when no transport protocol is detected,
   * ``tls`` - set by :ref:`envoy.filters.listener.tls_inspector <config_listener_filters_tls_inspector>`
-  when TLS protocol is detected.
+    when TLS protocol is detected.
   [#extension: envoy.matching.inputs.transport_protocol]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.TransportProtocolInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.ApplicationProtocolInput do
@@ -99,24 +123,27 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.ApplicationProtocolI
   Suggested values in the list include:
 
   * ``http/1.1`` - set by :ref:`envoy.filters.listener.tls_inspector
-  <config_listener_filters_tls_inspector>` and :ref:`envoy.filters.listener.http_inspector
-  <config_listener_filters_http_inspector>`,
+    <config_listener_filters_tls_inspector>` and :ref:`envoy.filters.listener.http_inspector
+    <config_listener_filters_http_inspector>`,
   * ``h2`` - set by :ref:`envoy.filters.listener.tls_inspector <config_listener_filters_tls_inspector>`
   * ``h2c`` - set by :ref:`envoy.filters.listener.http_inspector <config_listener_filters_http_inspector>`
 
   .. attention::
 
-  Currently, :ref:`TLS Inspector <config_listener_filters_tls_inspector>` provides
-  application protocol detection based on the requested
-  `ALPN <https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation>`_ values.
+    Currently, :ref:`TLS Inspector <config_listener_filters_tls_inspector>` provides
+    application protocol detection based on the requested
+    `ALPN <https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation>`_ values.
 
-  However, the use of ALPN is pretty much limited to the HTTP/2 traffic on the Internet,
-  and matching on values other than ``h2`` is going to lead to a lot of false negatives,
-  unless all connecting clients are known to use ALPN.
+    However, the use of ALPN is pretty much limited to the HTTP/2 traffic on the Internet,
+    and matching on values other than ``h2`` is going to lead to a lot of false negatives,
+    unless all connecting clients are known to use ALPN.
   [#extension: envoy.matching.inputs.application_protocol]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.ApplicationProtocolInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.FilterStateInput do
@@ -126,7 +153,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.FilterStateInput do
   [#extension: envoy.matching.inputs.filter_state]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.FilterStateInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
 end
@@ -138,7 +168,11 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DynamicMetadataInput
   if the segment key refers to a list, it has to be the last segment in a path.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.matching.common_inputs.network.v3.DynamicMetadataInput.PathSegment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :segment, 0
 
@@ -155,26 +189,29 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DynamicMetadataInput
 
   .. code-block:: yaml
 
-  filter_metadata:
-  envoy.xxx:
-  prop:
-  foo: bar
-  xyz:
-  hello: envoy
+     filter_metadata:
+       envoy.xxx:
+         prop:
+           foo: bar
+           xyz:
+             hello: envoy
 
   The following DynamicMetadataInput will retrieve a string value "bar" from the Metadata.
 
   .. code-block:: yaml
 
-  filter: envoy.xxx
-  path:
-  - key: prop
-  - key: foo
+     filter: envoy.xxx
+     path:
+     - key: prop
+     - key: foo
 
   [#extension: envoy.matching.inputs.dynamic_metadata]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.DynamicMetadataInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
 
@@ -182,4 +219,25 @@ defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.DynamicMetadataInput
     repeated: true,
     type: Envoy.Extensions.Matching.CommonInputs.Network.V3.DynamicMetadataInput.PathSegment,
     deprecated: false
+end
+
+defmodule Envoy.Extensions.Matching.CommonInputs.Network.V3.NetworkNamespaceInput do
+  @moduledoc """
+  Input that matches by the network namespace of the listener address.
+  This input returns the network namespace filepath that was used to create the listening socket.
+  On Linux systems, this corresponds to the ``network_namespace_filepath`` field in the
+  :ref:`SocketAddress <envoy_v3_api_msg_config.core.v3.SocketAddress>` configuration.
+
+  .. note::
+
+    This input is only meaningful on Linux systems where network namespaces are supported.
+    On other platforms, this input will always return an empty value.
+
+  [#extension: envoy.matching.inputs.network_namespace]
+  """
+
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.network.v3.NetworkNamespaceInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

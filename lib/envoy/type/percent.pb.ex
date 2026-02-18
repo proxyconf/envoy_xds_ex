@@ -3,7 +3,11 @@ defmodule Envoy.Type.FractionalPercent.DenominatorType do
   Fraction percentages support several fixed denominator values.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.type.FractionalPercent.DenominatorType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :HUNDRED, 0
   field :TEN_THOUSAND, 1
@@ -16,7 +20,10 @@ defmodule Envoy.Type.Percent do
   [#protodoc-title: Percent]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.Percent",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
 end
@@ -31,7 +38,10 @@ defmodule Envoy.Type.FractionalPercent do
   * **Example**: 3/10000 = 0.03%.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.FractionalPercent",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :numerator, 1, type: :uint32
 

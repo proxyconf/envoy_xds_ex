@@ -13,7 +13,10 @@ defmodule Envoy.Extensions.Rbac.Matchers.UpstreamIpPort.V3.UpstreamIpPortMatcher
   [#extension: envoy.rbac.matchers.upstream_ip_port]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :upstream_ip, 1, type: Envoy.Config.Core.V3.CidrRange, json_name: "upstreamIp"
   field :upstream_port_range, 2, type: Envoy.Type.V3.Int64Range, json_name: "upstreamPortRange"

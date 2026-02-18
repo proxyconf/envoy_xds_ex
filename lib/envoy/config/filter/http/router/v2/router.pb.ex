@@ -6,7 +6,10 @@ defmodule Envoy.Config.Filter.Http.Router.V2.Router do
   [#extension: envoy.filters.http.router]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.router.v2.Router",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :dynamic_stats, 1, type: Google.Protobuf.BoolValue, json_name: "dynamicStats"
   field :start_child_span, 2, type: :bool, json_name: "startChildSpan"

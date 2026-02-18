@@ -7,7 +7,10 @@ defmodule Envoy.Config.Overload.V2alpha.ResourceMonitor do
   when triggers related to those resources fire.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.overload.v2alpha.ResourceMonitor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 
@@ -17,13 +20,19 @@ defmodule Envoy.Config.Overload.V2alpha.ResourceMonitor do
 end
 
 defmodule Envoy.Config.Overload.V2alpha.ThresholdTrigger do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.overload.v2alpha.ThresholdTrigger",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
 end
 
 defmodule Envoy.Config.Overload.V2alpha.Trigger do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.overload.v2alpha.Trigger",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :trigger_oneof, 0
 
@@ -32,7 +41,10 @@ defmodule Envoy.Config.Overload.V2alpha.Trigger do
 end
 
 defmodule Envoy.Config.Overload.V2alpha.OverloadAction do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.overload.v2alpha.OverloadAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -43,7 +55,10 @@ defmodule Envoy.Config.Overload.V2alpha.OverloadAction do
 end
 
 defmodule Envoy.Config.Overload.V2alpha.OverloadManager do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.overload.v2alpha.OverloadManager",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :refresh_interval, 1, type: Google.Protobuf.Duration, json_name: "refreshInterval"
 

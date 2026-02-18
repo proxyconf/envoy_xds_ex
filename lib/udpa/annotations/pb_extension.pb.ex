@@ -1,5 +1,5 @@
 defmodule Udpa.Annotations.PbExtension do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1"
+  use Protobuf, protoc_gen_elixir_version: "0.16.0"
 
   extend Google.Protobuf.FileOptions, :file_status, 222_707_719,
     optional: true,

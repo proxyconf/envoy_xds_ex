@@ -15,7 +15,10 @@ defmodule Envoy.Type.Matcher.RegexMatcher.GoogleRE2 do
   each time the program size exceeds the warn level threshold.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.RegexMatcher.GoogleRE2",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_program_size, 1,
     type: Google.Protobuf.UInt32Value,
@@ -29,7 +32,10 @@ defmodule Envoy.Type.Matcher.RegexMatcher do
   [#protodoc-title: Regex matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.RegexMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :engine_type, 0
 
@@ -48,7 +54,10 @@ defmodule Envoy.Type.Matcher.RegexMatchAndSubstitute do
   expression and a substitution string.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.RegexMatchAndSubstitute",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :pattern, 1, type: Envoy.Type.Matcher.RegexMatcher
   field :substitution, 2, type: :string

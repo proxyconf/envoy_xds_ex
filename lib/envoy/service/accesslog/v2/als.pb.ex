@@ -3,11 +3,17 @@ defmodule Envoy.Service.Accesslog.V2.StreamAccessLogsResponse do
   Empty response for the StreamAccessLogs API. Will never be sent. See below.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.accesslog.v2.StreamAccessLogsResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Service.Accesslog.V2.StreamAccessLogsMessage.Identifier do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.accesslog.v2.StreamAccessLogsMessage.Identifier",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :node, 1, type: Envoy.Api.V2.Core.Node, deprecated: false
   field :log_name, 2, type: :string, json_name: "logName", deprecated: false
@@ -18,7 +24,10 @@ defmodule Envoy.Service.Accesslog.V2.StreamAccessLogsMessage.HTTPAccessLogEntrie
   Wrapper for batches of HTTP access log entries.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.accesslog.v2.StreamAccessLogsMessage.HTTPAccessLogEntries",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :log_entry, 1,
     repeated: true,
@@ -32,7 +41,10 @@ defmodule Envoy.Service.Accesslog.V2.StreamAccessLogsMessage.TCPAccessLogEntries
   Wrapper for batches of TCP access log entries.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.accesslog.v2.StreamAccessLogsMessage.TCPAccessLogEntries",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :log_entry, 1,
     repeated: true,
@@ -47,7 +59,10 @@ defmodule Envoy.Service.Accesslog.V2.StreamAccessLogsMessage do
   access logs without ever expecting a response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.accesslog.v2.StreamAccessLogsMessage",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :log_entries, 0
 
@@ -72,7 +87,7 @@ defmodule Envoy.Service.Accesslog.V2.AccessLogService.Service do
 
   use GRPC.Service,
     name: "envoy.service.accesslog.v2.AccessLogService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :StreamAccessLogs,
       stream(Envoy.Service.Accesslog.V2.StreamAccessLogsMessage),

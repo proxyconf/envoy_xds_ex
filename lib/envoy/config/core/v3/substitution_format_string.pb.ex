@@ -4,7 +4,10 @@ defmodule Envoy.Config.Core.V3.JsonFormatOptions do
   [#protodoc-title: Substitution format string]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.JsonFormatOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :sort_properties, 1, type: :bool, json_name: "sortProperties", deprecated: true
 end
@@ -16,7 +19,10 @@ defmodule Envoy.Config.Core.V3.SubstitutionFormatString do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SubstitutionFormatString",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :format, 0
 

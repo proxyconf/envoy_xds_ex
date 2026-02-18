@@ -3,7 +3,11 @@ defmodule Envoy.Extensions.Quic.ServerPreferredAddress.V3.FixedServerPreferredAd
   Addresses for server preferred address for a single address family (IPv4 or IPv6).
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.quic.server_preferred_address.v3.FixedServerPreferredAddressConfig.AddressFamilyConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.SocketAddress
   field :dnat_address, 2, type: Envoy.Config.Core.V3.SocketAddress, json_name: "dnatAddress"
@@ -16,7 +20,11 @@ defmodule Envoy.Extensions.Quic.ServerPreferredAddress.V3.FixedServerPreferredAd
   [#extension: envoy.quic.server_preferred_address.fixed]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.quic.server_preferred_address.v3.FixedServerPreferredAddressConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ipv4_address, 1, type: :string, json_name: "ipv4Address"
 

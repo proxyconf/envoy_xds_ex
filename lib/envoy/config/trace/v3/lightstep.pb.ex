@@ -3,7 +3,11 @@ defmodule Envoy.Config.Trace.V3.LightstepConfig.PropagationMode do
   Available propagation modes
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.trace.v3.LightstepConfig.PropagationMode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ENVOY, 0
   field :LIGHTSTEP, 1
@@ -19,7 +23,10 @@ defmodule Envoy.Config.Trace.V3.LightstepConfig do
   [#protodoc-title: LightStep tracer]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.trace.v3.LightstepConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :collector_cluster, 1, type: :string, json_name: "collectorCluster", deprecated: false
   field :access_token_file, 2, type: :string, json_name: "accessTokenFile", deprecated: true

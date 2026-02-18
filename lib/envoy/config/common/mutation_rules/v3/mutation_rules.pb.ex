@@ -29,7 +29,10 @@ defmodule Envoy.Config.Common.MutationRules.V3.HeaderMutationRules do
   [#protodoc-title: Header mutation rules]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.mutation_rules.v3.HeaderMutationRules",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :allow_all_routing, 1, type: Google.Protobuf.BoolValue, json_name: "allowAllRouting"
   field :allow_envoy, 2, type: Google.Protobuf.BoolValue, json_name: "allowEnvoy"
@@ -47,16 +50,36 @@ defmodule Envoy.Config.Common.MutationRules.V3.HeaderMutationRules do
   field :disallow_is_error, 7, type: Google.Protobuf.BoolValue, json_name: "disallowIsError"
 end
 
+defmodule Envoy.Config.Common.MutationRules.V3.HeaderMutation.RemoveOnMatch do
+  use Protobuf,
+    full_name: "envoy.config.common.mutation_rules.v3.HeaderMutation.RemoveOnMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :key_matcher, 1,
+    type: Envoy.Type.Matcher.V3.StringMatcher,
+    json_name: "keyMatcher",
+    deprecated: false
+end
+
 defmodule Envoy.Config.Common.MutationRules.V3.HeaderMutation do
   @moduledoc """
   The HeaderMutation structure specifies an action that may be taken on HTTP
   headers.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.mutation_rules.v3.HeaderMutation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :action, 0
 
   field :remove, 1, type: :string, oneof: 0, deprecated: false
   field :append, 2, type: Envoy.Config.Core.V3.HeaderValueOption, oneof: 0
+
+  field :remove_on_match, 3,
+    type: Envoy.Config.Common.MutationRules.V3.HeaderMutation.RemoveOnMatch,
+    json_name: "removeOnMatch",
+    oneof: 0
 end

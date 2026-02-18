@@ -20,7 +20,10 @@ defmodule Xds.Type.Matcher.V3.RegexMatcher.GoogleRE2 do
   program size exceeds the warn level threshold.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.RegexMatcher.GoogleRE2",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Xds.Type.Matcher.V3.RegexMatcher do
@@ -29,7 +32,10 @@ defmodule Xds.Type.Matcher.V3.RegexMatcher do
   [#protodoc-title: Regex matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.RegexMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :engine_type, 0
 

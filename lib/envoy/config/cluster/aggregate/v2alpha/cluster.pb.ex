@@ -6,7 +6,10 @@ defmodule Envoy.Config.Cluster.Aggregate.V2alpha.ClusterConfig do
   [#protodoc-title: Aggregate cluster configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.aggregate.v2alpha.ClusterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :clusters, 1, repeated: true, type: :string, deprecated: false
 end

@@ -1,5 +1,8 @@
 defmodule Envoy.Service.Auth.V3.CheckRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v3.CheckRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :attributes, 1, type: Envoy.Service.Auth.V3.AttributeContext
 end
@@ -9,7 +12,10 @@ defmodule Envoy.Service.Auth.V3.DeniedHttpResponse do
   HTTP attributes for a denied response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v3.DeniedHttpResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :status, 1, type: Envoy.Type.V3.HttpStatus
   field :headers, 2, repeated: true, type: Envoy.Config.Core.V3.HeaderValueOption
@@ -22,7 +28,10 @@ defmodule Envoy.Service.Auth.V3.OkHttpResponse do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v3.OkHttpResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :headers, 2, repeated: true, type: Envoy.Config.Core.V3.HeaderValueOption
   field :headers_to_remove, 5, repeated: true, type: :string, json_name: "headersToRemove"
@@ -51,9 +60,13 @@ end
 defmodule Envoy.Service.Auth.V3.CheckResponse do
   @moduledoc """
   Intended for gRPC and Network Authorization servers ``only``.
+  [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v3.CheckResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :http_response, 0
 
@@ -67,6 +80,11 @@ defmodule Envoy.Service.Auth.V3.CheckResponse do
   field :ok_response, 3,
     type: Envoy.Service.Auth.V3.OkHttpResponse,
     json_name: "okResponse",
+    oneof: 0
+
+  field :error_response, 5,
+    type: Envoy.Service.Auth.V3.DeniedHttpResponse,
+    json_name: "errorResponse",
     oneof: 0
 
   field :dynamic_metadata, 4, type: Google.Protobuf.Struct, json_name: "dynamicMetadata"
@@ -83,7 +101,7 @@ defmodule Envoy.Service.Auth.V3.Authorization.Service do
 
   use GRPC.Service,
     name: "envoy.service.auth.v3.Authorization",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :Check, Envoy.Service.Auth.V3.CheckRequest, Envoy.Service.Auth.V3.CheckResponse
 end

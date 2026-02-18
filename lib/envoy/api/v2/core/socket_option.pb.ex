@@ -1,5 +1,9 @@
 defmodule Envoy.Api.V2.Core.SocketOption.SocketState do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.api.v2.core.SocketOption.SocketState",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :STATE_PREBIND, 0
   field :STATE_BOUND, 1
@@ -14,7 +18,10 @@ defmodule Envoy.Api.V2.Core.SocketOption do
   [#protodoc-title: Socket Option ]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.core.SocketOption",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :value, 0
 

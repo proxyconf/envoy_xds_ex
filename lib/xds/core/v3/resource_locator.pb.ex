@@ -1,5 +1,9 @@
 defmodule Xds.Core.V3.ResourceLocator.Scheme do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "xds.core.v3.ResourceLocator.Scheme",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :XDSTP, 0
   field :HTTP, 1
@@ -31,7 +35,10 @@ defmodule Xds.Core.V3.ResourceLocator.Directive do
   and reserved characters.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.core.v3.ResourceLocator.Directive",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :directive, 0
 
@@ -46,20 +53,23 @@ defmodule Xds.Core.V3.ResourceLocator do
 
   Resource locators have a canonical xdstp:// URI representation:
 
-  xdstp://{authority}/{type_url}/{id}?{context_params}{#directive,*}
+    xdstp://{authority}/{type_url}/{id}?{context_params}{#directive,*}
 
   where context_params take the form of URI query parameters.
 
   Resource locators have a similar canonical http:// URI representation:
 
-  http://{authority}/{type_url}/{id}?{context_params}{#directive,*}
+    http://{authority}/{type_url}/{id}?{context_params}{#directive,*}
 
   Resource locators also have a simplified file:// URI representation:
 
-  file:///{id}{#directive,*}
+    file:///{id}{#directive,*}
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.core.v3.ResourceLocator",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :context_param_specifier, 0
 

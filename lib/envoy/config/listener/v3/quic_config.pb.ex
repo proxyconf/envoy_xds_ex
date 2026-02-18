@@ -1,11 +1,14 @@
 defmodule Envoy.Config.Listener.V3.QuicProtocolOptions do
   @moduledoc """
   Configuration specific to the UDP QUIC listener.
-  [#next-free-field: 14]
+  [#next-free-field: 15]
   [#protodoc-title: QUIC listener config]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.QuicProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :quic_protocol_options, 1,
     type: Envoy.Config.Core.V3.QuicProtocolOptions,
@@ -56,4 +59,9 @@ defmodule Envoy.Config.Listener.V3.QuicProtocolOptions do
     deprecated: false
 
   field :reject_new_connections, 13, type: :bool, json_name: "rejectNewConnections"
+
+  field :max_sessions_per_event_loop, 14,
+    type: Google.Protobuf.UInt32Value,
+    json_name: "maxSessionsPerEventLoop",
+    deprecated: false
 end

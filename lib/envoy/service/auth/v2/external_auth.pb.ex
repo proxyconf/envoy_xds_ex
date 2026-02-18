@@ -1,5 +1,8 @@
 defmodule Envoy.Service.Auth.V2.CheckRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.CheckRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :attributes, 1, type: Envoy.Service.Auth.V2.AttributeContext
 end
@@ -9,7 +12,10 @@ defmodule Envoy.Service.Auth.V2.DeniedHttpResponse do
   HTTP attributes for a denied response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.DeniedHttpResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :status, 1, type: Envoy.Type.HttpStatus, deprecated: false
   field :headers, 2, repeated: true, type: Envoy.Api.V2.Core.HeaderValueOption
@@ -21,7 +27,10 @@ defmodule Envoy.Service.Auth.V2.OkHttpResponse do
   HTTP attributes for an ok response.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.OkHttpResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :headers, 2, repeated: true, type: Envoy.Api.V2.Core.HeaderValueOption
 end
@@ -31,7 +40,10 @@ defmodule Envoy.Service.Auth.V2.CheckResponse do
   Intended for gRPC and Network Authorization servers `only`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.CheckResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :http_response, 0
 
@@ -59,7 +71,7 @@ defmodule Envoy.Service.Auth.V2.Authorization.Service do
 
   use GRPC.Service,
     name: "envoy.service.auth.v2.Authorization",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :Check, Envoy.Service.Auth.V2.CheckRequest, Envoy.Service.Auth.V2.CheckResponse
 end

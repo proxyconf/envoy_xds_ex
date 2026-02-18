@@ -4,14 +4,22 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.XRateLimitHeadersRFCVersion do
   [#protodoc-title: Common rate limit components]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :OFF, 0
   field :DRAFT_VERSION_03, 1
 end
 
 defmodule Envoy.Extensions.Common.Ratelimit.V3.VhRateLimitsOptions do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :OVERRIDE, 0
   field :INCLUDE, 1
@@ -19,7 +27,10 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.VhRateLimitsOptions do
 end
 
 defmodule Envoy.Extensions.Common.Ratelimit.V3.RateLimitDescriptor.Entry do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.ratelimit.v3.RateLimitDescriptor.Entry",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -32,7 +43,10 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.RateLimitDescriptor.RateLimitOver
   <config_http_filters_rate_limit_rate_limit_override>` for more information.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :requests_per_unit, 1, type: :uint32, json_name: "requestsPerUnit"
   field :unit, 2, type: Envoy.Type.V3.RateLimitUnit, enum: true, deprecated: false
@@ -46,7 +60,7 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.RateLimitDescriptor do
 
   .. code-block:: cpp
 
-  ["authenticated": "false"], ["remote_address": "10.0.0.1"]
+    ["authenticated": "false"], ["remote_address": "10.0.0.1"]
 
   What it does: Limits all unauthenticated traffic for the IP address 10.0.0.1. The
   configuration supplies a default limit for the *remote_address* key. If there is a desire to
@@ -55,27 +69,27 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.RateLimitDescriptor do
 
   .. code-block:: cpp
 
-  ["authenticated": "false"], ["path": "/foo/bar"]
+    ["authenticated": "false"], ["path": "/foo/bar"]
 
   What it does: Limits all unauthenticated traffic globally for a specific path (or prefix if
   configured that way in the service).
 
   .. code-block:: cpp
 
-  ["authenticated": "false"], ["path": "/foo/bar"], ["remote_address": "10.0.0.1"]
+    ["authenticated": "false"], ["path": "/foo/bar"], ["remote_address": "10.0.0.1"]
 
   What it does: Limits unauthenticated traffic to a specific path for a specific IP address.
   Like (1) we can raise/block specific IP addresses if we want with an override configuration.
 
   .. code-block:: cpp
 
-  ["authenticated": "true"], ["client_id": "foo"]
+    ["authenticated": "true"], ["client_id": "foo"]
 
   What it does: Limits all traffic for an authenticated client "foo"
 
   .. code-block:: cpp
 
-  ["authenticated": "true"], ["client_id": "foo"], ["path": "/foo/bar"]
+    ["authenticated": "true"], ["client_id": "foo"], ["path": "/foo/bar"]
 
   What it does: Limits traffic to a specific path for an authenticated client "foo"
 
@@ -87,7 +101,10 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.RateLimitDescriptor do
   rate limiting service.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.ratelimit.v3.RateLimitDescriptor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :entries, 1,
     repeated: true,
@@ -105,12 +122,15 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.LocalRateLimitDescriptor do
   Configuration used to enable local rate limiting.
 
   .. note::
-  The ``LocalRateLimitDescriptor`` is used to configure a local rate limit rule with a token
-  bucket algorithm. The ``RateLimitDescriptor`` is used to represent a list of symbols that
-  are used to match against the rate limit rule.
+    The ``LocalRateLimitDescriptor`` is used to configure a local rate limit rule with a token
+    bucket algorithm. The ``RateLimitDescriptor`` is used to represent a list of symbols that
+    are used to match against the rate limit rule.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :entries, 1,
     repeated: true,
@@ -121,6 +141,8 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.LocalRateLimitDescriptor do
     type: Envoy.Type.V3.TokenBucket,
     json_name: "tokenBucket",
     deprecated: false
+
+  field :shadow_mode, 3, type: :bool, json_name: "shadowMode"
 end
 
 defmodule Envoy.Extensions.Common.Ratelimit.V3.LocalClusterRateLimit do
@@ -136,5 +158,8 @@ defmodule Envoy.Extensions.Common.Ratelimit.V3.LocalClusterRateLimit do
   about local cluster.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.ratelimit.v3.LocalClusterRateLimit",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

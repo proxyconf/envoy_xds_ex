@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Listener.V3.Listener.DrainType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.listener.v3.Listener.DrainType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DEFAULT, 0
   field :MODIFY_ONLY, 1
@@ -12,13 +16,18 @@ defmodule Envoy.Config.Listener.V3.AdditionalAddress do
   Listener :ref:`configuration overview <config_listeners>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.AdditionalAddress",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
 
   field :socket_options, 2,
     type: Envoy.Config.Core.V3.SocketOptionsOverride,
     json_name: "socketOptions"
+
+  field :tcp_keepalive, 3, type: Envoy.Config.Core.V3.TcpKeepalive, json_name: "tcpKeepalive"
 end
 
 defmodule Envoy.Config.Listener.V3.ListenerCollection do
@@ -27,7 +36,10 @@ defmodule Envoy.Config.Listener.V3.ListenerCollection do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.ListenerCollection",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :entries, 1, repeated: true, type: Xds.Core.V3.CollectionEntry
 end
@@ -37,7 +49,10 @@ defmodule Envoy.Config.Listener.V3.Listener.DeprecatedV1 do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.Listener.DeprecatedV1",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bind_to_port, 1, type: Google.Protobuf.BoolValue, json_name: "bindToPort"
 end
@@ -52,7 +67,10 @@ defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig.ExactBalance
   connections that rarely cycle (e.g., service mesh gRPC egress).
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalance",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig do
@@ -60,7 +78,10 @@ defmodule Envoy.Config.Listener.V3.Listener.ConnectionBalanceConfig do
   Configuration for listener connection balancing.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.Listener.ConnectionBalanceConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :balance_type, 0
 
@@ -80,15 +101,36 @@ defmodule Envoy.Config.Listener.V3.Listener.InternalListenerConfig do
   Configuration for envoy internal listener. All the future internal listener features should be added here.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.Listener.InternalListenerConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+end
+
+defmodule Envoy.Config.Listener.V3.Listener.FcdsConfig do
+  @moduledoc """
+  Configuration for filter chains discovery.
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.Listener.FcdsConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :name, 1, type: :string
+  field :config_source, 2, type: Envoy.Config.Core.V3.ConfigSource, json_name: "configSource"
 end
 
 defmodule Envoy.Config.Listener.V3.Listener do
   @moduledoc """
-  [#next-free-field: 36]
+  [#next-free-field: 38]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.Listener",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :listener_specifier, 0
 
@@ -107,10 +149,13 @@ defmodule Envoy.Config.Listener.V3.Listener do
     type: Envoy.Config.Listener.V3.FilterChain,
     json_name: "filterChains"
 
+  field :fcds_config, 36,
+    type: Envoy.Config.Listener.V3.Listener.FcdsConfig,
+    json_name: "fcdsConfig"
+
   field :filter_chain_matcher, 32,
     type: Xds.Type.Matcher.V3.Matcher,
-    json_name: "filterChainMatcher",
-    deprecated: false
+    json_name: "filterChainMatcher"
 
   field :use_original_dst, 4, type: Google.Protobuf.BoolValue, json_name: "useOriginalDst"
 
@@ -200,6 +245,7 @@ defmodule Envoy.Config.Listener.V3.Listener do
   field :enable_mptcp, 30, type: :bool, json_name: "enableMptcp"
   field :ignore_global_conn_limit, 31, type: :bool, json_name: "ignoreGlobalConnLimit"
   field :bypass_overload_manager, 35, type: :bool, json_name: "bypassOverloadManager"
+  field :tcp_keepalive, 37, type: Envoy.Config.Core.V3.TcpKeepalive, json_name: "tcpKeepalive"
 end
 
 defmodule Envoy.Config.Listener.V3.ListenerManager do
@@ -209,7 +255,10 @@ defmodule Envoy.Config.Listener.V3.ListenerManager do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.ListenerManager",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.ValidationListenerManager do
@@ -219,7 +268,10 @@ defmodule Envoy.Config.Listener.V3.ValidationListenerManager do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.ValidationListenerManager",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Listener.V3.ApiListenerManager do
@@ -229,5 +281,8 @@ defmodule Envoy.Config.Listener.V3.ApiListenerManager do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.ApiListenerManager",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

@@ -11,5 +11,8 @@ defmodule Envoy.Extensions.RegexEngines.V3.GoogleRE2 do
   [#extension: envoy.regex_engines.google_re2]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.regex_engines.v3.GoogleRE2",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

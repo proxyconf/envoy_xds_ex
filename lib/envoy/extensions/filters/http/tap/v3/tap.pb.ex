@@ -6,7 +6,10 @@ defmodule Envoy.Extensions.Filters.Http.Tap.V3.Tap do
   [#extension: envoy.filters.http.tap]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.tap.v3.Tap",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.Common.Tap.V3.CommonExtensionConfig,
@@ -15,4 +18,5 @@ defmodule Envoy.Extensions.Filters.Http.Tap.V3.Tap do
 
   field :record_headers_received_time, 2, type: :bool, json_name: "recordHeadersReceivedTime"
   field :record_downstream_connection, 3, type: :bool, json_name: "recordDownstreamConnection"
+  field :record_upstream_connection, 4, type: :bool, json_name: "recordUpstreamConnection"
 end

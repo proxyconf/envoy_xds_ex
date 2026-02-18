@@ -8,7 +8,10 @@ defmodule Envoy.Extensions.Filters.Listener.OriginalSrc.V3.OriginalSrc do
   [#extension: envoy.filters.listener.original_src]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.listener.original_src.v3.OriginalSrc",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bind_port, 1, type: :bool, json_name: "bindPort"
   field :mark, 2, type: :uint32

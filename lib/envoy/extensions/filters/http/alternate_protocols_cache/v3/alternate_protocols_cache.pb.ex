@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Filters.Http.AlternateProtocolsCache.V3.FilterConfig 
   [#protodoc-title: Alternate Protocols Cache]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.alternate_protocols_cache.v3.FilterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :alternate_protocols_cache_options, 1,
     type: Envoy.Config.Core.V3.AlternateProtocolsCacheOptions,

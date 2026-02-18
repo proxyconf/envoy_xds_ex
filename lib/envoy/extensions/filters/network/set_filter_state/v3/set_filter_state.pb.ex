@@ -9,10 +9,18 @@ defmodule Envoy.Extensions.Filters.Network.SetFilterState.V3.Config do
   [#extension: envoy.filters.network.set_filter_state]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.set_filter_state.v3.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :on_new_connection, 1,
     repeated: true,
     type: Envoy.Extensions.Filters.Common.SetFilterState.V3.FilterStateValue,
     json_name: "onNewConnection"
+
+  field :on_downstream_tls_handshake, 2,
+    repeated: true,
+    type: Envoy.Extensions.Filters.Common.SetFilterState.V3.FilterStateValue,
+    json_name: "onDownstreamTlsHandshake"
 end

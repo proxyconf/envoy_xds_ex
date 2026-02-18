@@ -5,7 +5,10 @@ defmodule Envoy.Admin.V3.ConfigDump do
   [#protodoc-title: ConfigDump]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.ConfigDump",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :configs, 1, repeated: true, type: Google.Protobuf.Any
 end
@@ -18,7 +21,10 @@ defmodule Envoy.Admin.V3.BootstrapConfigDump do
   configuration for another Envoy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.BootstrapConfigDump",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bootstrap, 1, type: Envoy.Config.Bootstrap.V3.Bootstrap
   field :last_updated, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdated"
@@ -30,7 +36,10 @@ defmodule Envoy.Admin.V3.SecretsConfigDump.DynamicSecret do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.SecretsConfigDump.DynamicSecret",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
   field :version_info, 2, type: :string, json_name: "versionInfo"
@@ -49,7 +58,10 @@ defmodule Envoy.Admin.V3.SecretsConfigDump.StaticSecret do
   StaticSecret specifies statically loaded secret in bootstrap.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.SecretsConfigDump.StaticSecret",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
   field :last_updated, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdated"
@@ -61,7 +73,10 @@ defmodule Envoy.Admin.V3.SecretsConfigDump do
   Envoys SDS implementation fills this message with all secrets fetched dynamically via SDS.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.SecretsConfigDump",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :static_secrets, 1,
     repeated: true,

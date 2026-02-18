@@ -3,7 +3,10 @@ defmodule Envoy.Admin.V3.UnreadyTargetsDumps.UnreadyTargetsDump do
   Message of unready targets information of an init manager.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.UnreadyTargetsDumps.UnreadyTargetsDump",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
   field :target_names, 2, repeated: true, type: :string, json_name: "targetNames"
@@ -17,7 +20,10 @@ defmodule Envoy.Admin.V3.UnreadyTargetsDumps do
   [#protodoc-title: InitDump]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.UnreadyTargetsDumps",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :unready_targets_dumps, 1,
     repeated: true,

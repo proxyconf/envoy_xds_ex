@@ -5,7 +5,10 @@ defmodule Envoy.Config.Filter.Http.Buffer.V2.Buffer do
   [#extension: envoy.filters.http.buffer]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.buffer.v2.Buffer",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_request_bytes, 1,
     type: Google.Protobuf.UInt32Value,
@@ -14,7 +17,10 @@ defmodule Envoy.Config.Filter.Http.Buffer.V2.Buffer do
 end
 
 defmodule Envoy.Config.Filter.Http.Buffer.V2.BufferPerRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.buffer.v2.BufferPerRoute",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :override, 0
 

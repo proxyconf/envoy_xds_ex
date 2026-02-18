@@ -1,5 +1,8 @@
 defmodule Envoy.Extensions.AccessLoggers.Fluentd.V3.FluentdAccessLogConfig.RetryOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.access_loggers.fluentd.v3.FluentdAccessLogConfig.RetryOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_connect_attempts, 1,
     type: Google.Protobuf.UInt32Value,
@@ -21,7 +24,10 @@ defmodule Envoy.Extensions.AccessLoggers.Fluentd.V3.FluentdAccessLogConfig do
   [#protodoc-title: Fluentd access log]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.access_loggers.fluentd.v3.FluentdAccessLogConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
   field :tag, 2, type: :string, deprecated: false

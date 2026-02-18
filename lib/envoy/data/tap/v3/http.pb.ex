@@ -3,7 +3,10 @@ defmodule Envoy.Data.Tap.V3.HttpBufferedTrace.Message do
   HTTP message wrapper.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v3.HttpBufferedTrace.Message",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :headers, 1, repeated: true, type: Envoy.Config.Core.V3.HeaderValue
   field :body, 2, type: Envoy.Data.Tap.V3.Body
@@ -20,7 +23,10 @@ defmodule Envoy.Data.Tap.V3.HttpBufferedTrace do
   [#protodoc-title: HTTP tap data]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v3.HttpBufferedTrace",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :request, 1, type: Envoy.Data.Tap.V3.HttpBufferedTrace.Message
   field :response, 2, type: Envoy.Data.Tap.V3.HttpBufferedTrace.Message
@@ -28,6 +34,10 @@ defmodule Envoy.Data.Tap.V3.HttpBufferedTrace do
   field :downstream_connection, 3,
     type: Envoy.Data.Tap.V3.Connection,
     json_name: "downstreamConnection"
+
+  field :upstream_connection, 4,
+    type: Envoy.Data.Tap.V3.Connection,
+    json_name: "upstreamConnection"
 end
 
 defmodule Envoy.Data.Tap.V3.HttpStreamedTraceSegment do
@@ -36,7 +46,10 @@ defmodule Envoy.Data.Tap.V3.HttpStreamedTraceSegment do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v3.HttpStreamedTraceSegment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :message_piece, 0
 

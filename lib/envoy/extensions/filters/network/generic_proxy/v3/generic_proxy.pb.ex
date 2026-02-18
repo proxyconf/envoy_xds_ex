@@ -6,7 +6,10 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.V3.GenericProxy do
   [#extension: envoy.filters.network.generic_proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.generic_proxy.v3.GenericProxy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :route_specifier, 0
 
@@ -39,7 +42,10 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.V3.GenericProxy do
 end
 
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.V3.GenericRds do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.generic_proxy.v3.GenericRds",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :config_source, 1,
     type: Envoy.Config.Core.V3.ConfigSource,

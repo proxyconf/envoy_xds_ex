@@ -3,12 +3,16 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.OnMatch do
   What to do if a match is successful.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.OnMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :on_match, 0
 
   field :matcher, 1, type: Envoy.Config.Common.Matcher.V3.Matcher, oneof: 0
   field :action, 2, type: Envoy.Config.Core.V3.TypedExtensionConfig, oneof: 0
+  field :keep_matching, 3, type: :bool, json_name: "keepMatching"
 end
 
 defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherList.Predicate.SinglePredicate do
@@ -16,7 +20,10 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherList.Predicate.SinglePre
   Predicate for a single input field.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.SinglePredicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :matcher, 0
 
@@ -38,7 +45,10 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherList.Predicate.Predicate
   A list of two or more matchers. Used to allow using a list within a oneof.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.PredicateList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :predicate, 1,
     repeated: true,
@@ -51,7 +61,10 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherList.Predicate do
   Predicate to determine if a match is successful.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :match_type, 0
 
@@ -81,7 +94,10 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherList.FieldMatcher do
   An individual matcher.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.MatcherList.FieldMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :predicate, 1,
     type: Envoy.Config.Common.Matcher.V3.Matcher.MatcherList.Predicate,
@@ -100,7 +116,10 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherList do
   wins.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.MatcherList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :matchers, 1,
     repeated: true,
@@ -109,7 +128,11 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherList do
 end
 
 defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherTree.MatchMap.MapEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.MatcherTree.MatchMap.MapEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Config.Common.Matcher.V3.Matcher.OnMatch
@@ -120,7 +143,10 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherTree.MatchMap do
   A map of configured matchers. Used to allow using a map within a oneof.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.MatcherTree.MatchMap",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :map, 1,
     repeated: true,
@@ -130,7 +156,10 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherTree.MatchMap do
 end
 
 defmodule Envoy.Config.Common.Matcher.V3.Matcher.MatcherTree do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher.MatcherTree",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :tree_type, 0
 
@@ -161,11 +190,14 @@ defmodule Envoy.Config.Common.Matcher.V3.Matcher do
   might repeat several times until the final OnMatch (or no match) is decided.
 
   .. note::
-  Please use the syntactically equivalent :ref:`matching API <envoy_v3_api_msg_.xds.type.matcher.v3.Matcher>`
+    Please use the syntactically equivalent :ref:`matching API <envoy_v3_api_msg_.xds.type.matcher.v3.Matcher>`
   [#protodoc-title: Unified Matcher API]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.Matcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :matcher_type, 0
 
@@ -189,7 +221,10 @@ defmodule Envoy.Config.Common.Matcher.V3.MatchPredicate.MatchSet do
   A set of match configurations used for logical operations.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.MatchPredicate.MatchSet",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -204,7 +239,10 @@ defmodule Envoy.Config.Common.Matcher.V3.MatchPredicate do
   [#next-free-field: 11]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.MatchPredicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :rule, 0
 
@@ -261,13 +299,19 @@ defmodule Envoy.Config.Common.Matcher.V3.HttpHeadersMatch do
   HTTP headers match configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.HttpHeadersMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :headers, 1, repeated: true, type: Envoy.Config.Route.V3.HeaderMatcher
 end
 
 defmodule Envoy.Config.Common.Matcher.V3.HttpGenericBodyMatch.GenericTextMatch do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.HttpGenericBodyMatch.GenericTextMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :rule, 0
 
@@ -284,12 +328,15 @@ defmodule Envoy.Config.Common.Matcher.V3.HttpGenericBodyMatch do
 
   .. attention::
 
-  Searching for patterns in HTTP body is potentially cpu intensive. For each specified pattern, http body is scanned byte by byte to find a match.
-  If multiple patterns are specified, the process is repeated for each pattern. If location of a pattern is known, ``bytes_limit`` should be specified
-  to scan only part of the http body.
+    Searching for patterns in HTTP body is potentially CPU-intensive. For each specified pattern, HTTP body is scanned byte by byte to find a match.
+    If multiple patterns are specified, the process is repeated for each pattern. If location of a pattern is known, ``bytes_limit`` should be specified
+    to scan only part of the HTTP body.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.common.matcher.v3.HttpGenericBodyMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bytes_limit, 1, type: :uint32, json_name: "bytesLimit"
 

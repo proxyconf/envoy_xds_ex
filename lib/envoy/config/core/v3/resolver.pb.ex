@@ -4,7 +4,10 @@ defmodule Envoy.Config.Core.V3.DnsResolverOptions do
   [#protodoc-title: Resolver]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.DnsResolverOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :use_tcp_for_dns_lookups, 1, type: :bool, json_name: "useTcpForDnsLookups"
   field :no_default_search_domain, 2, type: :bool, json_name: "noDefaultSearchDomain"
@@ -15,7 +18,10 @@ defmodule Envoy.Config.Core.V3.DnsResolutionConfig do
   DNS resolution configuration which includes the underlying dns resolver addresses and options.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.DnsResolutionConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :resolvers, 1, repeated: true, type: Envoy.Config.Core.V3.Address, deprecated: false
 

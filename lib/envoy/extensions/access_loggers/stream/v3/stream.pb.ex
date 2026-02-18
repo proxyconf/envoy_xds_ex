@@ -6,7 +6,10 @@ defmodule Envoy.Extensions.AccessLoggers.Stream.V3.StdoutAccessLog do
   [#protodoc-title: Standard Streams Access loggers]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.access_loggers.stream.v3.StdoutAccessLog",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :access_log_format, 0
 
@@ -24,7 +27,10 @@ defmodule Envoy.Extensions.AccessLoggers.Stream.V3.StderrAccessLog do
   [#extension: envoy.access_loggers.stderr]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.access_loggers.stream.v3.StderrAccessLog",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :access_log_format, 0
 

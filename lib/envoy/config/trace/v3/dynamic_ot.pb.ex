@@ -7,7 +7,10 @@ defmodule Envoy.Config.Trace.V3.DynamicOtConfig do
   [#protodoc-title: Dynamically loadable OpenTracing tracer]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.trace.v3.DynamicOtConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :library, 1, type: :string, deprecated: true
   field :config, 2, type: Google.Protobuf.Struct, deprecated: true

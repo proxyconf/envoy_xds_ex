@@ -4,7 +4,10 @@ defmodule Envoy.Service.Route.V3.RdsDummy do
   services: https://github.com/google/protobuf/issues/4221 and protoxform to upgrade the file.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.route.v3.RdsDummy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Service.Route.V3.RouteDiscoveryService.Service do
@@ -19,7 +22,7 @@ defmodule Envoy.Service.Route.V3.RouteDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.service.route.v3.RouteDiscoveryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :StreamRoutes,
       stream(Envoy.Service.Discovery.V3.DiscoveryRequest),
@@ -54,7 +57,7 @@ defmodule Envoy.Service.Route.V3.VirtualHostDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.service.route.v3.VirtualHostDiscoveryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :DeltaVirtualHosts,
       stream(Envoy.Service.Discovery.V3.DeltaDiscoveryRequest),

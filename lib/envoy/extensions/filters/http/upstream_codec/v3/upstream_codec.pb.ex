@@ -5,5 +5,8 @@ defmodule Envoy.Extensions.Filters.Http.UpstreamCodec.V3.UpstreamCodec do
   [#extension: envoy.filters.http.upstream_codec]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.upstream_codec.v3.UpstreamCodec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

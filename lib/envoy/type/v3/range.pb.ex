@@ -5,7 +5,10 @@ defmodule Envoy.Type.V3.Int64Range do
   [#protodoc-title: Range]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.v3.Int64Range",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
@@ -17,7 +20,10 @@ defmodule Envoy.Type.V3.Int32Range do
   end).
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.v3.Int32Range",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :start, 1, type: :int32
   field :end, 2, type: :int32
@@ -29,7 +35,10 @@ defmodule Envoy.Type.V3.DoubleRange do
   end).
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.v3.DoubleRange",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :start, 1, type: :double
   field :end, 2, type: :double

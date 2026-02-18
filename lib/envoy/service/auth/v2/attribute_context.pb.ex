@@ -1,5 +1,9 @@
 defmodule Envoy.Service.Auth.V2.AttributeContext.Peer.LabelsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.AttributeContext.Peer.LabelsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -14,7 +18,10 @@ defmodule Envoy.Service.Auth.V2.AttributeContext.Peer do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.AttributeContext.Peer",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Api.V2.Core.Address
   field :service, 2, type: :string
@@ -33,14 +40,21 @@ defmodule Envoy.Service.Auth.V2.AttributeContext.Request do
   Represents a network request, such as an HTTP request.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.AttributeContext.Request",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :http, 2, type: Envoy.Service.Auth.V2.AttributeContext.HttpRequest
 end
 
 defmodule Envoy.Service.Auth.V2.AttributeContext.HttpRequest.HeadersEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.AttributeContext.HttpRequest.HeadersEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -53,7 +67,10 @@ defmodule Envoy.Service.Auth.V2.AttributeContext.HttpRequest do
   [#next-free-field: 12]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.AttributeContext.HttpRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :id, 1, type: :string
   field :method, 2, type: :string
@@ -74,7 +91,11 @@ defmodule Envoy.Service.Auth.V2.AttributeContext.HttpRequest do
 end
 
 defmodule Envoy.Service.Auth.V2.AttributeContext.ContextExtensionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.AttributeContext.ContextExtensionsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -105,7 +126,10 @@ defmodule Envoy.Service.Auth.V2.AttributeContext do
   and :ref:`HTTP filter configuration overview <config_http_filters_ext_authz>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.auth.v2.AttributeContext",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :source, 1, type: Envoy.Service.Auth.V2.AttributeContext.Peer
   field :destination, 2, type: Envoy.Service.Auth.V2.AttributeContext.Peer

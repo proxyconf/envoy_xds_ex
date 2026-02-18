@@ -6,5 +6,8 @@ defmodule Envoy.Config.Filter.Http.GrpcHttp1Bridge.V2.Config do
   [#extension: envoy.filters.http.grpc_http1_bridge]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.grpc_http1_bridge.v2.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

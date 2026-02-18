@@ -6,7 +6,10 @@ defmodule Envoy.Extensions.Common.Matching.V3.ExtensionWithMatcher do
   [#protodoc-title: Extension matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.matching.v3.ExtensionWithMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :matcher, 1, type: Envoy.Config.Common.Matcher.V3.Matcher, deprecated: true
   field :xds_matcher, 3, type: Xds.Type.Matcher.V3.Matcher, json_name: "xdsMatcher"
@@ -22,7 +25,10 @@ defmodule Envoy.Extensions.Common.Matching.V3.ExtensionWithMatcherPerRoute do
   Extra settings on a per virtualhost/route/weighted-cluster level.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.matching.v3.ExtensionWithMatcherPerRoute",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :xds_matcher, 1, type: Xds.Type.Matcher.V3.Matcher, json_name: "xdsMatcher"
 end

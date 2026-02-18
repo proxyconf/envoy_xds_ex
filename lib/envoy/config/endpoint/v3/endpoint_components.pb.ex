@@ -3,7 +3,10 @@ defmodule Envoy.Config.Endpoint.V3.Endpoint.HealthCheckConfig do
   The optional health check configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.endpoint.v3.Endpoint.HealthCheckConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :port_value, 1, type: :uint32, json_name: "portValue", deprecated: false
   field :hostname, 2, type: :string
@@ -12,7 +15,10 @@ defmodule Envoy.Config.Endpoint.V3.Endpoint.HealthCheckConfig do
 end
 
 defmodule Envoy.Config.Endpoint.V3.Endpoint.AdditionalAddress do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.endpoint.v3.Endpoint.AdditionalAddress",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
 end
@@ -23,7 +29,10 @@ defmodule Envoy.Config.Endpoint.V3.Endpoint do
   [#protodoc-title: Endpoints]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.endpoint.v3.Endpoint",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Config.Core.V3.Address
 
@@ -45,7 +54,10 @@ defmodule Envoy.Config.Endpoint.V3.LbEndpoint do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.endpoint.v3.LbEndpoint",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :host_identifier, 0
 
@@ -71,7 +83,10 @@ defmodule Envoy.Config.Endpoint.V3.LbEndpointCollection do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.endpoint.v3.LbEndpointCollection",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :entries, 1, type: Xds.Core.V3.CollectionEntry
 end
@@ -81,7 +96,10 @@ defmodule Envoy.Config.Endpoint.V3.LedsClusterLocalityConfig do
   A configuration for an LEDS collection.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.endpoint.v3.LedsClusterLocalityConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :leds_config, 1, type: Envoy.Config.Core.V3.ConfigSource, json_name: "ledsConfig"
   field :leds_collection_name, 2, type: :string, json_name: "ledsCollectionName"
@@ -93,7 +111,10 @@ defmodule Envoy.Config.Endpoint.V3.LocalityLbEndpoints.LbEndpointList do
   A list of endpoints of a specific locality.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.endpoint.v3.LocalityLbEndpoints.LbEndpointList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :lb_endpoints, 1,
     repeated: true,
@@ -109,7 +130,10 @@ defmodule Envoy.Config.Endpoint.V3.LocalityLbEndpoints do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.endpoint.v3.LocalityLbEndpoints",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :lb_config, 0
 

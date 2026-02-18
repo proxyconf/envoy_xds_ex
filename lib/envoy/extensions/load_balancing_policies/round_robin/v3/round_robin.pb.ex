@@ -7,7 +7,10 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.RoundRobin.V3.RoundRobin do
   [#extension: envoy.load_balancing_policies.round_robin]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.load_balancing_policies.round_robin.v3.RoundRobin",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :slow_start_config, 1,
     type: Envoy.Extensions.LoadBalancingPolicies.Common.V3.SlowStartConfig,

@@ -7,7 +7,10 @@ defmodule Envoy.Config.Metrics.V2.MetricsServiceConfig do
   [#protodoc-title: Metrics service]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v2.MetricsServiceConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Api.V2.Core.GrpcService,

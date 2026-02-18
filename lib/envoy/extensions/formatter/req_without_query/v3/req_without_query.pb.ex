@@ -9,14 +9,17 @@ defmodule Envoy.Extensions.Formatter.ReqWithoutQuery.V3.ReqWithoutQuery do
   the access log.
   See :ref:`here <config_access_log>` for more information on access log configuration.
   %REQ_WITHOUT_QUERY(X?Y):Z%
-  An HTTP request header where X is the main HTTP header, Y is the alternative one, and Z is an
-  optional parameter denoting string truncation up to Z characters long. The value is taken from
-  the HTTP request header named X first and if it's not set, then request header Y is used. If
-  none of the headers are present '-' symbol will be in the log.
+    An HTTP request header where X is the main HTTP header, Y is the alternative one, and Z is an
+    optional parameter denoting string truncation up to Z characters long. The value is taken from
+    the HTTP request header named X first and if it's not set, then request header Y is used. If
+    none of the headers are present '-' symbol will be in the log.
   .. warning::
-  Please use %PATH% to replace this extension.
-  See :ref:`access log formats <config_access_log_format>` for more details.
+    Please use %PATH% to replace this extension.
+    See :ref:`access log formats <config_access_log_format>` for more details.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.formatter.req_without_query.v3.ReqWithoutQuery",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

@@ -4,7 +4,12 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.LeastRequest.V3.LeastRequest.Se
   fewest active requests.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest.SelectionMethod",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :N_CHOICES, 0
   field :FULL_SCAN, 1
@@ -20,7 +25,10 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.LeastRequest.V3.LeastRequest do
   [#extension: envoy.load_balancing_policies.least_request]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :choice_count, 1,
     type: Google.Protobuf.UInt32Value,

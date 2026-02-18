@@ -3,7 +3,11 @@ defmodule Envoy.Type.V3.CodecClientType do
   [#protodoc-title: HTTP]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.type.v3.CodecClientType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :HTTP1, 0
   field :HTTP2, 1

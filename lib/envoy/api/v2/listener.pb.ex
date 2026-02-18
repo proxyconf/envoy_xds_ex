@@ -1,5 +1,9 @@
 defmodule Envoy.Api.V2.Listener.DrainType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.api.v2.Listener.DrainType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DEFAULT, 0
   field :MODIFY_ONLY, 1
@@ -10,7 +14,10 @@ defmodule Envoy.Api.V2.Listener.DeprecatedV1 do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.Listener.DeprecatedV1",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bind_to_port, 1, type: Google.Protobuf.BoolValue, json_name: "bindToPort"
 end
@@ -25,7 +32,10 @@ defmodule Envoy.Api.V2.Listener.ConnectionBalanceConfig.ExactBalance do
   connections that rarely cycle (e.g., service mesh gRPC egress).
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.Listener.ConnectionBalanceConfig.ExactBalance",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Api.V2.Listener.ConnectionBalanceConfig do
@@ -33,7 +43,10 @@ defmodule Envoy.Api.V2.Listener.ConnectionBalanceConfig do
   Configuration for listener connection balancing.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.Listener.ConnectionBalanceConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :balance_type, 0
 
@@ -50,7 +63,10 @@ defmodule Envoy.Api.V2.Listener do
   Listener :ref:`configuration overview <config_listeners>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.Listener",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
   field :address, 2, type: Envoy.Api.V2.Core.Address, deprecated: false

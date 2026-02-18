@@ -10,7 +10,10 @@ defmodule Envoy.Admin.V2alpha.MutexStats do
   [#protodoc-title: MutexStats]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v2alpha.MutexStats",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :num_contentions, 1, type: :uint64, json_name: "numContentions"
   field :current_wait_cycles, 2, type: :uint64, json_name: "currentWaitCycles"

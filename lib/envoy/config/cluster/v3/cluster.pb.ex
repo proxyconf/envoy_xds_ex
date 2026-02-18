@@ -4,7 +4,11 @@ defmodule Envoy.Config.Cluster.V3.Cluster.DiscoveryType do
   for an explanation on each type.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.cluster.v3.Cluster.DiscoveryType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :STATIC, 0
   field :STRICT_DNS, 1
@@ -19,7 +23,11 @@ defmodule Envoy.Config.Cluster.V3.Cluster.LbPolicy do
   overview section for information on each type.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.cluster.v3.Cluster.LbPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ROUND_ROBIN, 0
   field :LEAST_REQUEST, 1
@@ -55,7 +63,11 @@ defmodule Envoy.Config.Cluster.V3.Cluster.DnsLookupFamily do
   [#next-major-version: deprecate AUTO in favor of a V6_PREFERRED option.]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.cluster.v3.Cluster.DnsLookupFamily",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :AUTO, 0
   field :V4_ONLY, 1
@@ -65,7 +77,11 @@ defmodule Envoy.Config.Cluster.V3.Cluster.DnsLookupFamily do
 end
 
 defmodule Envoy.Config.Cluster.V3.Cluster.ClusterProtocolSelection do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.cluster.v3.Cluster.ClusterProtocolSelection",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :USE_CONFIGURED_PROTOCOL, 0
   field :USE_DOWNSTREAM_PROTOCOL, 1
@@ -80,7 +96,11 @@ defmodule Envoy.Config.Cluster.V3.Cluster.LbSubsetConfig.LbSubsetFallbackPolicy 
   endpoints matching the values from the default_subset field.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetFallbackPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :NO_FALLBACK, 0
   field :ANY_ENDPOINT, 1
@@ -88,7 +108,11 @@ defmodule Envoy.Config.Cluster.V3.Cluster.LbSubsetConfig.LbSubsetFallbackPolicy 
 end
 
 defmodule Envoy.Config.Cluster.V3.Cluster.LbSubsetConfig.LbSubsetMetadataFallbackPolicy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetMetadataFallbackPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :METADATA_NO_FALLBACK, 0
   field :FALLBACK_LIST, 1
@@ -99,7 +123,12 @@ defmodule Envoy.Config.Cluster.V3.Cluster.LbSubsetConfig.LbSubsetSelector.LbSubs
   Allows to override top level fallback policy per selector.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetSelector.LbSubsetSelectorFallbackPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :NOT_DEFINED, 0
   field :NO_FALLBACK, 1
@@ -113,14 +142,22 @@ defmodule Envoy.Config.Cluster.V3.Cluster.RingHashLbConfig.HashFunction do
   The hash function used to hash hosts onto the ketama ring.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.cluster.v3.Cluster.RingHashLbConfig.HashFunction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :XX_HASH, 0
   field :MURMUR_HASH_2, 1
 end
 
 defmodule Envoy.Config.Cluster.V3.UpstreamConnectionOptions.FirstAddressFamilyVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.cluster.v3.UpstreamConnectionOptions.FirstAddressFamilyVersion",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DEFAULT, 0
   field :V4, 1
@@ -134,7 +171,10 @@ defmodule Envoy.Config.Cluster.V3.ClusterCollection do
   [#protodoc-title: Cluster configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.ClusterCollection",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :entries, 1, type: Xds.Core.V3.CollectionEntry
 end
@@ -145,7 +185,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.TransportSocketMatch do
   when the match conditions are satisfied.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.TransportSocketMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :match, 2, type: Google.Protobuf.Struct
@@ -160,7 +203,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.CustomClusterType do
   Extended cluster type.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.CustomClusterType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :typed_config, 2, type: Google.Protobuf.Any, json_name: "typedConfig"
@@ -171,7 +217,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.EdsClusterConfig do
   Only valid when discovery type is EDS.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.EdsClusterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :eds_config, 1, type: Envoy.Config.Core.V3.ConfigSource, json_name: "edsConfig"
   field :service_name, 2, type: :string, json_name: "serviceName"
@@ -182,7 +231,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.LbSubsetConfig.LbSubsetSelector do
   Specifications for subsets.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetSelector",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :keys, 1, repeated: true, type: :string
   field :single_host_per_subset, 4, type: :bool, json_name: "singleHostPerSubset"
@@ -204,7 +256,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.LbSubsetConfig do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.LbSubsetConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :fallback_policy, 1,
     type: Envoy.Config.Cluster.V3.Cluster.LbSubsetConfig.LbSubsetFallbackPolicy,
@@ -236,7 +291,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.SlowStartConfig do
   Configuration for :ref:`slow start mode <arch_overview_load_balancing_slow_start>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.SlowStartConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :slow_start_window, 1, type: Google.Protobuf.Duration, json_name: "slowStartWindow"
   field :aggression, 2, type: Envoy.Config.Core.V3.RuntimeDouble
@@ -248,7 +306,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.RoundRobinLbConfig do
   Specific configuration for the RoundRobin load balancing policy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.RoundRobinLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :slow_start_config, 1,
     type: Envoy.Config.Cluster.V3.Cluster.SlowStartConfig,
@@ -260,7 +321,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.LeastRequestLbConfig do
   Specific configuration for the LeastRequest load balancing policy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.LeastRequestLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :choice_count, 1,
     type: Google.Protobuf.UInt32Value,
@@ -282,7 +346,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.RingHashLbConfig do
   load balancing policy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.RingHashLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :minimum_ring_size, 1,
     type: Google.Protobuf.UInt64Value,
@@ -307,7 +374,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.MaglevLbConfig do
   load balancing policy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.MaglevLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :table_size, 1,
     type: Google.Protobuf.UInt64Value,
@@ -323,7 +393,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.OriginalDstLbConfig do
   [#extension: envoy.clusters.original_dst]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.OriginalDstLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :use_http_header, 1, type: :bool, json_name: "useHttpHeader"
   field :http_header_name, 2, type: :string, json_name: "httpHeaderName"
@@ -342,7 +415,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.CommonLbConfig.ZoneAwareLbConfig do
   <arch_overview_load_balancing_zone_aware_routing>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.CommonLbConfig.ZoneAwareLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :routing_enabled, 1, type: Envoy.Type.V3.Percent, json_name: "routingEnabled"
   field :min_cluster_size, 2, type: Google.Protobuf.UInt64Value, json_name: "minClusterSize"
@@ -355,7 +431,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.CommonLbConfig.LocalityWeightedLbConfi
   <arch_overview_load_balancing_locality_weighted_lb>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.CommonLbConfig.LocalityWeightedLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Cluster.V3.Cluster.CommonLbConfig.ConsistentHashingLbConfig do
@@ -363,7 +442,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.CommonLbConfig.ConsistentHashingLbConf
   Common Configuration for all consistent hashing load balancers (MaglevLb, RingHashLb, etc.)
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.CommonLbConfig.ConsistentHashingLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :use_hostname_for_hashing, 1, type: :bool, json_name: "useHostnameForHashing"
 
@@ -379,7 +461,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.CommonLbConfig do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.CommonLbConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :locality_config_specifier, 0
 
@@ -414,7 +499,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.CommonLbConfig do
 end
 
 defmodule Envoy.Config.Cluster.V3.Cluster.RefreshRate do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.RefreshRate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :base_interval, 1,
     type: Google.Protobuf.Duration,
@@ -428,7 +516,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster.RefreshRate do
 end
 
 defmodule Envoy.Config.Cluster.V3.Cluster.PreconnectPolicy do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.PreconnectPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :per_upstream_preconnect_ratio, 1,
     type: Google.Protobuf.DoubleValue,
@@ -442,7 +533,11 @@ defmodule Envoy.Config.Cluster.V3.Cluster.PreconnectPolicy do
 end
 
 defmodule Envoy.Config.Cluster.V3.Cluster.TypedExtensionProtocolOptionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster.TypedExtensionProtocolOptionsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
@@ -451,10 +546,13 @@ end
 defmodule Envoy.Config.Cluster.V3.Cluster do
   @moduledoc """
   Configuration for a single upstream cluster.
-  [#next-free-field: 59]
+  [#next-free-field: 60]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.Cluster",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :cluster_discovery_type, 0
 
@@ -464,6 +562,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster do
     repeated: true,
     type: Envoy.Config.Cluster.V3.Cluster.TransportSocketMatch,
     json_name: "transportSocketMatches"
+
+  field :transport_socket_matcher, 59,
+    type: Xds.Type.Matcher.V3.Matcher,
+    json_name: "transportSocketMatcher"
 
   field :name, 1, type: :string, deprecated: false
   field :alt_stat_name, 28, type: :string, json_name: "altStatName", deprecated: false
@@ -690,7 +792,10 @@ defmodule Envoy.Config.Cluster.V3.Cluster do
 end
 
 defmodule Envoy.Config.Cluster.V3.LoadBalancingPolicy.Policy do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.LoadBalancingPolicy.Policy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :typed_extension_config, 4,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,
@@ -720,13 +825,19 @@ defmodule Envoy.Config.Cluster.V3.LoadBalancingPolicy do
   type LoadBalancingPolicy that specifies the child policy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.LoadBalancingPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :policies, 1, repeated: true, type: Envoy.Config.Cluster.V3.LoadBalancingPolicy.Policy
 end
 
 defmodule Envoy.Config.Cluster.V3.UpstreamConnectionOptions.HappyEyeballsConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.UpstreamConnectionOptions.HappyEyeballsConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :first_address_family_version, 1,
     type: Envoy.Config.Cluster.V3.UpstreamConnectionOptions.FirstAddressFamilyVersion,
@@ -740,7 +851,10 @@ defmodule Envoy.Config.Cluster.V3.UpstreamConnectionOptions.HappyEyeballsConfig 
 end
 
 defmodule Envoy.Config.Cluster.V3.UpstreamConnectionOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.UpstreamConnectionOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :tcp_keepalive, 1, type: Envoy.Config.Core.V3.TcpKeepalive, json_name: "tcpKeepalive"
 
@@ -754,7 +868,10 @@ defmodule Envoy.Config.Cluster.V3.UpstreamConnectionOptions do
 end
 
 defmodule Envoy.Config.Cluster.V3.TrackClusterStats do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.v3.TrackClusterStats",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :timeout_budgets, 1, type: :bool, json_name: "timeoutBudgets"
   field :request_response_sizes, 2, type: :bool, json_name: "requestResponseSizes"

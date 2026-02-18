@@ -5,17 +5,24 @@ defmodule Envoy.Extensions.Filters.Http.StatefulSession.V3.StatefulSession do
   [#extension: envoy.filters.http.stateful_session]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.stateful_session.v3.StatefulSession",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :session_state, 1,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,
     json_name: "sessionState"
 
   field :strict, 2, type: :bool
+  field :stat_prefix, 3, type: :string, json_name: "statPrefix"
 end
 
 defmodule Envoy.Extensions.Filters.Http.StatefulSession.V3.StatefulSessionPerRoute do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.stateful_session.v3.StatefulSessionPerRoute",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :override, 0
 

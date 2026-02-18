@@ -5,7 +5,10 @@ defmodule Envoy.Config.Metrics.V3.StatsSink do
   Statistics :ref:`architecture overview <arch_overview_statistics>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.StatsSink",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 
@@ -18,7 +21,10 @@ defmodule Envoy.Config.Metrics.V3.StatsConfig do
   Statistics configuration such as tagging.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.StatsConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :stats_tags, 1,
     repeated: true,
@@ -46,13 +52,13 @@ defmodule Envoy.Config.Metrics.V3.StatsMatcher do
   <envoy_v3_api_msg_type.matcher.v3.StringMatcher>` protos:
 
   * If ``reject_all`` is set to ``true``, no stats will be instantiated. If ``reject_all`` is set to
-  ``false``, all stats will be instantiated.
+    ``false``, all stats will be instantiated.
 
   * If an exclusion list is supplied, any stat name matching *any* of the StringMatchers in the
-  list will not instantiate.
+    list will not instantiate.
 
   * If an inclusion list is supplied, no stats will instantiate, except those matching *any* of
-  the StringMatchers in the list.
+    the StringMatchers in the list.
   A StringMatcher can be used to match against an exact string, a suffix / prefix, or a regex.
   **NB:** For performance reasons, it is highly recommended to use a prefix- or suffix-based
   matcher rather than a regex-based matcher.
@@ -61,49 +67,52 @@ defmodule Envoy.Config.Metrics.V3.StatsMatcher do
 
   .. code-block:: json
 
-  {
-  "statsMatcher": {
-  "rejectAll": "true"
-  }
-  }
+    {
+      "statsMatcher": {
+        "rejectAll": "true"
+      }
+    }
 
   Example 2. Excluding all cluster-specific stats, but not cluster-manager stats:
 
   .. code-block:: json
 
-  {
-  "statsMatcher": {
-  "exclusionList": {
-  "patterns": [
-  {
-  "prefix": "cluster."
-  }
-  ]
-  }
-  }
-  }
+    {
+      "statsMatcher": {
+        "exclusionList": {
+          "patterns": [
+            {
+              "prefix": "cluster."
+            }
+          ]
+        }
+      }
+    }
 
   Example 3. Including only manager-related stats:
 
   .. code-block:: json
 
-  {
-  "statsMatcher": {
-  "inclusionList": {
-  "patterns": [
-  {
-  "prefix": "cluster_manager."
-  },
-  {
-  "prefix": "listener_manager."
-  }
-  ]
-  }
-  }
-  }
+    {
+      "statsMatcher": {
+        "inclusionList": {
+          "patterns": [
+            {
+              "prefix": "cluster_manager."
+            },
+            {
+              "prefix": "listener_manager."
+            }
+          ]
+        }
+      }
+    }
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.StatsMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :stats_matcher, 0
 
@@ -128,7 +137,10 @@ defmodule Envoy.Config.Metrics.V3.TagSpecifier do
   or more capture groups in the regex match.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.TagSpecifier",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :tag_value, 0
 
@@ -142,10 +154,14 @@ defmodule Envoy.Config.Metrics.V3.HistogramBucketSettings do
   Specifies a matcher for stats and the buckets that matching stats should use.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.HistogramBucketSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :match, 1, type: Envoy.Type.Matcher.V3.StringMatcher, deprecated: false
   field :buckets, 2, repeated: true, type: :double, deprecated: false
+  field :bins, 3, type: Google.Protobuf.UInt32Value, deprecated: false
 end
 
 defmodule Envoy.Config.Metrics.V3.StatsdSink do
@@ -155,7 +171,10 @@ defmodule Envoy.Config.Metrics.V3.StatsdSink do
   [#extension: envoy.stat_sinks.statsd]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.StatsdSink",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :statsd_specifier, 0
 
@@ -173,7 +192,10 @@ defmodule Envoy.Config.Metrics.V3.DogStatsdSink do
   [#extension: envoy.stat_sinks.dog_statsd]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.DogStatsdSink",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :dog_statsd_specifier, 0
 
@@ -200,7 +222,10 @@ defmodule Envoy.Config.Metrics.V3.HystrixSink do
   [#extension: envoy.stat_sinks.hystrix]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.HystrixSink",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :num_buckets, 1, type: :int64, json_name: "numBuckets"
 end

@@ -4,7 +4,11 @@ defmodule Envoy.Extensions.Filters.Http.AdaptiveConcurrency.V3.GradientControlle
   latencies.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.ConcurrencyLimitCalculationParams",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_concurrency_limit, 2,
     type: Google.Protobuf.UInt32Value,
@@ -20,12 +24,21 @@ end
 defmodule Envoy.Extensions.Filters.Http.AdaptiveConcurrency.V3.GradientControllerConfig.MinimumRTTCalculationParams do
   @moduledoc """
   Parameters controlling the periodic minRTT recalculation.
-  [#next-free-field: 6]
+  [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.MinimumRTTCalculationParams",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :interval, 1, type: Google.Protobuf.Duration, deprecated: false
+
+  field :fixed_value, 6,
+    type: Google.Protobuf.Duration,
+    json_name: "fixedValue",
+    deprecated: false
 
   field :request_count, 2,
     type: Google.Protobuf.UInt32Value,
@@ -51,7 +64,10 @@ defmodule Envoy.Extensions.Filters.Http.AdaptiveConcurrency.V3.GradientControlle
   [#extension: envoy.filters.http.adaptive_concurrency]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :sample_aggregate_percentile, 1,
     type: Envoy.Type.V3.Percent,
@@ -71,7 +87,10 @@ defmodule Envoy.Extensions.Filters.Http.AdaptiveConcurrency.V3.GradientControlle
 end
 
 defmodule Envoy.Extensions.Filters.Http.AdaptiveConcurrency.V3.AdaptiveConcurrency do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :concurrency_controller_config, 0
 

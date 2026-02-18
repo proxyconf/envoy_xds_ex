@@ -4,7 +4,11 @@ defmodule Envoy.Service.Health.V3.Capability.Protocol do
   and/or have ports enabled for different protocols.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.service.health.v3.Capability.Protocol",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :HTTP, 0
   field :TCP, 1
@@ -17,7 +21,10 @@ defmodule Envoy.Service.Health.V3.Capability do
   endpoints to healthcheck.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.Capability",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :health_check_protocols, 1,
     repeated: true,
@@ -27,14 +34,20 @@ defmodule Envoy.Service.Health.V3.Capability do
 end
 
 defmodule Envoy.Service.Health.V3.HealthCheckRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.HealthCheckRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :node, 1, type: Envoy.Config.Core.V3.Node
   field :capability, 2, type: Envoy.Service.Health.V3.Capability
 end
 
 defmodule Envoy.Service.Health.V3.EndpointHealth do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.EndpointHealth",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :endpoint, 1, type: Envoy.Config.Endpoint.V3.Endpoint
 
@@ -49,7 +62,10 @@ defmodule Envoy.Service.Health.V3.LocalityEndpointsHealth do
   Group endpoint health by locality under each cluster.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.LocalityEndpointsHealth",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :locality, 1, type: Envoy.Config.Core.V3.Locality
 
@@ -65,7 +81,10 @@ defmodule Envoy.Service.Health.V3.ClusterEndpointsHealth do
   should match the corresponding fields in ClusterHealthCheck message.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.ClusterEndpointsHealth",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName"
 
@@ -76,7 +95,10 @@ defmodule Envoy.Service.Health.V3.ClusterEndpointsHealth do
 end
 
 defmodule Envoy.Service.Health.V3.EndpointHealthResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.EndpointHealthResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :endpoints_health, 1,
     repeated: true,
@@ -91,7 +113,10 @@ defmodule Envoy.Service.Health.V3.EndpointHealthResponse do
 end
 
 defmodule Envoy.Service.Health.V3.HealthCheckRequestOrEndpointHealthResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.HealthCheckRequestOrEndpointHealthResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :request_type, 0
 
@@ -107,7 +132,10 @@ defmodule Envoy.Service.Health.V3.HealthCheckRequestOrEndpointHealthResponse do
 end
 
 defmodule Envoy.Service.Health.V3.LocalityEndpoints do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.LocalityEndpoints",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :locality, 1, type: Envoy.Config.Core.V3.Locality
   field :endpoints, 2, repeated: true, type: Envoy.Config.Endpoint.V3.Endpoint
@@ -122,7 +150,10 @@ defmodule Envoy.Service.Health.V3.ClusterHealthCheck do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.ClusterHealthCheck",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName"
 
@@ -147,7 +178,10 @@ defmodule Envoy.Service.Health.V3.ClusterHealthCheck do
 end
 
 defmodule Envoy.Service.Health.V3.HealthCheckSpecifier do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.HealthCheckSpecifier",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_health_checks, 1,
     repeated: true,
@@ -163,7 +197,10 @@ defmodule Envoy.Service.Health.V3.HdsDummy do
   services: https://github.com/google/protobuf/issues/4221 and protoxform to upgrade the file.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.health.v3.HdsDummy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Service.Health.V3.HealthDiscoveryService.Service do
@@ -178,7 +215,7 @@ defmodule Envoy.Service.Health.V3.HealthDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.service.health.v3.HealthDiscoveryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :StreamHealthCheck,
       stream(Envoy.Service.Health.V3.HealthCheckRequestOrEndpointHealthResponse),

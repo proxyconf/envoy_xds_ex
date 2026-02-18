@@ -7,12 +7,15 @@ defmodule Envoy.Extensions.RateLimitDescriptors.Expr.V3.Descriptor do
 
   .. code-block:: cpp
 
-  ("<descriptor_key>", "<expression_value>")
+    ("<descriptor_key>", "<expression_value>")
   [#protodoc-title: Rate limit descriptor expression]
   [#extension: envoy.rate_limit_descriptors.expr]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.rate_limit_descriptors.expr.v3.Descriptor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :expr_specifier, 0
 

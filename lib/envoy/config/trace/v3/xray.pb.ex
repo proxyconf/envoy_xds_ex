@@ -1,5 +1,8 @@
 defmodule Envoy.Config.Trace.V3.XRayConfig.SegmentFields do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.trace.v3.XRayConfig.SegmentFields",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :origin, 1, type: :string
   field :aws, 2, type: Google.Protobuf.Struct
@@ -19,58 +22,61 @@ defmodule Envoy.Config.Trace.V3.XRayConfig do
 
   .. code-block:: json
 
-  {
-  "Id": "1-6698980d-e829ae270ab34b69b488b098",
-  "Duration": 0.016,
-  "LimitExceeded": false,
-  "Segments":
-  [
-  {
-  "Id": "15d65e5ced8dfe76",
-  "Document":
-  {
-  "id": "15d65e5ced8dfe76",
-  "name": "envoy-example",
-  "start_time": 1721276429.410355,
-  "trace_id": "1-6698980d-e829ae270ab34b69b488b098",
-  "end_time": 1721276429.426068,
-  "fault": true,
-  "http":
-  {
-  "request":
-  {
-  "url": "http://example/path",
-  "method": "GET",
-  "user_agent": "curl/8.5.0",
-  "client_ip": "127.0.0.1",
-  "x_forwarded_for": false
-  },
-  "response":
-  {
-  "status": 503,
-  "content_length": 216
-  }
-  },
-  "aws": {},
-  "annotations":
-  {
-  "response_flags": "UF",
-  "component": "proxy",
-  "upstream_cluster": "upstream_cluster",
-  "annotation_from_custom_tag": "example",
-  "http.protocol": "HTTP/1.1",
-  "request_size": "0",
-  "downstream_cluster": "-",
-  "direction": "ingress",
-  "upstream_cluster.name": "upstream_cluster"
-  }
-  }
-  }
-  ]
-  }
+    {
+      "Id": "1-6698980d-e829ae270ab34b69b488b098",
+      "Duration": 0.016,
+      "LimitExceeded": false,
+      "Segments":
+      [
+        {
+          "Id": "15d65e5ced8dfe76",
+          "Document":
+          {
+            "id": "15d65e5ced8dfe76",
+            "name": "envoy-example",
+            "start_time": 1721276429.410355,
+            "trace_id": "1-6698980d-e829ae270ab34b69b488b098",
+            "end_time": 1721276429.426068,
+            "fault": true,
+            "http":
+            {
+              "request":
+              {
+                "url": "http://example/path",
+                "method": "GET",
+                "user_agent": "curl/8.5.0",
+                "client_ip": "127.0.0.1",
+                "x_forwarded_for": false
+              },
+              "response":
+              {
+                "status": 503,
+                "content_length": 216
+              }
+            },
+            "aws": {},
+            "annotations":
+            {
+              "response_flags": "UF",
+              "component": "proxy",
+              "upstream_cluster": "upstream_cluster",
+              "annotation_from_custom_tag": "example",
+              "http.protocol": "HTTP/1.1",
+              "request_size": "0",
+              "downstream_cluster": "-",
+              "direction": "ingress",
+              "upstream_cluster.name": "upstream_cluster"
+            }
+          }
+        }
+      ]
+    }
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.trace.v3.XRayConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :daemon_endpoint, 1, type: Envoy.Config.Core.V3.SocketAddress, json_name: "daemonEndpoint"
   field :segment_name, 2, type: :string, json_name: "segmentName", deprecated: false

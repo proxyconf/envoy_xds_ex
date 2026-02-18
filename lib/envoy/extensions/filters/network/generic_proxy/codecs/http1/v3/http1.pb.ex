@@ -5,15 +5,18 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Codecs.Http1.V3.Http1Cod
   Any decoding error will result in the generic proxy closing the connection.
 
   .. note::
-  This codec only supports HTTP1.1 messages and does not support HTTP1.0 messages. And it limits
-  part of the HTTP1.1 features, such as upgrade, connect, etc.
-  This codec is mainly designed for the features evaluation of the generic proxy filter. Please
-  be cautious when using it in production.
+    This codec only supports HTTP1.1 messages and does not support HTTP1.0 messages. And it limits
+    part of the HTTP1.1 features, such as upgrade, connect, etc.
+    This codec is mainly designed for the features evaluation of the generic proxy filter. Please
+    be cautious when using it in production.
   [#protodoc-title: HTTP1 codec configuration for Generic Proxy]
   [#extension: envoy.generic_proxy.codecs.http1]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.generic_proxy.codecs.http1.v3.Http1CodecConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :single_frame_mode, 1, type: Google.Protobuf.BoolValue, json_name: "singleFrameMode"
   field :max_buffer_size, 2, type: Google.Protobuf.UInt32Value, json_name: "maxBufferSize"

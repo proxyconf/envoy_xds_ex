@@ -6,7 +6,10 @@ defmodule Envoy.Extensions.Filters.Http.Csrf.V3.CsrfPolicy do
   [#extension: envoy.filters.http.csrf]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.csrf.v3.CsrfPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :filter_enabled, 1,
     type: Envoy.Config.Core.V3.RuntimeFractionalPercent,

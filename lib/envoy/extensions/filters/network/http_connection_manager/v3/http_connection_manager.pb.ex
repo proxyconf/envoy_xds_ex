@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.CodecType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.CodecType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :AUTO, 0
   field :HTTP1, 1
@@ -8,7 +13,12 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.ServerHeaderTransformation do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.ServerHeaderTransformation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :OVERWRITE, 0
   field :APPEND_IF_ABSENT, 1
@@ -21,7 +31,12 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
   header.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.ForwardClientCertDetails",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :SANITIZE, 0
   field :FORWARD_ONLY, 1
@@ -32,11 +47,16 @@ end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.PathWithEscapedSlashesAction do
   @moduledoc """
-  Determines the action for request that contain %2F, %2f, %5C or %5c sequences in the URI path.
+  Determines the action for request that contain ``%2F``, ``%2f``, ``%5C`` or ``%5c`` sequences in the URI path.
   This operation occurs before URL normalization and the merge slashes transformations if they were enabled.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.PathWithEscapedSlashesAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :IMPLEMENTATION_SPECIFIC_DEFAULT, 0
   field :KEEP_UNCHANGED, 1
@@ -46,7 +66,17 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.Tracing.OperationName do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  @moduledoc """
+  This OperationName makes no sense and is unnecessary in the current tracing API.
+  [#not-implemented-hide:]
+  """
+
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.Tracing.OperationName",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :INGRESS, 0
   field :EGRESS, 1
@@ -54,10 +84,14 @@ end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.Tracing do
   @moduledoc """
-  [#next-free-field: 11]
+  [#next-free-field: 13]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.Tracing",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :client_sampling, 3, type: Envoy.Type.V3.Percent, json_name: "clientSampling"
   field :random_sampling, 4, type: Envoy.Type.V3.Percent, json_name: "randomSampling"
@@ -72,10 +106,16 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 
   field :provider, 9, type: Envoy.Config.Trace.V3.Tracing.Http
   field :spawn_upstream_span, 10, type: Google.Protobuf.BoolValue, json_name: "spawnUpstreamSpan"
+  field :operation, 11, type: :string
+  field :upstream_operation, 12, type: :string, json_name: "upstreamOperation"
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.InternalAddressConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.InternalAddressConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :unix_sockets, 1, type: :bool, json_name: "unixSockets"
 
@@ -90,13 +130,40 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.SetCurrentClientCertDetails",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :subject, 1, type: Google.Protobuf.BoolValue
   field :cert, 3, type: :bool
   field :chain, 6, type: :bool
   field :dns, 4, type: :bool
   field :uri, 5, type: :bool
+end
+
+defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.ForwardClientCertConfig do
+  @moduledoc """
+  The configuration for forwarding client cert details.
+  """
+
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.ForwardClientCertConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :forward_client_cert_details, 1,
+    type:
+      Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.ForwardClientCertDetails,
+    json_name: "forwardClientCertDetails",
+    enum: true
+
+  field :set_current_client_cert_details, 2,
+    type:
+      Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.SetCurrentClientCertDetails,
+    json_name: "setCurrentClientCertDetails"
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.UpgradeConfig do
@@ -106,16 +173,18 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 
   .. warning::
 
-  The current implementation of upgrade headers does not handle
-  multi-valued upgrade headers. Support for multi-valued headers may be
-  added in the future if needed.
+     The current implementation of upgrade headers does not handle multi-valued upgrade headers. Support for
+     multi-valued headers may be added in the future if needed.
 
   .. warning::
-  The current implementation of upgrade headers does not work with HTTP/2
-  upstreams.
+     The current implementation of upgrade headers does not work with HTTP/2 upstreams.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.UpgradeConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :upgrade_type, 1, type: :string, json_name: "upgradeType"
 
@@ -136,10 +205,16 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
   <envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite>`) will apply to the ``:path`` header
   destined for the upstream.
 
-  Note: access logging and tracing will show the original ``:path`` header.
+  .. note::
+
+    Access logging and tracing will show the original ``:path`` header.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.PathNormalizationOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :forwarding_transformation, 1,
     type: Envoy.Type.Http.V3.PathTransformation,
@@ -161,11 +236,15 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 
   The Proxy-Status header is a string of the form:
 
-  "<server_name>; error=<error_type>; details=<details>"
+    "<server_name>; error=<error_type>; details=<details>"
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.ProxyStatusConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :proxy_name, 0
 
@@ -182,7 +261,11 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.HcmAccessLogOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.HcmAccessLogOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :access_log_flush_interval, 1,
     type: Google.Protobuf.Duration,
@@ -198,13 +281,17 @@ end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager do
   @moduledoc """
-  [#next-free-field: 59]
+  [#next-free-field: 62]
   [#protodoc-title: HTTP connection manager]
   HTTP connection manager :ref:`configuration overview <config_http_conn_man>`.
   [#extension: envoy.filters.network.http_connection_manager]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :route_specifier, 0
 
@@ -285,6 +372,8 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
     json_name: "streamIdleTimeout",
     deprecated: false
 
+  field :stream_flush_timeout, 59, type: Google.Protobuf.Duration, json_name: "streamFlushTimeout"
+
   field :request_timeout, 28,
     type: Google.Protobuf.Duration,
     json_name: "requestTimeout",
@@ -364,6 +453,10 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
       Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager.SetCurrentClientCertDetails,
     json_name: "setCurrentClientCertDetails"
 
+  field :forward_client_cert_matcher, 60,
+    type: Xds.Type.Matcher.V3.Matcher,
+    json_name: "forwardClientCertMatcher"
+
   field :proxy_100_continue, 18, type: :bool, json_name: "proxy100Continue"
 
   field :represent_ipv4_remote_address_as_ipv4_mapped_ipv6, 20,
@@ -426,6 +519,32 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnecti
   field :add_proxy_protocol_connection_state, 53,
     type: Google.Protobuf.BoolValue,
     json_name: "addProxyProtocolConnectionState"
+
+  field :forward_proto_config, 61,
+    type: Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ForwardProtoConfig,
+    json_name: "forwardProtoConfig"
+end
+
+defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ForwardProtoConfig do
+  @moduledoc """
+  Configuration options for setting the ``x-forwarded-proto`` header.
+  This message provides flexibility for future enhancements to protocol inference.
+  """
+
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.http_connection_manager.v3.ForwardProtoConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :https_destination_ports, 1,
+    repeated: true,
+    type: :uint32,
+    json_name: "httpsDestinationPorts"
+
+  field :http_destination_ports, 2,
+    repeated: true,
+    type: :uint32,
+    json_name: "httpDestinationPorts"
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.LocalReplyConfig do
@@ -433,7 +552,10 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.LocalReplyCo
   The configuration to customize local reply returned by Envoy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.http_connection_manager.v3.LocalReplyConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :mappers, 1,
     repeated: true,
@@ -450,7 +572,10 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ResponseMapp
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.http_connection_manager.v3.ResponseMapper",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :filter, 1, type: Envoy.Config.Accesslog.V3.AccessLogFilter, deprecated: false
 
@@ -473,13 +598,12 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ResponseMapp
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.Rds do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.http_connection_manager.v3.Rds",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
-  field :config_source, 1,
-    type: Envoy.Config.Core.V3.ConfigSource,
-    json_name: "configSource",
-    deprecated: false
-
+  field :config_source, 1, type: Envoy.Config.Core.V3.ConfigSource, json_name: "configSource"
   field :route_config_name, 2, type: :string, json_name: "routeConfigName"
 end
 
@@ -488,7 +612,11 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRouteC
   This message is used to work around the limitations with 'oneof' and repeated fields.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.ScopedRouteConfigurationsList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :scoped_route_configurations, 1,
     repeated: true,
@@ -502,7 +630,11 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
   Specifies a header field's key value pair to match on.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractor.KvElement",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :separator, 1, type: :string, deprecated: false
   field :key, 2, type: :string, deprecated: false
@@ -515,21 +647,25 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
 
   .. code::
 
-  <0> <1>   <-- index
-  X-Header: a=b;c=d
-  |         || |
-  |         || \----> <element_separator>
-  |         ||
-  |         |\----> <element.separator>
-  |         |
-  |         \----> <element.key>
-  |
-  \----> <name>
+               <0> <1>   <-- index
+     X-Header: a=b;c=d
+     |         || |
+     |         || \----> <element_separator>
+     |         ||
+     |         |\----> <element.separator>
+     |         |
+     |         \----> <element.key>
+     |
+     \----> <name>
 
-  Each 'a=b' key-value pair constitutes an 'element' of the header field.
+     Each 'a=b' key-value pair constitutes an 'element' of the header field.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :extract_type, 0
 
@@ -548,7 +684,11 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
   Specifies the mechanism for constructing key fragments which are composed into scope keys.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :type, 0
 
@@ -572,7 +712,11 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
   :ref:`RouteConfiguration<envoy_v3_api_msg_config.route.v3.RouteConfiguration>`) to use for the request.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :fragments, 1,
     repeated: true,
@@ -586,7 +730,10 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_specifier, 0
 
@@ -613,7 +760,10 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRoutes
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.ScopedRds do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.http_connection_manager.v3.ScopedRds",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :scoped_rds_config_source, 1,
     type: Envoy.Config.Core.V3.ConfigSource,
@@ -628,7 +778,10 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpFilter d
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 
@@ -645,7 +798,10 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpFilter d
 end
 
 defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.RequestIDExtension do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.http_connection_manager.v3.RequestIDExtension",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :typed_config, 1, type: Google.Protobuf.Any, json_name: "typedConfig"
 end
@@ -657,7 +813,11 @@ defmodule Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.EnvoyMobileH
   [#extension: envoy.filters.network.envoy_mobile_http_connection_manager]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.http_connection_manager.v3.EnvoyMobileHttpConnectionManager",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :config, 1,
     type: Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpConnectionManager

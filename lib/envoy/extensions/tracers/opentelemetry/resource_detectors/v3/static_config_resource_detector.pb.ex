@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Tracers.Opentelemetry.ResourceDetectors.V3.StaticConfigResourceDetectorConfig.AttributesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.tracers.opentelemetry.resource_detectors.v3.StaticConfigResourceDetectorConfig.AttributesEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -15,7 +20,11 @@ defmodule Envoy.Extensions.Tracers.Opentelemetry.ResourceDetectors.V3.StaticConf
   [#protodoc-title: Static Config Resource Detector config]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.tracers.opentelemetry.resource_detectors.v3.StaticConfigResourceDetectorConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :attributes, 1,
     repeated: true,

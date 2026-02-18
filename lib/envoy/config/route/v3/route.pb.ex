@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Route.V3.RouteConfiguration.TypedPerFilterConfigEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteConfiguration.TypedPerFilterConfigEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
@@ -7,13 +11,16 @@ end
 
 defmodule Envoy.Config.Route.V3.RouteConfiguration do
   @moduledoc """
-  [#next-free-field: 18]
+  [#next-free-field: 19]
   [#protodoc-title: HTTP route configuration]
   * Routing :ref:`architecture overview <arch_overview_http_routing>`
   * HTTP :ref:`router filter <config_http_filters_router>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteConfiguration",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -75,6 +82,7 @@ defmodule Envoy.Config.Route.V3.RouteConfiguration do
     json_name: "requestMirrorPolicies"
 
   field :ignore_port_in_host_matching, 14, type: :bool, json_name: "ignorePortInHostMatching"
+  field :vhost_header, 18, type: :string, json_name: "vhostHeader"
 
   field :ignore_path_parameters_in_path_matching, 15,
     type: :bool,
@@ -90,7 +98,10 @@ defmodule Envoy.Config.Route.V3.RouteConfiguration do
 end
 
 defmodule Envoy.Config.Route.V3.Vhds do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.Vhds",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :config_source, 1,
     type: Envoy.Config.Core.V3.ConfigSource,

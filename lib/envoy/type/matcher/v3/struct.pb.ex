@@ -3,7 +3,10 @@ defmodule Envoy.Type.Matcher.V3.StructMatcher.PathSegment do
   Specifies the segment in a path to retrieve value from Struct.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.StructMatcher.PathSegment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :segment, 0
 
@@ -20,53 +23,56 @@ defmodule Envoy.Type.Matcher.V3.StructMatcher do
 
   .. code-block:: yaml
 
-  fields:
-  a:
-  struct_value:
-  fields:
-  b:
-  struct_value:
-  fields:
-  c:
-  string_value: pro
-  t:
-  list_value:
-  values:
-  - string_value: m
-  - string_value: n
+         fields:
+           a:
+             struct_value:
+               fields:
+                 b:
+                   struct_value:
+                     fields:
+                       c:
+                         string_value: pro
+                 t:
+                   list_value:
+                     values:
+                       - string_value: m
+                       - string_value: n
 
   The following MetadataMatcher is matched as the path [a, b, c] will retrieve a string value "pro"
   from the Metadata which is matched to the specified prefix match.
 
   .. code-block:: yaml
 
-  path:
-  - key: a
-  - key: b
-  - key: c
-  value:
-  string_match:
-  prefix: pr
+     path:
+     - key: a
+     - key: b
+     - key: c
+     value:
+       string_match:
+         prefix: pr
 
   The following StructMatcher is matched as the code will match one of the string values in the
   list at the path [a, t].
 
   .. code-block:: yaml
 
-  path:
-  - key: a
-  - key: t
-  value:
-  list_match:
-  one_of:
-  string_match:
-  exact: m
+     path:
+     - key: a
+     - key: t
+     value:
+       list_match:
+         one_of:
+           string_match:
+             exact: m
 
   An example use of StructMatcher is to match metadata in envoy.v*.core.Node.
   [#protodoc-title: Struct matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.StructMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :path, 2,
     repeated: true,

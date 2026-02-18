@@ -5,7 +5,10 @@ defmodule Envoy.Data.Tap.V3.TraceWrapper do
   [#protodoc-title: Tap data wrappers]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v3.TraceWrapper",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :trace, 0
 

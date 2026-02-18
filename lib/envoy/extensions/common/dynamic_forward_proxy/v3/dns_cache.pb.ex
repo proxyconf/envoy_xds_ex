@@ -4,7 +4,10 @@ defmodule Envoy.Extensions.Common.DynamicForwardProxy.V3.DnsCacheCircuitBreakers
   [#protodoc-title: Dynamic forward proxy common configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_pending_requests, 1,
     type: Google.Protobuf.UInt32Value,
@@ -18,7 +21,10 @@ defmodule Envoy.Extensions.Common.DynamicForwardProxy.V3.DnsCacheConfig do
   [#next-free-field: 16]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

@@ -4,7 +4,10 @@ defmodule Envoy.Api.V2.Core.EventServiceConfig do
   Configuration of the event reporting service endpoint.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.core.EventServiceConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_source_specifier, 0
 

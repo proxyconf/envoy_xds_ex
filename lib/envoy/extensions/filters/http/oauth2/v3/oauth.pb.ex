@@ -1,5 +1,9 @@
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig.SameSite do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.http.oauth2.v3.CookieConfig.SameSite",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DISABLED, 0
   field :STRICT, 1
@@ -8,7 +12,11 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig.SameSite do
 end
 
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Config.AuthType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.http.oauth2.v3.OAuth2Config.AuthType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :URL_ENCODED_BODY, 0
   field :BASIC_AUTH, 1
@@ -22,21 +30,30 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig do
   [#extension: envoy.filters.http.oauth2]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.oauth2.v3.CookieConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :same_site, 1,
     type: Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig.SameSite,
     json_name: "sameSite",
     enum: true,
     deprecated: false
+
+  field :path, 2, type: :string, deprecated: false
+  field :partitioned, 3, type: :bool
 end
 
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfigs do
   @moduledoc """
-  [#next-free-field: 7]
+  [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.oauth2.v3.CookieConfigs",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bearer_token_cookie_config, 1,
     type: Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig,
@@ -61,14 +78,21 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfigs do
   field :oauth_nonce_cookie_config, 6,
     type: Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig,
     json_name: "oauthNonceCookieConfig"
+
+  field :code_verifier_cookie_config, 7,
+    type: Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfig,
+    json_name: "codeVerifierCookieConfig"
 end
 
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials.CookieNames do
   @moduledoc """
-  [#next-free-field: 7]
+  [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bearer_token, 1, type: :string, json_name: "bearerToken", deprecated: false
   field :oauth_hmac, 2, type: :string, json_name: "oauthHmac", deprecated: false
@@ -76,6 +100,7 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials.CookieNames 
   field :id_token, 4, type: :string, json_name: "idToken", deprecated: false
   field :refresh_token, 5, type: :string, json_name: "refreshToken", deprecated: false
   field :oauth_nonce, 6, type: :string, json_name: "oauthNonce", deprecated: false
+  field :code_verifier, 7, type: :string, json_name: "codeVerifier", deprecated: false
 end
 
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials do
@@ -83,7 +108,10 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :token_formation, 0
 
@@ -104,17 +132,20 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials do
     type: Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials.CookieNames,
     json_name: "cookieNames"
 
-  field :cookie_domain, 5, type: :string, json_name: "cookieDomain"
+  field :cookie_domain, 5, type: :string, json_name: "cookieDomain", deprecated: false
 end
 
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Config do
   @moduledoc """
   OAuth config
 
-  [#next-free-field: 22]
+  [#next-free-field: 27]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.oauth2.v3.OAuth2Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :token_endpoint, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "tokenEndpoint"
   field :retry_policy, 18, type: Envoy.Config.Core.V3.RetryPolicy, json_name: "retryPolicy"
@@ -123,6 +154,8 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Config do
     type: :string,
     json_name: "authorizationEndpoint",
     deprecated: false
+
+  field :end_session_endpoint, 23, type: :string, json_name: "endSessionEndpoint"
 
   field :credentials, 3,
     type: Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Credentials,
@@ -182,6 +215,18 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Config do
   field :cookie_configs, 21,
     type: Envoy.Extensions.Filters.Http.Oauth2.V3.CookieConfigs,
     json_name: "cookieConfigs"
+
+  field :stat_prefix, 22, type: :string, json_name: "statPrefix"
+
+  field :csrf_token_expires_in, 24,
+    type: Google.Protobuf.Duration,
+    json_name: "csrfTokenExpiresIn"
+
+  field :code_verifier_token_expires_in, 25,
+    type: Google.Protobuf.Duration,
+    json_name: "codeVerifierTokenExpiresIn"
+
+  field :disable_token_encryption, 26, type: :bool, json_name: "disableTokenEncryption"
 end
 
 defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2 do
@@ -189,7 +234,10 @@ defmodule Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2 do
   Filter config.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.oauth2.v3.OAuth2",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :config, 1, type: Envoy.Extensions.Filters.Http.Oauth2.V3.OAuth2Config
 end

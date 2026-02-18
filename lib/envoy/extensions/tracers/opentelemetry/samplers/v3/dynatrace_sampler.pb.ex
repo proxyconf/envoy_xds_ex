@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Tracers.Opentelemetry.Samplers.V3.DynatraceSamplerCon
   [#protodoc-title: Dynatrace Sampler config]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.tracers.opentelemetry.samplers.v3.DynatraceSamplerConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :tenant, 1, type: :string
   field :cluster_id, 2, type: :int32, json_name: "clusterId"

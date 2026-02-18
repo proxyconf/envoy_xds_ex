@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Filter.Http.AwsLambda.V2alpha.Config.InvocationMode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.filter.http.aws_lambda.v2alpha.Config.InvocationMode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :SYNCHRONOUS, 0
   field :ASYNCHRONOUS, 1
@@ -13,7 +17,10 @@ defmodule Envoy.Config.Filter.Http.AwsLambda.V2alpha.Config do
   [#extension: envoy.filters.http.aws_lambda]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.aws_lambda.v2alpha.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :arn, 1, type: :string, deprecated: false
   field :payload_passthrough, 2, type: :bool, json_name: "payloadPassthrough"
@@ -31,7 +38,10 @@ defmodule Envoy.Config.Filter.Http.AwsLambda.V2alpha.PerRouteConfig do
   version of the same Lambda depending on the route.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.aws_lambda.v2alpha.PerRouteConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :invoke_config, 1,
     type: Envoy.Config.Filter.Http.AwsLambda.V2alpha.Config,

@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Network.DnsResolver.Apple.V3.AppleDnsResolverConfig d
   [#extension: envoy.network.dns_resolver.apple]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.network.dns_resolver.apple.v3.AppleDnsResolverConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :include_unroutable_families, 1, type: :bool, json_name: "includeUnroutableFamilies"
 end

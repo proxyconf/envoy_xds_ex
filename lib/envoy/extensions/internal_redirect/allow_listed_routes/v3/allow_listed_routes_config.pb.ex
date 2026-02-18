@@ -5,7 +5,11 @@ defmodule Envoy.Extensions.InternalRedirect.AllowListedRoutes.V3.AllowListedRout
   [#protodoc-title: Allow listed routes internal redirect predicate]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.internal_redirect.allow_listed_routes.v3.AllowListedRoutesConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :allowed_route_names, 1,
     repeated: true,
