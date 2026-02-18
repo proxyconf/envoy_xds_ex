@@ -1,5 +1,8 @@
 defmodule Envoy.Extensions.Common.AsyncFiles.V3.AsyncFileManagerConfig.ThreadPool do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.async_files.v3.AsyncFileManagerConfig.ThreadPool",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :thread_count, 1, type: :uint32, json_name: "threadCount", deprecated: false
 end
@@ -10,7 +13,10 @@ defmodule Envoy.Extensions.Common.AsyncFiles.V3.AsyncFileManagerConfig do
   [#protodoc-title: AsyncFileManager configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.common.async_files.v3.AsyncFileManagerConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :manager_type, 0
 

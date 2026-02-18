@@ -12,5 +12,8 @@ defmodule Envoy.Extensions.Filters.Common.Matcher.Action.V3.SkipFilter do
   [#protodoc-title: Common match actions]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.common.matcher.action.v3.SkipFilter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

@@ -12,5 +12,9 @@ defmodule Envoy.Extensions.Tracers.Opentelemetry.ResourceDetectors.V3.DynatraceR
   [#protodoc-title: Dynatrace Resource Detector config]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.tracers.opentelemetry.resource_detectors.v3.DynatraceResourceDetectorConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

@@ -5,7 +5,11 @@ defmodule Envoy.Data.Cluster.V3.OutlierEjectionType do
   :ref:`Outlier detection logging <arch_overview_outlier_detection_logging>`.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.data.cluster.v3.OutlierEjectionType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :CONSECUTIVE_5XX, 0
   field :CONSECUTIVE_GATEWAY_FAILURE, 1
@@ -21,7 +25,11 @@ defmodule Envoy.Data.Cluster.V3.Action do
   Represents possible action applied to upstream host
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.data.cluster.v3.Action",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :EJECT, 0
   field :UNEJECT, 1
@@ -32,7 +40,10 @@ defmodule Envoy.Data.Cluster.V3.OutlierDetectionEvent do
   [#next-free-field: 12]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.cluster.v3.OutlierDetectionEvent",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :event, 0
 
@@ -66,7 +77,10 @@ defmodule Envoy.Data.Cluster.V3.OutlierDetectionEvent do
 end
 
 defmodule Envoy.Data.Cluster.V3.OutlierEjectSuccessRate do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.cluster.v3.OutlierEjectSuccessRate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :host_success_rate, 1, type: :uint32, json_name: "hostSuccessRate", deprecated: false
 
@@ -82,11 +96,17 @@ defmodule Envoy.Data.Cluster.V3.OutlierEjectSuccessRate do
 end
 
 defmodule Envoy.Data.Cluster.V3.OutlierEjectConsecutive do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.cluster.v3.OutlierEjectConsecutive",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Data.Cluster.V3.OutlierEjectFailurePercentage do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.cluster.v3.OutlierEjectFailurePercentage",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :host_success_rate, 1, type: :uint32, json_name: "hostSuccessRate", deprecated: false
 end

@@ -6,5 +6,8 @@ defmodule Envoy.Extensions.Upstreams.Tcp.Generic.V3.GenericConnectionPoolProto d
   [#protodoc-title: Generic Connection Pool]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.upstreams.tcp.generic.v3.GenericConnectionPoolProto",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

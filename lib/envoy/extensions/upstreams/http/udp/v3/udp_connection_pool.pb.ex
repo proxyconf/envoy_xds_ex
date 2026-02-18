@@ -5,5 +5,8 @@ defmodule Envoy.Extensions.Upstreams.Http.Udp.V3.UdpConnectionPoolProto do
   [#protodoc-title: Udp Connection Pool]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.upstreams.http.udp.v3.UdpConnectionPoolProto",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

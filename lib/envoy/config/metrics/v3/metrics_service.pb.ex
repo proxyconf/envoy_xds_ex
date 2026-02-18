@@ -4,7 +4,11 @@ defmodule Envoy.Config.Metrics.V3.HistogramEmitMode do
   [#protodoc-title: Metrics service]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.metrics.v3.HistogramEmitMode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :SUMMARY_AND_HISTOGRAM, 0
   field :SUMMARY, 1
@@ -21,16 +25,19 @@ defmodule Envoy.Config.Metrics.V3.MetricsServiceConfig do
 
   .. code-block:: yaml
 
-  stats_sinks:
-  - name: envoy.stat_sinks.metrics_service
-  typed_config:
-  "@type": type.googleapis.com/envoy.config.metrics.v3.MetricsServiceConfig
+      stats_sinks:
+        - name: envoy.stat_sinks.metrics_service
+          typed_config:
+            "@type": type.googleapis.com/envoy.config.metrics.v3.MetricsServiceConfig
 
   [#extension: envoy.stat_sinks.metrics_service]
-  [#next-free-field: 6]
+  [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.metrics.v3.MetricsServiceConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Config.Core.V3.GrpcService,
@@ -54,4 +61,6 @@ defmodule Envoy.Config.Metrics.V3.MetricsServiceConfig do
     json_name: "histogramEmitMode",
     enum: true,
     deprecated: false
+
+  field :batch_size, 6, type: :uint32, json_name: "batchSize", deprecated: false
 end

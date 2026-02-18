@@ -3,18 +3,24 @@ defmodule Envoy.Type.Matcher.ValueMatcher.NullMatch do
   NullMatch is an empty message to specify a null value.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.ValueMatcher.NullMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Type.Matcher.ValueMatcher do
   @moduledoc """
-  Specifies the way to match a ProtobufWkt::Value. Primitive values and ListValue are supported.
+  Specifies the way to match a Protobuf::Value. Primitive values and ListValue are supported.
   StructValue is not supported and is always not matched.
   [#next-free-field: 7]
   [#protodoc-title: Value matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.ValueMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :match_pattern, 0
 
@@ -43,7 +49,10 @@ defmodule Envoy.Type.Matcher.ListMatcher do
   Specifies the way to match a list value.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.ListMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :match_pattern, 0
 

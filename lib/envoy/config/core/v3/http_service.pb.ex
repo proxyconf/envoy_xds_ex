@@ -4,7 +4,10 @@ defmodule Envoy.Config.Core.V3.HttpService do
   [#protodoc-title: HTTP services]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.HttpService",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :http_uri, 1, type: Envoy.Config.Core.V3.HttpUri, json_name: "httpUri"
 

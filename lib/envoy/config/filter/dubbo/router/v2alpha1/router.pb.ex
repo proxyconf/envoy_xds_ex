@@ -4,5 +4,8 @@ defmodule Envoy.Config.Filter.Dubbo.Router.V2alpha1.Router do
   Dubbo router :ref:`configuration overview <config_dubbo_filters_router>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.dubbo.router.v2alpha1.Router",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

@@ -5,7 +5,11 @@ defmodule Envoy.Type.V3.StatusCode do
   [#protodoc-title: HTTP status codes]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.type.v3.StatusCode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :Empty, 0
   field :Continue, 100
@@ -71,7 +75,10 @@ defmodule Envoy.Type.V3.HttpStatus do
   HTTP status.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.v3.HttpStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :code, 1, type: Envoy.Type.V3.StatusCode, enum: true, deprecated: false
 end

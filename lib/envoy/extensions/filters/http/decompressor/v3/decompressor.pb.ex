@@ -3,7 +3,10 @@ defmodule Envoy.Extensions.Filters.Http.Decompressor.V3.Decompressor.CommonDirec
   Common configuration for filter behavior on both the request and response direction.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.decompressor.v3.Decompressor.CommonDirectionConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :enabled, 1, type: Envoy.Config.Core.V3.RuntimeFeatureFlag
   field :ignore_no_transform_header, 2, type: :bool, json_name: "ignoreNoTransformHeader"
@@ -14,7 +17,11 @@ defmodule Envoy.Extensions.Filters.Http.Decompressor.V3.Decompressor.RequestDire
   Configuration for filter behavior on the request direction.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.decompressor.v3.Decompressor.RequestDirectionConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.Filters.Http.Decompressor.V3.Decompressor.CommonDirectionConfig,
@@ -30,7 +37,11 @@ defmodule Envoy.Extensions.Filters.Http.Decompressor.V3.Decompressor.ResponseDir
   Configuration for filter behavior on the response direction.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.decompressor.v3.Decompressor.ResponseDirectionConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Extensions.Filters.Http.Decompressor.V3.Decompressor.CommonDirectionConfig,
@@ -43,7 +54,10 @@ defmodule Envoy.Extensions.Filters.Http.Decompressor.V3.Decompressor do
   [#extension: envoy.filters.http.decompressor]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.decompressor.v3.Decompressor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :decompressor_library, 1,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,

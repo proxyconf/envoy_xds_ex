@@ -1,5 +1,8 @@
 defmodule Envoy.Config.Route.V3.ScopedRouteConfiguration.Key.Fragment do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.ScopedRouteConfiguration.Key.Fragment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :type, 0
 
@@ -15,7 +18,10 @@ defmodule Envoy.Config.Route.V3.ScopedRouteConfiguration.Key do
   Key.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.ScopedRouteConfiguration.Key",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :fragments, 1,
     repeated: true,
@@ -44,17 +50,17 @@ defmodule Envoy.Config.Route.V3.ScopedRouteConfiguration do
 
   .. code::
 
-  ...
-  scoped_routes:
-  name: foo-scoped-routes
-  scope_key_builder:
-  fragments:
-  - header_value_extractor:
-  name: X-Route-Selector
-  element_separator: ","
-  element:
-  separator: =
-  key: vip
+    ...
+    scoped_routes:
+      name: foo-scoped-routes
+      scope_key_builder:
+        fragments:
+          - header_value_extractor:
+              name: X-Route-Selector
+              element_separator: ","
+              element:
+                separator: =
+                key: vip
 
   ScopedRouteConfiguration resources (specified statically via
   :ref:`scoped_route_configurations_list<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.ScopedRoutes.scoped_route_configurations_list>`
@@ -62,27 +68,27 @@ defmodule Envoy.Config.Route.V3.ScopedRouteConfiguration do
 
   .. code::
 
-  (1)
-  name: route-scope1
-  route_configuration_name: route-config1
-  key:
-  fragments:
-  - string_key: 172.10.10.20
+   (1)
+    name: route-scope1
+    route_configuration_name: route-config1
+    key:
+       fragments:
+         - string_key: 172.10.10.20
 
-  (2)
-  name: route-scope2
-  route_configuration_name: route-config2
-  key:
-  fragments:
-  - string_key: 172.20.20.30
+   (2)
+    name: route-scope2
+    route_configuration_name: route-config2
+    key:
+      fragments:
+        - string_key: 172.20.20.30
 
   A request from a client such as:
 
   .. code::
 
-  GET / HTTP/1.1
-  Host: foo.com
-  X-Route-Selector: vip=172.10.10.20
+      GET / HTTP/1.1
+      Host: foo.com
+      X-Route-Selector: vip=172.10.10.20
 
   would result in the routing table defined by the ``route-config1``
   RouteConfiguration being assigned to the HTTP request/stream.
@@ -92,7 +98,10 @@ defmodule Envoy.Config.Route.V3.ScopedRouteConfiguration do
   * Routing :ref:`architecture overview <arch_overview_http_routing>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.ScopedRouteConfiguration",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :on_demand, 4, type: :bool, json_name: "onDemand"
   field :name, 1, type: :string, deprecated: false

@@ -22,26 +22,29 @@ defmodule Envoy.Config.Cluster.Redis.RedisClusterConfig do
 
   .. code-block:: yaml
 
-  name: name
-  connect_timeout: 0.25s
-  dns_lookup_family: V4_ONLY
-  hosts:
-  - socket_address:
-  address: foo.bar.com
-  port_value: 22120
-  cluster_type:
-  name: envoy.clusters.redis
-  typed_config:
-  "@type": type.googleapis.com/google.protobuf.Struct
-  value:
-  cluster_refresh_rate: 30s
-  cluster_refresh_timeout: 0.5s
-  redirect_refresh_interval: 10s
-  redirect_refresh_threshold: 10
+      name: name
+      connect_timeout: 0.25s
+      dns_lookup_family: V4_ONLY
+      hosts:
+      - socket_address:
+        address: foo.bar.com
+        port_value: 22120
+      cluster_type:
+        name: envoy.clusters.redis
+        typed_config:
+          "@type": type.googleapis.com/google.protobuf.Struct
+          value:
+            cluster_refresh_rate: 30s
+            cluster_refresh_timeout: 0.5s
+            redirect_refresh_interval: 10s
+            redirect_refresh_threshold: 10
   [#extension: envoy.clusters.redis]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.cluster.redis.RedisClusterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_refresh_rate, 1,
     type: Google.Protobuf.Duration,

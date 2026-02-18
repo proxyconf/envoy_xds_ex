@@ -7,7 +7,10 @@ defmodule Envoy.Extensions.ResourceMonitors.FixedHeap.V3.FixedHeapConfig do
   [#extension: envoy.resource_monitors.fixed_heap]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.resource_monitors.fixed_heap.v3.FixedHeapConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_heap_size_bytes, 1, type: :uint64, json_name: "maxHeapSizeBytes", deprecated: false
 end

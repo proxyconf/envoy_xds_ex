@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Filter.Network.Rbac.V2.RBAC.EnforcementType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.filter.network.rbac.v2.RBAC.EnforcementType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ONE_TIME_ON_FIRST_BYTE, 0
   field :CONTINUOUS, 1
@@ -16,7 +20,10 @@ defmodule Envoy.Config.Filter.Network.Rbac.V2.RBAC do
   [#extension: envoy.filters.network.rbac]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.network.rbac.v2.RBAC",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rules, 1, type: Envoy.Config.Rbac.V2.RBAC
   field :shadow_rules, 2, type: Envoy.Config.Rbac.V2.RBAC, json_name: "shadowRules"

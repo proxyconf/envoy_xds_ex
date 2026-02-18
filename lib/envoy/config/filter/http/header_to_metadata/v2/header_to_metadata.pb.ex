@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Filter.Http.HeaderToMetadata.V2.Config.ValueType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.filter.http.header_to_metadata.v2.Config.ValueType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :STRING, 0
   field :NUMBER, 1
@@ -11,7 +15,11 @@ defmodule Envoy.Config.Filter.Http.HeaderToMetadata.V2.Config.ValueEncode do
   ValueEncode defines the encoding algorithm.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.filter.http.header_to_metadata.v2.Config.ValueEncode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :NONE, 0
   field :BASE64, 1
@@ -22,7 +30,10 @@ defmodule Envoy.Config.Filter.Http.HeaderToMetadata.V2.Config.KeyValuePair do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.header_to_metadata.v2.Config.KeyValuePair",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace"
   field :key, 2, type: :string, deprecated: false
@@ -39,7 +50,10 @@ defmodule Envoy.Config.Filter.Http.HeaderToMetadata.V2.Config.Rule do
   A Rule defines what metadata to apply when a header is present or missing.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.header_to_metadata.v2.Config.Rule",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :header, 1, type: :string, deprecated: false
 
@@ -65,7 +79,10 @@ defmodule Envoy.Config.Filter.Http.HeaderToMetadata.V2.Config do
   [#extension: envoy.filters.http.header_to_metadata]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.header_to_metadata.v2.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :request_rules, 1,
     repeated: true,

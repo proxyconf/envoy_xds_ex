@@ -6,7 +6,10 @@ defmodule Envoy.Config.Filter.Http.AwsRequestSigning.V2alpha.AwsRequestSigning d
   [#extension: envoy.filters.http.aws_request_signing]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.aws_request_signing.v2alpha.AwsRequestSigning",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :region, 2, type: :string, deprecated: false

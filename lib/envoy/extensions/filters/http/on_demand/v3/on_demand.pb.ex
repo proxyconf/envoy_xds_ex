@@ -7,12 +7,15 @@ defmodule Envoy.Extensions.Filters.Http.OnDemand.V3.OnDemandCds do
 
   .. warning::
 
-  Envoy currently only supports On-demand CDS when using Incremental-xDS and not State-of-the-World.
+     Envoy currently only supports On-demand CDS when using Incremental-xDS and not State-of-the-World.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.on_demand.v3.OnDemandCds",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
-  field :source, 1, type: Envoy.Config.Core.V3.ConfigSource, deprecated: false
+  field :source, 1, type: Envoy.Config.Core.V3.ConfigSource
   field :resources_locator, 2, type: :string, json_name: "resourcesLocator"
   field :timeout, 3, type: Google.Protobuf.Duration
 end
@@ -22,7 +25,10 @@ defmodule Envoy.Extensions.Filters.Http.OnDemand.V3.OnDemand do
   On Demand Discovery filter config.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.on_demand.v3.OnDemand",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :odcds, 1, type: Envoy.Extensions.Filters.Http.OnDemand.V3.OnDemandCds
 end
@@ -32,7 +38,10 @@ defmodule Envoy.Extensions.Filters.Http.OnDemand.V3.PerRouteConfig do
   Per-route configuration for On Demand Discovery.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.on_demand.v3.PerRouteConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :odcds, 1, type: Envoy.Extensions.Filters.Http.OnDemand.V3.OnDemandCds
 end

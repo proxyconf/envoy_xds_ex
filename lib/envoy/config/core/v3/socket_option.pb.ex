@@ -1,9 +1,30 @@
 defmodule Envoy.Config.Core.V3.SocketOption.SocketState do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.core.v3.SocketOption.SocketState",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :STATE_PREBIND, 0
   field :STATE_BOUND, 1
   field :STATE_LISTENING, 2
+end
+
+defmodule Envoy.Config.Core.V3.SocketOption.SocketIpVersion do
+  @moduledoc """
+  The `socket IP version <https://linux.die.net/man/2/socket>`_ to apply the
+  socket option to.
+  """
+
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.core.v3.SocketOption.SocketIpVersion",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :SOCKET_IP_VERSION_UNSPECIFIED, 0
+  field :SOCKET_IP_VERSION_IPV4, 1
+  field :SOCKET_IP_VERSION_IPV6, 2
 end
 
 defmodule Envoy.Config.Core.V3.SocketOption.SocketType.Stream do
@@ -11,7 +32,10 @@ defmodule Envoy.Config.Core.V3.SocketOption.SocketType.Stream do
   The stream socket type.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SocketOption.SocketType.Stream",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.SocketOption.SocketType.Datagram do
@@ -19,7 +43,10 @@ defmodule Envoy.Config.Core.V3.SocketOption.SocketType.Datagram do
   The datagram socket type.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SocketOption.SocketType.Datagram",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.SocketOption.SocketType do
@@ -33,7 +60,10 @@ defmodule Envoy.Config.Core.V3.SocketOption.SocketType do
   it takes precedence over :ref:`datagram <envoy_v3_api_field_config.core.v3.SocketOption.SocketType.datagram>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SocketOption.SocketType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :stream, 1, type: Envoy.Config.Core.V3.SocketOption.SocketType.Stream
   field :datagram, 2, type: Envoy.Config.Core.V3.SocketOption.SocketType.Datagram
@@ -48,13 +78,13 @@ defmodule Envoy.Config.Core.V3.SocketOption do
 
   .. code-block:: json
 
-  {
-  "description": "support tcp keep alive",
-  "state": 0,
-  "level": 1,
-  "name": 9,
-  "int_value": 1,
-  }
+   {
+     "description": "support tcp keep alive",
+     "state": 0,
+     "level": 1,
+     "name": 9,
+     "int_value": 1,
+   }
 
   1 means SOL_SOCKET and 9 means SO_KEEPALIVE on Linux.
   With the above configuration, `TCP Keep-Alives <https://www.freesoft.org/CIE/RFC/1122/114.htm>`_
@@ -63,11 +93,14 @@ defmodule Envoy.Config.Core.V3.SocketOption do
   :ref:`admin's <envoy_v3_api_field_config.bootstrap.v3.Admin.socket_options>` socket_options etc.
 
   It should be noted that the name or level may have different values on different platforms.
-  [#next-free-field: 8]
+  [#next-free-field: 9]
   [#protodoc-title: Socket option]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SocketOption",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :value, 0
 
@@ -83,10 +116,18 @@ defmodule Envoy.Config.Core.V3.SocketOption do
     deprecated: false
 
   field :type, 7, type: Envoy.Config.Core.V3.SocketOption.SocketType
+
+  field :ip_version, 8,
+    type: Envoy.Config.Core.V3.SocketOption.SocketIpVersion,
+    json_name: "ipVersion",
+    enum: true
 end
 
 defmodule Envoy.Config.Core.V3.SocketOptionsOverride do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SocketOptionsOverride",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :socket_options, 1,
     repeated: true,

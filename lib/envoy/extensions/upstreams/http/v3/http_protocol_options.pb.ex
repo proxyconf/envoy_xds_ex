@@ -4,7 +4,10 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.ExplicitHttpCon
   Note that HTTP/2 or above should generally be used for upstream gRPC clusters.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :protocol_config, 0
 
@@ -33,7 +36,10 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.UseDownstreamHt
   HTTP/3 requests will fail over to HTTP/2.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :http_protocol_options, 1,
     type: Envoy.Config.Core.V3.Http1ProtocolOptions,
@@ -61,7 +67,10 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.AutoHttpConfig 
   for the cluster (or if custom ALPN fails) will be "h2,http/1.1".
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :http_protocol_options, 1,
     type: Envoy.Config.Core.V3.Http1ProtocolOptions,
@@ -80,6 +89,18 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.AutoHttpConfig 
     json_name: "alternateProtocolsCacheOptions"
 end
 
+defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.OutlierDetection do
+  use Protobuf,
+    full_name: "envoy.extensions.upstreams.http.v3.HttpProtocolOptions.OutlierDetection",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :error_matcher, 1,
+    type: Envoy.Config.Common.Matcher.V3.MatchPredicate,
+    json_name: "errorMatcher",
+    deprecated: false
+end
+
 defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions do
   @moduledoc """
   HttpProtocolOptions specifies Http upstream protocol options. This object
@@ -94,41 +115,44 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions do
 
   .. code::
 
-  clusters:
-  - name: some_service
-  connect_timeout: 5s
-  upstream_http_protocol_options:
-  auto_sni: true
-  common_http_protocol_options:
-  idle_timeout: 1s
-  http2_protocol_options:
-  max_concurrent_streams: 100
-  .... [further cluster config]
+    clusters:
+      - name: some_service
+        connect_timeout: 5s
+        upstream_http_protocol_options:
+          auto_sni: true
+        common_http_protocol_options:
+          idle_timeout: 1s
+        http2_protocol_options:
+          max_concurrent_streams: 100
+         .... [further cluster config]
 
   Would now look like this:
 
   .. code::
 
-  clusters:
-  - name: some_service
-  connect_timeout: 5s
-  typed_extension_protocol_options:
-  envoy.extensions.upstreams.http.v3.HttpProtocolOptions:
-  "@type": type.googleapis.com/envoy.extensions.upstreams.http.v3.HttpProtocolOptions
-  upstream_http_protocol_options:
-  auto_sni: true
-  common_http_protocol_options:
-  idle_timeout: 1s
-  explicit_http_config:
-  http2_protocol_options:
-  max_concurrent_streams: 100
-  .... [further cluster config]
-  [#next-free-field: 8]
+    clusters:
+      - name: some_service
+        connect_timeout: 5s
+        typed_extension_protocol_options:
+          envoy.extensions.upstreams.http.v3.HttpProtocolOptions:
+            "@type": type.googleapis.com/envoy.extensions.upstreams.http.v3.HttpProtocolOptions
+            upstream_http_protocol_options:
+              auto_sni: true
+            common_http_protocol_options:
+              idle_timeout: 1s
+            explicit_http_config:
+              http2_protocol_options:
+                max_concurrent_streams: 100
+         .... [further cluster config]
+  [#next-free-field: 12]
   [#protodoc-title: HTTP Protocol Options]
   [#extension: envoy.upstreams.http.http_protocol_options]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.upstreams.http.v3.HttpProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :upstream_protocol_options, 0
 
@@ -163,4 +187,20 @@ defmodule Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions do
   field :header_validation_config, 7,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,
     json_name: "headerValidationConfig"
+
+  field :outlier_detection, 8,
+    type: Envoy.Extensions.Upstreams.Http.V3.HttpProtocolOptions.OutlierDetection,
+    json_name: "outlierDetection"
+
+  field :request_mirror_policies, 9,
+    repeated: true,
+    type: Envoy.Config.Route.V3.RouteAction.RequestMirrorPolicy,
+    json_name: "requestMirrorPolicies"
+
+  field :hash_policy, 10,
+    repeated: true,
+    type: Envoy.Config.Route.V3.RouteAction.HashPolicy,
+    json_name: "hashPolicy"
+
+  field :retry_policy, 11, type: Envoy.Config.Route.V3.RetryPolicy, json_name: "retryPolicy"
 end

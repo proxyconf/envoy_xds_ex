@@ -7,7 +7,11 @@ defmodule Envoy.Config.Core.V3.HttpProtocolOptions.HeadersWithUnderscoresAction 
   characters.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.core.v3.HttpProtocolOptions.HeadersWithUnderscoresAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ALLOW, 0
   field :REJECT_REQUEST, 1
@@ -20,17 +24,26 @@ defmodule Envoy.Config.Core.V3.TcpProtocolOptions do
   [#protodoc-title: Protocol options]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.TcpProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.QuicKeepAliveSettings do
   @moduledoc """
   Config for keepalive probes in a QUIC connection.
-  Note that QUIC keep-alive probing packets work differently from HTTP/2 keep-alive PINGs in a sense that the probing packet
-  itself doesn't timeout waiting for a probing response. Quic has a shorter idle timeout than TCP, so it doesn't rely on such probing to discover dead connections. If the peer fails to respond, the connection will idle timeout eventually. Thus, they are configured differently from :ref:`connection_keepalive <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.connection_keepalive>`.
+
+  .. note::
+
+    QUIC keep-alive probing packets work differently from HTTP/2 keep-alive PINGs in a sense that the probing packet
+    itself doesn't timeout waiting for a probing response. QUIC has a shorter idle timeout than TCP, so it doesn't rely on such probing to discover dead connections. If the peer fails to respond, the connection will idle timeout eventually. Thus, they are configured differently from :ref:`connection_keepalive <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.connection_keepalive>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.QuicKeepAliveSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_interval, 1, type: Google.Protobuf.Duration, json_name: "maxInterval"
 
@@ -40,13 +53,61 @@ defmodule Envoy.Config.Core.V3.QuicKeepAliveSettings do
     deprecated: false
 end
 
+defmodule Envoy.Config.Core.V3.QuicProtocolOptions.ConnectionMigrationSettings.MigrateIdleConnectionSettings do
+  @moduledoc """
+  Config for options to migrate idle connections which aren't serving any requests.
+  """
+
+  use Protobuf,
+    full_name:
+      "envoy.config.core.v3.QuicProtocolOptions.ConnectionMigrationSettings.MigrateIdleConnectionSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :max_idle_time_before_migration, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "maxIdleTimeBeforeMigration",
+    deprecated: false
+end
+
+defmodule Envoy.Config.Core.V3.QuicProtocolOptions.ConnectionMigrationSettings do
+  @moduledoc """
+  Config for QUIC connection migration across network interfaces, i.e. cellular to WIFI, upon
+  network change events from the platform, i.e. the current network gets
+  disconnected, or upon the QUIC detecting a bad connection. After migration, the
+  connection may be on a different network other than the default network
+  picked by the platform. Both iOS and Android will use a default network to interact with the internet, usually prefer unmetered network (WIFI)
+  over metered ones (cellular). And users can specify which network to be used as the default. A connection on non-default network is only allowed to
+  serve new requests for a certain period of time before being drained, and
+  meanwhile, QUIC will try to migrate to the default network if possible.
+  """
+
+  use Protobuf,
+    full_name: "envoy.config.core.v3.QuicProtocolOptions.ConnectionMigrationSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :migrate_idle_connections, 1,
+    type:
+      Envoy.Config.Core.V3.QuicProtocolOptions.ConnectionMigrationSettings.MigrateIdleConnectionSettings,
+    json_name: "migrateIdleConnections"
+
+  field :max_time_on_non_default_network, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "maxTimeOnNonDefaultNetwork",
+    deprecated: false
+end
+
 defmodule Envoy.Config.Core.V3.QuicProtocolOptions do
   @moduledoc """
   QUIC protocol options which apply to both downstream and upstream connections.
-  [#next-free-field: 10]
+  [#next-free-field: 12]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.QuicProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_concurrent_streams, 1,
     type: Google.Protobuf.UInt32Value,
@@ -81,10 +142,21 @@ defmodule Envoy.Config.Core.V3.QuicProtocolOptions do
     deprecated: false
 
   field :max_packet_length, 9, type: Google.Protobuf.UInt64Value, json_name: "maxPacketLength"
+
+  field :client_packet_writer, 10,
+    type: Envoy.Config.Core.V3.TypedExtensionConfig,
+    json_name: "clientPacketWriter"
+
+  field :connection_migration, 11,
+    type: Envoy.Config.Core.V3.QuicProtocolOptions.ConnectionMigrationSettings,
+    json_name: "connectionMigration"
 end
 
 defmodule Envoy.Config.Core.V3.UpstreamHttpProtocolOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.UpstreamHttpProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :auto_sni, 1, type: :bool, json_name: "autoSni"
   field :auto_san_validation, 2, type: :bool, json_name: "autoSanValidation"
@@ -108,7 +180,10 @@ defmodule Envoy.Config.Core.V3.AlternateProtocolsCacheOptions.AlternateProtocols
   alt-svc: h3=:"123"; ma=86400" in a response to a request to foo.com:123
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :port, 2, type: :uint32, deprecated: false
@@ -123,7 +198,10 @@ defmodule Envoy.Config.Core.V3.AlternateProtocolsCacheOptions do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.AlternateProtocolsCacheOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -149,7 +227,10 @@ defmodule Envoy.Config.Core.V3.HttpProtocolOptions do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.HttpProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :idle_timeout, 1, type: Google.Protobuf.Duration, json_name: "idleTimeout"
 
@@ -180,7 +261,10 @@ defmodule Envoy.Config.Core.V3.HttpProtocolOptions do
 end
 
 defmodule Envoy.Config.Core.V3.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.Http1ProtocolOptions.HeaderKeyFormat do
@@ -188,7 +272,10 @@ defmodule Envoy.Config.Core.V3.Http1ProtocolOptions.HeaderKeyFormat do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.Http1ProtocolOptions.HeaderKeyFormat",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :header_format, 0
 
@@ -208,7 +295,10 @@ defmodule Envoy.Config.Core.V3.Http1ProtocolOptions do
   [#next-free-field: 12]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.Http1ProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :allow_absolute_url, 1, type: Google.Protobuf.BoolValue, json_name: "allowAbsoluteUrl"
   field :accept_http_10, 2, type: :bool, json_name: "acceptHttp10"
@@ -230,7 +320,7 @@ defmodule Envoy.Config.Core.V3.Http1ProtocolOptions do
   field :use_balsa_parser, 9,
     type: Google.Protobuf.BoolValue,
     json_name: "useBalsaParser",
-    deprecated: false
+    deprecated: true
 
   field :allow_custom_methods, 10, type: :bool, json_name: "allowCustomMethods", deprecated: false
 
@@ -241,7 +331,10 @@ defmodule Envoy.Config.Core.V3.Http1ProtocolOptions do
 end
 
 defmodule Envoy.Config.Core.V3.KeepaliveSettings do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.KeepaliveSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :interval, 1, type: Google.Protobuf.Duration, deprecated: false
   field :timeout, 2, type: Google.Protobuf.Duration, deprecated: false
@@ -259,7 +352,10 @@ defmodule Envoy.Config.Core.V3.Http2ProtocolOptions.SettingsParameter do
   See `RFC7540, sec. 6.5.1 <https://tools.ietf.org/html/rfc7540#section-6.5.1>`_ for details.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.Http2ProtocolOptions.SettingsParameter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :identifier, 1, type: Google.Protobuf.UInt32Value, deprecated: false
   field :value, 2, type: Google.Protobuf.UInt32Value, deprecated: false
@@ -267,10 +363,13 @@ end
 
 defmodule Envoy.Config.Core.V3.Http2ProtocolOptions do
   @moduledoc """
-  [#next-free-field: 18]
+  [#next-free-field: 19]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.Http2ProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :hpack_table_size, 1, type: Google.Protobuf.UInt32Value, json_name: "hpackTableSize"
 
@@ -339,6 +438,10 @@ defmodule Envoy.Config.Core.V3.Http2ProtocolOptions do
     deprecated: false
 
   field :max_metadata_size, 17, type: Google.Protobuf.UInt64Value, json_name: "maxMetadataSize"
+
+  field :enable_huffman_encoding, 18,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enableHuffmanEncoding"
 end
 
 defmodule Envoy.Config.Core.V3.GrpcProtocolOptions do
@@ -346,7 +449,10 @@ defmodule Envoy.Config.Core.V3.GrpcProtocolOptions do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.GrpcProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :http2_protocol_options, 1,
     type: Envoy.Config.Core.V3.Http2ProtocolOptions,
@@ -356,10 +462,13 @@ end
 defmodule Envoy.Config.Core.V3.Http3ProtocolOptions do
   @moduledoc """
   A message which allows using HTTP/3.
-  [#next-free-field: 7]
+  [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.Http3ProtocolOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :quic_protocol_options, 1,
     type: Envoy.Config.Core.V3.QuicProtocolOptions,
@@ -375,6 +484,11 @@ defmodule Envoy.Config.Core.V3.Http3ProtocolOptions do
     deprecated: false
 
   field :allow_metadata, 6, type: :bool, json_name: "allowMetadata"
+  field :disable_qpack, 7, type: :bool, json_name: "disableQpack"
+
+  field :disable_connection_flow_control_for_streams, 8,
+    type: :bool,
+    json_name: "disableConnectionFlowControlForStreams"
 end
 
 defmodule Envoy.Config.Core.V3.SchemeHeaderTransformation do
@@ -382,7 +496,10 @@ defmodule Envoy.Config.Core.V3.SchemeHeaderTransformation do
   A message to control transformations to the :scheme header
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SchemeHeaderTransformation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :transformation, 0
 

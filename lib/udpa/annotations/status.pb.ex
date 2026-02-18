@@ -1,5 +1,9 @@
 defmodule Udpa.Annotations.PackageVersionStatus do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "udpa.annotations.PackageVersionStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :UNKNOWN, 0
   field :FROZEN, 1
@@ -8,7 +12,10 @@ defmodule Udpa.Annotations.PackageVersionStatus do
 end
 
 defmodule Udpa.Annotations.StatusAnnotation do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "udpa.annotations.StatusAnnotation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :work_in_progress, 1, type: :bool, json_name: "workInProgress"
 

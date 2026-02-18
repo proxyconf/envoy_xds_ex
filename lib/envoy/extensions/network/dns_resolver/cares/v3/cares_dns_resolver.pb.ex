@@ -1,12 +1,15 @@
 defmodule Envoy.Extensions.Network.DnsResolver.Cares.V3.CaresDnsResolverConfig do
   @moduledoc """
   Configuration for c-ares DNS resolver.
-  [#next-free-field: 9]
+  [#next-free-field: 12]
   [#protodoc-title: c-ares DNS resolver]
   [#extension: envoy.network.dns_resolver.cares]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.network.dns_resolver.cares.v3.CaresDnsResolverConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :resolvers, 1, repeated: true, type: Envoy.Config.Core.V3.Address
   field :use_resolvers_as_fallback, 3, type: :bool, json_name: "useResolversAsFallback"
@@ -29,4 +32,16 @@ defmodule Envoy.Extensions.Network.DnsResolver.Cares.V3.CaresDnsResolverConfig d
     deprecated: false
 
   field :rotate_nameservers, 8, type: :bool, json_name: "rotateNameservers"
+
+  field :edns0_max_payload_size, 9,
+    type: Google.Protobuf.UInt32Value,
+    json_name: "edns0MaxPayloadSize",
+    deprecated: false
+
+  field :max_udp_channel_duration, 10,
+    type: Google.Protobuf.Duration,
+    json_name: "maxUdpChannelDuration",
+    deprecated: false
+
+  field :reinit_channel_on_timeout, 11, type: :bool, json_name: "reinitChannelOnTimeout"
 end

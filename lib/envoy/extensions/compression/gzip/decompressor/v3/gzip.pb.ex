@@ -4,7 +4,10 @@ defmodule Envoy.Extensions.Compression.Gzip.Decompressor.V3.Gzip do
   [#extension: envoy.compression.gzip.decompressor]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.compression.gzip.decompressor.v3.Gzip",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :window_bits, 1,
     type: Google.Protobuf.UInt32Value,

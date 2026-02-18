@@ -7,7 +7,10 @@ defmodule Envoy.Extensions.Http.CustomResponse.RedirectPolicy.V3.RedirectPolicy 
   [#extension: envoy.http.custom_response.redirect_policy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.http.custom_response.redirect_policy.v3.RedirectPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :redirect_action_specifier, 0
 

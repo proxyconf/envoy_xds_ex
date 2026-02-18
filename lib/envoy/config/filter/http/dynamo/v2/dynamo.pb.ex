@@ -6,5 +6,8 @@ defmodule Envoy.Config.Filter.Http.Dynamo.V2.Dynamo do
   [#extension: envoy.filters.http.dynamo]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.dynamo.v2.Dynamo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

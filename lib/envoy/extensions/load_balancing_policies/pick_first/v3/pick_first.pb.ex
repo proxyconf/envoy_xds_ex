@@ -6,7 +6,10 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.PickFirst.V3.PickFirst do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.load_balancing_policies.pick_first.v3.PickFirst",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :shuffle_address_list, 1, type: :bool, json_name: "shuffleAddressList"
 end

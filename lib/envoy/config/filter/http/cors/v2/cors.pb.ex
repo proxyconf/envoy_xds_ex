@@ -6,5 +6,8 @@ defmodule Envoy.Config.Filter.Http.Cors.V2.Cors do
   [#extension: envoy.filters.http.cors]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.cors.v2.Cors",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

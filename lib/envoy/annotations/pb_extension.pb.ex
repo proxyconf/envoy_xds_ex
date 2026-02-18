@@ -1,5 +1,5 @@
 defmodule Envoy.Annotations.PbExtension do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1"
+  use Protobuf, protoc_gen_elixir_version: "0.16.0"
 
   extend Google.Protobuf.FieldOptions, :disallowed_by_default, 189_503_207,
     optional: true,

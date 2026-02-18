@@ -4,7 +4,10 @@ defmodule Envoy.Config.Filter.Http.Compressor.V2.Compressor do
   [#protodoc-title: Compressor]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.compressor.v2.Compressor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :content_length, 1, type: Google.Protobuf.UInt32Value, json_name: "contentLength"
   field :content_type, 2, repeated: true, type: :string, json_name: "contentType"

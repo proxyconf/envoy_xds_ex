@@ -3,11 +3,14 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaUsageReports.BucketQuota
   The usage report for a bucket.
 
   .. note::
-  Note that the first report sent for a ``BucketId`` indicates to the RLQS server that
-  the RLQS client is subscribing for the future assignments for this ``BucketId``.
+    Note that the first report sent for a ``BucketId`` indicates to the RLQS server that
+    the RLQS client is subscribing for the future assignments for this ``BucketId``.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.rate_limit_quota.v3.RateLimitQuotaUsageReports.BucketQuotaUsage",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bucket_id, 1,
     type: Envoy.Service.RateLimitQuota.V3.BucketId,
@@ -24,7 +27,10 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaUsageReports.BucketQuota
 end
 
 defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaUsageReports do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.rate_limit_quota.v3.RateLimitQuotaUsageReports",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :domain, 1, type: :string, deprecated: false
 
@@ -62,17 +68,21 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction.Qu
   **Replacing the assignment**
 
   * If the rate limiting strategy is different from bucket's ``active`` assignment, or
-  the current bucket assignment is ``expired``, the data plane must immediately
-  end the current assignment, report the bucket usage, and apply the new assignment.
-  The new assignment becomes bucket's ``active`` assignment.
+    the current bucket assignment is ``expired``, the data plane must immediately
+    end the current assignment, report the bucket usage, and apply the new assignment.
+    The new assignment becomes bucket's ``active`` assignment.
   * If the rate limiting strategy is the same as the bucket's ``active`` (not ``expired``)
-  assignment, the data plane should extend the duration of the ``active`` assignment
-  for the duration of the new assignment provided in the :ref:`assignment_time_to_live
-  <envoy_v3_api_field_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction.assignment_time_to_live>`
-  field. The ``active`` assignment is considered unchanged.
+    assignment, the data plane should extend the duration of the ``active`` assignment
+    for the duration of the new assignment provided in the :ref:`assignment_time_to_live
+    <envoy_v3_api_field_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction.assignment_time_to_live>`
+    field. The ``active`` assignment is considered unchanged.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :assignment_time_to_live, 2,
     type: Google.Protobuf.Duration,
@@ -106,19 +116,23 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction.Ab
   as if it has never tracked the bucket, and it's the first request matched into it:
 
   1. The process of :ref:`subscription and reporting
-  <envoy_v3_api_field_extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.reporting_interval>`
-  starts from the beginning.
+     <envoy_v3_api_field_extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.reporting_interval>`
+     starts from the beginning.
 
   2. The bucket transitions to the :ref:`"no assignment"
-  <envoy_v3_api_field_extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.no_assignment_behavior>`
-  state.
+     <envoy_v3_api_field_extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.no_assignment_behavior>`
+     state.
 
   3. Once the new assignment is received, it's applied per
-  "Applying the first assignment to the bucket" section of the :ref:`QuotaAssignmentAction
-  <envoy_v3_api_msg_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction>`.
+     "Applying the first assignment to the bucket" section of the :ref:`QuotaAssignmentAction
+     <envoy_v3_api_msg_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction do
@@ -127,7 +141,10 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction do
   :ref:`bucket_id <envoy_v3_api_field_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.bucket_id>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :bucket_action, 0
 
@@ -149,7 +166,10 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse.BucketAction do
 end
 
 defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bucket_action, 1,
     repeated: true,
@@ -159,7 +179,11 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaResponse do
 end
 
 defmodule Envoy.Service.RateLimitQuota.V3.BucketId.BucketEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.rate_limit_quota.v3.BucketId.BucketEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -171,25 +195,28 @@ defmodule Envoy.Service.RateLimitQuota.V3.BucketId do
   and the data plane (RLQS client), f.e.:
 
   * the data plane sends a usage report for requests matched into the bucket with ``BucketId``
-  to the control plane
+    to the control plane
   * the control plane sends an assignment for the bucket with ``BucketId`` to the data plane
-  Bucket ID.
+    Bucket ID.
 
   Example:
 
   .. validated-code-block:: yaml
-  :type-name: envoy.service.rate_limit_quota.v3.BucketId
+    :type-name: envoy.service.rate_limit_quota.v3.BucketId
 
-  bucket:
-  name: my_bucket
-  env: staging
+    bucket:
+      name: my_bucket
+      env: staging
 
   .. note::
-  The order of ``BucketId`` keys do not matter. Buckets ``{ a: 'A', b: 'B' }`` and
-  ``{ b: 'B', a: 'A' }`` are identical.
+    The order of ``BucketId`` keys do not matter. Buckets ``{ a: 'A', b: 'B' }`` and
+    ``{ b: 'B', a: 'A' }`` are identical.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.rate_limit_quota.v3.BucketId",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bucket, 1,
     repeated: true,
@@ -239,7 +266,7 @@ defmodule Envoy.Service.RateLimitQuota.V3.RateLimitQuotaService.Service do
 
   use GRPC.Service,
     name: "envoy.service.rate_limit_quota.v3.RateLimitQuotaService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :StreamRateLimitQuotas,
       stream(Envoy.Service.RateLimitQuota.V3.RateLimitQuotaUsageReports),

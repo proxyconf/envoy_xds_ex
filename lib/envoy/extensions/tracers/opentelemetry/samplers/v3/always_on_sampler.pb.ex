@@ -10,5 +10,8 @@ defmodule Envoy.Extensions.Tracers.Opentelemetry.Samplers.V3.AlwaysOnSamplerConf
   [#extension: envoy.tracers.opentelemetry.samplers.always_on]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.tracers.opentelemetry.samplers.v3.AlwaysOnSamplerConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

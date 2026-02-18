@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Matching.CommonInputs.EnvironmentVariable.V3.Config d
   [#extension: envoy.matching.common_inputs.environment_variable]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.matching.common_inputs.environment_variable.v3.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

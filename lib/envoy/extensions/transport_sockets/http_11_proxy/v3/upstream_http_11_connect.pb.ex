@@ -20,7 +20,10 @@ defmodule Envoy.Extensions.TransportSockets.Http11Proxy.V3.Http11ProxyUpstreamTr
   [#extension: envoy.transport_sockets.http_11_proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.transport_sockets.http_11_proxy.v3.Http11ProxyUpstreamTransport",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :transport_socket, 1,
     type: Envoy.Config.Core.V3.TransportSocket,

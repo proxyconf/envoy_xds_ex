@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Listener.V3.FilterChainMatch.ConnectionSourceType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.listener.v3.FilterChainMatch.ConnectionSourceType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ANY, 0
   field :SAME_IP_OR_LOOPBACK, 1
@@ -13,7 +17,10 @@ defmodule Envoy.Config.Listener.V3.Filter do
   Listener :ref:`configuration overview <config_listeners>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.Filter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 
@@ -43,8 +50,8 @@ defmodule Envoy.Config.Listener.V3.FilterChainMatch do
   4. Transport protocol.
   5. Application protocols (e.g. ALPN for TLS protocol).
   6. Directly connected source IP address (this will only be different from the source IP address
-  when using a listener filter that overrides the source address, such as the :ref:`Proxy Protocol
-  listener filter <config_listener_filters_proxy_protocol>`).
+     when using a listener filter that overrides the source address, such as the :ref:`Proxy Protocol
+     listener filter <config_listener_filters_proxy_protocol>`).
   7. Source type (e.g. any, local or external network).
   8. Source IP address.
   9. Source port.
@@ -74,7 +81,10 @@ defmodule Envoy.Config.Listener.V3.FilterChainMatch do
   [#next-free-field: 14]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.FilterChainMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :destination_port, 8,
     type: Google.Protobuf.UInt32Value,
@@ -127,7 +137,10 @@ defmodule Envoy.Config.Listener.V3.FilterChain do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.FilterChain",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :filter_chain_match, 1,
     type: Envoy.Config.Listener.V3.FilterChainMatch,
@@ -158,7 +171,10 @@ defmodule Envoy.Config.Listener.V3.ListenerFilterChainMatchPredicate.MatchSet do
   A set of match configurations used for logical operations.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.ListenerFilterChainMatchPredicate.MatchSet",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -177,27 +193,30 @@ defmodule Envoy.Config.Listener.V3.ListenerFilterChainMatchPredicate do
 
   .. code-block:: yaml
 
-  destination_port_range:
-  start: 3306
-  end: 3307
+   destination_port_range:
+    start: 3306
+    end: 3307
 
   * Matches if the destination port is 3306 or 15000.
 
   .. code-block:: yaml
 
-  or_match:
-  rules:
-  - destination_port_range:
-  start: 3306
-  end: 3307
-  - destination_port_range:
-  start: 15000
-  end: 15001
+   or_match:
+     rules:
+       - destination_port_range:
+           start: 3306
+           end: 3307
+       - destination_port_range:
+           start: 15000
+           end: 15001
 
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.ListenerFilterChainMatchPredicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :rule, 0
 
@@ -229,7 +248,10 @@ defmodule Envoy.Config.Listener.V3.ListenerFilter do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.ListenerFilter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 

@@ -5,7 +5,10 @@ defmodule Envoy.Data.Tap.V2alpha.Body do
   [#protodoc-title: Tap common data]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v2alpha.Body",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :body_type, 0
 

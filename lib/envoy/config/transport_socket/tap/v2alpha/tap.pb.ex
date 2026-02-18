@@ -6,7 +6,10 @@ defmodule Envoy.Config.TransportSocket.Tap.V2alpha.Tap do
   [#extension: envoy.transport_sockets.tap]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.transport_socket.tap.v2alpha.Tap",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :common_config, 1,
     type: Envoy.Config.Common.Tap.V2alpha.CommonExtensionConfig,

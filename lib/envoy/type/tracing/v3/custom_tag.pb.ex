@@ -3,7 +3,10 @@ defmodule Envoy.Type.Tracing.V3.CustomTag.Literal do
   Literal type custom tag with static value for the tag value.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.tracing.v3.CustomTag.Literal",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :value, 1, type: :string, deprecated: false
 end
@@ -13,7 +16,10 @@ defmodule Envoy.Type.Tracing.V3.CustomTag.Environment do
   Environment type custom tag with environment name and default value.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.tracing.v3.CustomTag.Environment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :default_value, 2, type: :string, json_name: "defaultValue"
@@ -24,7 +30,10 @@ defmodule Envoy.Type.Tracing.V3.CustomTag.Header do
   Header type custom tag with header name and default value.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.tracing.v3.CustomTag.Header",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :default_value, 2, type: :string, json_name: "defaultValue"
@@ -39,7 +48,10 @@ defmodule Envoy.Type.Tracing.V3.CustomTag.Metadata do
   representation of it.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.tracing.v3.CustomTag.Metadata",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :kind, 1, type: Envoy.Type.Metadata.V3.MetadataKind
   field :metadata_key, 2, type: Envoy.Type.Metadata.V3.MetadataKey, json_name: "metadataKey"
@@ -49,11 +61,14 @@ end
 defmodule Envoy.Type.Tracing.V3.CustomTag do
   @moduledoc """
   Describes custom tags for the active span.
-  [#next-free-field: 6]
+  [#next-free-field: 7]
   [#protodoc-title: Custom Tag]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.tracing.v3.CustomTag",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :type, 0
 
@@ -67,4 +82,5 @@ defmodule Envoy.Type.Tracing.V3.CustomTag do
     oneof: 0
 
   field :metadata, 5, type: Envoy.Type.Tracing.V3.CustomTag.Metadata, oneof: 0
+  field :value, 6, type: :string, oneof: 0
 end

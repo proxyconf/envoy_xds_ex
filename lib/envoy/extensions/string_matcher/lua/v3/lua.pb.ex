@@ -9,17 +9,20 @@ defmodule Envoy.Extensions.StringMatcher.Lua.V3.Lua do
 
   .. code-block:: yaml
 
-  source_code:
-  inline_string: |
-  function envoy_match(str)
-  -- Do something.
-  return true
-  end
+    source_code:
+      inline_string: |
+        function envoy_match(str)
+            -- Do something.
+            return true
+        end
 
   [#extension: envoy.string_matcher.lua]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.string_matcher.lua.v3.Lua",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :source_code, 1,
     type: Envoy.Config.Core.V3.DataSource,

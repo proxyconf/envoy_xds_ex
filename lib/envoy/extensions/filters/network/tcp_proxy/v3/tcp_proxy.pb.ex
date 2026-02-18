@@ -1,5 +1,28 @@
+defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.UpstreamConnectMode do
+  @moduledoc """
+  Specifies when the TCP proxy establishes the upstream connection.
+  [#protodoc-title: TCP Proxy]
+  TCP Proxy :ref:`configuration overview <config_network_filters_tcp_proxy>`.
+  [#extension: envoy.filters.network.tcp_proxy]
+  """
+
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.network.tcp_proxy.v3.UpstreamConnectMode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :IMMEDIATE, 0
+  field :ON_DOWNSTREAM_DATA, 1
+  field :ON_DOWNSTREAM_TLS_HANDSHAKE, 2
+end
+
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.WeightedCluster.ClusterWeight do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.tcp_proxy.v3.TcpProxy.WeightedCluster.ClusterWeight",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :weight, 2, type: :uint32, deprecated: false
@@ -8,12 +31,14 @@ end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.WeightedCluster do
   @moduledoc """
-  Allows for specification of multiple upstream clusters along with weights
-  that indicate the percentage of traffic to be forwarded to each cluster.
-  The router selects an upstream cluster based on these weights.
+  Allows specification of multiple upstream clusters along with weights indicating the percentage of
+  traffic forwarded to each cluster. The cluster selection is based on these weights.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.tcp_proxy.v3.TcpProxy.WeightedCluster",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :clusters, 1,
     repeated: true,
@@ -24,12 +49,15 @@ end
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TunnelingConfig do
   @moduledoc """
   Configuration for tunneling TCP over other transports or application layers.
-  Tunneling is supported over both HTTP/1.1 and HTTP/2. Upstream protocol is
+  Tunneling is supported over HTTP/1.1 and HTTP/2. The upstream protocol is
   determined by the cluster configuration.
-  [#next-free-field: 7]
+  [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.tcp_proxy.v3.TcpProxy.TunnelingConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :use_post, 2, type: :bool, json_name: "usePost"
@@ -43,10 +71,20 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TunnelingConfig 
   field :propagate_response_headers, 4, type: :bool, json_name: "propagateResponseHeaders"
   field :post_path, 5, type: :string, json_name: "postPath"
   field :propagate_response_trailers, 6, type: :bool, json_name: "propagateResponseTrailers"
+
+  field :request_id_extension, 7,
+    type: Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.RequestIDExtension,
+    json_name: "requestIdExtension"
+
+  field :request_id_header, 8, type: :string, json_name: "requestIdHeader"
+  field :request_id_metadata_key, 9, type: :string, json_name: "requestIdMetadataKey"
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.OnDemand do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.tcp_proxy.v3.TcpProxy.OnDemand",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :odcds_config, 1, type: Envoy.Config.Core.V3.ConfigSource, json_name: "odcdsConfig"
   field :resources_locator, 2, type: :string, json_name: "resourcesLocator"
@@ -54,7 +92,10 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.OnDemand do
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TcpAccessLogOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.tcp_proxy.v3.TcpProxy.TcpAccessLogOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :access_log_flush_interval, 1,
     type: Google.Protobuf.Duration,
@@ -62,17 +103,18 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy.TcpAccessLogOpti
     deprecated: false
 
   field :flush_access_log_on_connected, 2, type: :bool, json_name: "flushAccessLogOnConnected"
+  field :flush_access_log_on_start, 3, type: :bool, json_name: "flushAccessLogOnStart"
 end
 
 defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy do
   @moduledoc """
-  [#next-free-field: 20]
-  [#protodoc-title: TCP Proxy]
-  TCP Proxy :ref:`configuration overview <config_network_filters_tcp_proxy>`.
-  [#extension: envoy.filters.network.tcp_proxy]
+  [#next-free-field: 23]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.tcp_proxy.v3.TcpProxy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :cluster_specifier, 0
 
@@ -128,6 +170,10 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy do
     json_name: "maxDownstreamConnectionDuration",
     deprecated: false
 
+  field :max_downstream_connection_duration_jitter_percentage, 20,
+    type: Envoy.Type.V3.Percent,
+    json_name: "maxDownstreamConnectionDurationJitterPercentage"
+
   field :access_log_flush_interval, 15,
     type: Google.Protobuf.Duration,
     json_name: "accessLogFlushInterval",
@@ -146,4 +192,15 @@ defmodule Envoy.Extensions.Filters.Network.TcpProxy.V3.TcpProxy do
     repeated: true,
     type: Envoy.Config.Core.V3.TlvEntry,
     json_name: "proxyProtocolTlvs"
+
+  field :upstream_connect_mode, 21,
+    type: Envoy.Extensions.Filters.Network.TcpProxy.V3.UpstreamConnectMode,
+    json_name: "upstreamConnectMode",
+    enum: true,
+    deprecated: false
+
+  field :max_early_data_bytes, 22,
+    type: Google.Protobuf.UInt32Value,
+    json_name: "maxEarlyDataBytes",
+    deprecated: false
 end

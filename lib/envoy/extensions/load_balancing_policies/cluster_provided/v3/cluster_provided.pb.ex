@@ -5,11 +5,14 @@ defmodule Envoy.Extensions.LoadBalancingPolicies.ClusterProvided.V3.ClusterProvi
   is created.
 
   .. note::
-  Cluster provided load balancing policy could not be used as sub-policy of other hierarchical
-  load balancing policies, such as subset load balancing policy.
+    Cluster provided load balancing policy could not be used as sub-policy of other hierarchical
+    load balancing policies, such as subset load balancing policy.
   [#protodoc-title: Cluster Provided Load Balancing Policy]
   [#extension: envoy.load_balancing_policies.cluster_provided]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.load_balancing_policies.cluster_provided.v3.ClusterProvided",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

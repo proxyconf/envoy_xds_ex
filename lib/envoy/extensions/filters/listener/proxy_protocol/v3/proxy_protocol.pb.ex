@@ -1,5 +1,23 @@
+defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol.TlvLocation do
+  @moduledoc """
+  Controls where TLV values are stored when rules match.
+  """
+
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.listener.proxy_protocol.v3.ProxyProtocol.TlvLocation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :DYNAMIC_METADATA, 0
+  field :FILTER_STATE, 1
+end
+
 defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol.KeyValuePair do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.listener.proxy_protocol.v3.ProxyProtocol.KeyValuePair",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace"
   field :key, 2, type: :string, deprecated: false
@@ -10,7 +28,10 @@ defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol.Rule 
   A Rule defines what metadata to apply when a header is present or missing.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.listener.proxy_protocol.v3.ProxyProtocol.Rule",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :tlv_type, 1, type: :uint32, json_name: "tlvType", deprecated: false
 
@@ -21,13 +42,16 @@ end
 
 defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol do
   @moduledoc """
-  [#next-free-field: 6]
+  [#next-free-field: 7]
   [#protodoc-title: Proxy Protocol Filter]
   PROXY protocol listener filter.
   [#extension: envoy.filters.listener.proxy_protocol]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.listener.proxy_protocol.v3.ProxyProtocol",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -48,4 +72,9 @@ defmodule Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol do
     enum: true
 
   field :stat_prefix, 5, type: :string, json_name: "statPrefix"
+
+  field :tlv_location, 6,
+    type: Envoy.Extensions.Filters.Listener.ProxyProtocol.V3.ProxyProtocol.TlvLocation,
+    json_name: "tlvLocation",
+    enum: true
 end

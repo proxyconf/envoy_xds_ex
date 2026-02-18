@@ -1,15 +1,24 @@
 defmodule Envoy.Service.Metrics.V3.StreamMetricsResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.metrics.v3.StreamMetricsResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Service.Metrics.V3.StreamMetricsMessage.Identifier do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.metrics.v3.StreamMetricsMessage.Identifier",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :node, 1, type: Envoy.Config.Core.V3.Node, deprecated: false
 end
 
 defmodule Envoy.Service.Metrics.V3.StreamMetricsMessage do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.metrics.v3.StreamMetricsMessage",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :identifier, 1, type: Envoy.Service.Metrics.V3.StreamMetricsMessage.Identifier
 
@@ -28,7 +37,7 @@ defmodule Envoy.Service.Metrics.V3.MetricsService.Service do
 
   use GRPC.Service,
     name: "envoy.service.metrics.v3.MetricsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :StreamMetrics,
       stream(Envoy.Service.Metrics.V3.StreamMetricsMessage),

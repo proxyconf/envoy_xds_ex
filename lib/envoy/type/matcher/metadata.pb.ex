@@ -5,7 +5,10 @@ defmodule Envoy.Type.Matcher.MetadataMatcher.PathSegment do
   if the segment key refers to a list, it has to be the last segment in a path.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.MetadataMatcher.PathSegment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :segment, 0
 
@@ -24,51 +27,51 @@ defmodule Envoy.Type.Matcher.MetadataMatcher do
 
   .. code-block:: yaml
 
-  filter_metadata:
-  envoy.filters.http.rbac:
-  fields:
-  a:
-  struct_value:
-  fields:
-  b:
-  struct_value:
-  fields:
-  c:
-  string_value: pro
-  t:
-  list_value:
-  values:
-  - string_value: m
-  - string_value: n
+     filter_metadata:
+       envoy.filters.http.rbac:
+         fields:
+           a:
+             struct_value:
+               fields:
+                 b:
+                   struct_value:
+                     fields:
+                       c:
+                         string_value: pro
+                 t:
+                   list_value:
+                     values:
+                       - string_value: m
+                       - string_value: n
 
   The following MetadataMatcher is matched as the path [a, b, c] will retrieve a string value "pro"
   from the Metadata which is matched to the specified prefix match.
 
   .. code-block:: yaml
 
-  filter: envoy.filters.http.rbac
-  path:
-  - key: a
-  - key: b
-  - key: c
-  value:
-  string_match:
-  prefix: pr
+     filter: envoy.filters.http.rbac
+     path:
+     - key: a
+     - key: b
+     - key: c
+     value:
+       string_match:
+         prefix: pr
 
   The following MetadataMatcher is matched as the code will match one of the string values in the
   list at the path [a, t].
 
   .. code-block:: yaml
 
-  filter: envoy.filters.http.rbac
-  path:
-  - key: a
-  - key: t
-  value:
-  list_match:
-  one_of:
-  string_match:
-  exact: m
+     filter: envoy.filters.http.rbac
+     path:
+     - key: a
+     - key: t
+     value:
+       list_match:
+         one_of:
+           string_match:
+             exact: m
 
   An example use of MetadataMatcher is specifying additional metadata in envoy.filters.http.rbac to
   enforce access control based on dynamic metadata in a request. See :ref:`Permission
@@ -76,7 +79,10 @@ defmodule Envoy.Type.Matcher.MetadataMatcher do
   <envoy_api_msg_config.rbac.v2.Principal>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.MetadataMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
 

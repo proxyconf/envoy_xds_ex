@@ -1,12 +1,18 @@
 defmodule Envoy.Service.RedisAuth.V3.RedisProxyExternalAuthRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.redis_auth.v3.RedisProxyExternalAuthRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
 end
 
 defmodule Envoy.Service.RedisAuth.V3.RedisProxyExternalAuthResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.redis_auth.v3.RedisProxyExternalAuthResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :expiration, 2, type: Google.Protobuf.Timestamp
@@ -22,7 +28,7 @@ defmodule Envoy.Service.RedisAuth.V3.RedisProxyExternalAuth.Service do
 
   use GRPC.Service,
     name: "envoy.service.redis_auth.v3.RedisProxyExternalAuth",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :Authenticate,
       Envoy.Service.RedisAuth.V3.RedisProxyExternalAuthRequest,

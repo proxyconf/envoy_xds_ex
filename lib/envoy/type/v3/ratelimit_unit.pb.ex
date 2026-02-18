@@ -4,7 +4,11 @@ defmodule Envoy.Type.V3.RateLimitUnit do
   [#protodoc-title: Ratelimit Time Unit]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.type.v3.RateLimitUnit",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :UNKNOWN, 0
   field :SECOND, 1

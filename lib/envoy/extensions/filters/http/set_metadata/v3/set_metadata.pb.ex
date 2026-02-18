@@ -7,7 +7,10 @@ defmodule Envoy.Extensions.Filters.Http.SetMetadata.V3.Metadata do
   [#extension: envoy.filters.http.set_metadata]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.set_metadata.v3.Metadata",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace", deprecated: false
   field :allow_overwrite, 2, type: :bool, json_name: "allowOverwrite"
@@ -16,7 +19,10 @@ defmodule Envoy.Extensions.Filters.Http.SetMetadata.V3.Metadata do
 end
 
 defmodule Envoy.Extensions.Filters.Http.SetMetadata.V3.Config do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.set_metadata.v3.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace", deprecated: true
   field :value, 2, type: Google.Protobuf.Struct, deprecated: true

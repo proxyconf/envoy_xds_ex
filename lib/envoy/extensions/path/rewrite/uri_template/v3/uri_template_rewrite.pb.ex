@@ -22,7 +22,7 @@ defmodule Envoy.Extensions.Path.Rewrite.UriTemplate.V3.UriTemplateRewriteConfig 
   * ``{name} or {name=*}`` :  A named variable matching one path segment up to the next path separator: /.
 
   * ``{name=videos/*}`` : A named variable matching more than one path segment.
-  The path component matching videos/* is captured as the named variable.
+       The path component matching videos/* is captured as the named variable.
 
   * ``{name=**}`` : A named variable matching zero or more path segments.
 
@@ -31,19 +31,22 @@ defmodule Envoy.Extensions.Path.Rewrite.UriTemplate.V3.UriTemplateRewriteConfig 
   Examples using path_template_rewrite:
 
   * The pattern ``/{one}/{two}`` paired with a substitution string of ``/{two}/{one}`` would
-  transform ``/cat/dog`` into ``/dog/cat``.
+    transform ``/cat/dog`` into ``/dog/cat``.
 
   * The pattern ``/videos/{language=lang/*}/*`` paired with a substitution string of
-  ``/{language}`` would transform ``/videos/lang/en/video.m4s`` into ``lang/en``.
+    ``/{language}`` would transform ``/videos/lang/en/video.m4s`` into ``lang/en``.
 
   * The path pattern ``/content/{format}/{lang}/{id}/{file}.vtt`` paired with a substitution
-  string of ``/{lang}/{format}/{file}.vtt`` would transform ``/content/hls/en-us/12345/en_193913.vtt``
-  into ``/en-us/hls/en_193913.vtt``.
+    string of ``/{lang}/{format}/{file}.vtt`` would transform ``/content/hls/en-us/12345/en_193913.vtt``
+    into ``/en-us/hls/en_193913.vtt``.
   [#protodoc-title: Uri Template Rewrite Config]
   [#extension: envoy.path.rewrite.uri_template.uri_template_rewriter]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.path.rewrite.uri_template.v3.UriTemplateRewriteConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :path_template_rewrite, 1,
     type: :string,

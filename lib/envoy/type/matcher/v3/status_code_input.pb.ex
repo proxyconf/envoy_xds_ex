@@ -5,7 +5,10 @@ defmodule Envoy.Type.Matcher.V3.HttpResponseStatusCodeMatchInput do
   [#protodoc-title: Common HTTP Inputs]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.HttpResponseStatusCodeMatchInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Type.Matcher.V3.HttpResponseStatusCodeClassMatchInput do
@@ -14,5 +17,8 @@ defmodule Envoy.Type.Matcher.V3.HttpResponseStatusCodeClassMatchInput do
   response status code. For eg: 1xx, 2xx, 3xx, 4xx or 5xx.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.HttpResponseStatusCodeClassMatchInput",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

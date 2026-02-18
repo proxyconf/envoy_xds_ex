@@ -6,7 +6,10 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.Filters.Ratelimit.V3.Rate
   [#extension: envoy.filters.thrift.rate_limit]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.thrift_proxy.filters.ratelimit.v3.RateLimit",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :domain, 1, type: :string, deprecated: false
   field :stage, 2, type: :uint32, deprecated: false

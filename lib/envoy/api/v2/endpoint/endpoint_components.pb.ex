@@ -3,7 +3,10 @@ defmodule Envoy.Api.V2.Endpoint.Endpoint.HealthCheckConfig do
   The optional health check configuration.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.Endpoint.HealthCheckConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :port_value, 1, type: :uint32, json_name: "portValue", deprecated: false
   field :hostname, 2, type: :string
@@ -15,7 +18,10 @@ defmodule Envoy.Api.V2.Endpoint.Endpoint do
   [#protodoc-title: Endpoints]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.Endpoint",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, type: Envoy.Api.V2.Core.Address
 
@@ -32,7 +38,10 @@ defmodule Envoy.Api.V2.Endpoint.LbEndpoint do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.LbEndpoint",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :host_identifier, 0
 
@@ -61,7 +70,10 @@ defmodule Envoy.Api.V2.Endpoint.LocalityLbEndpoints do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.endpoint.LocalityLbEndpoints",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :locality, 1, type: Envoy.Api.V2.Core.Locality
 

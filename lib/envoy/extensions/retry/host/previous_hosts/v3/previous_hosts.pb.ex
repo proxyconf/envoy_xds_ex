@@ -4,5 +4,8 @@ defmodule Envoy.Extensions.Retry.Host.PreviousHosts.V3.PreviousHostsPredicate do
   [#extension: envoy.retry_host_predicates.previous_hosts]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.retry.host.previous_hosts.v3.PreviousHostsPredicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

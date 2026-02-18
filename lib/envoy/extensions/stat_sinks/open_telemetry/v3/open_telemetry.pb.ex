@@ -1,12 +1,47 @@
+defmodule Envoy.Extensions.StatSinks.OpenTelemetry.V3.SinkConfig.ConversionAction do
+  @moduledoc """
+  ConversionAction is used to convert a stat to a metric. If a stat matches,
+  the metric_name and static_metric_labels will be
+  used to create the metric. This can be used to rename a
+  stat, add static labels, and aggregate multiple stats into a single metric.
+  """
+
+  use Protobuf,
+    full_name: "envoy.extensions.stat_sinks.open_telemetry.v3.SinkConfig.ConversionAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :metric_name, 2, type: :string, json_name: "metricName"
+
+  field :static_metric_labels, 3,
+    repeated: true,
+    type: Opentelemetry.Proto.Common.V1.KeyValue,
+    json_name: "staticMetricLabels"
+end
+
+defmodule Envoy.Extensions.StatSinks.OpenTelemetry.V3.SinkConfig.DropAction do
+  @moduledoc """
+  DropAction is an action that, when matched, will prevent the stat from being converted to an OTLP metric and flushed.
+  """
+
+  use Protobuf,
+    full_name: "envoy.extensions.stat_sinks.open_telemetry.v3.SinkConfig.DropAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+end
+
 defmodule Envoy.Extensions.StatSinks.OpenTelemetry.V3.SinkConfig do
   @moduledoc """
-  [#next-free-field: 7]
+  [#next-free-field: 9]
   [#protodoc-title: Open Telemetry Stats Sink]
   Stats configuration proto schema for ``envoy.stat_sinks.open_telemetry`` sink.
   [#extension: envoy.stat_sinks.open_telemetry]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.stat_sinks.open_telemetry.v3.SinkConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :protocol_specifier, 0
 
@@ -15,6 +50,11 @@ defmodule Envoy.Extensions.StatSinks.OpenTelemetry.V3.SinkConfig do
     json_name: "grpcService",
     oneof: 0,
     deprecated: false
+
+  field :resource_detectors, 7,
+    repeated: true,
+    type: Envoy.Config.Core.V3.TypedExtensionConfig,
+    json_name: "resourceDetectors"
 
   field :report_counters_as_deltas, 2, type: :bool, json_name: "reportCountersAsDeltas"
   field :report_histograms_as_deltas, 3, type: :bool, json_name: "reportHistogramsAsDeltas"
@@ -28,4 +68,8 @@ defmodule Envoy.Extensions.StatSinks.OpenTelemetry.V3.SinkConfig do
     json_name: "useTagExtractedName"
 
   field :prefix, 6, type: :string
+
+  field :custom_metric_conversions, 8,
+    type: Xds.Type.Matcher.V3.Matcher,
+    json_name: "customMetricConversions"
 end

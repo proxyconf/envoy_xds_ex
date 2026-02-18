@@ -5,5 +5,8 @@ defmodule Envoy.Extensions.Quic.ConnectionDebugVisitor.V3.BasicConfig do
   [#extension: envoy.quic.connection_debug_visitor.basic]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.quic.connection_debug_visitor.v3.BasicConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

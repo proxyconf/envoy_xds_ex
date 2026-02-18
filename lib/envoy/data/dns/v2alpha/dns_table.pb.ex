@@ -3,7 +3,10 @@ defmodule Envoy.Data.Dns.V2alpha.DnsTable.AddressList do
   This message contains a list of IP addresses returned for a query for a known name
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.dns.v2alpha.DnsTable.AddressList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :address, 1, repeated: true, type: :string, deprecated: false
 end
@@ -15,7 +18,10 @@ defmodule Envoy.Data.Dns.V2alpha.DnsTable.DnsEndpoint do
   endpoint
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.dns.v2alpha.DnsTable.DnsEndpoint",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :endpoint_config, 0
 
@@ -26,7 +32,10 @@ defmodule Envoy.Data.Dns.V2alpha.DnsTable.DnsEndpoint do
 end
 
 defmodule Envoy.Data.Dns.V2alpha.DnsTable.DnsVirtualDomain do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.dns.v2alpha.DnsTable.DnsVirtualDomain",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :endpoint, 2, type: Envoy.Data.Dns.V2alpha.DnsTable.DnsEndpoint
@@ -41,7 +50,10 @@ defmodule Envoy.Data.Dns.V2alpha.DnsTable do
   :ref:`DNS Filter config overview <config_udp_listener_filters_dns_filter>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.dns.v2alpha.DnsTable",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :external_retry_count, 1, type: :uint32, json_name: "externalRetryCount"
 

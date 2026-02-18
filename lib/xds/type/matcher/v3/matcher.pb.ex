@@ -3,7 +3,10 @@ defmodule Xds.Type.Matcher.V3.Matcher.OnMatch do
   What to do if a match is successful.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.OnMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :on_match, 0
 
@@ -16,7 +19,10 @@ defmodule Xds.Type.Matcher.V3.Matcher.MatcherList.Predicate.SinglePredicate do
   Predicate for a single input field.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.MatcherList.Predicate.SinglePredicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :matcher, 0
 
@@ -38,7 +44,10 @@ defmodule Xds.Type.Matcher.V3.Matcher.MatcherList.Predicate.PredicateList do
   A list of two or more matchers. Used to allow using a list within a oneof.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.MatcherList.Predicate.PredicateList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :predicate, 1,
     repeated: true,
@@ -51,7 +60,10 @@ defmodule Xds.Type.Matcher.V3.Matcher.MatcherList.Predicate do
   Predicate to determine if a match is successful.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.MatcherList.Predicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :match_type, 0
 
@@ -81,7 +93,10 @@ defmodule Xds.Type.Matcher.V3.Matcher.MatcherList.FieldMatcher do
   An individual matcher.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.MatcherList.FieldMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :predicate, 1, type: Xds.Type.Matcher.V3.Matcher.MatcherList.Predicate, deprecated: false
 
@@ -98,7 +113,10 @@ defmodule Xds.Type.Matcher.V3.Matcher.MatcherList do
   wins.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.MatcherList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :matchers, 1,
     repeated: true,
@@ -107,7 +125,11 @@ defmodule Xds.Type.Matcher.V3.Matcher.MatcherList do
 end
 
 defmodule Xds.Type.Matcher.V3.Matcher.MatcherTree.MatchMap.MapEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.MatcherTree.MatchMap.MapEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Xds.Type.Matcher.V3.Matcher.OnMatch
@@ -118,7 +140,10 @@ defmodule Xds.Type.Matcher.V3.Matcher.MatcherTree.MatchMap do
   A map of configured matchers. Used to allow using a map within a oneof.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.MatcherTree.MatchMap",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :map, 1,
     repeated: true,
@@ -128,7 +153,10 @@ defmodule Xds.Type.Matcher.V3.Matcher.MatcherTree.MatchMap do
 end
 
 defmodule Xds.Type.Matcher.V3.Matcher.MatcherTree do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher.MatcherTree",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :tree_type, 0
 
@@ -160,7 +188,10 @@ defmodule Xds.Type.Matcher.V3.Matcher do
   [#protodoc-title: Unified Matcher API]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.matcher.v3.Matcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :matcher_type, 0
 

@@ -8,11 +8,15 @@ defmodule Envoy.Extensions.Http.InjectedCredentials.Generic.V3.Generic do
   [#extension: envoy.http.injected_credentials.generic]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.http.injected_credentials.generic.v3.Generic",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :credential, 1,
     type: Envoy.Extensions.TransportSockets.Tls.V3.SdsSecretConfig,
     deprecated: false
 
   field :header, 2, type: :string, deprecated: false
+  field :header_value_prefix, 3, type: :string, json_name: "headerValuePrefix"
 end

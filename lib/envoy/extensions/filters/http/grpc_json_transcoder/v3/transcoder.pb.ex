@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder.UrlUnescapeSpec do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.http.grpc_json_transcoder.v3.GrpcJsonTranscoder.UrlUnescapeSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ALL_CHARACTERS_EXCEPT_RESERVED, 0
   field :ALL_CHARACTERS_EXCEPT_SLASH, 1
@@ -8,20 +13,29 @@ end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder.PrintOptions do
   @moduledoc """
-  [#next-free-field: 6]
+  [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.grpc_json_transcoder.v3.GrpcJsonTranscoder.PrintOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :add_whitespace, 1, type: :bool, json_name: "addWhitespace"
   field :always_print_primitive_fields, 2, type: :bool, json_name: "alwaysPrintPrimitiveFields"
   field :always_print_enums_as_ints, 3, type: :bool, json_name: "alwaysPrintEnumsAsInts"
   field :preserve_proto_field_names, 4, type: :bool, json_name: "preserveProtoFieldNames"
   field :stream_newline_delimited, 5, type: :bool, json_name: "streamNewlineDelimited"
+  field :stream_sse_style_delimited, 6, type: :bool, json_name: "streamSseStyleDelimited"
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder.RequestValidationOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.grpc_json_transcoder.v3.GrpcJsonTranscoder.RequestValidationOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :reject_unknown_method, 1, type: :bool, json_name: "rejectUnknownMethod"
 
@@ -50,7 +64,10 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder
   [#extension: envoy.filters.http.grpc_json_transcoder]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.grpc_json_transcoder.v3.GrpcJsonTranscoder",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :descriptor_set, 0
 
@@ -109,13 +126,21 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.GrpcJsonTranscoder
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.UnknownQueryParams.Values do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.grpc_json_transcoder.v3.UnknownQueryParams.Values",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
 
 defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.UnknownQueryParams.KeyEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.grpc_json_transcoder.v3.UnknownQueryParams.KeyEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -130,7 +155,10 @@ defmodule Envoy.Extensions.Filters.Http.GrpcJsonTranscoder.V3.UnknownQueryParams
   parameters were present in the request.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.grpc_json_transcoder.v3.UnknownQueryParams",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1,
     repeated: true,

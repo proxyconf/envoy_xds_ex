@@ -10,7 +10,10 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaFilterCo
   [#extension: envoy.filters.http.rate_limit_quota]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaFilterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rlqs_server, 1,
     type: Envoy.Config.Core.V3.GrpcService,
@@ -45,7 +48,10 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaOverride
   overrides the less specific definition.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaOverride",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :domain, 1, type: :string
   field :bucket_matchers, 2, type: Xds.Type.Matcher.V3.Matcher, json_name: "bucketMatchers"
@@ -57,7 +63,11 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSe
   the RLQS server returns the first quota assignment.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.NoAssignmentBehavior",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :no_assignment_behavior, 0
 
@@ -75,7 +85,11 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSe
   field.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.ExpiredAssignmentBehavior.ReuseLastAssignment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSettings.ExpiredAssignmentBehavior do
@@ -84,7 +98,11 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSe
   any reason.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.ExpiredAssignmentBehavior",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :expired_assignment_behavior, 0
 
@@ -110,7 +128,11 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSe
   Customize the deny response to the requests over the rate limit.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.DenyResponseSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :http_status, 1, type: Envoy.Type.V3.HttpStatus, json_name: "httpStatus"
   field :http_body, 2, type: Google.Protobuf.BytesValue, json_name: "httpBody"
@@ -129,7 +151,11 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSe
   <envoy_v3_api_msg_service.rate_limit_quota.v3.BucketId>` map.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.BucketIdBuilder.ValueBuilder",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :value_specifier, 0
 
@@ -142,7 +168,12 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSe
 end
 
 defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSettings.BucketIdBuilder.BucketIdBuilderEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.BucketIdBuilder.BucketIdBuilderEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -161,7 +192,11 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSe
   field.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings.BucketIdBuilder",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bucket_id_builder, 1,
     repeated: true,
@@ -184,7 +219,10 @@ defmodule Envoy.Extensions.Filters.Http.RateLimitQuota.V3.RateLimitQuotaBucketSe
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.rate_limit_quota.v3.RateLimitQuotaBucketSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :bucket_id_builder, 1,
     type:

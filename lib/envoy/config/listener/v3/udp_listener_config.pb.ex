@@ -5,7 +5,10 @@ defmodule Envoy.Config.Listener.V3.UdpListenerConfig do
   Listener :ref:`configuration overview <config_listeners>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.UdpListenerConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :downstream_socket_config, 5,
     type: Envoy.Config.Core.V3.UdpSocketConfig,
@@ -21,5 +24,8 @@ defmodule Envoy.Config.Listener.V3.UdpListenerConfig do
 end
 
 defmodule Envoy.Config.Listener.V3.ActiveRawUdpListenerConfig do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.listener.v3.ActiveRawUdpListenerConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

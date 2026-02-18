@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Filters.Network.DirectResponse.V3.Config do
   [#extension: envoy.filters.network.direct_response]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.direct_response.v3.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :response, 1, type: Envoy.Config.Core.V3.DataSource
 end

@@ -5,7 +5,10 @@ defmodule Xds.Type.V3.CelExpression do
   [#protodoc-title: Common Expression Language (CEL)]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.v3.CelExpression",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :expr_specifier, 0
 
@@ -28,13 +31,16 @@ defmodule Xds.Type.V3.CelExtractString do
 
   .. attention::
 
-  Besides CEL evaluation raising an error explicitly, CEL program returning a type other than
-  the ``string``, or not returning anything, are considered an error as well.
+    Besides CEL evaluation raising an error explicitly, CEL program returning a type other than
+    the ``string``, or not returning anything, are considered an error as well.
 
   [#comment:TODO(sergiitk): When implemented, add the extension tag.]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "xds.type.v3.CelExtractString",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :expr_extract, 1,
     type: Xds.Type.V3.CelExpression,

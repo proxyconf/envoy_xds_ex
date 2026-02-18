@@ -13,7 +13,7 @@ defmodule Envoy.Extensions.Path.Match.UriTemplate.V3.UriTemplateMatchConfig do
   * ``{name} or {name=*}`` :  A named variable matching one path segment up to the next path separator: /.
 
   * ``{name=videos/*}`` : A named variable matching more than one path segment.
-  The path component matching videos/* is captured as the named variable.
+       The path component matching videos/* is captured as the named variable.
 
   * ``{name=**}`` : A named variable matching zero or more path segments.
   For example:
@@ -27,7 +27,10 @@ defmodule Envoy.Extensions.Path.Match.UriTemplate.V3.UriTemplateMatchConfig do
   [#extension: envoy.path.match.uri_template.uri_template_matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.path.match.uri_template.v3.UriTemplateMatchConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :path_template, 1, type: :string, json_name: "pathTemplate", deprecated: false
 end

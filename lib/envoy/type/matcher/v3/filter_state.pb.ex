@@ -4,7 +4,10 @@ defmodule Envoy.Type.Matcher.V3.FilterStateMatcher do
   [#protodoc-title: Filter state matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.FilterStateMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :matcher, 0
 

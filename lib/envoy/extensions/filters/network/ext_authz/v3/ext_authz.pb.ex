@@ -4,14 +4,17 @@ defmodule Envoy.Extensions.Filters.Network.ExtAuthz.V3.ExtAuthz do
   gRPC Authorization API defined by
   :ref:`CheckRequest <envoy_v3_api_msg_service.auth.v3.CheckRequest>`.
   A failed check will cause this filter to close the TCP connection.
-  [#next-free-field: 9]
+  [#next-free-field: 12]
   [#protodoc-title: Network External Authorization ]
   The network layer external authorization service configuration
   :ref:`configuration overview <config_network_filters_ext_authz>`.
   [#extension: envoy.filters.network.ext_authz]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.ext_authz.v3.ExtAuthz",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :stat_prefix, 1, type: :string, json_name: "statPrefix", deprecated: false
   field :grpc_service, 2, type: Envoy.Config.Core.V3.GrpcService, json_name: "grpcService"
@@ -30,4 +33,15 @@ defmodule Envoy.Extensions.Filters.Network.ExtAuthz.V3.ExtAuthz do
 
   field :bootstrap_metadata_labels_key, 7, type: :string, json_name: "bootstrapMetadataLabelsKey"
   field :include_tls_session, 8, type: :bool, json_name: "includeTlsSession"
+  field :send_tls_alert_on_denial, 9, type: :bool, json_name: "sendTlsAlertOnDenial"
+
+  field :metadata_context_namespaces, 10,
+    repeated: true,
+    type: :string,
+    json_name: "metadataContextNamespaces"
+
+  field :typed_metadata_context_namespaces, 11,
+    repeated: true,
+    type: :string,
+    json_name: "typedMetadataContextNamespaces"
 end

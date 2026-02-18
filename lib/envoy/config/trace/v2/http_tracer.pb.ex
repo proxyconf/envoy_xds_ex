@@ -8,7 +8,10 @@ defmodule Envoy.Config.Trace.V2.Tracing.Http do
   field.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.trace.v2.Tracing.Http",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 
@@ -26,13 +29,16 @@ defmodule Envoy.Config.Trace.V2.Tracing do
 
   .. attention::
 
-  Use of this message type has been deprecated in favor of direct use of
-  :ref:`Tracing.Http <envoy_api_msg_config.trace.v2.Tracing.Http>`.
+    Use of this message type has been deprecated in favor of direct use of
+    :ref:`Tracing.Http <envoy_api_msg_config.trace.v2.Tracing.Http>`.
   [#protodoc-title: Tracing]
   Tracing :ref:`architecture overview <arch_overview_tracing>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.trace.v2.Tracing",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :http, 1, type: Envoy.Config.Trace.V2.Tracing.Http
 end

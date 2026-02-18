@@ -6,7 +6,10 @@ defmodule Envoy.Extensions.Filters.Http.GrpcHttp1Bridge.V3.Config do
   [#extension: envoy.filters.http.grpc_http1_bridge]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.grpc_http1_bridge.v3.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :upgrade_protobuf_to_grpc, 1, type: :bool, json_name: "upgradeProtobufToGrpc"
   field :ignore_query_parameters, 2, type: :bool, json_name: "ignoreQueryParameters"

@@ -1,5 +1,8 @@
 defmodule Envoy.Extensions.TransportSockets.Tls.V3.SPIFFECertValidatorConfig.TrustDomain do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :trust_bundle, 2, type: Envoy.Config.Core.V3.DataSource, json_name: "trustBundle"
@@ -12,19 +15,19 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SPIFFECertValidatorConfig do
   Example:
 
   .. validated-code-block:: yaml
-  :type-name: envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext
+    :type-name: envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext
 
-  custom_validator_config:
-  name: envoy.tls.cert_validator.spiffe
-  typed_config:
-  "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig
-  trust_domains:
-  - name: foo.com
-  trust_bundle:
-  filename: "foo.pem"
-  - name: envoy.com
-  trust_bundle:
-  filename: "envoy.pem"
+    custom_validator_config:
+      name: envoy.tls.cert_validator.spiffe
+      typed_config:
+        "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig
+        trust_domains:
+        - name: foo.com
+          trust_bundle:
+            filename: "foo.pem"
+        - name: envoy.com
+          trust_bundle:
+            filename: "envoy.pem"
 
   In this example, a presented peer certificate whose SAN matches ``spiffe://foo.com/**`` is validated against
   the "foo.pem" x.509 certificate. All the trust bundles are isolated from each other, so no trust domain can mint
@@ -39,7 +42,10 @@ defmodule Envoy.Extensions.TransportSockets.Tls.V3.SPIFFECertValidatorConfig do
   [#extension: envoy.tls.cert_validator.spiffe]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :trust_domains, 1,
     repeated: true,

@@ -6,7 +6,10 @@ defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.ExtAuthz do
   [#extension: envoy.filters.http.ext_authz]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.ext_authz.v2.ExtAuthz",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :services, 0
 
@@ -48,7 +51,10 @@ defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.BufferSettings do
   Configuration for buffering the request data.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.ext_authz.v2.BufferSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_request_bytes, 1, type: :uint32, json_name: "maxRequestBytes", deprecated: false
   field :allow_partial_message, 2, type: :bool, json_name: "allowPartialMessage"
@@ -83,7 +89,10 @@ defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.HttpService do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.ext_authz.v2.HttpService",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :server_uri, 1, type: Envoy.Api.V2.Core.HttpUri, json_name: "serverUri"
   field :path_prefix, 2, type: :string, json_name: "pathPrefix"
@@ -98,7 +107,10 @@ defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.HttpService do
 end
 
 defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.AuthorizationRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.ext_authz.v2.AuthorizationRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :allowed_headers, 1,
     type: Envoy.Type.Matcher.ListStringMatcher,
@@ -111,7 +123,10 @@ defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.AuthorizationRequest do
 end
 
 defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.AuthorizationResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.ext_authz.v2.AuthorizationResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :allowed_upstream_headers, 1,
     type: Envoy.Type.Matcher.ListStringMatcher,
@@ -127,7 +142,10 @@ defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.ExtAuthzPerRoute do
   Extra settings on a per virtualhost/route/weighted-cluster level.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.ext_authz.v2.ExtAuthzPerRoute",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :override, 0
 
@@ -141,7 +159,11 @@ defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.ExtAuthzPerRoute do
 end
 
 defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.CheckSettings.ContextExtensionsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.ext_authz.v2.CheckSettings.ContextExtensionsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -156,7 +178,10 @@ defmodule Envoy.Config.Filter.Http.ExtAuthz.V2.CheckSettings do
   per-filter-configs, they will be merged in order, and the result will be used.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.http.ext_authz.v2.CheckSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :context_extensions, 1,
     repeated: true,

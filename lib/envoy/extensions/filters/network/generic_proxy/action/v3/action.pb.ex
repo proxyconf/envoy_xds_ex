@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Filters.Network.GenericProxy.Action.V3.RouteAction.PerFilterConfigEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.generic_proxy.action.v3.RouteAction.PerFilterConfigEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
@@ -12,7 +17,10 @@ defmodule Envoy.Extensions.Filters.Network.GenericProxy.Action.V3.RouteAction do
   [#protodoc-title: Generic Proxy Route Action Configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.generic_proxy.action.v3.RouteAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :cluster_specifier, 0
 

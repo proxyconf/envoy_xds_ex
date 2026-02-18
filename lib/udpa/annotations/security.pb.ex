@@ -4,7 +4,10 @@ defmodule Udpa.Annotations.FieldSecurityAnnotation do
   security significance of fields.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "udpa.annotations.FieldSecurityAnnotation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :configure_for_untrusted_downstream, 1,
     type: :bool,

@@ -5,5 +5,8 @@ defmodule Envoy.Extensions.Upstreams.Http.Http.V3.HttpConnectionPoolProto do
   [#protodoc-title: Http Connection Pool]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.upstreams.http.http.v3.HttpConnectionPoolProto",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

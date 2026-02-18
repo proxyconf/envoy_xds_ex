@@ -3,7 +3,11 @@ defmodule Envoy.Service.Status.V3.ConfigStatus do
   Status of a config from a management server view.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.service.status.v3.ConfigStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :UNKNOWN, 0
   field :SYNCED, 1
@@ -17,7 +21,11 @@ defmodule Envoy.Service.Status.V3.ClientConfigStatus do
   Config status from a client-side view.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.service.status.v3.ClientConfigStatus",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :CLIENT_UNKNOWN, 0
   field :CLIENT_REQUESTED, 1
@@ -31,7 +39,10 @@ defmodule Envoy.Service.Status.V3.ClientStatusRequest do
   Request for client status of clients identified by a list of NodeMatchers.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.status.v3.ClientStatusRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :node_matchers, 1,
     repeated: true,
@@ -48,7 +59,10 @@ defmodule Envoy.Service.Status.V3.PerXdsConfig do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.status.v3.PerXdsConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :per_xds_config, 0
 
@@ -94,7 +108,10 @@ defmodule Envoy.Service.Status.V3.ClientConfig.GenericXdsConfig do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.status.v3.ClientConfig.GenericXdsConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :type_url, 1, type: :string, json_name: "typeUrl"
   field :name, 2, type: :string
@@ -121,7 +138,10 @@ defmodule Envoy.Service.Status.V3.ClientConfig do
   All xds configs for a particular client.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.status.v3.ClientConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :node, 1, type: Envoy.Config.Core.V3.Node
 
@@ -140,7 +160,10 @@ defmodule Envoy.Service.Status.V3.ClientConfig do
 end
 
 defmodule Envoy.Service.Status.V3.ClientStatusResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.status.v3.ClientStatusResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :config, 1, repeated: true, type: Envoy.Service.Status.V3.ClientConfig
 end
@@ -155,7 +178,7 @@ defmodule Envoy.Service.Status.V3.ClientStatusDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.service.status.v3.ClientStatusDiscoveryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :StreamClientStatus,
       stream(Envoy.Service.Status.V3.ClientStatusRequest),

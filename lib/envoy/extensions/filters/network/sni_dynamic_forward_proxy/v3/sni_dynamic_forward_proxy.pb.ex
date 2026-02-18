@@ -9,7 +9,10 @@ defmodule Envoy.Extensions.Filters.Network.SniDynamicForwardProxy.V3.FilterConfi
   [#protodoc-title: SNI dynamic forward proxy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.sni_dynamic_forward_proxy.v3.FilterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :port_specifier, 0
 

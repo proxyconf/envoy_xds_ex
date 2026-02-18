@@ -5,7 +5,11 @@ defmodule Envoy.Extensions.ResourceMonitors.DownstreamConnections.V3.DownstreamC
   [#extension: envoy.resource_monitors.global_downstream_max_connections]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.resource_monitors.downstream_connections.v3.DownstreamConnectionsConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_active_downstream_connections, 1,
     type: :int64,

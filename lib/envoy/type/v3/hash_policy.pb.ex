@@ -4,7 +4,10 @@ defmodule Envoy.Type.V3.HashPolicy.SourceIp do
   algorithms.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.v3.HashPolicy.SourceIp",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Type.V3.HashPolicy.FilterState do
@@ -13,7 +16,10 @@ defmodule Envoy.Type.V3.HashPolicy.FilterState do
   to compute the hash used by hash-based load balancing algorithms.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.v3.HashPolicy.FilterState",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
 end
@@ -24,7 +30,10 @@ defmodule Envoy.Type.V3.HashPolicy do
   [#protodoc-title: Hash Policy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.v3.HashPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :policy_specifier, 0
 

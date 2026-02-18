@@ -5,7 +5,10 @@ defmodule Envoy.Type.Matcher.V3.NodeMatcher do
   [#protodoc-title: Node matcher]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.NodeMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :node_id, 1, type: Envoy.Type.Matcher.V3.StringMatcher, json_name: "nodeId"
 

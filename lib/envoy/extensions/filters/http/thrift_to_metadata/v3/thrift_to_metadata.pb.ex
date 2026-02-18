@@ -11,7 +11,11 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.Field do
   [#extension: envoy.filters.http.thrift_to_metadata]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.http.thrift_to_metadata.v3.Field",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :METHOD_NAME, 0
   field :PROTOCOL, 1
@@ -23,7 +27,10 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.Field do
 end
 
 defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.KeyValuePair do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.thrift_to_metadata.v3.KeyValuePair",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metadata_namespace, 1, type: :string, json_name: "metadataNamespace"
   field :key, 2, type: :string, deprecated: false
@@ -31,7 +38,10 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.KeyValuePair do
 end
 
 defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.FieldSelector do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.thrift_to_metadata.v3.FieldSelector",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :int32, deprecated: false
@@ -43,16 +53,18 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.Rule do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.thrift_to_metadata.v3.Rule",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :field, 1, type: Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.Field, enum: true
 
   field :field_selector, 2,
     type: Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.FieldSelector,
-    json_name: "fieldSelector",
-    deprecated: false
+    json_name: "fieldSelector"
 
-  field :method_name, 3, type: :string, json_name: "methodName", deprecated: false
+  field :method_name, 3, type: :string, json_name: "methodName"
 
   field :on_present, 4,
     type: Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.KeyValuePair,
@@ -70,7 +82,10 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.ThriftToMetadata do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.thrift_to_metadata.v3.ThriftToMetadata",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :request_rules, 1,
     repeated: true,
@@ -107,7 +122,10 @@ defmodule Envoy.Extensions.Filters.Http.ThriftToMetadata.V3.ThriftToMetadataPerR
   request rules and responses rules.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.thrift_to_metadata.v3.ThriftToMetadataPerRoute",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :request_rules, 1,
     repeated: true,

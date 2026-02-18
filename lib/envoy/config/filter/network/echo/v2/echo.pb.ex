@@ -5,5 +5,8 @@ defmodule Envoy.Config.Filter.Network.Echo.V2.Echo do
   [#extension: envoy.filters.network.echo]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.network.echo.v2.Echo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

@@ -1,5 +1,9 @@
 defmodule Envoy.Config.Route.V3.VirtualHost.TlsRequirementType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.route.v3.VirtualHost.TlsRequirementType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :NONE, 0
   field :EXTERNAL_ONLY, 1
@@ -7,7 +11,11 @@ defmodule Envoy.Config.Route.V3.VirtualHost.TlsRequirementType do
 end
 
 defmodule Envoy.Config.Route.V3.RouteAction.ClusterNotFoundResponseCode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.route.v3.RouteAction.ClusterNotFoundResponseCode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :SERVICE_UNAVAILABLE, 0
   field :NOT_FOUND, 1
@@ -20,21 +28,33 @@ defmodule Envoy.Config.Route.V3.RouteAction.InternalRedirectAction do
   [#next-major-version: remove this definition - it's defined in the InternalRedirectPolicy message.]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.route.v3.RouteAction.InternalRedirectAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :PASS_THROUGH_INTERNAL_REDIRECT, 0
   field :HANDLE_INTERNAL_REDIRECT, 1
 end
 
 defmodule Envoy.Config.Route.V3.RetryPolicy.ResetHeaderFormat do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.route.v3.RetryPolicy.ResetHeaderFormat",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :SECONDS, 0
   field :UNIX_TIMESTAMP, 1
 end
 
 defmodule Envoy.Config.Route.V3.RedirectAction.RedirectResponseCode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.route.v3.RedirectAction.RedirectResponseCode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :MOVED_PERMANENTLY, 0
   field :FOUND, 1
@@ -43,15 +63,35 @@ defmodule Envoy.Config.Route.V3.RedirectAction.RedirectResponseCode do
   field :PERMANENT_REDIRECT, 4
 end
 
+defmodule Envoy.Config.Route.V3.RateLimit.XRateLimitOption do
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.route.v3.RateLimit.XRateLimitOption",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :UNSPECIFIED, 0
+  field :OFF, 1
+  field :DRAFT_VERSION_03, 2
+end
+
 defmodule Envoy.Config.Route.V3.RateLimit.Action.MetaData.Source do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.route.v3.RateLimit.Action.MetaData.Source",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DYNAMIC, 0
   field :ROUTE_ENTRY, 1
 end
 
 defmodule Envoy.Config.Route.V3.VirtualHost.TypedPerFilterConfigEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.VirtualHost.TypedPerFilterConfigEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
@@ -64,13 +104,16 @@ defmodule Envoy.Config.Route.V3.VirtualHost do
   host header. This allows a single listener to service multiple top level domain path trees. Once
   a virtual host is selected based on the domain, the routes are processed in order to see which
   upstream cluster to route to or whether to perform a redirect.
-  [#next-free-field: 25]
+  [#next-free-field: 26]
   [#protodoc-title: HTTP route components]
   * Routing :ref:`architecture overview <arch_overview_http_routing>`
   * HTTP :ref:`router filter <config_http_filters_router>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.VirtualHost",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :domains, 2, repeated: true, type: :string, deprecated: false
@@ -145,7 +188,13 @@ defmodule Envoy.Config.Route.V3.VirtualHost do
 
   field :per_request_buffer_limit_bytes, 18,
     type: Google.Protobuf.UInt32Value,
-    json_name: "perRequestBufferLimitBytes"
+    json_name: "perRequestBufferLimitBytes",
+    deprecated: true
+
+  field :request_body_buffer_limit, 25,
+    type: Google.Protobuf.UInt64Value,
+    json_name: "requestBodyBufferLimit",
+    deprecated: false
 
   field :request_mirror_policies, 22,
     repeated: true,
@@ -160,7 +209,10 @@ defmodule Envoy.Config.Route.V3.FilterAction do
   A filter-defined action type.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.FilterAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :action, 1, type: Google.Protobuf.Any
 end
@@ -171,13 +223,20 @@ defmodule Envoy.Config.Route.V3.RouteList do
   When the matcher matches, routes will be matched and run.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteList",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :routes, 1, repeated: true, type: Envoy.Config.Route.V3.Route
 end
 
 defmodule Envoy.Config.Route.V3.Route.TypedPerFilterConfigEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.Route.TypedPerFilterConfigEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
@@ -190,12 +249,15 @@ defmodule Envoy.Config.Route.V3.Route do
 
   .. attention::
 
-  Envoy supports routing on HTTP method via :ref:`header matching
-  <envoy_v3_api_msg_config.route.v3.HeaderMatcher>`.
-  [#next-free-field: 20]
+    Envoy supports routing on HTTP method via :ref:`header matching
+    <envoy_v3_api_msg_config.route.v3.HeaderMatcher>`.
+  [#next-free-field: 21]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.Route",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :action, 0
 
@@ -256,13 +318,22 @@ defmodule Envoy.Config.Route.V3.Route do
 
   field :per_request_buffer_limit_bytes, 16,
     type: Google.Protobuf.UInt32Value,
-    json_name: "perRequestBufferLimitBytes"
+    json_name: "perRequestBufferLimitBytes",
+    deprecated: true
 
   field :stat_prefix, 19, type: :string, json_name: "statPrefix"
+
+  field :request_body_buffer_limit, 20,
+    type: Google.Protobuf.UInt64Value,
+    json_name: "requestBodyBufferLimit"
 end
 
 defmodule Envoy.Config.Route.V3.WeightedCluster.ClusterWeight.TypedPerFilterConfigEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.WeightedCluster.ClusterWeight.TypedPerFilterConfigEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
@@ -273,7 +344,10 @@ defmodule Envoy.Config.Route.V3.WeightedCluster.ClusterWeight do
   [#next-free-field: 13]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.WeightedCluster.ClusterWeight",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :host_rewrite_specifier, 0
 
@@ -327,9 +401,13 @@ defmodule Envoy.Config.Route.V3.WeightedCluster do
   multiple upstream clusters along with weights that indicate the percentage of
   traffic to be forwarded to each cluster. The router selects an upstream cluster based on the
   weights.
+  [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.WeightedCluster",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :random_value_specifier, 0
 
@@ -345,6 +423,7 @@ defmodule Envoy.Config.Route.V3.WeightedCluster do
 
   field :runtime_key_prefix, 2, type: :string, json_name: "runtimeKeyPrefix"
   field :header_name, 4, type: :string, json_name: "headerName", oneof: 0, deprecated: false
+  field :use_hash_policy, 5, type: Google.Protobuf.BoolValue, json_name: "useHashPolicy", oneof: 0
 end
 
 defmodule Envoy.Config.Route.V3.ClusterSpecifierPlugin do
@@ -352,18 +431,27 @@ defmodule Envoy.Config.Route.V3.ClusterSpecifierPlugin do
   Configuration for a cluster specifier plugin.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.ClusterSpecifierPlugin",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :extension, 1, type: Envoy.Config.Core.V3.TypedExtensionConfig, deprecated: false
   field :is_optional, 2, type: :bool, json_name: "isOptional"
 end
 
 defmodule Envoy.Config.Route.V3.RouteMatch.GrpcRouteMatchOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteMatch.GrpcRouteMatchOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Route.V3.RouteMatch.TlsContextMatchOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteMatch.TlsContextMatchOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :presented, 1, type: Google.Protobuf.BoolValue
   field :validated, 2, type: Google.Protobuf.BoolValue
@@ -374,15 +462,21 @@ defmodule Envoy.Config.Route.V3.RouteMatch.ConnectMatcher do
   An extensible message for matching CONNECT or CONNECT-UDP requests.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteMatch.ConnectMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Route.V3.RouteMatch do
   @moduledoc """
-  [#next-free-field: 16]
+  [#next-free-field: 18]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :path_specifier, 0
 
@@ -424,6 +518,7 @@ defmodule Envoy.Config.Route.V3.RouteMatch do
     type: Envoy.Config.Route.V3.QueryParameterMatcher,
     json_name: "queryParameters"
 
+  field :cookies, 17, repeated: true, type: Envoy.Config.Route.V3.CookieMatcher
   field :grpc, 8, type: Envoy.Config.Route.V3.RouteMatch.GrpcRouteMatchOptions
 
   field :tls_context, 11,
@@ -434,6 +529,11 @@ defmodule Envoy.Config.Route.V3.RouteMatch do
     repeated: true,
     type: Envoy.Type.Matcher.V3.MetadataMatcher,
     json_name: "dynamicMetadata"
+
+  field :filter_state, 16,
+    repeated: true,
+    type: Envoy.Type.Matcher.V3.FilterStateMatcher,
+    json_name: "filterState"
 end
 
 defmodule Envoy.Config.Route.V3.CorsPolicy do
@@ -442,14 +542,17 @@ defmodule Envoy.Config.Route.V3.CorsPolicy do
 
   .. attention::
 
-  This message has been deprecated. Please use
-  :ref:`CorsPolicy in filter extension <envoy_v3_api_msg_extensions.filters.http.cors.v3.CorsPolicy>`
-  as as alternative.
+    This message has been deprecated. Please use
+    :ref:`CorsPolicy in filter extension <envoy_v3_api_msg_extensions.filters.http.cors.v3.CorsPolicy>`
+    as as alternative.
 
   [#next-free-field: 14]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.CorsPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :enabled_specifier, 0
 
@@ -495,15 +598,18 @@ defmodule Envoy.Config.Route.V3.RouteAction.RequestMirrorPolicy do
 
   .. note::
 
-  Shadowing will not be triggered if the primary cluster does not exist.
+    Shadowing will not be triggered if the primary cluster does not exist.
 
   .. note::
 
-  Shadowing doesn't support Http CONNECT and upgrades.
-  [#next-free-field: 7]
+    Shadowing doesn't support HTTP CONNECT and upgrades.
+  [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.RequestMirrorPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
   field :cluster_header, 5, type: :string, json_name: "clusterHeader", deprecated: false
@@ -517,10 +623,24 @@ defmodule Envoy.Config.Route.V3.RouteAction.RequestMirrorPolicy do
   field :disable_shadow_host_suffix_append, 6,
     type: :bool,
     json_name: "disableShadowHostSuffixAppend"
+
+  field :request_headers_mutations, 7,
+    repeated: true,
+    type: Envoy.Config.Common.MutationRules.V3.HeaderMutation,
+    json_name: "requestHeadersMutations",
+    deprecated: false
+
+  field :host_rewrite_literal, 8,
+    type: :string,
+    json_name: "hostRewriteLiteral",
+    deprecated: false
 end
 
 defmodule Envoy.Config.Route.V3.RouteAction.HashPolicy.Header do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.HashPolicy.Header",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :header_name, 1, type: :string, json_name: "headerName", deprecated: false
 
@@ -534,7 +654,10 @@ defmodule Envoy.Config.Route.V3.RouteAction.HashPolicy.CookieAttribute do
   CookieAttribute defines an API for adding additional attributes for a HTTP cookie.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.HashPolicy.CookieAttribute",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -545,20 +668,23 @@ defmodule Envoy.Config.Route.V3.RouteAction.HashPolicy.Cookie do
   Envoy supports two types of cookie affinity:
 
   1. Passive. Envoy takes a cookie that's present in the cookies header and
-  hashes on its value.
+     hashes on its value.
 
   2. Generated. Envoy generates and sets a cookie with an expiration (TTL)
-  on the first request from the client in its response to the client,
-  based on the endpoint the request gets sent to. The client then
-  presents this on the next and all subsequent requests. The hash of
-  this is sufficient to ensure these requests get sent to the same
-  endpoint. The cookie is generated by hashing the source and
-  destination ports and addresses so that multiple independent HTTP2
-  streams on the same connection will independently receive the same
-  cookie, even if they arrive at the Envoy simultaneously.
+     on the first request from the client in its response to the client,
+     based on the endpoint the request gets sent to. The client then
+     presents this on the next and all subsequent requests. The hash of
+     this is sufficient to ensure these requests get sent to the same
+     endpoint. The cookie is generated by hashing the source and
+     destination ports and addresses so that multiple independent HTTP2
+     streams on the same connection will independently receive the same
+     cookie, even if they arrive at the Envoy simultaneously.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.HashPolicy.Cookie",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :ttl, 2, type: Google.Protobuf.Duration
@@ -570,19 +696,28 @@ defmodule Envoy.Config.Route.V3.RouteAction.HashPolicy.Cookie do
 end
 
 defmodule Envoy.Config.Route.V3.RouteAction.HashPolicy.ConnectionProperties do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.HashPolicy.ConnectionProperties",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :source_ip, 1, type: :bool, json_name: "sourceIp"
 end
 
 defmodule Envoy.Config.Route.V3.RouteAction.HashPolicy.QueryParameter do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.HashPolicy.QueryParameter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Envoy.Config.Route.V3.RouteAction.HashPolicy.FilterState do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.HashPolicy.FilterState",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
 end
@@ -594,7 +729,10 @@ defmodule Envoy.Config.Route.V3.RouteAction.HashPolicy do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.HashPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :policy_specifier, 0
 
@@ -625,7 +763,10 @@ defmodule Envoy.Config.Route.V3.RouteAction.UpgradeConfig.ConnectConfig do
   CONNECT or POST requests, when forwarding request payload as raw TCP.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.UpgradeConfig.ConnectConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :proxy_protocol_config, 1,
     type: Envoy.Config.Core.V3.ProxyProtocolConfig,
@@ -644,7 +785,10 @@ defmodule Envoy.Config.Route.V3.RouteAction.UpgradeConfig do
   but does not affect any custom filter chain specified there.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.UpgradeConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :upgrade_type, 1, type: :string, json_name: "upgradeType", deprecated: false
   field :enabled, 2, type: Google.Protobuf.BoolValue
@@ -655,7 +799,10 @@ defmodule Envoy.Config.Route.V3.RouteAction.UpgradeConfig do
 end
 
 defmodule Envoy.Config.Route.V3.RouteAction.MaxStreamDuration do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction.MaxStreamDuration",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_stream_duration, 1, type: Google.Protobuf.Duration, json_name: "maxStreamDuration"
 
@@ -670,10 +817,13 @@ end
 
 defmodule Envoy.Config.Route.V3.RouteAction do
   @moduledoc """
-  [#next-free-field: 42]
+  [#next-free-field: 46]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RouteAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :cluster_specifier, 0
 
@@ -714,6 +864,8 @@ defmodule Envoy.Config.Route.V3.RouteAction do
     type: Envoy.Config.Core.V3.TypedExtensionConfig,
     json_name: "pathRewritePolicy"
 
+  field :path_rewrite, 45, type: :string, json_name: "pathRewrite"
+
   field :host_rewrite_literal, 6,
     type: :string,
     json_name: "hostRewriteLiteral",
@@ -736,9 +888,11 @@ defmodule Envoy.Config.Route.V3.RouteAction do
     json_name: "hostRewritePathRegex",
     oneof: 1
 
+  field :host_rewrite, 44, type: :string, json_name: "hostRewrite", oneof: 1
   field :append_x_forwarded_host, 38, type: :bool, json_name: "appendXForwardedHost"
   field :timeout, 8, type: Google.Protobuf.Duration
   field :idle_timeout, 24, type: Google.Protobuf.Duration, json_name: "idleTimeout"
+  field :flush_timeout, 42, type: Google.Protobuf.Duration, json_name: "flushTimeout"
 
   field :early_data_policy, 40,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,
@@ -812,7 +966,10 @@ defmodule Envoy.Config.Route.V3.RouteAction do
 end
 
 defmodule Envoy.Config.Route.V3.RetryPolicy.RetryPriority do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RetryPolicy.RetryPriority",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 
@@ -821,7 +978,10 @@ defmodule Envoy.Config.Route.V3.RetryPolicy.RetryPriority do
 end
 
 defmodule Envoy.Config.Route.V3.RetryPolicy.RetryHostPredicate do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RetryPolicy.RetryHostPredicate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_type, 0
 
@@ -830,7 +990,10 @@ defmodule Envoy.Config.Route.V3.RetryPolicy.RetryHostPredicate do
 end
 
 defmodule Envoy.Config.Route.V3.RetryPolicy.RetryBackOff do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RetryPolicy.RetryBackOff",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :base_interval, 1,
     type: Google.Protobuf.Duration,
@@ -844,7 +1007,10 @@ defmodule Envoy.Config.Route.V3.RetryPolicy.RetryBackOff do
 end
 
 defmodule Envoy.Config.Route.V3.RetryPolicy.ResetHeader do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RetryPolicy.ResetHeader",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -863,27 +1029,27 @@ defmodule Envoy.Config.Route.V3.RetryPolicy.RateLimitedRetryBackOff do
 
   .. code-block:: yaml
 
-  rate_limited_retry_back_off:
-  reset_headers:
-  - name: Retry-After
-  format: SECONDS
-  - name: X-RateLimit-Reset
-  format: UNIX_TIMESTAMP
-  max_interval: "300s"
+    rate_limited_retry_back_off:
+      reset_headers:
+      - name: Retry-After
+        format: SECONDS
+      - name: X-RateLimit-Reset
+        format: UNIX_TIMESTAMP
+      max_interval: "300s"
 
   The following algorithm will apply:
 
-  1. If the response contains the header ``Retry-After`` its value must be on
-  the form ``120`` (an integer that represents the number of seconds to
-  wait before retrying). If so, this value is used as the back-off interval.
-  2. Otherwise, if the response contains the header ``X-RateLimit-Reset`` its
-  value must be on the form ``1595320702`` (an integer that represents the
-  point in time at which to retry, as a Unix timestamp in seconds). If so,
-  the current time is subtracted from this value and the result is used as
-  the back-off interval.
-  3. Otherwise, Envoy will use the default
-  :ref:`exponential back-off <envoy_v3_api_field_config.route.v3.RetryPolicy.retry_back_off>`
-  strategy.
+   1. If the response contains the header ``Retry-After`` its value must be on
+      the form ``120`` (an integer that represents the number of seconds to
+      wait before retrying). If so, this value is used as the back-off interval.
+   2. Otherwise, if the response contains the header ``X-RateLimit-Reset`` its
+      value must be on the form ``1595320702`` (an integer that represents the
+      point in time at which to retry, as a Unix timestamp in seconds). If so,
+      the current time is subtracted from this value and the result is used as
+      the back-off interval.
+   3. Otherwise, Envoy will use the default
+      :ref:`exponential back-off <envoy_v3_api_field_config.route.v3.RetryPolicy.retry_back_off>`
+      strategy.
 
   No matter which format is used, if the resulting back-off interval exceeds
   ``max_interval`` it is discarded and the next header in ``reset_headers``
@@ -896,12 +1062,15 @@ defmodule Envoy.Config.Route.V3.RetryPolicy.RateLimitedRetryBackOff do
 
   .. attention::
 
-  Configuring ``rate_limited_retry_back_off`` will not by itself cause a request
-  to be retried. You will still need to configure the right retry policy to match
-  the responses from the upstream server.
+    Configuring ``rate_limited_retry_back_off`` will not by itself cause a request
+    to be retried. You will still need to configure the right retry policy to match
+    the responses from the upstream server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RetryPolicy.RateLimitedRetryBackOff",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :reset_headers, 1,
     repeated: true,
@@ -921,7 +1090,10 @@ defmodule Envoy.Config.Route.V3.RetryPolicy do
   [#next-free-field: 14]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RetryPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :retry_on, 1, type: :string, json_name: "retryOn"
 
@@ -980,7 +1152,10 @@ defmodule Envoy.Config.Route.V3.HedgePolicy do
   HTTP request hedging :ref:`architecture overview <arch_overview_http_routing_hedging>`.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.HedgePolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :initial_requests, 1,
     type: Google.Protobuf.UInt32Value,
@@ -999,7 +1174,10 @@ defmodule Envoy.Config.Route.V3.RedirectAction do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RedirectAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :scheme_rewrite_specifier, 0
 
@@ -1027,10 +1205,17 @@ defmodule Envoy.Config.Route.V3.RedirectAction do
 end
 
 defmodule Envoy.Config.Route.V3.DirectResponseAction do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.DirectResponseAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :status, 1, type: :uint32, deprecated: false
   field :body, 2, type: Envoy.Config.Core.V3.DataSource
+
+  field :body_format, 3,
+    type: Envoy.Config.Core.V3.SubstitutionFormatString,
+    json_name: "bodyFormat"
 end
 
 defmodule Envoy.Config.Route.V3.NonForwardingAction do
@@ -1038,18 +1223,31 @@ defmodule Envoy.Config.Route.V3.NonForwardingAction do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.NonForwardingAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Route.V3.Decorator do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.Decorator",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :operation, 1, type: :string, deprecated: false
   field :propagate, 2, type: Google.Protobuf.BoolValue
 end
 
 defmodule Envoy.Config.Route.V3.Tracing do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  @moduledoc """
+  [#next-free-field: 7]
+  """
+
+  use Protobuf,
+    full_name: "envoy.config.route.v3.Tracing",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :client_sampling, 1, type: Envoy.Type.V3.FractionalPercent, json_name: "clientSampling"
   field :random_sampling, 2, type: Envoy.Type.V3.FractionalPercent, json_name: "randomSampling"
@@ -1059,6 +1257,9 @@ defmodule Envoy.Config.Route.V3.Tracing do
     repeated: true,
     type: Envoy.Type.Tracing.V3.CustomTag,
     json_name: "customTags"
+
+  field :operation, 5, type: :string
+  field :upstream_operation, 6, type: :string, json_name: "upstreamOperation"
 end
 
 defmodule Envoy.Config.Route.V3.VirtualCluster do
@@ -1077,12 +1278,15 @@ defmodule Envoy.Config.Route.V3.VirtualCluster do
 
   .. note::
 
-  Virtual clusters are a useful tool, but we do not recommend setting up a virtual cluster for
-  every application endpoint. This is both not easily maintainable and as well the matching and
-  statistics output are not free.
+     Virtual clusters are a useful tool, but we do not recommend setting up a virtual cluster for
+     every application endpoint. This is both not easily maintainable and as well the matching and
+     statistics output are not free.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.VirtualCluster",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :headers, 4, repeated: true, type: Envoy.Config.Route.V3.HeaderMatcher
   field :name, 2, type: :string, deprecated: false
@@ -1094,12 +1298,15 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.SourceCluster do
 
   .. code-block:: cpp
 
-  ("source_cluster", "<local service cluster>")
+    ("source_cluster", "<local service cluster>")
 
   <local service cluster> is derived from the :option:`--service-cluster` option.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.SourceCluster",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Route.V3.RateLimit.Action.DestinationCluster do
@@ -1108,21 +1315,24 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.DestinationCluster do
 
   .. code-block:: cpp
 
-  ("destination_cluster", "<routed target cluster>")
+    ("destination_cluster", "<routed target cluster>")
 
   Once a request matches against a route table rule, a routed cluster is determined by one of
   the following :ref:`route table configuration <envoy_v3_api_msg_config.route.v3.RouteConfiguration>`
   settings:
 
   * :ref:`cluster <envoy_v3_api_field_config.route.v3.RouteAction.cluster>` indicates the upstream cluster
-  to route to.
+    to route to.
   * :ref:`weighted_clusters <envoy_v3_api_field_config.route.v3.RouteAction.weighted_clusters>`
-  chooses a cluster randomly from a set of clusters with attributed weight.
+    chooses a cluster randomly from a set of clusters with attributed weight.
   * :ref:`cluster_header <envoy_v3_api_field_config.route.v3.RouteAction.cluster_header>` indicates which
-  header in the request contains the target cluster.
+    header in the request contains the target cluster.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.DestinationCluster",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Route.V3.RateLimit.Action.RequestHeaders do
@@ -1132,10 +1342,13 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.RequestHeaders do
 
   .. code-block:: cpp
 
-  ("<descriptor_key>", "<header_value_queried_from_header>")
+    ("<descriptor_key>", "<header_value_queried_from_header>")
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.RequestHeaders",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :header_name, 1, type: :string, json_name: "headerName", deprecated: false
   field :descriptor_key, 2, type: :string, json_name: "descriptorKey", deprecated: false
@@ -1149,10 +1362,13 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.QueryParameters do
 
   .. code-block:: cpp
 
-  ("<descriptor_key>", "<query_parameter_value_queried_from_query_parameter>")
+    ("<descriptor_key>", "<query_parameter_value_queried_from_query_parameter>")
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.QueryParameters",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :query_parameter_name, 1,
     type: :string,
@@ -1170,10 +1386,13 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.RemoteAddress do
 
   .. code-block:: cpp
 
-  ("remote_address", "<trusted address from x-forwarded-for>")
+    ("remote_address", "<trusted address from x-forwarded-for>")
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.RemoteAddress",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Route.V3.RateLimit.Action.MaskedRemoteAddress do
@@ -1183,10 +1402,13 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.MaskedRemoteAddress do
 
   .. code-block:: cpp
 
-  ("masked_remote_address", "<masked address from x-forwarded-for>")
+    ("masked_remote_address", "<masked address from x-forwarded-for>")
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.MaskedRemoteAddress",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :v4_prefix_mask_len, 1,
     type: Google.Protobuf.UInt32Value,
@@ -1205,12 +1427,16 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.GenericKey do
 
   .. code-block:: cpp
 
-  ("generic_key", "<descriptor_value>")
+    ("generic_key", "<descriptor_value>")
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.GenericKey",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :descriptor_value, 1, type: :string, json_name: "descriptorValue", deprecated: false
+  field :default_value, 3, type: :string, json_name: "defaultValue"
   field :descriptor_key, 2, type: :string, json_name: "descriptorKey"
 end
 
@@ -1220,13 +1446,18 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.HeaderValueMatch do
 
   .. code-block:: cpp
 
-  ("header_match", "<descriptor_value>")
+    ("header_match", "<descriptor_value>")
+  [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.HeaderValueMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
-  field :descriptor_key, 4, type: :string, json_name: "descriptorKey"
   field :descriptor_value, 1, type: :string, json_name: "descriptorValue", deprecated: false
+  field :default_value, 5, type: :string, json_name: "defaultValue"
+  field :descriptor_key, 4, type: :string, json_name: "descriptorKey"
   field :expect_match, 2, type: Google.Protobuf.BoolValue, json_name: "expectMatch"
   field :headers, 3, repeated: true, type: Envoy.Config.Route.V3.HeaderMatcher, deprecated: false
 end
@@ -1238,13 +1469,16 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.DynamicMetaData do
 
   .. code-block:: cpp
 
-  ("<descriptor_key>", "<value_queried_from_dynamic_metadata>")
+    ("<descriptor_key>", "<value_queried_from_dynamic_metadata>")
 
   .. attention::
-  This action has been deprecated in favor of the :ref:`metadata <envoy_v3_api_msg_config.route.v3.RateLimit.Action.MetaData>` action
+    This action has been deprecated in favor of the :ref:`metadata <envoy_v3_api_msg_config.route.v3.RateLimit.Action.MetaData>` action
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.DynamicMetaData",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :descriptor_key, 1, type: :string, json_name: "descriptorKey", deprecated: false
 
@@ -1262,11 +1496,14 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.MetaData do
 
   .. code-block:: cpp
 
-  ("<descriptor_key>", "<value_queried_from_metadata>")
+    ("<descriptor_key>", "<value_queried_from_metadata>")
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.MetaData",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :descriptor_key, 1, type: :string, json_name: "descriptorKey", deprecated: false
 
@@ -1291,13 +1528,18 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action.QueryParameterValueMatch do
 
   .. code-block:: cpp
 
-  ("query_match", "<descriptor_value>")
+    ("query_match", "<descriptor_value>")
+  [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action.QueryParameterValueMatch",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
-  field :descriptor_key, 4, type: :string, json_name: "descriptorKey"
   field :descriptor_value, 1, type: :string, json_name: "descriptorValue", deprecated: false
+  field :default_value, 5, type: :string, json_name: "defaultValue"
+  field :descriptor_key, 4, type: :string, json_name: "descriptorKey"
   field :expect_match, 2, type: Google.Protobuf.BoolValue, json_name: "expectMatch"
 
   field :query_parameters, 3,
@@ -1312,7 +1554,10 @@ defmodule Envoy.Config.Route.V3.RateLimit.Action do
   [#next-free-field: 13]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Action",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :action_specifier, 0
 
@@ -1376,7 +1621,10 @@ defmodule Envoy.Config.Route.V3.RateLimit.Override.DynamicMetadata do
   Fetches the override from the dynamic metadata.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Override.DynamicMetadata",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metadata_key, 1,
     type: Envoy.Type.Metadata.V3.MetadataKey,
@@ -1385,7 +1633,10 @@ defmodule Envoy.Config.Route.V3.RateLimit.Override.DynamicMetadata do
 end
 
 defmodule Envoy.Config.Route.V3.RateLimit.Override do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.Override",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :override_specifier, 0
 
@@ -1396,7 +1647,10 @@ defmodule Envoy.Config.Route.V3.RateLimit.Override do
 end
 
 defmodule Envoy.Config.Route.V3.RateLimit.HitsAddend do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit.HitsAddend",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :number, 1, type: Google.Protobuf.UInt64Value, deprecated: false
   field :format, 2, type: :string, deprecated: false
@@ -1406,10 +1660,13 @@ defmodule Envoy.Config.Route.V3.RateLimit do
   @moduledoc """
   Global rate limiting :ref:`architecture overview <arch_overview_global_rate_limit>`.
   Also applies to Local rate limiting :ref:`using descriptors <config_http_filters_local_rate_limit_descriptors>`.
-  [#next-free-field: 7]
+  [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.RateLimit",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :stage, 1, type: Google.Protobuf.UInt32Value, deprecated: false
   field :disable_key, 2, type: :string, json_name: "disableKey"
@@ -1422,40 +1679,48 @@ defmodule Envoy.Config.Route.V3.RateLimit do
   field :limit, 4, type: Envoy.Config.Route.V3.RateLimit.Override
   field :hits_addend, 5, type: Envoy.Config.Route.V3.RateLimit.HitsAddend, json_name: "hitsAddend"
   field :apply_on_stream_done, 6, type: :bool, json_name: "applyOnStreamDone"
+
+  field :x_ratelimit_option, 7,
+    type: Envoy.Config.Route.V3.RateLimit.XRateLimitOption,
+    json_name: "xRatelimitOption",
+    enum: true
 end
 
 defmodule Envoy.Config.Route.V3.HeaderMatcher do
   @moduledoc """
   .. attention::
 
-  Internally, Envoy always uses the HTTP/2 ``:authority`` header to represent the HTTP/1 ``Host``
-  header. Thus, if attempting to match on ``Host``, match on ``:authority`` instead.
+    Internally, Envoy always uses the HTTP/2 ``:authority`` header to represent the HTTP/1 ``Host``
+    header. Thus, if attempting to match on ``Host``, match on ``:authority`` instead.
 
   .. attention::
 
-  To route on HTTP method, use the special HTTP/2 ``:method`` header. This works for both
-  HTTP/1 and HTTP/2 as Envoy normalizes headers. E.g.,
+    To route on HTTP method, use the special HTTP/2 ``:method`` header. This works for both
+    HTTP/1 and HTTP/2 as Envoy normalizes headers. E.g.,
 
-  .. code-block:: json
+    .. code-block:: json
 
-  {
-  "name": ":method",
-  "string_match": {
-  "exact": "POST"
-  }
-  }
+      {
+        "name": ":method",
+        "string_match": {
+          "exact": "POST"
+        }
+      }
 
   .. attention::
-  In the absence of any header match specifier, match will default to :ref:`present_match
-  <envoy_v3_api_field_config.route.v3.HeaderMatcher.present_match>`. i.e, a request that has the :ref:`name
-  <envoy_v3_api_field_config.route.v3.HeaderMatcher.name>` header will match, regardless of the header's
-  value.
+    In the absence of any header match specifier, match will default to :ref:`present_match
+    <envoy_v3_api_field_config.route.v3.HeaderMatcher.present_match>`. i.e, a request that has the :ref:`name
+    <envoy_v3_api_field_config.route.v3.HeaderMatcher.name>` header will match, regardless of the header's
+    value.
 
-  [#next-major-version: HeaderMatcher should be refactored to use StringMatcher.]
+   [#next-major-version: HeaderMatcher should be refactored to use StringMatcher.]
   [#next-free-field: 15]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.HeaderMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :header_match_specifier, 0
 
@@ -1490,7 +1755,10 @@ defmodule Envoy.Config.Route.V3.QueryParameterMatcher do
   [#next-free-field: 7]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.QueryParameterMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :query_parameter_match_specifier, 0
 
@@ -1505,13 +1773,36 @@ defmodule Envoy.Config.Route.V3.QueryParameterMatcher do
   field :present_match, 6, type: :bool, json_name: "presentMatch", oneof: 0
 end
 
+defmodule Envoy.Config.Route.V3.CookieMatcher do
+  @moduledoc """
+  Cookie matching inspects individual name/value pairs parsed from the ``Cookie`` header.
+  """
+
+  use Protobuf,
+    full_name: "envoy.config.route.v3.CookieMatcher",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :string_match, 2,
+    type: Envoy.Type.Matcher.V3.StringMatcher,
+    json_name: "stringMatch",
+    deprecated: false
+
+  field :invert_match, 3, type: :bool, json_name: "invertMatch"
+end
+
 defmodule Envoy.Config.Route.V3.InternalRedirectPolicy do
   @moduledoc """
   HTTP Internal Redirect :ref:`architecture overview <arch_overview_internal_redirects>`.
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.InternalRedirectPolicy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_internal_redirects, 1,
     type: Google.Protobuf.UInt32Value,
@@ -1543,7 +1834,10 @@ defmodule Envoy.Config.Route.V3.FilterConfig do
   to add additional flags to the filter.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.route.v3.FilterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :config, 1, type: Google.Protobuf.Any
   field :is_optional, 2, type: :bool, json_name: "isOptional"

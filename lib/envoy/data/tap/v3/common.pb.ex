@@ -5,7 +5,10 @@ defmodule Envoy.Data.Tap.V3.Body do
   [#protodoc-title: Tap common data]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v3.Body",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :body_type, 0
 
@@ -19,7 +22,10 @@ defmodule Envoy.Data.Tap.V3.Connection do
   Connection properties.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v3.Connection",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :local_address, 1, type: Envoy.Config.Core.V3.Address, json_name: "localAddress"
   field :remote_address, 2, type: Envoy.Config.Core.V3.Address, json_name: "remoteAddress"

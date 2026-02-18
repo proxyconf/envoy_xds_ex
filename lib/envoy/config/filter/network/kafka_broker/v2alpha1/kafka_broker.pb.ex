@@ -6,7 +6,10 @@ defmodule Envoy.Config.Filter.Network.KafkaBroker.V2alpha1.KafkaBroker do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.network.kafka_broker.v2alpha1.KafkaBroker",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :broker_address_rewrite_spec, 0
 
@@ -36,7 +39,10 @@ defmodule Envoy.Config.Filter.Network.KafkaBroker.V2alpha1.IdBasedBrokerRewriteS
   Collection of rules matching by broker ID.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.network.kafka_broker.v2alpha1.IdBasedBrokerRewriteSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -48,7 +54,10 @@ defmodule Envoy.Config.Filter.Network.KafkaBroker.V2alpha1.IdBasedBrokerRewriteR
   Defines a rule to rewrite broker address data.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.network.kafka_broker.v2alpha1.IdBasedBrokerRewriteRule",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :id, 1, type: :uint32, deprecated: false
   field :host, 2, type: :string, deprecated: false

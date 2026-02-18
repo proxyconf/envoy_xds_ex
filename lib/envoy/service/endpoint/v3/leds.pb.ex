@@ -4,7 +4,10 @@ defmodule Envoy.Service.Endpoint.V3.LedsDummy do
   services: https://github.com/google/protobuf/issues/4221 and protoxform to upgrade the file.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.endpoint.v3.LedsDummy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Service.Endpoint.V3.LocalityEndpointDiscoveryService.Service do
@@ -18,7 +21,7 @@ defmodule Envoy.Service.Endpoint.V3.LocalityEndpointDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.service.endpoint.v3.LocalityEndpointDiscoveryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :DeltaLocalityEndpoints,
       stream(Envoy.Service.Discovery.V3.DeltaDiscoveryRequest),

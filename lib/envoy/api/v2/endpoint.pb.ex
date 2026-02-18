@@ -3,7 +3,10 @@ defmodule Envoy.Api.V2.ClusterLoadAssignment.Policy.DropOverload do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.ClusterLoadAssignment.Policy.DropOverload",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :category, 1, type: :string, deprecated: false
   field :drop_percentage, 2, type: Envoy.Type.FractionalPercent, json_name: "dropPercentage"
@@ -15,7 +18,10 @@ defmodule Envoy.Api.V2.ClusterLoadAssignment.Policy do
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.ClusterLoadAssignment.Policy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :drop_overloads, 2,
     repeated: true,
@@ -39,7 +45,11 @@ defmodule Envoy.Api.V2.ClusterLoadAssignment.Policy do
 end
 
 defmodule Envoy.Api.V2.ClusterLoadAssignment.NamedEndpointsEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.ClusterLoadAssignment.NamedEndpointsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Api.V2.Endpoint.Endpoint
@@ -61,7 +71,10 @@ defmodule Envoy.Api.V2.ClusterLoadAssignment do
   Endpoint discovery :ref:`architecture overview <arch_overview_service_discovery_types_eds>`
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.ClusterLoadAssignment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
   field :endpoints, 2, repeated: true, type: Envoy.Api.V2.Endpoint.LocalityLbEndpoints

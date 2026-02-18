@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Http.HeaderFormatters.PreserveCase.V3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DEFAULT, 0
   field :PROPER_CASE, 1
@@ -14,7 +19,11 @@ defmodule Envoy.Extensions.Http.HeaderFormatters.PreserveCase.V3.PreserveCaseFor
   [#extension: envoy.http.stateful_header_formatters.preserve_case]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :forward_reason_phrase, 1, type: :bool, json_name: "forwardReasonPhrase"
 

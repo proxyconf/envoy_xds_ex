@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.Filters.Network.ThriftProxy.Filters.PayloadToMetadata.V3.PayloadToMetadata.ValueType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.network.thrift_proxy.filters.payload_to_metadata.v3.PayloadToMetadata.ValueType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :STRING, 0
   field :NUMBER, 1
@@ -10,7 +15,11 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.Filters.PayloadToMetadata
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.thrift_proxy.filters.payload_to_metadata.v3.PayloadToMetadata.KeyValuePair",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :value_type, 0
 
@@ -36,7 +45,11 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.Filters.PayloadToMetadata
   [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.thrift_proxy.filters.payload_to_metadata.v3.PayloadToMetadata.Rule",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :match_specifier, 0
 
@@ -61,7 +74,11 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.Filters.PayloadToMetadata
 end
 
 defmodule Envoy.Extensions.Filters.Network.ThriftProxy.Filters.PayloadToMetadata.V3.PayloadToMetadata.FieldSelector do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.thrift_proxy.filters.payload_to_metadata.v3.PayloadToMetadata.FieldSelector",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :int32, deprecated: false
@@ -82,7 +99,11 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.Filters.PayloadToMetadata
   [#extension: envoy.filters.thrift.payload_to_metadata]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.network.thrift_proxy.filters.payload_to_metadata.v3.PayloadToMetadata",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :request_rules, 1,
     repeated: true,

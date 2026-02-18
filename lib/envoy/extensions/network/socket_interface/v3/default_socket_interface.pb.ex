@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Network.SocketInterface.V3.DefaultSocketInterface do
   [#protodoc-title: Default socket interface configuration]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.network.socket_interface.v3.DefaultSocketInterface",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :io_uring_options, 1,
     type: Envoy.Extensions.Network.SocketInterface.V3.IoUringOptions,
@@ -13,7 +16,10 @@ defmodule Envoy.Extensions.Network.SocketInterface.V3.DefaultSocketInterface do
 end
 
 defmodule Envoy.Extensions.Network.SocketInterface.V3.IoUringOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.network.socket_interface.v3.IoUringOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :io_uring_size, 1, type: Google.Protobuf.UInt32Value, json_name: "ioUringSize"
 

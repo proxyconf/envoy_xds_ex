@@ -8,7 +8,11 @@ defmodule Envoy.Extensions.Filters.Http.IpTagging.V3.IPTagging.RequestType do
   being set. The filter defaults to both, and it will apply to all request types.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.http.ip_tagging.v3.IPTagging.RequestType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :BOTH, 0
   field :INTERNAL, 1
@@ -20,7 +24,11 @@ defmodule Envoy.Extensions.Filters.Http.IpTagging.V3.IPTagging.IpTagHeader.Heade
   Describes how to apply the tags to the headers.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.http.ip_tagging.v3.IPTagging.IpTagHeader.HeaderAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :SANITIZE, 0
   field :APPEND_IF_EXISTS_OR_ADD, 1
@@ -31,7 +39,10 @@ defmodule Envoy.Extensions.Filters.Http.IpTagging.V3.IPTagging.IPTag do
   Supplies the IP tag name and the IP address subnets.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ip_tagging.v3.IPTagging.IPTag",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ip_tag_name, 1, type: :string, json_name: "ipTagName"
   field :ip_list, 2, repeated: true, type: Envoy.Config.Core.V3.CidrRange, json_name: "ipList"
@@ -42,7 +53,10 @@ defmodule Envoy.Extensions.Filters.Http.IpTagging.V3.IPTagging.IpTagHeader do
   Specify to which header the tags will be written.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ip_tagging.v3.IPTagging.IpTagHeader",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :header, 1, type: :string, deprecated: false
 
@@ -59,7 +73,10 @@ defmodule Envoy.Extensions.Filters.Http.IpTagging.V3.IPTagging do
   [#extension: envoy.filters.http.ip_tagging]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ip_tagging.v3.IPTagging",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :request_type, 1,
     type: Envoy.Extensions.Filters.Http.IpTagging.V3.IPTagging.RequestType,

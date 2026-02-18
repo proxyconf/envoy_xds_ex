@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Quic.ConnectionDebugVisitor.QuicStats.V3.Config do
   [#extension: envoy.quic.connection_debug_visitor.quic_stats]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.quic.connection_debug_visitor.quic_stats.v3.Config",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :update_period, 2,
     type: Google.Protobuf.Duration,

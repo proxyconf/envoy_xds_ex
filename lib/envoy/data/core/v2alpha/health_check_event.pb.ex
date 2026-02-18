@@ -4,7 +4,11 @@ defmodule Envoy.Data.Core.V2alpha.HealthCheckFailureType do
   :ref:`Health check logging <arch_overview_health_check_logging>`.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.data.core.v2alpha.HealthCheckFailureType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ACTIVE, 0
   field :PASSIVE, 1
@@ -12,7 +16,11 @@ defmodule Envoy.Data.Core.V2alpha.HealthCheckFailureType do
 end
 
 defmodule Envoy.Data.Core.V2alpha.HealthCheckerType do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.data.core.v2alpha.HealthCheckerType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :HTTP, 0
   field :TCP, 1
@@ -25,7 +33,10 @@ defmodule Envoy.Data.Core.V2alpha.HealthCheckEvent do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.core.v2alpha.HealthCheckEvent",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :event, 0
 
@@ -67,7 +78,10 @@ defmodule Envoy.Data.Core.V2alpha.HealthCheckEvent do
 end
 
 defmodule Envoy.Data.Core.V2alpha.HealthCheckEjectUnhealthy do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.core.v2alpha.HealthCheckEjectUnhealthy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :failure_type, 1,
     type: Envoy.Data.Core.V2alpha.HealthCheckFailureType,
@@ -77,13 +91,19 @@ defmodule Envoy.Data.Core.V2alpha.HealthCheckEjectUnhealthy do
 end
 
 defmodule Envoy.Data.Core.V2alpha.HealthCheckAddHealthy do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.core.v2alpha.HealthCheckAddHealthy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :first_check, 1, type: :bool, json_name: "firstCheck"
 end
 
 defmodule Envoy.Data.Core.V2alpha.HealthCheckFailure do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.core.v2alpha.HealthCheckFailure",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :failure_type, 1,
     type: Envoy.Data.Core.V2alpha.HealthCheckFailureType,
@@ -95,9 +115,15 @@ defmodule Envoy.Data.Core.V2alpha.HealthCheckFailure do
 end
 
 defmodule Envoy.Data.Core.V2alpha.DegradedHealthyHost do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.core.v2alpha.DegradedHealthyHost",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Data.Core.V2alpha.NoLongerDegradedHost do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.core.v2alpha.NoLongerDegradedHost",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

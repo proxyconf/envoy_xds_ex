@@ -3,8 +3,8 @@ defmodule Envoy.Extensions.Formatter.Cel.V3.Cel do
   Configuration for the CEL formatter.
 
   .. warning::
-  This extension is treated as built-in extension and will be enabled by default now.
-  It is unnecessary to configure this extension.
+    This extension is treated as built-in extension and will be enabled by default now.
+    It is unnecessary to configure this extension.
   [#protodoc-title: Formatter extension for printing CEL expressions]
   [#extension: envoy.formatter.cel]
   CEL formatter extension implements CEL command operator that evaluates configured
@@ -22,7 +22,26 @@ defmodule Envoy.Extensions.Formatter.Cel.V3.Cel do
   * ``%CEL(connection.mtls)%``
   * ``%CEL(request.headers['x-envoy-original-path']):10%``
   * ``%CEL(request.headers['x-log-mtls'] || request.url_path.contains('v1beta3'))%``
+  Alternatively: %TYPED_CEL(EXPRESSION):Z%
+  When using a non-text access log format like JSON, this format command is
+  able to emit values of non-string types, like number, boolean, and null,
+  based on the output of the CEL expression. It otherwise functions the same as
+  %CEL%. CEL types not native to JSON are coerced as follows:
+
+  * Bytes are base64 encoded to produce a string.
+  * Durations are stringified as a count of seconds, e.g. `duration("1h30m")`
+    becomes "5400s".
+  * Timestamps are formatted to UTC, e.g.
+    `timestamp("2023-08-26T12:39:00-07:00")` becomes
+    "2023-08-26T19:39:00+00:00"
+  * Maps become objects, provided all keys can be coerced to strings and that
+    all values can coerce to types representable in JSON.
+  * Lists become lists, provided all values can coerce to types representable
+    in JSON.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.formatter.cel.v3.Cel",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

@@ -1,3 +1,14 @@
+defmodule Envoy.Extensions.Filters.Http.Composite.V3.Composite.NamedFilterChainsEntry do
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.composite.v3.Composite.NamedFilterChainsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Envoy.Extensions.Filters.Http.Composite.V3.FilterChainConfiguration
+end
+
 defmodule Envoy.Extensions.Filters.Http.Composite.V3.Composite do
   @moduledoc """
   :ref:`Composite filter <config_http_filters_composite>` config. The composite filter config
@@ -15,7 +26,37 @@ defmodule Envoy.Extensions.Filters.Http.Composite.V3.Composite do
   [#extension: envoy.filters.http.composite]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.composite.v3.Composite",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :named_filter_chains, 1,
+    repeated: true,
+    type: Envoy.Extensions.Filters.Http.Composite.V3.Composite.NamedFilterChainsEntry,
+    json_name: "namedFilterChains",
+    map: true
+end
+
+defmodule Envoy.Extensions.Filters.Http.Composite.V3.FilterChainConfiguration do
+  @moduledoc """
+  A list of filter configurations to be called in order. Note that this can be used as the type
+  inside of an ECDS :ref:`TypedExtensionConfig
+  <envoy_v3_api_msg_config.core.v3.TypedExtensionConfig>` extension, which allows a chain of
+  filters to be configured dynamically. In that case, the types of all filters in the chain must
+  be present in the :ref:`ExtensionConfigSource.type_urls
+  <envoy_v3_api_field_config.core.v3.ExtensionConfigSource.type_urls>` field.
+  """
+
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.composite.v3.FilterChainConfiguration",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :typed_config, 1,
+    repeated: true,
+    type: Envoy.Config.Core.V3.TypedExtensionConfig,
+    json_name: "typedConfig"
 end
 
 defmodule Envoy.Extensions.Filters.Http.Composite.V3.DynamicConfig do
@@ -23,7 +64,10 @@ defmodule Envoy.Extensions.Filters.Http.Composite.V3.DynamicConfig do
   Configuration for an extension configuration discovery service with name.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.composite.v3.DynamicConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -36,9 +80,13 @@ defmodule Envoy.Extensions.Filters.Http.Composite.V3.ExecuteFilterAction do
   @moduledoc """
   Composite match action (see :ref:`matching docs <arch_overview_matching_api>` for more info on match actions).
   This specifies the filter configuration of the filter that the composite filter should delegate filter interactions to.
+  [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.composite.v3.ExecuteFilterAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :typed_config, 1,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,
@@ -49,6 +97,12 @@ defmodule Envoy.Extensions.Filters.Http.Composite.V3.ExecuteFilterAction do
     type: Envoy.Extensions.Filters.Http.Composite.V3.DynamicConfig,
     json_name: "dynamicConfig",
     deprecated: false
+
+  field :filter_chain, 4,
+    type: Envoy.Extensions.Filters.Http.Composite.V3.FilterChainConfiguration,
+    json_name: "filterChain"
+
+  field :filter_chain_name, 5, type: :string, json_name: "filterChainName"
 
   field :sample_percent, 3,
     type: Envoy.Config.Core.V3.RuntimeFractionalPercent,

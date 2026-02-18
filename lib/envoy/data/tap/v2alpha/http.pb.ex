@@ -3,7 +3,10 @@ defmodule Envoy.Data.Tap.V2alpha.HttpBufferedTrace.Message do
   HTTP message wrapper.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v2alpha.HttpBufferedTrace.Message",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :headers, 1, repeated: true, type: Envoy.Api.V2.Core.HeaderValue
   field :body, 2, type: Envoy.Data.Tap.V2alpha.Body
@@ -16,7 +19,10 @@ defmodule Envoy.Data.Tap.V2alpha.HttpBufferedTrace do
   [#protodoc-title: HTTP tap data]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v2alpha.HttpBufferedTrace",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :request, 1, type: Envoy.Data.Tap.V2alpha.HttpBufferedTrace.Message
   field :response, 2, type: Envoy.Data.Tap.V2alpha.HttpBufferedTrace.Message
@@ -28,7 +34,10 @@ defmodule Envoy.Data.Tap.V2alpha.HttpStreamedTraceSegment do
   [#next-free-field: 8]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.data.tap.v2alpha.HttpStreamedTraceSegment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :message_piece, 0
 

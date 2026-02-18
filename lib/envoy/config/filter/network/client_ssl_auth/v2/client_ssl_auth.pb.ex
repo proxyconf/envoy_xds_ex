@@ -6,7 +6,10 @@ defmodule Envoy.Config.Filter.Network.ClientSslAuth.V2.ClientSSLAuth do
   [#extension: envoy.filters.network.client_ssl_auth]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :auth_api_cluster, 1, type: :string, json_name: "authApiCluster", deprecated: false
   field :stat_prefix, 2, type: :string, json_name: "statPrefix", deprecated: false

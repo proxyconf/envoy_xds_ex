@@ -1,5 +1,10 @@
 defmodule Envoy.Extensions.ResourceMonitors.CpuUtilization.V3.CpuUtilizationConfig.UtilizationComputeStrategy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.resource_monitors.cpu_utilization.v3.CpuUtilizationConfig.UtilizationComputeStrategy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :HOST, 0
   field :CONTAINER, 1
@@ -12,7 +17,10 @@ defmodule Envoy.Extensions.ResourceMonitors.CpuUtilization.V3.CpuUtilizationConf
   [#extension: envoy.resource_monitors.cpu_utilization]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.resource_monitors.cpu_utilization.v3.CpuUtilizationConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :mode, 1,
     type:

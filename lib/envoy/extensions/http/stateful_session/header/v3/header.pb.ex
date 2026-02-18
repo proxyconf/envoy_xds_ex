@@ -15,7 +15,7 @@ defmodule Envoy.Extensions.Http.StatefulSession.Header.V3.HeaderBasedSessionStat
 
   .. code-block:: none
 
-  session-header: "MS4yLjMuNDo4MA=="
+      session-header: "MS4yLjMuNDo4MA=="
 
   When processing the upstream response, if ``1.2.3.4:80`` is indeed the final choice the extension
   does nothing. If ``1.2.3.4:80`` is not the final choice, the new selected host will be set to
@@ -25,7 +25,10 @@ defmodule Envoy.Extensions.Http.StatefulSession.Header.V3.HeaderBasedSessionStat
   [#protodoc-title: Header based stateful session extension]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.http.stateful_session.header.v3.HeaderBasedSessionState",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Http.EarlyHeaderMutation.HeaderMutation.V3.HeaderMuta
   [#extension: envoy.http.early_header_mutation.header_mutation]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.http.early_header_mutation.header_mutation.v3.HeaderMutation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :mutations, 1,
     repeated: true,

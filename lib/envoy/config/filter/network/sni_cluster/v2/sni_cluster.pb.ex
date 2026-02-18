@@ -5,5 +5,8 @@ defmodule Envoy.Config.Filter.Network.SniCluster.V2.SniCluster do
   [#extension: envoy.filters.network.sni_cluster]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.filter.network.sni_cluster.v2.SniCluster",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end

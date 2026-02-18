@@ -7,7 +7,10 @@ defmodule Envoy.Extensions.Http.OriginalIpDetection.Xff.V3.XffConfig do
   [#protodoc-title: XFF original IP detection extension]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.http.original_ip_detection.xff.v3.XffConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :xff_num_trusted_hops, 1, type: :uint32, json_name: "xffNumTrustedHops"
 
@@ -19,7 +22,10 @@ defmodule Envoy.Extensions.Http.OriginalIpDetection.Xff.V3.XffConfig do
 end
 
 defmodule Envoy.Extensions.Http.OriginalIpDetection.Xff.V3.XffTrustedCidrs do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.http.original_ip_detection.xff.v3.XffTrustedCidrs",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cidrs, 1, repeated: true, type: Envoy.Config.Core.V3.CidrRange
 end

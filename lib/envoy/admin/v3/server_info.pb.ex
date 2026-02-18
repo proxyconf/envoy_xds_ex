@@ -1,5 +1,9 @@
 defmodule Envoy.Admin.V3.ServerInfo.State do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.admin.v3.ServerInfo.State",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :LIVE, 0
   field :DRAINING, 1
@@ -8,14 +12,22 @@ defmodule Envoy.Admin.V3.ServerInfo.State do
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.IpVersion do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.admin.v3.CommandLineOptions.IpVersion",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :v4, 0
   field :v6, 1
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.Mode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.admin.v3.CommandLineOptions.Mode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :Serve, 0
   field :Validate, 1
@@ -23,7 +35,11 @@ defmodule Envoy.Admin.V3.CommandLineOptions.Mode do
 end
 
 defmodule Envoy.Admin.V3.CommandLineOptions.DrainStrategy do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.admin.v3.CommandLineOptions.DrainStrategy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :Gradual, 0
   field :Immediate, 1
@@ -37,7 +53,10 @@ defmodule Envoy.Admin.V3.ServerInfo do
   [#protodoc-title: Server state]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.ServerInfo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :version, 1, type: :string
   field :state, 2, type: Envoy.Admin.V3.ServerInfo.State, enum: true
@@ -54,10 +73,13 @@ end
 
 defmodule Envoy.Admin.V3.CommandLineOptions do
   @moduledoc """
-  [#next-free-field: 42]
+  [#next-free-field: 43]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.admin.v3.CommandLineOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :base_id, 1, type: :uint64, json_name: "baseId"
   field :use_dynamic_base_id, 31, type: :bool, json_name: "useDynamicBaseId"
@@ -87,6 +109,7 @@ defmodule Envoy.Admin.V3.CommandLineOptions do
   field :service_node, 14, type: :string, json_name: "serviceNode"
   field :service_zone, 15, type: :string, json_name: "serviceZone"
   field :file_flush_interval, 16, type: Google.Protobuf.Duration, json_name: "fileFlushInterval"
+  field :file_flush_min_size, 42, type: :uint32, json_name: "fileFlushMinSize"
   field :drain_time, 17, type: Google.Protobuf.Duration, json_name: "drainTime"
 
   field :drain_strategy, 33,

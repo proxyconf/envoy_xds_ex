@@ -1,20 +1,36 @@
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageExtractionConfig.ExtractMode do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.http.proto_message_extraction.v3.ProtoMessageExtractionConfig.ExtractMode",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ExtractMode_UNSPECIFIED, 0
   field :FIRST_AND_LAST, 1
 end
 
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtraction.ExtractDirective do
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name:
+      "envoy.extensions.filters.http.proto_message_extraction.v3.MethodExtraction.ExtractDirective",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ExtractDirective_UNSPECIFIED, 0
   field :EXTRACT, 1
   field :EXTRACT_REDACT, 2
+  field :EXTRACT_REPEATED_CARDINALITY, 3
 end
 
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageExtractionConfig.ExtractionByMethodEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.proto_message_extraction.v3.ProtoMessageExtractionConfig.ExtractionByMethodEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtraction
@@ -46,10 +62,10 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageEx
 
   1. if the incoming gRPC request is configured, the filter tries to:
 
-  a. buffer the incoming data to complete protobuf messages
-  b. extract individual protobuf messages according to directives
-  c. write the result into the dynamic metadata.
-  d. pass through the request data
+    a. buffer the incoming data to complete protobuf messages
+    b. extract individual protobuf messages according to directives
+    c. write the result into the dynamic metadata.
+    d. pass through the request data
 
   2. otherwise, pass through the request.
 
@@ -57,10 +73,10 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageEx
 
   1. if the incoming gRPC request is configured, the filter tries to:
 
-  a. buffer the incoming data to complete protobuf messages
-  b. extract individual protobuf messages according to directives
-  c. write the result into the dynamic metadata.
-  d. pass through the response data
+    a. buffer the incoming data to complete protobuf messages
+    b. extract individual protobuf messages according to directives
+    c. write the result into the dynamic metadata.
+    d. pass through the response data
 
   2. otherwise, pass through the response.
 
@@ -78,24 +94,24 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageEx
   ``metadata<google.protobuf.Struct>`` with the same layout of the message.
   For the default `FIRST_AND_LAST` mode, it will be like:
   .. code-block:: json
-  {
-  "requests":{
-  "first":{
-  "foo": "val_foo1",
-  }
-  "last":{
-  "foo": "val_foo3",
-  }
-  },
-  "responses":{
-  "first":{
-  "baz": "val_baz1",
-  }
-  "last":{
-  "baz": "val_foo3",
-  }
-  }
-  }
+    {
+      "requests":{
+         "first":{
+            "foo": "val_foo1",
+         }
+         "last":{
+            "foo": "val_foo3",
+         }
+      },
+      "responses":{
+         "first":{
+            "baz": "val_baz1",
+         }
+         "last":{
+            "baz": "val_foo3",
+         }
+      }
+    }
   Example for `FIRST_AND_LAST` mode
   ---------------------------------
 
@@ -104,113 +120,117 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageEx
 
   .. code-block:: proto
 
-  message MethodRequest {
-  string foo = 1;
-  Nested nested = 2;
-  Msg redacted = 3;
-  ...
-  }
+    message MethodRequest {
+      string foo = 1;
+      Nested nested = 2;
+      Msg redacted = 3;
+      ...
+    }
 
-  message MethodResponse {
-  string baz = 1;
-  }
+    message MethodResponse {
+      string baz = 1;
+    }
 
-  message Nested {
-  Msg double_nested = 2;
-  }
+    message Nested {
+      Msg double_nested = 2;
+    }
 
-  message Msg {
-  string bar = 1;
-  string not_extracted = 2;
-  }
+    message Msg {
+      string bar = 1;
+      string not_extracted = 2;
+    }
 
   This is the filter config in JSON.
 
   .. code-block:: json
 
-  {
-  "descriptor_set":{},
-  "mode": "FIRST_AND_LAST",
-  "extraction_by_method":{
-  "pkg.svc.Method":{
-  "request_extraction_by_field":{
-  "foo":"EXTRACT",
-  "nested.doubled_nested.bar":"EXTRACT",
-  "redacted":"EXTRACT_REDACT"
-  },
-  "response_extraction_by_field":{
-  "bar":"EXTRACT",
-  }
-  }
-  }
-  }
+    {
+      "descriptor_set":{},
+      "mode": "FIRST_AND_LAST",
+      "extraction_by_method":{
+         "pkg.svc.Method":{
+            "request_extraction_by_field":{
+               "foo":"EXTRACT",
+               "nested.doubled_nested.bar":"EXTRACT",
+               "redacted":"EXTRACT_REDACT"
+            },
+            "response_extraction_by_field":{
+               "bar":"EXTRACT",
+            }
+         }
+      }
+    }
 
   During runtime, the filter receives the following `MethodRequest` message in
   JSON.
 
   .. code-block:: json
 
-  {
-  "foo": "val_foo1",
-  "nested": { "double_nested": {"bar": "val_bar1", "not_extracted":
-  "val_not_extracted1"}, "redacted": { "bar": "val_redacted_bar1"}
-  }
-  {
-  "foo": "val_foo2",
-  "nested": { "double_nested": {"bar": "val_bar2", "not_extracted":
-  "val_not_extracted2"}, "redacted": { "bar": "val_redacted_bar2"}
-  }
-  {
-  "foo": "val_foo3",
-  "nested": { "double_nested": {"bar": "val_bar3", "not_extracted":
-  "val_not_extracted3"}, "redacted": { "bar": "val_redacted_bar3"}
-  }
+    {
+      "foo": "val_foo1",
+      "nested": { "double_nested": {"bar": "val_bar1", "not_extracted":
+      "val_not_extracted1"}, "redacted": { "bar": "val_redacted_bar1"}
+    }
+    {
+      "foo": "val_foo2",
+      "nested": { "double_nested": {"bar": "val_bar2", "not_extracted":
+      "val_not_extracted2"}, "redacted": { "bar": "val_redacted_bar2"}
+    }
+    {
+      "foo": "val_foo3",
+      "nested": { "double_nested": {"bar": "val_bar3", "not_extracted":
+      "val_not_extracted3"}, "redacted": { "bar": "val_redacted_bar3"}
+    }
 
   the filter receives the following `MethodResponse` message in
   JSON.
 
   .. code-block:: json
 
-  {
-  "baz": "val_baz1",
-  }
-  {
-  "baz": "val_baz2",
-  }
-  {
-  "baz": "val_baz3",
-  }
+    {
+      "baz": "val_baz1",
+    }
+    {
+      "baz": "val_baz2",
+    }
+    {
+      "baz": "val_baz3",
+    }
 
   The filter will write the following dynamic
   metadata(`envoy.filters.http.proto_message_extraction`) in JSON.
 
   .. code-block:: json
 
-  {
-  "requests":{
-  "first":{
-  "foo": "val_foo1",
-  "nested": { "double_nested": {"bar": "val_bar1"}},
-  "redacted": {}
-  }
-  "last":{
-  "foo": "val_foo3",
-  "nested": { "double_nested": {"bar": "val_bar3"}},
-  "redacted": {}
-  }
-  },
-  "responses":{
-  "first":{
-  "baz": "val_baz1"
-  }
-  "last":{
-  "baz": "val_foo3"
-  }
-  }
-  }
+    {
+      "requests":{
+         "first":{
+            "foo": "val_foo1",
+            "nested": { "double_nested": {"bar": "val_bar1"}},
+            "redacted": {}
+         }
+         "last":{
+            "foo": "val_foo3",
+            "nested": { "double_nested": {"bar": "val_bar3"}},
+            "redacted": {}
+         }
+      },
+      "responses":{
+         "first":{
+            "baz": "val_baz1"
+         }
+         "last":{
+            "baz": "val_foo3"
+         }
+      }
+    }
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.proto_message_extraction.v3.ProtoMessageExtractionConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :descriptor_set, 0
 
@@ -235,7 +255,12 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.ProtoMessageEx
 end
 
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtraction.RequestExtractionByFieldEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.proto_message_extraction.v3.MethodExtraction.RequestExtractionByFieldEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -246,7 +271,12 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtracti
 end
 
 defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtraction.ResponseExtractionByFieldEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name:
+      "envoy.extensions.filters.http.proto_message_extraction.v3.MethodExtraction.ResponseExtractionByFieldEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -262,7 +292,10 @@ defmodule Envoy.Extensions.Filters.Http.ProtoMessageExtraction.V3.MethodExtracti
   though the Istio doesn't support that so far.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.proto_message_extraction.v3.MethodExtraction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :request_extraction_by_field, 2,
     repeated: true,

@@ -5,7 +5,10 @@ defmodule Envoy.Extensions.Filters.Network.ThriftProxy.Router.V3.Router do
   [#extension: envoy.filters.thrift.router]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.network.thrift_proxy.router.v3.Router",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :close_downstream_on_upstream_error, 1,
     type: Google.Protobuf.BoolValue,

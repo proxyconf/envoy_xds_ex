@@ -5,7 +5,11 @@ defmodule Envoy.Config.Core.V3.ApiVersion do
   [#protodoc-title: Configuration sources]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.core.v3.ApiVersion",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :AUTO, 0
   field :V2, 1
@@ -17,7 +21,11 @@ defmodule Envoy.Config.Core.V3.ApiConfigSource.ApiType do
   APIs may be fetched via either REST or gRPC.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.core.v3.ApiConfigSource.ApiType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DEPRECATED_AND_UNAVAILABLE_DO_NOT_USE, 0
   field :REST, 1
@@ -34,7 +42,10 @@ defmodule Envoy.Config.Core.V3.ApiConfigSource do
   [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.ApiConfigSource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :api_type, 1,
     type: Envoy.Config.Core.V3.ApiConfigSource.ApiType,
@@ -81,7 +92,10 @@ defmodule Envoy.Config.Core.V3.AggregatedConfigSource do
   specify that ADS is to be used.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.AggregatedConfigSource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Envoy.Config.Core.V3.SelfConfigSource do
@@ -92,7 +106,10 @@ defmodule Envoy.Config.Core.V3.SelfConfigSource do
   specify that other data can be obtained from the same server.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.SelfConfigSource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :transport_api_version, 1,
     type: Envoy.Config.Core.V3.ApiVersion,
@@ -106,7 +123,10 @@ defmodule Envoy.Config.Core.V3.RateLimitSettings do
   Rate Limit settings to be applied for discovery requests made by Envoy.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.RateLimitSettings",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :max_tokens, 1, type: Google.Protobuf.UInt32Value, json_name: "maxTokens"
   field :fill_rate, 2, type: Google.Protobuf.DoubleValue, json_name: "fillRate", deprecated: false
@@ -117,7 +137,10 @@ defmodule Envoy.Config.Core.V3.PathConfigSource do
   Local filesystem path configuration source.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.PathConfigSource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
 
@@ -137,7 +160,10 @@ defmodule Envoy.Config.Core.V3.ConfigSource do
   [#next-free-field: 9]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.ConfigSource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :config_source_specifier, 0
 
@@ -183,7 +209,10 @@ defmodule Envoy.Config.Core.V3.ExtensionConfigSource do
   filter chain with a disabled extension filter rejects all incoming streams.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.core.v3.ExtensionConfigSource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :config_source, 1,
     type: Envoy.Config.Core.V3.ConfigSource,

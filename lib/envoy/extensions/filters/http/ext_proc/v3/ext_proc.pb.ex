@@ -4,7 +4,11 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExternalProcessor.RouteCacheA
   is received in response to request headers.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor.RouteCacheAction",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DEFAULT, 0
   field :CLEAR, 1
@@ -16,10 +20,10 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExternalProcessor do
   The filter communicates with an external gRPC service called an "external processor"
   that can do a variety of things with the request and response:
 
-  * Access and modify the HTTP headers on the request, response, or both
-  * Access and modify the HTTP request and response bodies
-  * Access and modify the dynamic stream metadata
-  * Immediately send an HTTP response downstream and terminate other processing
+  * Access and modify the HTTP headers on the request, response, or both.
+  * Access and modify the HTTP request and response bodies.
+  * Access and modify the dynamic stream metadata.
+  * Immediately send an HTTP response downstream and terminate other processing.
 
   The filter communicates with the server using a gRPC bidirectional stream. After the initial
   request, the external server is in control over what additional data is sent to it
@@ -27,50 +31,48 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExternalProcessor do
 
   By implementing the protocol specified by the stream, the external server can choose:
 
-  * Whether it receives the response message at all
-  * Whether it receives the message body at all, in separate chunks, or as a single buffer
-  * Whether subsequent HTTP requests are transmitted synchronously or whether they are
-  sent asynchronously.
-  * To modify request or response trailers if they already exist
+  * Whether it receives the response message at all.
+  * Whether it receives the message body at all, in separate chunks, or as a single buffer.
+  * To modify request or response trailers if they already exist.
 
   The filter supports up to six different processing steps. Each is represented by
   a gRPC stream message that is sent to the external processor. For each message, the
   processor must send a matching response.
 
   * Request headers: Contains the headers from the original HTTP request.
-  * Request body: Delivered if they are present and sent in a single message if
-  the BUFFERED or BUFFERED_PARTIAL mode is chosen, in multiple messages if the
-  STREAMED mode is chosen, and not at all otherwise.
+  * Request body: If the body is present, the behavior depends on the
+    body send mode. In ``BUFFERED`` or ``BUFFERED_PARTIAL`` mode, the body is sent to the external
+    processor in a single message. In ``STREAMED`` or ``FULL_DUPLEX_STREAMED`` mode, the body will
+    be split across multiple messages sent to the external processor. In ``GRPC`` mode, as each
+    gRPC message arrives, it will be sent to the external processor (there will be exactly one
+    gRPC message in each message sent to the external processor). In ``NONE`` mode, the body will
+    not be sent to the external processor.
   * Request trailers: Delivered if they are present and if the trailer mode is set
-  to SEND.
+    to ``SEND``.
   * Response headers: Contains the headers from the HTTP response. Keep in mind
-  that if the upstream system sends them before processing the request body that
-  this message may arrive before the complete body.
+    that if the upstream system sends them before processing the request body that
+    this message may arrive before the complete body.
   * Response body: Sent according to the processing mode like the request body.
   * Response trailers: Delivered according to the processing mode like the
-  request trailers.
+    request trailers.
 
   By default, the processor sends only the request and response headers messages.
-  This may be changed to include any of the six steps by changing the processing_mode
-  setting of the filter configuration, or by setting the mode_override of any response
-  from the external processor. The latter is only enabled if allow_mode_override is
+  This may be changed to include any of the six steps by changing the ``processing_mode``
+  setting of the filter configuration, or by setting the ``mode_override`` of any response
+  from the external processor. The latter is only enabled if ``allow_mode_override`` is
   set to true. This way, a processor may, for example, use information
   in the request header to determine whether the message body must be examined, or whether
-  the proxy should simply stream it straight through.
+  the data plane should simply stream it straight through.
 
   All of this together allows a server to process the filter traffic in fairly
   sophisticated ways. For example:
 
   * A server may choose to examine all or part of the HTTP message bodies depending
-  on the content of the headers.
+    on the content of the headers.
   * A server may choose to immediately reject some messages based on their HTTP
-  headers (or other dynamic metadata) and more carefully examine others.
-  * A server may asynchronously monitor traffic coming through the filter by inspecting
-  headers, bodies, or both, and then decide to switch to a synchronous processing
-  mode, either permanently or temporarily.
+    headers (or other dynamic metadata) and more carefully examine others.
 
-  The protocol itself is based on a bidirectional gRPC stream. Envoy will send the
-  server
+  The protocol itself is based on a bidirectional gRPC stream. The data plane will send the server
   :ref:`ProcessingRequest <envoy_v3_api_msg_service.ext_proc.v3.ProcessingRequest>`
   messages, and the server must reply with
   :ref:`ProcessingResponse <envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse>`.
@@ -79,14 +81,17 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExternalProcessor do
   <arch_overview_advanced_filter_state_sharing>` object in a namespace matching the filter
   name.
 
-  [#next-free-field: 24]
+  [#next-free-field: 26]
   [#protodoc-title: External Processing Filter]
   External Processing Filter
   [#extension: envoy.filters.http.ext_proc]
   The External Processing filter allows an external service to act on HTTP traffic in a flexible way.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :grpc_service, 1,
     type: Envoy.Config.Core.V3.GrpcService,
@@ -161,10 +166,17 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExternalProcessor do
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode,
     json_name: "allowedOverrideModes"
 
+  field :processing_request_modifier, 25,
+    type: Envoy.Config.Core.V3.TypedExtensionConfig,
+    json_name: "processingRequestModifier",
+    deprecated: false
+
   field :on_processing_response, 23,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,
     json_name: "onProcessingResponse",
     deprecated: false
+
+  field :status_on_error, 24, type: Envoy.Type.V3.HttpStatus, json_name: "statusOnError"
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcHttpService do
@@ -172,13 +184,19 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcHttpService do
   ExtProcHttpService is used for HTTP communication between the filter and the external processing service.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ext_proc.v3.ExtProcHttpService",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :http_service, 1, type: Envoy.Config.Core.V3.HttpService, json_name: "httpService"
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions.MetadataNamespaces do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ext_proc.v3.MetadataOptions.MetadataNamespaces",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :untyped, 1, repeated: true, type: :string
   field :typed, 2, repeated: true, type: :string
@@ -191,7 +209,10 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions do
   metadata returned by the server may be written, and how that metadata may be written.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ext_proc.v3.MetadataOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :forwarding_namespaces, 1,
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions.MetadataNamespaces,
@@ -200,6 +221,10 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions do
   field :receiving_namespaces, 2,
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions.MetadataNamespaces,
     json_name: "receivingNamespaces"
+
+  field :cluster_metadata_forwarding_namespaces, 3,
+    type: Envoy.Extensions.Filters.Http.ExtProc.V3.MetadataOptions.MetadataNamespaces,
+    json_name: "clusterMetadataForwardingNamespaces"
 end
 
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.HeaderForwardingRules do
@@ -209,16 +234,19 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.HeaderForwardingRules do
 
   This works as below:
 
-  1. If neither ``allowed_headers`` nor ``disallowed_headers`` is set, all headers are forwarded.
-  2. If both ``allowed_headers`` and ``disallowed_headers`` are set, only headers in the
-  ``allowed_headers`` but not in the ``disallowed_headers`` are forwarded.
-  3. If ``allowed_headers`` is set, and ``disallowed_headers`` is not set, only headers in
-  the ``allowed_headers`` are forwarded.
-  4. If ``disallowed_headers`` is set, and ``allowed_headers`` is not set, all headers except
-  headers in the ``disallowed_headers`` are forwarded.
+    1. If neither ``allowed_headers`` nor ``disallowed_headers`` is set, all headers are forwarded.
+    2. If both ``allowed_headers`` and ``disallowed_headers`` are set, only headers in the
+       ``allowed_headers`` but not in the ``disallowed_headers`` are forwarded.
+    3. If ``allowed_headers`` is set, and ``disallowed_headers`` is not set, only headers in
+       the ``allowed_headers`` are forwarded.
+    4. If ``disallowed_headers`` is set, and ``allowed_headers`` is not set, all headers except
+       headers in the ``disallowed_headers`` are forwarded.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ext_proc.v3.HeaderForwardingRules",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :allowed_headers, 1,
     type: Envoy.Type.Matcher.V3.ListStringMatcher,
@@ -235,7 +263,10 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcPerRoute do
   virtual host or cluster.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ext_proc.v3.ExtProcPerRoute",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :override, 0
 
@@ -246,16 +277,19 @@ end
 defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcOverrides do
   @moduledoc """
   Overrides that may be set on a per-route basis
-  [#next-free-field: 8]
+  [#next-free-field: 10]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.ext_proc.v3.ExtProcOverrides",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :processing_mode, 1,
     type: Envoy.Extensions.Filters.Http.ExtProc.V3.ProcessingMode,
     json_name: "processingMode"
 
-  field :async_mode, 2, type: :bool, json_name: "asyncMode"
+  field :async_mode, 2, type: :bool, json_name: "asyncMode", deprecated: true
   field :request_attributes, 3, repeated: true, type: :string, json_name: "requestAttributes"
   field :response_attributes, 4, repeated: true, type: :string, json_name: "responseAttributes"
   field :grpc_service, 5, type: Envoy.Config.Core.V3.GrpcService, json_name: "grpcService"
@@ -268,4 +302,11 @@ defmodule Envoy.Extensions.Filters.Http.ExtProc.V3.ExtProcOverrides do
     repeated: true,
     type: Envoy.Config.Core.V3.HeaderValue,
     json_name: "grpcInitialMetadata"
+
+  field :failure_mode_allow, 8, type: Google.Protobuf.BoolValue, json_name: "failureModeAllow"
+
+  field :processing_request_modifier, 9,
+    type: Envoy.Config.Core.V3.TypedExtensionConfig,
+    json_name: "processingRequestModifier",
+    deprecated: false
 end

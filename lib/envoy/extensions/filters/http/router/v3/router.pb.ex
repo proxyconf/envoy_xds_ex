@@ -1,5 +1,8 @@
 defmodule Envoy.Extensions.Filters.Http.Router.V3.Router.UpstreamAccessLogOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.router.v3.Router.UpstreamAccessLogOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :flush_upstream_log_on_upstream_stream, 1,
     type: :bool,
@@ -13,13 +16,16 @@ end
 
 defmodule Envoy.Extensions.Filters.Http.Router.V3.Router do
   @moduledoc """
-  [#next-free-field: 10]
+  [#next-free-field: 11]
   [#protodoc-title: Router]
   Router :ref:`configuration overview <config_http_filters_router>`.
   [#extension: envoy.filters.http.router]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.filters.http.router.v3.Router",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :dynamic_stats, 1, type: Google.Protobuf.BoolValue, json_name: "dynamicStats"
   field :start_child_span, 2, type: :bool, json_name: "startChildSpan", deprecated: true
@@ -51,4 +57,8 @@ defmodule Envoy.Extensions.Filters.Http.Router.V3.Router do
     repeated: true,
     type: Envoy.Extensions.Filters.Network.HttpConnectionManager.V3.HttpFilter,
     json_name: "upstreamHttpFilters"
+
+  field :reject_connect_request_early_data, 10,
+    type: Google.Protobuf.BoolValue,
+    json_name: "rejectConnectRequestEarlyData"
 end

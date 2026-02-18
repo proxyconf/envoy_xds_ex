@@ -3,7 +3,11 @@ defmodule Envoy.Config.Rbac.V3.MetadataSource do
   [#protodoc-title: Role Based Access Control (RBAC)]
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.rbac.v3.MetadataSource",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :DYNAMIC, 0
   field :ROUTE, 1
@@ -14,7 +18,11 @@ defmodule Envoy.Config.Rbac.V3.RBAC.Action do
   Should we do safe-list or block-list style access control?
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.rbac.v3.RBAC.Action",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ALLOW, 0
   field :DENY, 1
@@ -26,7 +34,11 @@ defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions.AuditCondition do
   Deny and allow here refer to RBAC decisions, not actions.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.config.rbac.v3.RBAC.AuditLoggingOptions.AuditCondition",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :NONE, 0
   field :ON_DENY, 1
@@ -39,7 +51,10 @@ defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions.AuditLoggerConfig do
   [#not-implemented-hide:]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.RBAC.AuditLoggingOptions.AuditLoggerConfig",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :audit_logger, 1,
     type: Envoy.Config.Core.V3.TypedExtensionConfig,
@@ -49,7 +64,10 @@ defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions.AuditLoggerConfig do
 end
 
 defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.RBAC.AuditLoggingOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :audit_condition, 1,
     type: Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions.AuditCondition,
@@ -64,7 +82,11 @@ defmodule Envoy.Config.Rbac.V3.RBAC.AuditLoggingOptions do
 end
 
 defmodule Envoy.Config.Rbac.V3.RBAC.PoliciesEntry do
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.RBAC.PoliciesEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Envoy.Config.Rbac.V3.Policy
@@ -85,44 +107,47 @@ defmodule Envoy.Config.Rbac.V3.RBAC do
   Here is an example of RBAC configuration. It has two policies:
 
   * Service account ``cluster.local/ns/default/sa/admin`` has full access to the service, and so
-  does "cluster.local/ns/default/sa/superuser".
+    does "cluster.local/ns/default/sa/superuser".
 
   * Any user can read (``GET``) the service at paths with prefix ``/products``, so long as the
-  destination port is either 80 or 443.
+    destination port is either 80 or 443.
 
-  .. code-block:: yaml
+   .. code-block:: yaml
 
-  action: ALLOW
-  policies:
-  "service-admin":
-  permissions:
-  - any: true
-  principals:
-  - authenticated:
-  principal_name:
-  exact: "cluster.local/ns/default/sa/admin"
-  - authenticated:
-  principal_name:
-  exact: "cluster.local/ns/default/sa/superuser"
-  "product-viewer":
-  permissions:
-  - and_rules:
-  rules:
-  - header:
-  name: ":method"
-  string_match:
-  exact: "GET"
-  - url_path:
-  path: { prefix: "/products" }
-  - or_rules:
-  rules:
-  - destination_port: 80
-  - destination_port: 443
-  principals:
-  - any: true
+    action: ALLOW
+    policies:
+      "service-admin":
+        permissions:
+          - any: true
+        principals:
+          - authenticated:
+              principal_name:
+                exact: "cluster.local/ns/default/sa/admin"
+          - authenticated:
+              principal_name:
+                exact: "cluster.local/ns/default/sa/superuser"
+      "product-viewer":
+        permissions:
+            - and_rules:
+                rules:
+                  - header:
+                      name: ":method"
+                      string_match:
+                        exact: "GET"
+                  - url_path:
+                      path: { prefix: "/products" }
+                  - or_rules:
+                      rules:
+                        - destination_port: 80
+                        - destination_port: 443
+        principals:
+          - any: true
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.RBAC",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :action, 1, type: Envoy.Config.Rbac.V3.RBAC.Action, enum: true, deprecated: false
   field :policies, 2, repeated: true, type: Envoy.Config.Rbac.V3.RBAC.PoliciesEntry, map: true
@@ -138,9 +163,13 @@ defmodule Envoy.Config.Rbac.V3.Policy do
   A policy matches if and only if at least one of its permissions match the
   action taking place AND at least one of its principals match the downstream
   AND the condition is true if specified.
+  [#next-free-field: 6]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.Policy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :permissions, 1, repeated: true, type: Envoy.Config.Rbac.V3.Permission, deprecated: false
   field :principals, 2, repeated: true, type: Envoy.Config.Rbac.V3.Principal, deprecated: false
@@ -150,6 +179,8 @@ defmodule Envoy.Config.Rbac.V3.Policy do
     type: Google.Api.Expr.V1alpha1.CheckedExpr,
     json_name: "checkedCondition",
     deprecated: false
+
+  field :cel_config, 5, type: Envoy.Config.Core.V3.CelExpressionConfig, json_name: "celConfig"
 end
 
 defmodule Envoy.Config.Rbac.V3.SourcedMetadata do
@@ -164,7 +195,10 @@ defmodule Envoy.Config.Rbac.V3.SourcedMetadata do
   * Route metadata: Static metadata configured on the route entry
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.SourcedMetadata",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metadata_matcher, 1,
     type: Envoy.Type.Matcher.V3.MetadataMatcher,
@@ -184,7 +218,10 @@ defmodule Envoy.Config.Rbac.V3.Permission.Set do
   each are applied with the associated behavior.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.Permission.Set",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :rules, 1, repeated: true, type: Envoy.Config.Rbac.V3.Permission, deprecated: false
 end
@@ -195,7 +232,10 @@ defmodule Envoy.Config.Rbac.V3.Permission do
   [#next-free-field: 15]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.Permission",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :rule, 0
 
@@ -248,7 +288,10 @@ defmodule Envoy.Config.Rbac.V3.Principal.Set do
   Depending on the context, each are applied with the associated behavior.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.Principal.Set",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :ids, 1, repeated: true, type: Envoy.Config.Rbac.V3.Principal, deprecated: false
 end
@@ -256,9 +299,16 @@ end
 defmodule Envoy.Config.Rbac.V3.Principal.Authenticated do
   @moduledoc """
   Authentication attributes for a downstream.
+  It is recommended to NOT use this type, but instead use
+  :ref:`MTlsAuthenticated <envoy_v3_api_msg_extensions.rbac.principals.mtls_authenticated.v3.Config>`,
+  configured via :ref:`custom <envoy_v3_api_field_config.rbac.v3.Principal.custom>`,
+  which should be used for most use cases due to its improved security.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.Principal.Authenticated",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :principal_name, 2, type: Envoy.Type.Matcher.V3.StringMatcher, json_name: "principalName"
 end
@@ -267,10 +317,13 @@ defmodule Envoy.Config.Rbac.V3.Principal do
   @moduledoc """
   Principal defines an identity or a group of identities for a downstream
   subject.
-  [#next-free-field: 14]
+  [#next-free-field: 15]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.Principal",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :identifier, 0
 
@@ -306,6 +359,8 @@ defmodule Envoy.Config.Rbac.V3.Principal do
     type: Envoy.Config.Rbac.V3.SourcedMetadata,
     json_name: "sourcedMetadata",
     oneof: 0
+
+  field :custom, 14, type: Envoy.Config.Core.V3.TypedExtensionConfig, oneof: 0
 end
 
 defmodule Envoy.Config.Rbac.V3.Action do
@@ -313,7 +368,10 @@ defmodule Envoy.Config.Rbac.V3.Action do
   Action defines the result of allowance or denial when a request matches the matcher.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.config.rbac.v3.Action",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :action, 2, type: Envoy.Config.Rbac.V3.RBAC.Action, enum: true

@@ -4,7 +4,10 @@ defmodule Envoy.Api.V2.Core.BackoffStrategy do
   [#protodoc-title: Backoff Strategy]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.api.v2.core.BackoffStrategy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :base_interval, 1,
     type: Google.Protobuf.Duration,

@@ -4,7 +4,11 @@ defmodule Envoy.Service.Discovery.V2.Capability.Protocol do
   and/or have ports enabled for different protocols.
   """
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "envoy.service.discovery.v2.Capability.Protocol",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :HTTP, 0
   field :TCP, 1
@@ -17,7 +21,10 @@ defmodule Envoy.Service.Discovery.V2.Capability do
   endpoints to healthcheck.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.Capability",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :health_check_protocols, 1,
     repeated: true,
@@ -27,14 +34,20 @@ defmodule Envoy.Service.Discovery.V2.Capability do
 end
 
 defmodule Envoy.Service.Discovery.V2.HealthCheckRequest do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.HealthCheckRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :node, 1, type: Envoy.Api.V2.Core.Node
   field :capability, 2, type: Envoy.Service.Discovery.V2.Capability
 end
 
 defmodule Envoy.Service.Discovery.V2.EndpointHealth do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.EndpointHealth",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :endpoint, 1, type: Envoy.Api.V2.Endpoint.Endpoint
 
@@ -45,7 +58,10 @@ defmodule Envoy.Service.Discovery.V2.EndpointHealth do
 end
 
 defmodule Envoy.Service.Discovery.V2.EndpointHealthResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.EndpointHealthResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :endpoints_health, 1,
     repeated: true,
@@ -54,7 +70,10 @@ defmodule Envoy.Service.Discovery.V2.EndpointHealthResponse do
 end
 
 defmodule Envoy.Service.Discovery.V2.HealthCheckRequestOrEndpointHealthResponse do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.HealthCheckRequestOrEndpointHealthResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :request_type, 0
 
@@ -70,7 +89,10 @@ defmodule Envoy.Service.Discovery.V2.HealthCheckRequestOrEndpointHealthResponse 
 end
 
 defmodule Envoy.Service.Discovery.V2.LocalityEndpoints do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.LocalityEndpoints",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :locality, 1, type: Envoy.Api.V2.Core.Locality
   field :endpoints, 2, repeated: true, type: Envoy.Api.V2.Endpoint.Endpoint
@@ -84,7 +106,10 @@ defmodule Envoy.Service.Discovery.V2.ClusterHealthCheck do
   same cluster structure as that provided by EDS.
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.ClusterHealthCheck",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName"
 
@@ -100,7 +125,10 @@ defmodule Envoy.Service.Discovery.V2.ClusterHealthCheck do
 end
 
 defmodule Envoy.Service.Discovery.V2.HealthCheckSpecifier do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.service.discovery.v2.HealthCheckSpecifier",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :cluster_health_checks, 1,
     repeated: true,
@@ -122,7 +150,7 @@ defmodule Envoy.Service.Discovery.V2.HealthDiscoveryService.Service do
 
   use GRPC.Service,
     name: "envoy.service.discovery.v2.HealthDiscoveryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :StreamHealthCheck,
       stream(Envoy.Service.Discovery.V2.HealthCheckRequestOrEndpointHealthResponse),

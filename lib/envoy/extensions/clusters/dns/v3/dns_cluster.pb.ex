@@ -1,5 +1,8 @@
 defmodule Envoy.Extensions.Clusters.Dns.V3.DnsCluster.RefreshRate do
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.clusters.dns.v3.DnsCluster.RefreshRate",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :base_interval, 1,
     type: Google.Protobuf.Duration,
@@ -20,7 +23,10 @@ defmodule Envoy.Extensions.Clusters.Dns.V3.DnsCluster do
   [#extension: envoy.clusters.dns]
   """
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf,
+    full_name: "envoy.extensions.clusters.dns.v3.DnsCluster",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :dns_refresh_rate, 3,
     type: Google.Protobuf.Duration,
