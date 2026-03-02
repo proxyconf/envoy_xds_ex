@@ -22,8 +22,7 @@ defmodule EnvoyXds.MixProject do
   defp deps do
     [
       {:grpc, "~> 0.11"},
-      {:protobuf, "~> 0.14"},
-      {:googleapis, "~> 0.1"}
+      {:protobuf, "~> 0.14"}
     ]
   end
 end
