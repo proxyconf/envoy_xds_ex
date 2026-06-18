@@ -21,8 +21,13 @@ defmodule EnvoyXds.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:grpc, "~> 0.11"},
-      {:protobuf, "~> 0.14"}
+      # grpc 1.0.0 split the umbrella into grpc_core (shared, provides
+      # GRPC.Service used by the generated .Service stubs) and grpc (client,
+      # provides GRPC.Stub used by the generated .Stub stubs). The server
+      # implementation lives in grpc_server, pulled in by consumers
+      # (e.g. ex_control_plane) rather than here.
+      {:grpc, "~> 1.0"},
+      {:protobuf, "~> 0.17"}
     ]
   end
 end
