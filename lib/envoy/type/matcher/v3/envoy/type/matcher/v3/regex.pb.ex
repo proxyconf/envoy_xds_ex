@@ -1,0 +1,64 @@
+defmodule Envoy.Type.Matcher.V3.RegexMatcher.GoogleRE2 do
+  @moduledoc """
+  Google's `RE2 <https://github.com/google/re2>`_ regex engine. The regex string must adhere to
+  the documented `syntax <https://github.com/google/re2/wiki/Syntax>`_. The engine is designed
+  to complete execution in linear time as well as limit the amount of memory used.
+
+  Envoy supports program size checking via runtime. The runtime keys ``re2.max_program_size.error_level``
+  and ``re2.max_program_size.warn_level`` can be set to integers as the maximum program size or
+  complexity that a compiled regex can have before an exception is thrown or a warning is
+  logged, respectively. ``re2.max_program_size.error_level`` defaults to 100, and
+  ``re2.max_program_size.warn_level`` has no default if unset (will not check/log a warning).
+
+  Envoy emits two stats for tracking the program size of regexes: the histogram ``re2.program_size``,
+  which records the program size, and the counter ``re2.exceeded_warn_level``, which is incremented
+  each time the program size exceeds the warn level threshold.
+  """
+
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.RegexMatcher.GoogleRE2",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :max_program_size, 1,
+    type: Google.Protobuf.UInt32Value,
+    json_name: "maxProgramSize",
+    deprecated: true
+end
+
+defmodule Envoy.Type.Matcher.V3.RegexMatcher do
+  @moduledoc """
+  A regex matcher designed for safety when used with untrusted input.
+  [#protodoc-title: Regex matcher]
+  """
+
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.RegexMatcher",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  oneof :engine_type, 0
+
+  field :google_re2, 1,
+    type: Envoy.Type.Matcher.V3.RegexMatcher.GoogleRE2,
+    json_name: "googleRe2",
+    oneof: 0,
+    deprecated: true
+
+  field :regex, 2, type: :string, deprecated: false
+end
+
+defmodule Envoy.Type.Matcher.V3.RegexMatchAndSubstitute do
+  @moduledoc """
+  Describes how to match a string and then produce a new string using a regular
+  expression and a substitution string.
+  """
+
+  use Protobuf,
+    full_name: "envoy.type.matcher.v3.RegexMatchAndSubstitute",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :pattern, 1, type: Envoy.Type.Matcher.V3.RegexMatcher, deprecated: false
+  field :substitution, 2, type: :string, deprecated: false
+end
