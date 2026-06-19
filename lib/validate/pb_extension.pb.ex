@@ -1,5 +1,5 @@
 defmodule Validate.PbExtension do
-  use Protobuf, protoc_gen_elixir_version: "0.16.0"
+  use Protobuf, protoc_gen_elixir_version: "0.17.0"
 
   extend Google.Protobuf.MessageOptions, :disabled, 1071, optional: true, type: :bool
 

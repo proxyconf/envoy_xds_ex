@@ -1,0 +1,228 @@
+defmodule Envoy.Api.V2.Core.GrpcService.EnvoyGrpc do
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService.EnvoyGrpc",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.SslCredentials do
+  @moduledoc """
+  See https://grpc.io/grpc/cpp/structgrpc_1_1_ssl_credentials_options.html.
+  """
+
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :root_certs, 1, type: Envoy.Api.V2.Core.DataSource, json_name: "rootCerts"
+
+  field :private_key, 2,
+    type: Envoy.Api.V2.Core.DataSource,
+    json_name: "privateKey",
+    deprecated: false
+
+  field :cert_chain, 3, type: Envoy.Api.V2.Core.DataSource, json_name: "certChain"
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.GoogleLocalCredentials do
+  @moduledoc """
+  Local channel credentials. Only UDS is supported for now.
+  See https://github.com/grpc/grpc/pull/15909.
+  """
+
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.ChannelCredentials do
+  @moduledoc """
+  See https://grpc.io/docs/guides/auth.html#credential-types to understand Channel and Call
+  credential types.
+  """
+
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  oneof :credential_specifier, 0
+
+  field :ssl_credentials, 1,
+    type: Envoy.Api.V2.Core.GrpcService.GoogleGrpc.SslCredentials,
+    json_name: "sslCredentials",
+    oneof: 0
+
+  field :google_default, 2, type: Google.Protobuf.Empty, json_name: "googleDefault", oneof: 0
+
+  field :local_credentials, 3,
+    type: Envoy.Api.V2.Core.GrpcService.GoogleGrpc.GoogleLocalCredentials,
+    json_name: "localCredentials",
+    oneof: 0
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials do
+  use Protobuf,
+    full_name:
+      "envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :json_key, 1, type: :string, json_name: "jsonKey"
+  field :token_lifetime_seconds, 2, type: :uint64, json_name: "tokenLifetimeSeconds"
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials do
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :authorization_token, 1, type: :string, json_name: "authorizationToken"
+  field :authority_selector, 2, type: :string, json_name: "authoritySelector"
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin do
+  use Protobuf,
+    full_name:
+      "envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  oneof :config_type, 0
+
+  field :name, 1, type: :string
+  field :config, 2, type: Google.Protobuf.Struct, oneof: 0, deprecated: true
+  field :typed_config, 3, type: Google.Protobuf.Any, json_name: "typedConfig", oneof: 0
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.StsService do
+  @moduledoc """
+  Security token service configuration that allows Google gRPC to
+  fetch security token from an OAuth 2.0 authorization server.
+  See https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16 and
+  https://github.com/grpc/grpc/pull/19587.
+  [#next-free-field: 10]
+  """
+
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :token_exchange_service_uri, 1, type: :string, json_name: "tokenExchangeServiceUri"
+  field :resource, 2, type: :string
+  field :audience, 3, type: :string
+  field :scope, 4, type: :string
+  field :requested_token_type, 5, type: :string, json_name: "requestedTokenType"
+  field :subject_token_path, 6, type: :string, json_name: "subjectTokenPath", deprecated: false
+  field :subject_token_type, 7, type: :string, json_name: "subjectTokenType", deprecated: false
+  field :actor_token_path, 8, type: :string, json_name: "actorTokenPath"
+  field :actor_token_type, 9, type: :string, json_name: "actorTokenType"
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials do
+  @moduledoc """
+  [#next-free-field: 8]
+  """
+
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  oneof :credential_specifier, 0
+
+  field :access_token, 1, type: :string, json_name: "accessToken", oneof: 0
+
+  field :google_compute_engine, 2,
+    type: Google.Protobuf.Empty,
+    json_name: "googleComputeEngine",
+    oneof: 0
+
+  field :google_refresh_token, 3, type: :string, json_name: "googleRefreshToken", oneof: 0
+
+  field :service_account_jwt_access, 4,
+    type:
+      Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials,
+    json_name: "serviceAccountJwtAccess",
+    oneof: 0
+
+  field :google_iam, 5,
+    type: Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials,
+    json_name: "googleIam",
+    oneof: 0
+
+  field :from_plugin, 6,
+    type: Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin,
+    json_name: "fromPlugin",
+    oneof: 0
+
+  field :sts_service, 7,
+    type: Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials.StsService,
+    json_name: "stsService",
+    oneof: 0
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService.GoogleGrpc do
+  @moduledoc """
+  [#next-free-field: 7]
+  """
+
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService.GoogleGrpc",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :target_uri, 1, type: :string, json_name: "targetUri", deprecated: false
+
+  field :channel_credentials, 2,
+    type: Envoy.Api.V2.Core.GrpcService.GoogleGrpc.ChannelCredentials,
+    json_name: "channelCredentials"
+
+  field :call_credentials, 3,
+    repeated: true,
+    type: Envoy.Api.V2.Core.GrpcService.GoogleGrpc.CallCredentials,
+    json_name: "callCredentials"
+
+  field :stat_prefix, 4, type: :string, json_name: "statPrefix", deprecated: false
+  field :credentials_factory_name, 5, type: :string, json_name: "credentialsFactoryName"
+  field :config, 6, type: Google.Protobuf.Struct
+end
+
+defmodule Envoy.Api.V2.Core.GrpcService do
+  @moduledoc """
+  gRPC service configuration. This is used by :ref:`ApiConfigSource
+  <envoy_api_msg_core.ApiConfigSource>` and filter configurations.
+  [#next-free-field: 6]
+  [#protodoc-title: gRPC services]
+  """
+
+  use Protobuf,
+    full_name: "envoy.api.v2.core.GrpcService",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  oneof :target_specifier, 0
+
+  field :envoy_grpc, 1,
+    type: Envoy.Api.V2.Core.GrpcService.EnvoyGrpc,
+    json_name: "envoyGrpc",
+    oneof: 0
+
+  field :google_grpc, 2,
+    type: Envoy.Api.V2.Core.GrpcService.GoogleGrpc,
+    json_name: "googleGrpc",
+    oneof: 0
+
+  field :timeout, 3, type: Google.Protobuf.Duration
+
+  field :initial_metadata, 5,
+    repeated: true,
+    type: Envoy.Api.V2.Core.HeaderValue,
+    json_name: "initialMetadata"
+end
